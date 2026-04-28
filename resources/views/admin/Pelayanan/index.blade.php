@@ -58,7 +58,30 @@
   .add-btn { display:inline-flex; align-items:center; gap:7px; background:linear-gradient(135deg,var(--cyan),var(--cyan-dk)); color:#fff; text-decoration:none; border:none; font-family:'Nunito',sans-serif; font-size:12.5px; font-weight:700; padding:8px 16px; border-radius:7px; transition:all .2s; box-shadow:0 3px 10px rgba(29,168,224,.25); }
   .add-btn:hover { transform:translateY(-1px); box-shadow:0 6px 16px rgba(29,168,224,.35); color:#fff; }
 
-  .leader-row { display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:16px; margin-bottom:28px; }
+  .section-panel { background:var(--white); border:1px solid var(--border); border-radius:18px; padding:24px; margin-bottom:32px; box-shadow:0 14px 42px rgba(4,21,54,.06); }
+  .section-panel .section-label { display:inline-flex; align-items:center; gap:10px; color:var(--muted); font-size:13px; margin-bottom:18px; }
+  .section-panel .section-label span { display:inline-flex; width:10px; height:10px; border-radius:50%; background:var(--cyan); }
+  .leader-card { background:var(--white); border:1px solid rgba(29,168,224,.08); border-radius:18px; padding:24px; text-align:center; box-shadow:0 12px 28px rgba(4,21,54,.06); transition:transform .22s ease,box-shadow .22s ease; }
+  .leader-card:hover { transform:translateY(-3px); box-shadow:0 18px 34px rgba(4,21,54,.1); }
+  .leader-avatar { width:84px; height:84px; border-radius:50%; margin:0 auto 18px; background:linear-gradient(180deg,rgba(29,168,224,.12),rgba(29,168,224,.04)); border:4px solid rgba(29,168,224,.12); display:grid; place-items:center; overflow:hidden; }
+  .leader-avatar img { width:100%; height:100%; object-fit:cover; }
+  .leader-name { font-family:'Rajdhani',sans-serif; font-size:16px; font-weight:700; color:var(--text); margin-bottom:6px; }
+  .leader-role { font-size:13px; color:var(--muted); }
+  .leader-card-actions { justify-content:center; margin-top:18px; }
+  .tim-card { min-height:360px; }
+  .tim-card .tim-icon { margin-bottom:16px; width:56px; height:56px; font-size:24px; }
+  .tim-card .tim-name { font-size:17px; margin-bottom:10px; }
+  .tim-card .tim-desc { margin-bottom:18px; }
+  .tim-card .anggota-label { margin-bottom:8px; }
+  .tim-card .anggota-row { font-size:13px; }
+  .galeri-card { display:flex; flex-direction:column; justify-content:space-between; }
+  .galeri-img { min-height:190px; }
+  .galeri-body { padding:18px 16px 16px; }
+  .galeri-title { font-size:15px; margin-bottom:8px; }
+  .galeri-desc { margin-bottom:16px; }
+  .galeri-footer { justify-content: space-between; flex-wrap:wrap; }
+  .galeri-footer form { margin:0; }
+  .empty-box { background:rgba(29,168,224,.05); border-color: rgba(29,168,224,.16); }
   .leader-card { background:var(--white); border:1px solid var(--border); border-radius:13px; padding:24px 18px; text-align:center; box-shadow:0 1px 5px rgba(0,0,0,.05); transition:transform .2s,box-shadow .2s; animation:fadeUp .4s ease both; }
   .leader-card:hover { transform:translateY(-3px); box-shadow:0 8px 22px rgba(0,0,0,.09); }
   .leader-avatar { width:68px; height:68px; border-radius:50%; margin:0 auto 14px; background:linear-gradient(135deg,var(--cyan-lt),var(--cyan)); display:flex; align-items:center; justify-content:center; font-family:'Rajdhani',sans-serif; font-size:22px; font-weight:700; color:var(--cyan-dk); border:3px solid var(--border); overflow:hidden; }
@@ -130,6 +153,12 @@
 
 <div class="content">
 
+  @if(session('success'))
+    <div style="margin:0 0 20px; padding:16px 20px; border-radius:14px; background:#e6f8f6; border:1px solid #9de8d8; color:#0e664f;">
+      {{ session('success') }}
+    </div>
+  @endif
+
   <div class="page-hero">
     <div class="hero-tag">🙌 Pelayanan</div>
     <h2>Pelayanan & Komunitas</h2>
@@ -158,101 +187,23 @@
     <a href="{{ route('pelayanan.create') }}" class="add-btn">＋ Tambah Pemimpin</a>
   </div>
 
-  @if($kepemimpinan->count())
-    <div class="leader-row">
-      @foreach($kepemimpinan as $item)
-        <div class="leader-card">
-          <div class="leader-avatar">
-            @if($item->photo)
-              <img src="{{ asset('storage/'.$item->photo) }}" alt="{{ $item->title }}">
-            @else
-              {{ strtoupper(substr($item->leader ?: $item->title, 0, 2)) }}
-            @endif
-          </div>
-          <div class="leader-name">{{ $item->leader ?: $item->title }}</div>
-          <div class="leader-role">{{ $item->title }}</div>
-          <div class="leader-card-actions">
-            <a href="{{ route('pelayanan.edit', $item->id) }}" class="act-sm btn-e">✏ Edit</a>
-            <form action="{{ route('pelayanan.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Hapus data ini?')">
-              @csrf
-              @method('DELETE')
-              <button type="submit" class="act-sm btn-d">🗑 Hapus</button>
-            </form>
-          </div>
-        </div>
-      @endforeach
-    </div>
-  @else
-    <div class="empty-box">Belum ada data kepemimpinan.</div>
-  @endif
+  <div class="section-panel">
+    <div class="section-label"><span></span> Gembala dan Ibu Gembala yang memimpin dengan kasih.</div>
 
-  <div class="section-head">
-    <div class="section-title">🙌 Tim Pelayanan</div>
-    <a href="{{ route('pelayanan.create') }}" class="add-btn">＋ Tambah Tim</a>
-  </div>
-
-  @if($tim->count())
-    <div class="tim-grid">
-      @foreach($tim as $index => $item)
-        @php $warna = $warnaMap[$index % count($warnaMap)]; @endphp
-        <div class="tim-card {{ $warna }}">
-          <div class="tim-icon">{{ $item->icon ?: '🙌' }}</div>
-          <div class="tim-name">{{ $item->title }}</div>
-          <div class="tim-desc">{{ $item->description ?: '-' }}</div>
-          <hr class="tim-divider"/>
-          <div class="anggota-label">Anggota Tim</div>
-
-@if($item->anggotas->count())
-    @foreach($item->anggotas as $anggota)
-        <div class="anggota-row">
-            {{ $anggota->nama }}
-            @if($anggota->bagian)
-                - <strong>{{ $anggota->bagian }}</strong>
-            @endif
-        </div>
-    @endforeach
-@else
-    <div class="anggota-row">{{ $item->leader ?: '-' }}</div>
-@endif
-          <div class="tim-footer">
-            <a href="{{ route('pelayanan.edit', $item->id) }}" class="act-sm btn-e">✏ Edit</a>
-            <form action="{{ route('pelayanan.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Hapus data ini?')">
-              @csrf
-              @method('DELETE')
-              <button type="submit" class="act-sm btn-d">🗑 Hapus</button>
-            </form>
-          </div>
-        </div>
-      @endforeach
-    </div>
-  @else
-    <div class="empty-box">Belum ada tim pelayanan.</div>
-  @endif
-
-  <div class="daftar-wrap">
-    <button class="btn-daftar">🙏 Bergabung dengan Pelayanan</button>
-  </div>
-
-  <div class="section-head">
-    <div class="section-title">🖼 Pelayanan dalam Aksi</div>
-    <a href="{{ route('pelayanan.create') }}" class="add-btn">＋ Tambah Foto</a>
-  </div>
-
-  @if($aksi->count())
-    <div class="galeri-grid">
-      @foreach($aksi as $item)
-        <div class="galeri-card">
-          <div class="galeri-img">
-            @if($item->photo)
-              <img src="{{ asset('storage/'.$item->photo) }}" alt="{{ $item->title }}">
-            @else
-              {{ $item->icon ?: '🖼' }}
-            @endif
-          </div>
-          <div class="galeri-body">
-            <div class="galeri-title">{{ $item->title }}</div>
-            <div class="galeri-desc">{{ $item->description ?: '-' }}</div>
-            <div class="galeri-footer">
+    @if($kepemimpinan->count())
+      <div class="leader-row">
+        @foreach($kepemimpinan as $item)
+          <div class="leader-card">
+            <div class="leader-avatar">
+              @if($item->photo)
+                <img src="{{ asset('storage/'.$item->photo) }}" alt="{{ $item->title }}">
+              @else
+                {{ strtoupper(substr($item->leader ?: $item->title, 0, 2)) }}
+              @endif
+            </div>
+            <div class="leader-name">{{ $item->leader ?: $item->title }}</div>
+            <div class="leader-role">{{ $item->title }}</div>
+            <div class="leader-card-actions">
               <a href="{{ route('pelayanan.edit', $item->id) }}" class="act-sm btn-e">✏ Edit</a>
               <form action="{{ route('pelayanan.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Hapus data ini?')">
                 @csrf
@@ -261,12 +212,99 @@
               </form>
             </div>
           </div>
-        </div>
-      @endforeach
-    </div>
-  @else
-    <div class="empty-box">Belum ada dokumentasi pelayanan dalam aksi.</div>
-  @endif
+        @endforeach
+      </div>
+    @else
+      <div class="empty-box">Belum ada data kepemimpinan.</div>
+    @endif
+  </div>
+
+  <div class="section-head">
+    <div class="section-title">🙌 Tim Pelayanan</div>
+    <a href="{{ route('pelayanan.create') }}" class="add-btn">＋ Tambah Tim</a>
+  </div>
+
+  <div class="section-panel">
+    <div class="section-label"><span></span> Buat dan kelola tim pelayanan dengan lebih mudah.</div>
+
+    @if($tim->count())
+      <div class="tim-grid">
+        @foreach($tim as $index => $item)
+          @php $warna = $warnaMap[$index % count($warnaMap)]; @endphp
+          <div class="tim-card {{ $warna }}">
+            <div class="tim-icon">{{ $item->icon ?: '🙌' }}</div>
+            <div class="tim-name">{{ $item->title }}</div>
+            <div class="tim-desc">{{ $item->description ?: 'Deskripsi belum ditambahkan.' }}</div>
+            <hr class="tim-divider"/>
+            <div class="anggota-label">Anggota Tim</div>
+
+            @if($item->anggotas->count())
+              @foreach($item->anggotas as $anggota)
+                <div class="anggota-row">
+                  {{ $anggota->nama }}
+                  @if($anggota->bagian)
+                    - <strong>{{ $anggota->bagian }}</strong>
+                  @endif
+                </div>
+              @endforeach
+            @else
+              <div class="anggota-row">{{ $item->leader ?: 'Koordinator belum ditentukan' }}</div>
+            @endif
+
+            <div class="tim-footer">
+              <a href="{{ route('pelayanan.edit', $item->id) }}" class="act-sm btn-e">✏ Edit</a>
+              <form action="{{ route('pelayanan.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Hapus data ini?')">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="act-sm btn-d">🗑 Hapus</button>
+              </form>
+            </div>
+          </div>
+        @endforeach
+      </div>
+    @else
+      <div class="empty-box">Belum ada tim pelayanan.</div>
+    @endif
+  </div>
+
+  <div class="section-head">
+    <div class="section-title">🖼 Pelayanan dalam Aksi</div>
+    <a href="{{ route('pelayanan.create') }}" class="add-btn">＋ Tambah Foto</a>
+  </div>
+
+  <div class="section-panel">
+    <div class="section-label"><span></span> Dokumentasi kegiatan pelayanan dalam bentuk foto.</div>
+
+    @if($aksi->count())
+      <div class="galeri-grid">
+        @foreach($aksi as $item)
+          <div class="galeri-card">
+            <div class="galeri-img">
+              @if($item->photo)
+                <img src="{{ asset('storage/'.$item->photo) }}" alt="{{ $item->title }}">
+              @else
+                {{ $item->icon ?: '🖼' }}
+              @endif
+            </div>
+            <div class="galeri-body">
+              <div class="galeri-title">{{ $item->title }}</div>
+              <div class="galeri-desc">{{ $item->description ?: 'Deskripsi tidak tersedia.' }}</div>
+              <div class="galeri-footer">
+                <a href="{{ route('pelayanan.edit', $item->id) }}" class="act-sm btn-e">✏ Edit</a>
+                <form action="{{ route('pelayanan.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Hapus data ini?')">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="act-sm btn-d">🗑 Hapus</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        @endforeach
+      </div>
+    @else
+      <div class="empty-box">Belum ada dokumentasi pelayanan dalam aksi.</div>
+    @endif
+  </div>
 
 </div>
 @endsection

@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 
   @php
+    use App\Models\Jemaat;
     use Illuminate\Support\Facades\Auth;
     use Illuminate\Support\Facades\Storage;
 
@@ -25,6 +26,8 @@
     if (!empty($authUser->foto) && Storage::disk('public')->exists($authUser->foto)) {
         $displayPhoto = Storage::url($authUser->foto);
     }
+
+    $pendingJemaatCount = Jemaat::where('status', 'pending')->count();
 
     $words = preg_split('/\s+/', trim($displayName));
     $initials = '';
@@ -220,6 +223,13 @@
   </nav>
 
   <div class="topbar-right">
+    <a href="{{ route('jemaat.index') }}" style="display:flex; align-items:center; gap:6px; text-decoration:none; color:var(--muted); font-size:14px; font-weight:700;">
+      <span style="display:inline-flex; width:30px; height:30px; align-items:center; justify-content:center; border-radius:50%; background:rgba(29,168,224,.1);">🔔</span>
+      <span>Pendaftaran</span>
+      @if($pendingJemaatCount > 0)
+        <span style="background:#ef4444; color:#fff; padding:4px 8px; border-radius:999px; font-size:12px;">{{ $pendingJemaatCount }}</span>
+      @endif
+    </a>
     <button class="btn-viewsite" onclick="window.open('{{ route('home') }}','_blank')">🌐 Lihat Website</button>
 
     <a href="{{ route('profil.index') }}" class="avatar">
@@ -262,6 +272,7 @@
     <a href="{{ route('pelayanan.index') }}" @if(request()->routeIs('pelayanan.*')) class="active" @endif><span class="ico">🙌</span> Pelayanan</a>
     <a href="{{ route('kontak.index') }}" @if(request()->routeIs('kontak.*')) class="active" @endif><span class="ico">✉</span> Kontak</a>
     <a href="{{ route('pengumuman.index') }}" @if(request()->routeIs('pengumuman.*')) class="active" @endif><span class="ico">📢</span> Pengumuman</a>
+    <a href="{{ route('jemaat.index') }}" @if(request()->routeIs('jemaat.*')) class="active" @endif><span class="ico">👥</span> Jemaat @if($pendingJemaatCount > 0)<span style="font-size:11px; background:#ef4444; color:#fff; padding:2px 8px; border-radius:999px; margin-left:6px;">{{ $pendingJemaatCount }}</span>@endif</a>
     <a href="{{ route('accounts.index') }}" @if(request()->routeIs('accounts.*')) class="active" @endif><span class="ico">🔒</span> Akun</a>
   </nav>
 

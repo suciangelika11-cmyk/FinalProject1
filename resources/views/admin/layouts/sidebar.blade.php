@@ -29,6 +29,10 @@
             </div>
         </div>
 
+        @php
+            $pendingJemaatCount = \App\Models\Jemaat::where('status', 'pending')->count();
+        @endphp
+
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -94,6 +98,18 @@
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Kontak
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('jemaat.index') }}" class="nav-link @if(request()->routeIs('jemaat.*')) active @endif">
+                        <i class="nav-icon fas fa-user-friends"></i>
+                        <p>
+                            Jemaat
+                            @if($pendingJemaatCount > 0)
+                                <span class="right badge badge-danger">{{ $pendingJemaatCount }}</span>
+                            @endif
                         </p>
                     </a>
                 </li>

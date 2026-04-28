@@ -1,0 +1,151 @@
+/* Premium Donation Section Styles */
+.donation-section {
+    background: linear-gradient(135deg, #f7f8fc 0%, #f1f3fa 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+}
+.donation-container {
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(60, 72, 100, 0.12);
+    padding: 48px 32px;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+}
+.donation-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.donation-header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #6a82fb;
+    margin-bottom: 10px;
+}
+.donation-header p {
+    color: #444;
+    font-size: 1.1rem;
+    margin-bottom: 0;
+}
+.donation-subtext {
+    color: #8e99b3;
+    font-size: 1rem;
+    margin-top: 8px;
+}
+.donation-methods {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.method-card {
+    background: #f7f8fc;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(106, 130, 251, 0.07);
+    padding: 32px 24px;
+    flex: 1 1 340px;
+    min-width: 320px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.method-header h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #6a82fb;
+    margin-bottom: 18px;
+}
+.method-content {
+    width: 100%;
+}
+.barcode-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+.barcode-placeholder {
+    background: #e9eaf3;
+    border-radius: 12px;
+    padding: 18px 12px;
+    text-align: center;
+    min-width: 180px;
+}
+.barcode-placeholder .icon {
+    font-size: 2.2rem;
+    margin-bottom: 6px;
+}
+.instruction {
+    background: #f1f3fa;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-top: 18px;
+    font-size: 0.98rem;
+    color: #444;
+}
+.instruction ol {
+    margin: 0 0 0 18px;
+    padding: 0;
+}
+.bank-details {
+    margin: 18px 0 0 0;
+    width: 100%;
+}
+.info-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(106, 130, 251, 0.06);
+    padding: 10px 14px;
+    margin-bottom: 10px;
+}
+.info-box label {
+    font-weight: 600;
+    color: #6a82fb;
+    margin-right: 10px;
+}
+.info-box .value {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.08rem;
+    color: #222;
+}
+.copy-button {
+    background: linear-gradient(90deg, #6a82fb 0%, #fc5c7d 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background 0.2s;
+}
+.copy-button:hover {
+    background: linear-gradient(90deg, #fc5c7d 0%, #6a82fb 100%);
+}
+.bank-name {
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: #444;
+    margin-bottom: 0;
+}
+@media (max-width: 900px) {
+    .donation-container {
+        padding: 32px 8px;
+    }
+    .donation-methods {
+        flex-direction: column;
+        gap: 18px;
+    }
+    .method-card {
+        max-width: 100%;
+    }
+}

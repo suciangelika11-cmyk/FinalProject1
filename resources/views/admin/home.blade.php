@@ -1,6 +1,9 @@
 @php
     use Illuminate\Support\Facades\Auth;
+    use App\Models\Jemaat;
+
     $authUser = Auth::user();
+    $pendingJemaatCount = Jemaat::where('status', 'pending')->count();
 @endphp
 
 <!DOCTYPE html>
@@ -149,15 +152,7 @@
     <a href="{{ route('pelayanan.index') }}">Pelayanan</a>
     <a href="{{ route('kontak.index') }}">Kontak</a>
     <a href="{{ route('pengumuman.index') }}">Pengumuman</a>
-    <a href="{{ route('accounts.index') }}">Akun</a>
-  </nav>
-
-  <div class="topbar-right">
-    <a href="{{ route('home') }}">
-      <button class="view-site-btn">🌐 Lihat Website</button>
-    </a>
-
-    <a href="{{ route('profil.index') }}" class="topbar-badge" title="Profil Saya">
+    <a href="{{ route('jemaat.index') }}">Jemaat @if($pendingJemaatCount > 0) <span style="background:#ef4444; border-radius:999px; color:#fff; padding:0 6px; font-size:11px; margin-left:4px;">{{ $pendingJemaatCount }}</span>@endif</a>
       <img src="{{ $authUser->foto_url }}" alt="{{ $authUser->name }}">
     </a>
   </div>
@@ -174,6 +169,7 @@
     <a href="{{ route('pelayanan.index') }}"><span class="icon">🙌</span> Pelayanan</a>
     <a href="{{ route('kontak.index') }}"><span class="icon">✉</span> Kontak</a>
     <a href="{{ route('pengumuman.index') }}"><span class="icon">📢</span> Pengumuman</a>
+    <a href="{{ route('jemaat.index') }}"><span class="icon">👥</span> Jemaat @if($pendingJemaatCount > 0) <span style="background:#ef4444; border-radius:999px; color:#fff; padding:0 6px; font-size:11px; margin-left:4px;">{{ $pendingJemaatCount }}</span>@endif</a>
     <a href="{{ route('accounts.index') }}"><span class="icon">🔒</span> Akun</a>
 
     <div class="sidebar-section" style="margin-top:18px;">Pengaturan</div>
@@ -237,6 +233,9 @@
       </a>
       <a href="{{ route('pengumuman.index') }}" style="text-decoration:none">
         <div class="card white"><div class="card-icon-wrap">📢</div><div class="card-title">Pengumuman</div><div class="card-desc">Kelola pengumuman penting yang akan ditampilkan di halaman publik.</div><div class="card-arrow">→</div></div>
+      </a>
+      <a href="{{ route('jemaat.index') }}" style="text-decoration:none">
+        <div class="card cyan"><div class="card-icon-wrap">👥</div><div class="card-title">Jemaat</div><div class="card-desc">Lihat pendaftaran jemaat baru dan konfirmasi data pendaftaran yang masuk.</div><div class="card-arrow">→</div></div>
       </a>
       
       <a href="{{ route('accounts.index') }}" style="text-decoration:none">

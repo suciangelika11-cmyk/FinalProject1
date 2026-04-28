@@ -48,41 +48,14 @@ class JemaatController extends Controller
                 $data['surat_attestasi'] = $request->file('surat_attestasi')->store('attestasi', 'public');
             }
 
+            $data['status'] = 'pending';
+            $data['status'] = 'pending';
             $jemaat = Jemaat::create($data);
 
             DB::commit();
 
-            $noAdmin = '6281632228286';
-
-            $pesan = urlencode(
-                "=== PENDAFTARAN JEMAAT BARU ===\n\n" .
-
-                "--- DATA KELUARGA ---\n" .
-                "No KK: {$jemaat->no_kk}\n" .
-                "Nama Keluarga: {$jemaat->nama_keluarga}\n" .
-                "Alamat Domisili: {$jemaat->alamat_domisili}\n" .
-                "Alamat KTP: " . ($jemaat->alamat_ktp ?: '-') . "\n" .
-                "Kolom: " . ($jemaat->kolom ?: '-') . "\n\n" .
-
-                "--- DATA PRIBADI ---\n" .
-                "Nama Lengkap: {$jemaat->nama_lengkap}\n" .
-                "NIK: " . ($jemaat->nik ?: '-') . "\n" .
-                "Hubungan: " . ($jemaat->hubungan_keluarga ?: '-') . "\n" .
-                "Tempat Lahir: " . ($jemaat->tempat_lahir ?: '-') . "\n" .
-                "Tanggal Lahir: " . ($jemaat->tanggal_lahir ? Carbon::parse($jemaat->tanggal_lahir)->format('d-m-Y') : '-') . "\n" .
-                "Jenis Kelamin: " . ($jemaat->jenis_kelamin ?: '-') . "\n\n" .
-                "--- DATA GEREJA ---\n" .
-                "Baptis: {$jemaat->baptis}\n" .
-                "Sidi: {$jemaat->sidi}\n\n" .
-
-                "--- KONTAK ---\n" .
-                "Handphone: " . ($jemaat->handphone ?: '-') . "\n" .
-                "Pekerjaan: " . ($jemaat->pekerjaan ?: '-') . "\n" .
-                "Tanggal Nikah: " . ($jemaat->tanggal_nikah ? Carbon::parse($jemaat->tanggal_nikah)->format('d-m-Y') : '-') . "\n" .
-                "Tanggal Domisili: " . ($jemaat->tanggal_domisili ? Carbon::parse($jemaat->tanggal_domisili)->format('d-m-Y') : '-') . "\n"
-            );
-
-            return redirect()->away("https://wa.me/{$noAdmin}?text={$pesan}");
+            return redirect()->back()
+                ->with('success', 'Pendaftaran berhasil dikirim. Admin akan menerima notifikasi pendaftaran jemaat baru.');
         } catch (\Throwable $e) {
             DB::rollBack();
 

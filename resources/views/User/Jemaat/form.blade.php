@@ -7,6 +7,12 @@
         <div class="card-body p-4">
             <h4 class="fw-bold mb-4">FORM DAFTAR JEMAAT & TAMBAHAN ANGGOTA</h4>
 
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <strong>Terjadi kesalahan:</strong>

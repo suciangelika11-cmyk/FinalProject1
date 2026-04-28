@@ -22,23 +22,31 @@ class GaleriController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'nullable',
-            'image' => 'required|image',
-            'event_date' => 'nullable|date'
-        ]);
+            $request->validate([
+                'title' => 'required',
+                'description' => 'nullable',
+                'image' => 'required|image',
+                'event_date' => 'nullable|date',
+            ]);
 
-        $data = $request->all();
+            // Validasi custom: jika event_date diisi, pastikan hari (tanggal) antara 1-31
+            if ($request->filled('event_date')) {
+                $date = date_parse($request->event_date);
+                if ($date['day'] < 1 || $date['day'] > 31) {
+                    return back()->withErrors(['event_date' => 'Tanggal kegiatan harus antara 1 sampai 31'])->withInput();
+                }
+            }
 
-        if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('Galeri', 'public');
-        }
+            $data = $request->all();
 
-        Galeri::create($data);
+            if ($request->hasFile('image')) {
+                $data['image'] = $request->file('image')->store('Galeri', 'public');
+            }
 
-        return redirect()->route('galeri.index')
-            ->with('success', 'Galeri berhasil ditambahkan');
+            Galeri::create($data);
+
+            return redirect()->route('galeri.index')
+                ->with('success', 'Galeri berhasil ditambahkan');
     }
 
     public function show(Galeri $Galeri)

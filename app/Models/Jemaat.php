@@ -25,5 +25,6 @@ class Jemaat extends Model
         'tanggal_nikah',
         'tanggal_domisili',
         'surat_attestasi',
+        'status',
     ];
 }

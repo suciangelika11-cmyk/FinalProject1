@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\PelayananController as AdminPelayananController;
 use App\Http\Controllers\Admin\TentangController as AdminTentangController;
 use App\Http\Controllers\Admin\KontakController as AdminKontakController;
 use App\Http\Controllers\Admin\PengumumanController as AdminPengumumanController;
+use App\Http\Controllers\Admin\JemaatController as AdminJemaatController;
 use App\Http\Controllers\User\PengumumanController as UserPengumumanController;
 use App\Http\Controllers\User\GaleriController as UserGaleriController;
 use App\Http\Controllers\User\KhotbahController as UserKhotbahController;
@@ -104,6 +105,9 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/kontak/{kontak}/edit', [AdminKontakController::class, 'edit'])->name('kontak.edit');
     Route::put('/kontak/{kontak}', [AdminKontakController::class, 'update'])->name('kontak.update');
     Route::delete('/kontak/{kontak}', [AdminKontakController::class, 'destroy'])->name('kontak.destroy');
+
+    Route::get('/jemaat', [AdminJemaatController::class, 'index'])->name('jemaat.index');
+    Route::put('/jemaat/{jemaat}/confirm', [AdminJemaatController::class, 'confirm'])->name('jemaat.confirm');
 
     Route::get('/profil', [ProfilController::class, 'index'])->name('profil.index');
     Route::get('/profil/create', [ProfilController::class, 'create'])->name('profil.create');

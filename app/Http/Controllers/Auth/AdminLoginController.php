@@ -25,7 +25,7 @@ class AdminLoginController extends Controller
 
         $credentials = [
             $field => $request->login,
-            'password' => Hash::make($request->password),
+            'password' => $request->password,
         ];
 
         if (!Auth::attempt($credentials, $request->boolean('remember'))) {
