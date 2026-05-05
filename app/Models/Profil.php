@@ -12,14 +12,21 @@ class Profil extends Model
     protected $table = 'profil';
 
     protected $fillable = [
-    'name',
-    'username',
-    'email',
-    'password',
-    'role',
-    'phone',
-    'alamat',
-    'jabatan',
-    'foto',
-];
+        'name',
+        'username',
+        'email',
+        'password',
+        'role',
+        'phone',
+        'alamat',
+        'jabatan',
+        'foto',
+        'user_id',
+    ];
+
+    // Relasi Profil BelongsTo User
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

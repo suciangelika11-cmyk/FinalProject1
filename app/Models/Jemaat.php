@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Jemaat extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'no_kk',
         'nama_keluarga',
@@ -27,4 +30,16 @@ class Jemaat extends Model
         'surat_attestasi',
         'status',
     ];
+
+    // Relasi Jemaat HasMany PelayananAnggota
+    public function pelayanan_anggotas()
+    {
+        return $this->hasMany(PelayananAnggota::class);
+    }
+
+    // Relasi Jemaat BelongsTo User (jika ada user account untuk jemaat)
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

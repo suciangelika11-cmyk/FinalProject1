@@ -23,24 +23,21 @@
             left: 0;
             right: 0;
             z-index: 999;
-            background: rgba(255, 255, 255, 0.2) !important;
-            backdrop-filter: blur(8px);
+            background: #ffffff !important;
             box-shadow: none !important;
             transform: translateY(0);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .navbar.scrolling {
-            background: rgba(255, 255, 255, 0.4) !important;
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            background: #ffffff !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .navbar.scrolled {
-            background: rgba(255, 255, 255, 0.95) !important;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.15) !important;
-            border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+            background: #ffffff !important;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .navbar.hidden {

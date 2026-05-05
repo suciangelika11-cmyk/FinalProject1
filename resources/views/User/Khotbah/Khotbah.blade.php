@@ -2,233 +2,315 @@
 
 @section('content')
 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --gold: #C9A84C;
+    --gold-light: #F0D48A;
+    --gold-dim: rgba(201,168,76,0.18);
+    --navy: #0B1829;
+    --navy2: #13243A;
+    --navy3: #1C3354;
+    --muted: #8A95A3;
+    --r-pill: 999px;
+    --r-card: 18px;
+}
+
 body {
-    background: #f4f9ff;
+    font-family: 'Inter', sans-serif;
+    background: var(--navy2);
+    color: #fff;
 }
 
+/* ── HERO ── */
 .hero {
-    background: linear-gradient(135deg, #005bea, #00c6fb);
-    padding: 90px 0;
-    color: white;
-    text-align: center;
     position: relative;
+    padding: 100px 0 110px;
+    text-align: center;
     overflow: hidden;
+    background: var(--navy);
 }
 
-.hero::before {
-    content: '';
+.hero-bg-ring {
     position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 40px,
-        rgba(255,255,255,0.03) 40px,
-        rgba(255,255,255,0.03) 41px
-    );
+    top: -160px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.07);
     pointer-events: none;
 }
 
-.hero h1 {
-    font-weight: 800;
-    font-size: 38px;
-    position: relative;
+.hero-bg-ring2 {
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.05);
+    pointer-events: none;
 }
 
+.hero-glow {
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 500px; height: 280px;
+    background: radial-gradient(ellipse at top, rgba(201,168,76,0.09) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.28);
+    border-radius: var(--r-pill);
+    padding: 6px 18px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 28px;
+}
+
+.eyebrow-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: inline-block;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 6vw, 58px);
+    font-weight: 700;
+    line-height: 1.12;
+    color: #fff;
+    margin-bottom: 18px;
+}
+
+.hero h1 em { font-style: italic; color: var(--gold-light); }
+
 .hero p {
-    opacity: 0.9;
-    font-size: 17px;
-    position: relative;
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    margin: 0 auto;
+    line-height: 1.75;
+}
+
+/* ── WAVE ── */
+.wave-sep { display: block; width: 100%; overflow: hidden; line-height: 0; }
+.wave-sep svg { display: block; width: 100%; height: 60px; }
+
+/* ── BODY ── */
+.khotbah-section { background: var(--navy2); padding: 0 0 90px; }
+
+.section-header { text-align: center; padding: 60px 0 44px; }
+
+.section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 12px;
 }
 
 .section-title {
-    font-weight: 700;
-    font-size: 28px;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 4vw, 38px);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 18px;
 }
 
-.divider {
-    height: 4px;
-    width: 80px;
-    background: linear-gradient(90deg, #005bea, #00c6fb);
-    margin: 15px auto 20px;
-    border-radius: 20px;
+.section-rule {
+    width: 40px; height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    border-radius: 99px;
+    margin: 0 auto;
 }
 
-.section-plain {
-    padding: 80px 0;
-}
-
-.section-bg {
-    background: linear-gradient(180deg, #eaf4ff, #ffffff);
-    padding: 80px 0;
-}
-
-/* ── SEARCH BAR ── */
+/* ── SEARCH ── */
 .search-wrap {
-    max-width: 500px;
-    margin: 0 auto 40px;
+    max-width: 480px;
+    margin: 0 auto 48px;
     position: relative;
 }
 
-.search-wrap i {
+.search-icon {
     position: absolute;
-    left: 18px;
-    top: 50%;
+    left: 18px; top: 50%;
     transform: translateY(-50%);
-    color: #94a3b8;
-    font-size: 16px;
+    color: rgba(201,168,76,0.6);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
 }
 
 .search-input {
     width: 100%;
-    padding: 14px 20px 14px 46px;
-    border: 2px solid #e2e8f0;
-    border-radius: 50px;
-    background: white;
+    padding: 14px 22px 14px 46px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: var(--r-pill);
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
-    color: #1e293b;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    color: #fff;
     outline: none;
-    transition: border-color 0.25s, box-shadow 0.25s;
+    transition: border-color 0.25s, background 0.25s;
 }
 
 .search-input:focus {
-    border-color: #005bea;
-    box-shadow: 0 4px 18px rgba(0,91,234,0.15);
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.06);
 }
 
-.search-input::placeholder { color: #b0bec5; }
+.search-input::placeholder { color: rgba(255,255,255,0.25); font-weight: 300; }
 
-/* ── KHOTBAH CARD ── */
+/* ── GRID ── */
 .khotbah-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 24px;
 }
 
+/* ── CARD ── */
 .khotbah-card {
-    border: none;
-    border-radius: 20px;
+    background: var(--navy3);
+    border-radius: var(--r-card);
+    border: 1px solid rgba(201,168,76,0.1);
     overflow: hidden;
-    background: white;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    transition: all 0.35s ease;
     display: flex;
     flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease;
     position: relative;
 }
 
-.khotbah-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-
-.khotbah-card .accent-bar {
+.khotbah-card::before {
+    content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #005bea, #00c6fb);
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
     opacity: 0;
     transition: opacity 0.3s;
-    border-radius: 20px 20px 0 0;
+    z-index: 2;
 }
 
-.khotbah-card:hover .accent-bar {
-    opacity: 1;
-}
+.khotbah-card:hover { transform: translateY(-7px); border-color: rgba(201,168,76,0.32); }
+.khotbah-card:hover::before { opacity: 1; }
 
-/* Thumbnail */
+/* THUMB */
 .card-thumb {
-    width: 100%;
-    height: 210px;
+    height: 195px;
     overflow: hidden;
     position: relative;
-    background: #dbeafe;
+    background: var(--navy);
+    flex-shrink: 0;
 }
 
 .card-thumb img {
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     object-fit: cover;
     display: block;
     transition: transform 0.5s ease;
 }
 
-.khotbah-card:hover .card-thumb img {
-    transform: scale(1.06);
-}
+.khotbah-card:hover .card-thumb img { transform: scale(1.05); }
 
-.card-thumb-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #005bea, #00c6fb);
+.thumb-placeholder {
+    width: 100%; height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    color: rgba(255,255,255,0.8);
+    gap: 12px;
+    background: var(--navy);
 }
 
-.card-thumb-placeholder i {
-    font-size: 46px;
-    opacity: 0.75;
+.thumb-placeholder-icon {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(201,168,76,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(240,212,138,0.55);
+    font-size: 22px;
 }
 
-.card-thumb-placeholder span {
-    font-size: 12px;
-    letter-spacing: 1.5px;
+.thumb-placeholder-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    font-weight: 600;
-    opacity: 0.7;
+    font-weight: 500;
+    color: rgba(240,212,138,0.35);
 }
 
 .video-badge {
     position: absolute;
-    top: 12px;
-    right: 12px;
-    background: rgba(0,0,0,0.55);
-    backdrop-filter: blur(5px);
-    color: white;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
+    top: 12px; right: 12px;
+    background: rgba(11,24,41,0.8);
+    color: var(--gold-light);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
     padding: 4px 12px;
-    border-radius: 20px;
+    border-radius: var(--r-pill);
     display: flex;
     align-items: center;
     gap: 5px;
+    border: 1px solid rgba(201,168,76,0.2);
+    z-index: 1;
 }
 
-/* Card body */
-.card-body-khotbah {
-    padding: 22px 22px 20px;
+.vid-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+/* CARD BODY */
+.card-body-inner {
+    padding: 22px 20px 18px;
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
 .khotbah-date {
-    font-size: 11.5px;
-    font-weight: 700;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    color: #005bea;
-    margin-bottom: 8px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
 }
 
 .khotbah-title {
-    font-size: 16.5px;
-    font-weight: 700;
-    color: #1e293b;
-    line-height: 1.45;
-    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.4;
+    margin-bottom: 9px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -236,8 +318,8 @@ body {
 }
 
 .khotbah-desc {
-    font-size: 13.5px;
-    color: #6b7280;
+    font-size: 13px;
+    color: rgba(255,255,255,0.42);
     line-height: 1.7;
     flex: 1;
     display: -webkit-box;
@@ -247,133 +329,186 @@ body {
     margin-bottom: 18px;
 }
 
-.card-footer-khotbah {
+.card-footer-inner {
+    border-top: 1px solid rgba(201,168,76,0.1);
     padding-top: 14px;
-    border-top: 1px solid #f1f5f9;
 }
 
 .btn-tonton {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    background: linear-gradient(135deg, #005bea, #00c6fb);
-    color: white;
-    border-radius: 50px;
-    padding: 9px 22px;
-    font-size: 13px;
-    font-weight: 700;
+    gap: 9px;
+    background: var(--gold-dim);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold-light);
+    border-radius: var(--r-pill);
+    padding: 9px 18px;
+    font-size: 12px;
+    font-weight: 500;
     text-decoration: none;
-    border: none;
-    transition: all 0.25s ease;
-    box-shadow: 0 4px 14px rgba(0,91,234,0.25);
+    transition: background 0.25s, border-color 0.25s;
 }
 
 .btn-tonton:hover {
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(0,91,234,0.35);
+    background: rgba(201,168,76,0.28);
+    border-color: rgba(201,168,76,0.55);
+    color: var(--gold-light);
 }
+
+.btn-play {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.btn-play i { font-size: 8px; color: var(--navy); margin-left: 1px; }
 
 .btn-no-video {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    background: #f1f5f9;
-    color: #94a3b8;
-    border-radius: 50px;
-    padding: 9px 22px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: default;
+    gap: 8px;
+    color: rgba(255,255,255,0.22);
+    font-size: 12px;
+    font-weight: 400;
 }
 
-/* ── EMPTY STATE ── */
+/* EMPTY */
 .empty-wrap {
-    text-align: center;
-    padding: 60px 20px;
     grid-column: 1 / -1;
+    text-align: center;
+    padding: 80px 20px;
 }
 
 .empty-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 20px;
-    background: linear-gradient(135deg, #005bea20, #00c6fb20);
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(201,168,76,0.25);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 36px;
-    color: #005bea;
-    margin: 0 auto 20px;
+    font-size: 28px;
+    color: rgba(240,212,138,0.55);
+    margin: 0 auto 22px;
 }
 
-/* ── RESPONSIVE ── */
+.empty-wrap h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.empty-wrap p { font-size: 14px; color: rgba(255,255,255,0.4); }
+
+/* PAGINATION */
+.pagination .page-link {
+    border-radius: var(--r-pill) !important;
+    margin: 0 3px;
+    background: transparent;
+    border: 1px solid rgba(201,168,76,0.2) !important;
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.pagination .page-item.active .page-link {
+    background: var(--gold-dim) !important;
+    border-color: rgba(201,168,76,0.4) !important;
+    color: var(--gold-light);
+}
+
+.pagination .page-link:hover {
+    background: rgba(201,168,76,0.1) !important;
+    border-color: rgba(201,168,76,0.4) !important;
+    color: var(--gold-light);
+}
+
 @media (max-width: 576px) {
-    .khotbah-grid {
-        grid-template-columns: 1fr;
-    }
+    .khotbah-grid { grid-template-columns: 1fr; }
 }
 </style>
 
 {{-- ── HERO ── --}}
 <section class="hero">
-    <div class="container">
-        <h1>Khotbah</h1>
-        <p>Mendengarkan firman Tuhan untuk kehidupan yang lebih bermakna</p>
+    <div class="hero-bg-ring"></div>
+    <div class="hero-bg-ring2"></div>
+    <div class="hero-glow"></div>
+    <div class="container position-relative" style="z-index:1;">
+        <div class="hero-eyebrow">
+            <span class="eyebrow-dot"></span>
+            Firman Tuhan
+            <span class="eyebrow-dot"></span>
+        </div>
+        <h1>Khotbah &amp;<br><em>Pengajaran</em></h1>
+        <p>Mendengarkan firman Tuhan untuk kehidupan yang lebih bermakna dan penuh anugerah</p>
     </div>
 </section>
 
+{{-- Wave Divider --}}
+<div class="wave-sep">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z" fill="#13243A"/>
+    </svg>
+</div>
+
 {{-- ── KHOTBAH LIST ── --}}
-<section class="section-plain">
+<section class="khotbah-section">
     <div class="container">
 
-        <div class="text-center mb-5">
+        <div class="section-header">
+            <span class="section-label">Arsip Khotbah</span>
             <h2 class="section-title">Firman Tuhan</h2>
-            <div class="divider"></div>
+            <div class="section-rule"></div>
         </div>
 
         {{-- Search --}}
         <div class="search-wrap">
-            <i class="bi bi-search"></i>
+            <span class="search-icon">
+                <i class="bi bi-search" style="font-size:14px;"></i>
+            </span>
             <input type="text"
                    class="search-input"
                    id="searchKhotbah"
-                   placeholder="Cari judul khotbah...">
+                   placeholder="Cari judul khotbah…">
         </div>
 
         {{-- Grid --}}
         <div class="khotbah-grid" id="khotbahGrid">
 
             @forelse($khotbah as $item)
-            <div class="khotbah-card"
-                 data-title="{{ strtolower($item->title) }}">
+            <div class="khotbah-card" data-title="{{ strtolower($item->title) }}">
 
-                <div class="accent-bar"></div>
-
-                {{-- Thumbnail --}}
                 <div class="card-thumb">
                     @if($item->thumbnail)
                         <img src="{{ asset('storage/' . $item->thumbnail) }}"
                              alt="{{ $item->title }}"
                              loading="lazy">
                     @else
-                        <div class="card-thumb-placeholder">
-                            <i class="bi bi-play-circle-fill"></i>
-                            <span>Video Khotbah</span>
+                        <div class="thumb-placeholder">
+                            <div class="thumb-placeholder-icon">
+                                <i class="bi bi-play-circle"></i>
+                            </div>
+                            <span class="thumb-placeholder-label">Video Khotbah</span>
                         </div>
                     @endif
 
                     @if($item->video)
                         <div class="video-badge">
-                            <i class="bi bi-camera-video-fill"></i> Video
+                            <span class="vid-dot"></span>
+                            Video
                         </div>
                     @endif
                 </div>
 
-                {{-- Content --}}
-                <div class="card-body-khotbah">
+                <div class="card-body-inner">
                     <div class="khotbah-date">
-                        <i class="bi bi-calendar3"></i>
+                        <i class="bi bi-calendar3" style="font-size:10px;"></i>
                         {{ $item->tanggal
                             ? \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y')
                             : '—' }}
@@ -385,18 +520,20 @@ body {
                         <div class="khotbah-desc">{{ $item->description }}</div>
                     @endif
 
-                    <div class="card-footer-khotbah">
+                    <div class="card-footer-inner">
                         @if($item->video)
                             <a href="{{ $item->video }}"
                                target="_blank"
                                rel="noopener"
                                class="btn-tonton">
-                                <i class="bi bi-play-fill"></i>
+                                <span class="btn-play">
+                                    <i class="bi bi-play-fill"></i>
+                                </span>
                                 Tonton Khotbah
                             </a>
                         @else
                             <span class="btn-no-video">
-                                <i class="bi bi-camera-video-off"></i>
+                                <i class="bi bi-camera-video-off" style="font-size:12px;"></i>
                                 Video Tidak Tersedia
                             </span>
                         @endif
@@ -404,20 +541,18 @@ body {
                 </div>
 
             </div>
-
             @empty
             <div class="empty-wrap">
                 <div class="empty-icon">
                     <i class="bi bi-camera-video"></i>
                 </div>
-                <h4 class="fw-bold mb-2">Belum Ada Khotbah</h4>
-                <p class="text-muted">Khotbah akan segera ditampilkan di sini. Tetap semangat!</p>
+                <h4>Belum Ada Khotbah</h4>
+                <p>Khotbah akan segera ditampilkan di sini. Tetap semangat!</p>
             </div>
             @endforelse
 
         </div>
 
-        {{-- Pagination --}}
         @if(method_exists($khotbah, 'links') && $khotbah->hasPages())
             <div class="d-flex justify-content-center mt-5">
                 {{ $khotbah->links() }}
@@ -433,11 +568,9 @@ body {
 
     searchInput.addEventListener('input', function () {
         const q = this.value.toLowerCase().trim();
-        let visible = 0;
         cards.forEach(card => {
             const match = !q || card.dataset.title.includes(q);
             card.style.display = match ? '' : 'none';
-            if (match) visible++;
         });
     });
 </script>
