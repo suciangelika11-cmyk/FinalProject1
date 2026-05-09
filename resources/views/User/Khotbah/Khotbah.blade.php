@@ -433,6 +433,9 @@ body {
 @media (max-width: 576px) {
     .khotbah-grid { grid-template-columns: 1fr; }
 }
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </style>
 
 {{-- ── HERO ── --}}
@@ -510,8 +513,8 @@ body {
                 <div class="card-body-inner">
                     <div class="khotbah-date">
                         <i class="bi bi-calendar3" style="font-size:10px;"></i>
-                        {{ $item->tanggal
-                            ? \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y')
+                        {{ $item->sermon_date
+                            ? \Carbon\Carbon::parse($item->sermon_date)->translatedFormat('d F Y')
                             : '—' }}
                     </div>
 

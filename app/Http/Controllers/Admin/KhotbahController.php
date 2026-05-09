@@ -27,10 +27,10 @@ class KhotbahController extends Controller
             'video' => 'nullable|string|max:255',
             'description' => 'nullable|string',
             'thumbnail' => 'nullable|image|max:2048',
-            'tanggal' => 'nullable|date',
+            'sermon_date' => 'nullable|date',
         ]);
 
-        $data = $request->only(['title', 'video', 'description', 'tanggal']);
+        $data = $request->only(['title', 'video', 'description', 'sermon_date']);
 
         if ($request->hasFile('thumbnail')) {
             $data['thumbnail'] = $request->file('thumbnail')->store('khotbah', 'public');
@@ -53,10 +53,10 @@ class KhotbahController extends Controller
             'video' => 'nullable|string|max:255',
             'description' => 'nullable|string',
             'thumbnail' => 'nullable|image|max:2048',
-            'tanggal' => 'nullable|date',
+            'sermon_date' => 'nullable|date',
         ]);
 
-        $data = $request->only(['title', 'video', 'description', 'tanggal']);
+        $data = $request->only(['title', 'video', 'description', 'sermon_date']);
 
         if ($request->hasFile('thumbnail')) {
             if ($khotbah->thumbnail && Storage::disk('public')->exists($khotbah->thumbnail)) {
