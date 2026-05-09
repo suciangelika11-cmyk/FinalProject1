@@ -67,7 +67,7 @@
 
             <div class="fg">
                 <label>Tanggal Khotbah</label>
-                <input type="date" name="tanggal" value="{{ old('tanggal', $khotbah->tanggal) }}">
+                <input type="date" name="sermon_date" value="{{ old('sermon_date', $khotbah->sermon_date) }}">
             </div>
 
             <div class="fg">

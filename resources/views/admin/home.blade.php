@@ -1,3 +1,7 @@
+@extends('admin.layouts.main')
+
+@section('content')
+
 @php
     use Illuminate\Support\Facades\Auth;
     use App\Models\Jemaat;
@@ -150,6 +154,7 @@
     <a href="{{ route('galeri.index') }}">Galeri</a>
     <a href="{{ route('khotbah.index') }}">Khotbah</a>
     <a href="{{ route('pelayanan.index') }}">Pelayanan</a>
+    <a href="{{ route('kegiatan.index') }}">Kegiatan Pelayanan</a>
     <a href="{{ route('kontak.index') }}">Kontak</a>
     <a href="{{ route('pengumuman.index') }}">Pengumuman</a>
     <a href="{{ route('jemaat.index') }}">Jemaat @if($pendingJemaatCount > 0) <span style="background:#ef4444; border-radius:999px; color:#fff; padding:0 6px; font-size:11px; margin-left:4px;">{{ $pendingJemaatCount }}</span>@endif</a>
@@ -229,6 +234,9 @@
       </a>
       <a href="{{ route('pelayanan.index') }}" style="text-decoration:none">
         <div class="card gold"><div class="card-icon-wrap">🙌</div><div class="card-title">Pelayanan</div><div class="card-desc">Atur informasi departemen pelayanan, komsel, dan kegiatan komunitas gereja.</div><div class="card-arrow">→</div></div>
+      </a>
+      <a href="{{ route('kegiatan.index') }}" style="text-decoration:none">
+        <div class="card gold"><div class="card-icon-wrap">🎉</div><div class="card-title">Kegiatan Pelayanan</div><div class="card-desc">Atur informasi kegiatan pelayanan, komsel, dan komunitas gereja.</div><div class="card-arrow">→</div></div>
       </a>
       <a href="{{ route('kontak.index') }}" style="text-decoration:none">
         <div class="card white"><div class="card-icon-wrap">✉</div><div class="card-title">Kontak</div><div class="card-desc">Perbarui nomor telepon, alamat, email, dan tautan media sosial gereja.</div><div class="card-arrow">→</div></div>

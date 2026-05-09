@@ -149,7 +149,7 @@
 
   <div class="stats-row">
     <div class="stat-card"><div class="stat-icon ic">🎙</div><div><div class="stat-val vc">{{ $khotbah->count() }}</div><div class="stat-lbl">Total Khotbah</div></div></div>
-    <div class="stat-card"><div class="stat-icon ig">📅</div><div><div class="stat-val vg">{{ $khotbah->whereNotNull('tanggal')->count() }}</div><div class="stat-lbl">Ada Tanggal</div></div></div>
+    <div class="stat-card"><div class="stat-icon ig">📅</div><div><div class="stat-val vg">{{ $khotbah->whereNotNull('sermon_date')->count() }}</div><div class="stat-lbl">Ada sermon_date</div></div></div>
     <div class="stat-card"><div class="stat-icon is">🎥</div><div><div class="stat-val vs">{{ $khotbah->whereNotNull('video')->filter(fn($item) => !empty($item->video))->count() }}</div><div class="stat-lbl">Ada Video URL</div></div></div>
     <div class="stat-card"><div class="stat-icon ip">🖼</div><div><div class="stat-val vp">{{ $khotbah->whereNotNull('thumbnail')->filter(fn($item) => !empty($item->thumbnail))->count() }}</div><div class="stat-lbl">Ada Thumbnail</div></div></div>
   </div>
@@ -181,7 +181,7 @@
 
           <div class="kcard-body">
             <div class="kcard-title">{{ $item->title }}</div>
-            <div class="kcard-date">📅 {{ $item->tanggal ? \Carbon\Carbon::parse($item->tanggal)->format('d M Y') : '-' }}</div>
+            <div class="kcard-date">📅 {{ $item->sermon_date ? \Carbon\Carbon::parse($item->sermon_date)->format('d M Y') : '-' }}</div>
             <div class="kcard-desc">{{ $item->description ?: '-' }}</div>
 
             <div class="kcard-actions">
