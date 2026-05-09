@@ -72,16 +72,16 @@
     body { background:var(--bg); font-family:'Nunito',sans-serif; color:var(--text); min-height:100vh; }
 
     .topbar {
-      position:fixed; top:0; left:0; right:0; z-index:200; height:56px;
+      position:fixed; top:0; left:0; right:0; z-index:200; height:72px;
       display:flex; align-items:center; justify-content:space-between;
-      padding:0 20px 0 0;
+      padding:0 28px 0 0;
       background:var(--white); border-bottom:1px solid var(--border);
-      box-shadow:0 1px 8px rgba(0,0,0,.06);
+      box-shadow:0 1px 12px rgba(0,0,0,.08);
     }
 
     .topbar-left {
-      display:flex; align-items:center; width:240px; height:100%; flex-shrink:0;
-      background:var(--sidebar); padding:0 18px;
+      display:flex; align-items:center; width:280px; height:100%; flex-shrink:0;
+      background:var(--sidebar); padding:0 24px;
     }
 
     .hamburger {
@@ -91,27 +91,27 @@
 
     .brand { display:flex; align-items:center; gap:10px; text-decoration:none; }
     .brand-logo {
-      width:32px; height:32px;
+      width:38px; height:38px;
       background:linear-gradient(135deg,var(--cyan),var(--gold));
-      border-radius:7px; display:flex; align-items:center; justify-content:center;
-      font-family:'Rajdhani',sans-serif; font-weight:700; font-size:13px; color:#fff; flex-shrink:0;
+      border-radius:10px; display:flex; align-items:center; justify-content:center;
+      font-family:'Rajdhani',sans-serif; font-weight:700; font-size:14px; color:#fff; flex-shrink:0;
     }
-    .brand-name { font-family:'Rajdhani',sans-serif; font-size:16px; font-weight:700; color:#fff; }
+    .brand-name { font-family:'Rajdhani',sans-serif; font-size:18px; font-weight:800; color:#fff; }
     .brand-name span { color:var(--cyan); }
 
-    .topbar-nav { display:flex; align-items:center; gap:2px; flex:1; padding:0 14px; }
+    .topbar-nav { display:flex; align-items:center; gap:10px; flex:1; padding:0 18px; }
     .topbar-nav a {
-      color:var(--muted); font-size:13px; font-weight:600; text-decoration:none;
-      padding:5px 12px; border-radius:6px; transition:all .15s;
+      color:var(--muted); font-size:14px; font-weight:700; text-decoration:none;
+      padding:10px 14px; border-radius:8px; transition:all .18s;
     }
     .topbar-nav a:hover { color:var(--text); background:#f0f2f5; }
     .topbar-nav a.active { color:var(--cyan); background:var(--cyan-lt); }
 
-    .topbar-right { display:flex; align-items:center; gap:12px; }
+    .topbar-right { display:flex; align-items:center; gap:14px; }
     .btn-viewsite {
       background:var(--cyan-lt); border:1px solid rgba(29,168,224,.3); color:var(--cyan);
-      font-family:'Nunito',sans-serif; font-size:12px; font-weight:700;
-      padding:5px 14px; border-radius:6px; cursor:pointer; transition:all .15s;
+      font-family:'Nunito',sans-serif; font-size:13px; font-weight:700;
+      padding:8px 18px; border-radius:8px; cursor:pointer; transition:all .18s;
     }
     .btn-viewsite:hover { background:var(--cyan); color:#fff; }
 
@@ -128,6 +128,12 @@
       position:fixed; top:56px; left:0; bottom:0; width:240px;
       background:var(--sidebar); display:flex; flex-direction:column;
       overflow-y:auto; z-index:100;
+      transition:transform .25s ease;
+      transform:translateX(0);
+    }
+
+    .sidebar.closed {
+      transform:translateX(-100%);
     }
 
     .sidebar-user {
@@ -184,15 +190,36 @@
     }
     .sidebar-footer strong { color:rgba(255,255,255,.6); display:block; }
 
-    .wrapper { margin-left:240px; padding-top:56px; min-height:100vh; }
+    .sidebar-backdrop {
+      position:fixed; inset:56px 0 0 0;
+      background:rgba(0,0,0,.35);
+      opacity:0; visibility:hidden;
+      transition:opacity .2s ease, visibility .2s ease;
+      z-index:105;
+      pointer-events:none;
+    }
+
+    body.sidebar-open .sidebar-backdrop {
+      opacity:1; visibility:visible;
+      pointer-events:auto;
+    }
+
+    .wrapper { margin-left:240px; padding-top:56px; min-height:100vh; transition:margin-left .25s ease; }
+    .wrapper.sidebar-closed { margin-left:0; }
 
     ::-webkit-scrollbar { width:5px; }
     ::-webkit-scrollbar-track { background:var(--bg); }
     ::-webkit-scrollbar-thumb { background:var(--border2); border-radius:3px; }
 
     @media(max-width:900px) {
-      .sidebar { display:none; }
+      .sidebar {
+        display:flex; transform:translateX(-100%);
+        width:280px; top:56px; left:0; bottom:0; position:fixed;
+        z-index:210;
+      }
+      .sidebar.open { transform:translateX(0); }
       .wrapper { margin-left:0; }
+      .topbar-left { width:auto; padding:0 14px; }
       .topbar-nav { display:none; }
     }
   </style>
@@ -203,15 +230,15 @@
 
 <header class="topbar">
   <div class="topbar-left">
-    <button class="hamburger">☰</button>
-    <a class="brand" href="{{ route('welcome') }}">
+    <button class="hamburger" type="button" aria-label="Toggle sidebar">☰</button>
+    <a class="brand" href="{{ route('admin.dashboard') }}">
       <div class="brand-logo">GBI</div>
       <span class="brand-name">GBI <span>Tambunan</span></span>
     </a>
   </div>
 
   <nav class="topbar-nav">
-    <a href="{{ route('welcome') }}" @if(request()->routeIs('welcome')) class="active" @endif>Beranda</a>
+    <a href="{{ route('admin.dashboard') }}" @if(request()->routeIs('admin.dashboard')) class="active" @endif>Beranda</a>
     <a href="{{ route('tentang.index') }}" @if(request()->routeIs('tentang.*')) class="active" @endif>Tentang Kami</a>
     <a href="{{ route('jadwal.index') }}" @if(request()->routeIs('jadwal.*')) class="active" @endif>Jadwal Ibadah</a>
     <a href="{{ route('galeri.index') }}" @if(request()->routeIs('galeri.*')) class="active" @endif>Galeri</a>
@@ -264,9 +291,10 @@
 
   <div class="nav-section">Menu Utama</div>
   <nav>
-    <a href="{{ route('welcome') }}" @if(request()->routeIs('welcome')) class="active" @endif><span class="ico">⊞</span> Dashboard</a>
+    <a href="{{ route('admin.dashboard') }}" @if(request()->routeIs('admin.dashboard')) class="active" @endif><span class="ico">⊞</span> Dashboard</a>
     <a href="{{ route('tentang.index') }}" @if(request()->routeIs('tentang.*')) class="active" @endif><span class="ico">ℹ</span> Tentang Kami</a>
     <a href="{{ route('jadwal.index') }}" @if(request()->routeIs('jadwal.*')) class="active" @endif><span class="ico">📅</span> Jadwal Ibadah</a>
+    <a href="{{ route('absensi.index') }}" @if(request()->routeIs('absensi.*')) class="active" @endif><span class="ico">✅</span> Absensi</a>
     <a href="{{ route('galeri.index') }}" @if(request()->routeIs('galeri.*')) class="active" @endif><span class="ico">🖼</span> Galeri</a>
     <a href="{{ route('khotbah.index') }}" @if(request()->routeIs('khotbah.*')) class="active" @endif><span class="ico">🎙</span> Khotbah</a>
     <a href="{{ route('pelayanan.index') }}" @if(request()->routeIs('pelayanan.*')) class="active" @endif><span class="ico">🙌</span> Pelayanan</a>
@@ -288,7 +316,7 @@
     <strong>Kelompok 5 PA-1</strong>Version 1.0.0
   </div>
 </aside>
-
+  <div class="sidebar-backdrop" onclick="closeSidebar()"></div>
 <div class="wrapper">
   @yield('content')
 </div>
@@ -307,6 +335,70 @@ function confirmLogout(e) {
         document.getElementById('logout-form').submit();
     }
 }
+
+function closeSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    const wrapper = document.querySelector('.wrapper');
+    sidebar.classList.remove('open', 'closed');
+    wrapper.classList.remove('sidebar-closed');
+    document.body.classList.remove('sidebar-open');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.querySelector('.sidebar');
+    const wrapper = document.querySelector('.wrapper');
+    const backdrop = document.querySelector('.sidebar-backdrop');
+    const sidebarLinks = document.querySelectorAll('.sidebar nav a');
+
+    if (!hamburger || !sidebar || !wrapper || !backdrop) {
+        return;
+    }
+
+    const isMobile = () => window.matchMedia('(max-width:900px)').matches;
+
+    const hideSidebar = () => {
+        sidebar.classList.remove('open');
+        document.body.classList.remove('sidebar-open');
+    };
+
+    const toggleSidebar = () => {
+        if (isMobile()) {
+            sidebar.classList.toggle('open');
+            document.body.classList.toggle('sidebar-open', sidebar.classList.contains('open'));
+        } else {
+            const isClosed = sidebar.classList.toggle('closed');
+            wrapper.classList.toggle('sidebar-closed', isClosed);
+        }
+    };
+
+    hamburger.addEventListener('click', function(event) {
+        event.preventDefault();
+        toggleSidebar();
+    });
+
+    backdrop.addEventListener('click', function() {
+        hideSidebar();
+    });
+
+    sidebarLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            if (isMobile()) {
+                hideSidebar();
+            }
+        });
+    });
+
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 900) {
+            sidebar.classList.remove('open');
+            document.body.classList.remove('sidebar-open');
+        } else {
+            sidebar.classList.remove('closed');
+            wrapper.classList.remove('sidebar-closed');
+        }
+    });
+});
 </script>
 
 </body>

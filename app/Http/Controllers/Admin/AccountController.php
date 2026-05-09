@@ -10,9 +10,21 @@ use Illuminate\Validation\Rule;
 
 class AccountController extends Controller
 {
+    private function managedRoles(): array
+    {
+        return auth()->user()->role === 'super_admin'
+            ? ['admin', 'pelayan']
+            : ['pelayan'];
+    }
+
+    private function canManage(User $user): bool
+    {
+        return in_array($user->role, $this->managedRoles());
+    }
+
     public function index()
     {
-        $users = User::whereIn('role', ['admin', 'pelayan'])
+        $users = User::whereIn('role', $this->managedRoles())
             ->latest()
             ->get();
 
@@ -21,17 +33,21 @@ class AccountController extends Controller
 
     public function create()
     {
-        return view('admin.accounts.create');
+        $availableRoles = $this->managedRoles();
+
+        return view('admin.accounts.create', compact('availableRoles'));
     }
 
     public function store(Request $request)
     {
+        $availableRoles = $this->managedRoles();
+
         $request->validate([
             'name' => 'required|string|max:255',
             'username' => 'required|string|max:255|unique:users,username',
             'email' => 'required|email|max:255|unique:users,email',
             'password' => 'required|string|min:8|confirmed',
-            'role' => 'required|in:admin,pelayan',
+            'role' => ['required', Rule::in($availableRoles)],
             'is_active' => 'required|boolean',
         ]);
 
@@ -49,25 +65,29 @@ class AccountController extends Controller
 
     public function edit(User $user)
     {
-        if (!in_array($user->role, ['admin', 'pelayan'])) {
+        if (!$this->canManage($user)) {
             abort(403);
         }
 
-        return view('admin.accounts.edit', compact('user'));
+        $availableRoles = $this->managedRoles();
+
+        return view('admin.accounts.edit', compact('user', 'availableRoles'));
     }
 
     public function update(Request $request, User $user)
     {
-        if (!in_array($user->role, ['admin', 'pelayan'])) {
+        if (!$this->canManage($user)) {
             abort(403);
         }
+
+        $availableRoles = $this->managedRoles();
 
         $request->validate([
             'name' => 'required|string|max:255',
             'username' => ['required', 'string', 'max:255', Rule::unique('users', 'username')->ignore($user->id)],
             'email' => ['required', 'email', 'max:255', Rule::unique('users', 'email')->ignore($user->id)],
             'password' => 'nullable|string|min:8|confirmed',
-            'role' => 'required|in:admin,pelayan',
+            'role' => ['required', Rule::in($availableRoles)],
             'is_active' => 'required|boolean',
         ]);
 
@@ -90,7 +110,7 @@ class AccountController extends Controller
 
     public function destroy(User $user)
     {
-        if (!in_array($user->role, ['admin', 'pelayan'])) {
+        if (!$this->canManage($user)) {
             abort(403);
         }
 

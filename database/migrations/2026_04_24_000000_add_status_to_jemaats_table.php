@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('jemaats', function (Blueprint $table) {
-            $table->enum('status', ['pending', 'confirmed'])->default('pending')->after('surat_attestasi');
+            $table->enum('status', ['pending', 'confirmed'])->default('pending');
             $table->timestamp('confirmed_at')->nullable()->after('status');
         });
     }
@@ -17,8 +17,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('jemaats', function (Blueprint $table) {
-            $table->dropColumn('confirmed_at');
-            $table->dropColumn('status');
+            $table->dropColumn(['confirmed_at', 'status']);
         });
     }
 };

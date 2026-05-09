@@ -100,7 +100,11 @@ body {
 .hero p {
     font-size: 17px;
     font-weight: 300;
+<<<<<<< HEAD
     color: rgba(255,255,255,0.65);
+=======
+    color: rgba(255,255,255,0.88);
+>>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
     max-width: 480px;
     margin: 0 auto;
     line-height: 1.7;
@@ -118,7 +122,11 @@ body {
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
+<<<<<<< HEAD
     color: var(--gold-light);
+=======
+    color: #FFFFFF !important;
+>>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
     margin-bottom: 14px;
 }
 
@@ -126,7 +134,11 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: clamp(28px, 3.5vw, 40px);
     font-weight: 600;
+<<<<<<< HEAD
     color: var(--white);
+=======
+    color: #FFFFFF !important;
+>>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
     line-height: 1.2;
     margin-bottom: 16px;
 }
@@ -139,6 +151,16 @@ body {
     margin: 0 auto;
 }
 
+<<<<<<< HEAD
+=======
+.section-title,
+.day-label-text,
+.special-card .card-title,
+.schedule-card .card-title {
+    color: #FFFFFF !important;
+}
+
+>>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
 /* ─── DAY LABEL ─── */
 .day-label {
     display: flex;
@@ -227,7 +249,11 @@ body {
     align-items: center;
     gap: 8px;
     font-size: 13.5px;
+<<<<<<< HEAD
     color: rgba(255,255,255,0.6);
+=======
+    color: rgba(255,255,255,0.78);
+>>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
     margin-bottom: 8px;
     font-weight: 400;
 }
@@ -240,7 +266,11 @@ body {
 
 .card-desc {
     font-size: 14px;
+<<<<<<< HEAD
     color: rgba(255,255,255,0.5);
+=======
+    color: rgba(255,255,255,0.78);
+>>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
     line-height: 1.65;
     margin-top: 14px;
     margin-bottom: 22px;
@@ -337,7 +367,11 @@ body {
 }
 
 .special-card .card-title { color: var(--white); }
+<<<<<<< HEAD
 .special-card .card-desc  { color: rgba(255,255,255,0.55); }
+=======
+.special-card .card-desc  { color: rgba(255,255,255,0.82); }
+>>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
 
 .badge-gold {
     display: inline-flex;

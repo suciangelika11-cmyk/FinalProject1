@@ -148,7 +148,7 @@
 @section('content')
 <div class="content-header">
   <h1>Pelayanan & Komunitas</h1>
-  <div class="breadcrumb-bar"><a href="{{ route('welcome') }}">Home</a> / <span>Pelayanan</span></div>
+  <div class="breadcrumb-bar"><a href="{{ route('admin.dashboard') }}">Home</a> / <span>Pelayanan</span></div>
 </div>
 
 <div class="content">

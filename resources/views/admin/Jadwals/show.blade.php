@@ -32,24 +32,32 @@
               <div class="col-md-6">
                 <table class="table table-borderless">
                   <tr>
-                    <td style="width: 40%; font-weight: bold;">Waktu:</td>
-                    <td>{{ $Jadwal->waktu ?? '-' }}</td>
+                    <td style="width: 40%; font-weight: bold;">Kategori:</td>
+                    <td>{{ ucfirst(str_replace('_', ' ', $Jadwal->category)) }}</td>
                   </tr>
                   <tr>
-                    <td>Tanggal:</td>
-                    <td>{{ $Jadwal->tanggal ?? '-' }}</td>
+                    <td>Hari:</td>
+                    <td>{{ $Jadwal->day ?? '-' }}</td>
+                  </tr>
+                  <tr>
+                    <td>Waktu:</td>
+                    <td>{{ $Jadwal->start_time }}{{ $Jadwal->end_time ? ' - ' . $Jadwal->end_time : '' }}</td>
                   </tr>
                   <tr>
                     <td>Lokasi:</td>
-                    <td>{{ $Jadwal->lokasi ?? '-' }}</td>
+                    <td>{{ $Jadwal->location ?? '-' }}</td>
+                  </tr>
+                  <tr>
+                    <td>Icon:</td>
+                    <td>{{ $Jadwal->icon ?? '-' }}</td>
                   </tr>
                 </table>
               </div>
               <div class="col-md-6">
-                @if($Jadwal->deskripsi)
+                @if($Jadwal->description)
                   <div>
                     <strong>Deskripsi:</strong>
-                    <p class="text-muted mt-1">{{ $Jadwal->deskripsi }}</p>
+                    <p class="text-muted mt-1">{{ $Jadwal->description }}</p>
                   </div>
                 @endif
               </div>

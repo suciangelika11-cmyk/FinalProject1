@@ -23,33 +23,39 @@ class JemaatController extends Controller
             'nama_keluarga' => 'required|string|max:255',
             'alamat_domisili' => 'required|string',
             'alamat_ktp' => 'nullable|string',
-            'kolom' => 'nullable|string|max:255',
+            'kolom' => 'required|string|max:255',
             'nama_lengkap' => 'required|string|max:255',
-            'nik' => 'nullable|string|max:255',
-            'hubungan_keluarga' => 'nullable|string|max:255',
+            'nik' => 'required|string|max:255',
             'tempat_lahir' => 'nullable|string|max:255',
             'tanggal_lahir' => 'nullable|date',
             'jenis_kelamin' => 'nullable|in:Laki,Perempuan',
-            'baptis' => 'required|in:Sudah,Belum',
-            'sidi' => 'required|in:Sudah,Belum',
             'handphone' => 'nullable|string|max:20',
             'pekerjaan' => 'nullable|string|max:255',
-            'tanggal_nikah' => 'nullable|date',
-            'tanggal_domisili' => 'nullable|date',
-            'surat_attestasi' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+            'status_pernikahan' => 'required|in:Sudah Menikah,Belum Menikah',
+            'status' => 'sometimes|in:pending,confirmed',
         ]);
 
         try {
             DB::beginTransaction();
 
-            $data = $request->except('surat_attestasi');
+            $data = $request->only([
+                'no_kk',
+                'nama_keluarga',
+                'alamat_domisili',
+                'alamat_ktp',
+                'kolom',
+                'nama_lengkap',
+                'nik',
+                'tempat_lahir',
+                'tanggal_lahir',
+                'jenis_kelamin',
+                'handphone',
+                'pekerjaan',
+                'status_pernikahan',
+                'status',
+            ]);
 
-            if ($request->hasFile('surat_attestasi')) {
-                $data['surat_attestasi'] = $request->file('surat_attestasi')->store('attestasi', 'public');
-            }
-
-            $data['status'] = 'pending';
-            $data['status'] = 'pending';
+            $data['status'] = $data['status'] ?? 'pending';
             $jemaat = Jemaat::create($data);
 
             DB::commit();

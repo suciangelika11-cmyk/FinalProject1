@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('Pelayan.layouts.pelayan')
 
 @section('content')
 

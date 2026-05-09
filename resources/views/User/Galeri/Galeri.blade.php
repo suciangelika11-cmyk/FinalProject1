@@ -173,7 +173,11 @@ body {
 .hero-sub {
     font-size: 17px;
     font-weight: 300;
+<<<<<<< HEAD
     color: var(--silver);
+=======
+    color: rgba(255,255,255,0.88);
+>>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
     max-width: 500px;
     margin: 20px auto 0;
     line-height: 1.7;
@@ -224,16 +228,33 @@ body {
     font-weight: 600;
     letter-spacing: 3px;
     text-transform: uppercase;
+<<<<<<< HEAD
     color: var(--gold);
+=======
+    color: #FFFFFF !important;
+>>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
     margin-bottom: 14px;
     display: block;
 }
 
+<<<<<<< HEAD
+=======
+.gallery-section .section-title,
+.gallery-section .section-label,
+.gallery-section h2.section-title {
+    color: #FFFFFF !important;
+}
+
+>>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
 .section-title {
     font-family: 'Playfair Display', Georgia, serif;
     font-size: clamp(30px, 4vw, 42px);
     font-weight: 700;
+<<<<<<< HEAD
     color: var(--white);
+=======
+    color: #FFFFFF !important;
+>>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
     line-height: 1.2;
     margin-bottom: 16px;
 }
@@ -406,7 +427,11 @@ body {
 .card-desc {
     font-size: 13.5px;
     font-weight: 300;
+<<<<<<< HEAD
     color: var(--text-muted);
+=======
+    color: rgba(255,255,255,0.78);
+>>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
     line-height: 1.7;
     flex-grow: 1;
     display: -webkit-box;
@@ -422,7 +447,11 @@ body {
     gap: 7px;
     font-size: 12px;
     font-weight: 500;
+<<<<<<< HEAD
     color: var(--gold-dim);
+=======
+    color: rgba(255,255,255,0.78);
+>>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
     letter-spacing: 0.3px;
 }
 .card-date svg {
@@ -495,7 +524,11 @@ body {
 }
 .empty-state p {
     font-size: 14.5px;
+<<<<<<< HEAD
     color: var(--text-muted);
+=======
+    color: rgba(255,255,255,0.78);
+>>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
     font-weight: 300;
 }
 
@@ -578,7 +611,11 @@ body {
 }
 .gallery-footer-strip p {
     font-size: 13px;
+<<<<<<< HEAD
     color: var(--text-muted);
+=======
+    color: rgba(255,255,255,0.78);
+>>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
     letter-spacing: 0.3px;
 }
 

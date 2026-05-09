@@ -182,7 +182,7 @@
 @section('content')
 <div class="page-head">
   <h1>Profil Saya</h1>
-  <div class="breadcrumb"><a href="{{ route('welcome') }}">Home</a> / <span>Profil</span></div>
+  <div class="breadcrumb"><a href="{{ route('admin.dashboard') }}">Home</a> / <span>Profil</span></div>
 </div>
 
 <div class="content">

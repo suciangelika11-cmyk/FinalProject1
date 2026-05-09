@@ -75,7 +75,11 @@ body {
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
+<<<<<<< HEAD
     color: var(--gold-light);
+=======
+    color: #FFFFFF !important;
+>>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
     margin-bottom: 28px;
 }
 
@@ -91,7 +95,11 @@ body {
     font-size: clamp(34px, 6vw, 58px);
     font-weight: 700;
     line-height: 1.12;
+<<<<<<< HEAD
     color: #fff;
+=======
+    color: #FFFFFF !important;
+>>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
     margin-bottom: 18px;
 }
 
@@ -100,6 +108,7 @@ body {
 .hero p {
     font-size: 15px;
     font-weight: 300;
+<<<<<<< HEAD
     color: rgba(255,255,255,0.5);
     max-width: 420px;
     margin: 0 auto;
@@ -123,13 +132,43 @@ body {
     color: var(--gold);
     display: block;
     margin-bottom: 12px;
+=======
+    color: rgba(255,255,255,0.88);
+    max-width: 420px;
+    margin: 0 auto;
+    line-height: 1.75;
+>>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
 }
 
+/* ── WAVE ── */
+.wave-sep { display: block; width: 100%; overflow: hidden; line-height: 0; }
+.wave-sep svg { display: block; width: 100%; height: 60px; }
+
+/* ── BODY ── */
+.khotbah-section { background: var(--navy2); padding: 0 0 90px; }
+
+.section-header { text-align: center; padding: 60px 0 44px; }
+
+.section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #FFFFFF !important;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.khotbah-section .section-title,
 .section-title {
     font-family: 'Playfair Display', serif;
     font-size: clamp(26px, 4vw, 38px);
     font-weight: 600;
+<<<<<<< HEAD
     color: #fff;
+=======
+    color: #FFFFFF !important;
+>>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
     line-height: 1.2;
     margin-bottom: 18px;
 }
@@ -308,7 +347,11 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: 16px;
     font-weight: 600;
+<<<<<<< HEAD
     color: #fff;
+=======
+    color: #FFFFFF;
+>>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
     line-height: 1.4;
     margin-bottom: 9px;
     display: -webkit-box;
@@ -319,7 +362,11 @@ body {
 
 .khotbah-desc {
     font-size: 13px;
+<<<<<<< HEAD
     color: rgba(255,255,255,0.42);
+=======
+    color: rgba(255,255,255,0.82);
+>>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
     line-height: 1.7;
     flex: 1;
     display: -webkit-box;

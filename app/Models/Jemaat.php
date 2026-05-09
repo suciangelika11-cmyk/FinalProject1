@@ -17,17 +17,12 @@ class Jemaat extends Model
         'kolom',
         'nama_lengkap',
         'nik',
-        'hubungan_keluarga',
         'tempat_lahir',
         'tanggal_lahir',
         'jenis_kelamin',
-        'baptis',
-        'sidi',
         'handphone',
         'pekerjaan',
-        'tanggal_nikah',
-        'tanggal_domisili',
-        'surat_attestasi',
+        'status_pernikahan',
         'status',
     ];
 
@@ -38,6 +33,7 @@ class Jemaat extends Model
     }
 
     // Relasi Jemaat BelongsTo User (jika ada user account untuk jemaat)
+    // Relasi Jemaat BelongsTo User
     public function user()
     {
         return $this->belongsTo(User::class);

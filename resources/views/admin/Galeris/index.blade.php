@@ -142,7 +142,7 @@
 
 <div class="content-header">
   <h1>Galeri</h1>
-  <div class="breadcrumb-bar"><a href="{{ route('welcome') }}">Home</a> / <span>Galeri</span></div>
+  <div class="breadcrumb-bar"><a href="{{ route('admin.dashboard') }}">Home</a> / <span>Galeri</span></div>
 </div>
 
 <div class="content">

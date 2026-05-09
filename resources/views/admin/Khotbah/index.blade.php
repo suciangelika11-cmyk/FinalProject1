@@ -133,7 +133,7 @@
 @section('content')
 <div class="content-header">
   <h1>Khotbah</h1>
-  <div class="breadcrumb"><a href="{{ route('welcome') }}">Home</a> / <span>Khotbah</span></div>
+  <div class="breadcrumb"><a href="{{ route('admin.dashboard') }}">Home</a> / <span>Khotbah</span></div>
 </div>
 
 <div class="content">
