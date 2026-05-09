@@ -89,6 +89,11 @@
   .leader-name  { font-family:'Rajdhani',sans-serif; font-size:15px; font-weight:700; color:var(--text); margin-bottom:3px; }
   .leader-role  { font-size:11px; color:var(--muted); margin-bottom:12px; }
   .leader-card-actions { display:flex; gap:6px; justify-content:center; }
+  .leader-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+}
 
   .tim-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:28px; }
   .tim-card { background:var(--white); border:1px solid var(--border); border-radius:13px; padding:22px 20px; box-shadow:0 1px 5px rgba(0,0,0,.05); transition:transform .2s,box-shadow .2s; animation:fadeUp .4s ease both; position:relative; overflow:hidden; }
