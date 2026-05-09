@@ -3,15 +3,20 @@
 @section('content')
 
 <style>
-body {
-    background: #f4f9ff;
+* {
+    scroll-behavior: smooth;
 }
 
-/* ──── ANIMATIONS ──── */
+body {
+    background: #0f172a;
+    color: white;
+}
+
+/* ===== KEYFRAME ANIMATIONS ===== */
 @keyframes fadeUp {
     from {
         opacity: 0;
-        transform: translateY(40px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -19,19 +24,10 @@ body {
     }
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
 @keyframes slideInLeft {
     from {
         opacity: 0;
-        transform: translateX(-60px);
+        transform: translateX(-50px);
     }
     to {
         opacity: 1;
@@ -42,7 +38,7 @@ body {
 @keyframes slideInRight {
     from {
         opacity: 0;
-        transform: translateX(60px);
+        transform: translateX(50px);
     }
     to {
         opacity: 1;
@@ -53,20 +49,11 @@ body {
 @keyframes scaleUp {
     from {
         opacity: 0;
-        transform: scale(0.9);
+        transform: scale(0.8);
     }
     to {
         opacity: 1;
         transform: scale(1);
-    }
-}
-
-@keyframes glow {
-    0%, 100% {
-        box-shadow: 0 8px 25px rgba(0,91,234,0.1);
-    }
-    50% {
-        box-shadow: 0 12px 35px rgba(0,91,234,0.25);
     }
 }
 
@@ -75,55 +62,48 @@ body {
         transform: translateY(0px);
     }
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-15px);
     }
 }
 
-@keyframes pulse {
+@keyframes glow {
     0%, 100% {
-        opacity: 1;
+        box-shadow: 0 0 20px rgba(248, 113, 113, 0), 0 10px 40px rgba(0,0,0,0.3);
     }
     50% {
-        opacity: 0.8;
+        box-shadow: 0 0 30px rgba(248, 113, 113, 0.4), 0 10px 40px rgba(0,0,0,0.3);
     }
 }
 
-/* Scroll reveal utility classes */
-.scroll-reveal {
-    opacity: 0;
-    animation: fadeUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.scroll-reveal.in-view {
-    animation-play-state: running;
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
-.scroll-reveal-left {
-    opacity: 0;
-    animation: slideInLeft 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-.scroll-reveal-right {
-    opacity: 0;
-    animation: slideInRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-.scroll-reveal-scale {
-    opacity: 0;
-    animation: scaleUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-/* Stagger delays */
-.scroll-reveal:nth-child(1), .scroll-reveal-left:nth-child(1), .scroll-reveal-right:nth-child(1), .scroll-reveal-scale:nth-child(1) { animation-delay: 0s; }
-.scroll-reveal:nth-child(2), .scroll-reveal-left:nth-child(2), .scroll-reveal-right:nth-child(2), .scroll-reveal-scale:nth-child(2) { animation-delay: 0.15s; }
-.scroll-reveal:nth-child(3), .scroll-reveal-left:nth-child(3), .scroll-reveal-right:nth-child(3), .scroll-reveal-scale:nth-child(3) { animation-delay: 0.3s; }
-
-/* ──── HERO SECTION ──── */
+/* ===== HERO SECTION ===== */
 .hero {
-    background: linear-gradient(135deg, #005bea 0%, #00c6fb 100%);
-    padding: 120px 0;
-    color: white;
+    background: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%);
+    padding: 120px 20px;
+    border-radius: 20px;
     text-align: center;
+    margin-bottom: 100px;
     position: relative;
     overflow: hidden;
 }
@@ -131,544 +111,432 @@ body {
 .hero::before {
     content: '';
     position: absolute;
-    inset: 0;
-    background: 
-        repeating-linear-gradient(
-            45deg,
-            transparent,
-            transparent 40px,
-            rgba(255,255,255,0.04) 40px,
-            rgba(255,255,255,0.04) 41px
-        ),
-        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(0,0,0,0.1) 0%, transparent 50%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
     pointer-events: none;
-    animation: fadeIn 1.2s ease-out;
 }
 
-.hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
-    opacity: 0.3;
-    pointer-events: none;
+.hero-content {
+    position: relative;
+    z-index: 1;
+    animation: slideDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .hero h1 {
-    font-weight: 800;
     font-size: 48px;
-    position: relative;
-    z-index: 1;
-    margin: 0;
-    animation: fadeUp 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    font-weight: bold;
+    margin-bottom: 20px;
+    animation: fadeUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
 }
 
 .hero p {
-    opacity: 0.95;
     font-size: 18px;
-    position: relative;
-    z-index: 1;
-    animation: fadeUp 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both;
-    font-weight: 300;
-    letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.9);
+    animation: fadeUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
 }
 
-/* ──── SECTION TITLE ──── */
-.section-title {
-    font-weight: 700;
+/* ===== STATS SECTION ===== */
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 30px;
+    margin-bottom: 100px;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%);
+    padding: 40px 20px;
+    border-radius: 16px;
+    text-align: center;
+    border: 2px solid rgba(248, 113, 113, 0.3);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: countUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.stat-card:hover {
+    transform: translateY(-12px);
+    border-color: rgba(248, 113, 113, 0.8);
+    box-shadow: 0 20px 40px rgba(248, 113, 113, 0.2), 0 0 30px rgba(248, 113, 113, 0.3);
+}
+
+.stat-number {
     font-size: 36px;
+    font-weight: bold;
+    color: #fbbf24;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+}
+
+/* ===== SECTION STYLES ===== */
+.section {
+    margin-bottom: 100px;
+    opacity: 0;
+    animation: fadeUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.section.scroll-reveal {
+    animation: none;
+}
+
+.section.active {
+    animation: fadeUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 15px;
     position: relative;
     display: inline-block;
+    animation: slideInLeft 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s both;
 }
 
-.section-title::after {
+.title::after {
     content: '';
     position: absolute;
-    bottom: -8px;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #fbbf24, transparent);
+    animation: slideInLeft 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.25s both;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #94a3b8;
+    line-height: 1.8;
+}
+
+.card {
+    background: #1e293b;
+    border-radius: 16px;
+    padding: 50px 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid rgba(248, 113, 113, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 50px rgba(248, 113, 113, 0.2), 0 10px 30px rgba(0,0,0,0.3);
+    border-color: rgba(248, 113, 113, 0.4);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
     left: 0;
     right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #005bea, #00c6fb);
-    border-radius: 20px;
-    animation: scaleUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.divider {
-    height: 4px;
-    width: 80px;
-    background: linear-gradient(90deg, #005bea, #00c6fb);
-    margin: 15px auto 30px;
-    border-radius: 20px;
-    animation: scaleUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
-}
-
-/* ──── CARDS ──── */
-.card-modern {
-    border: none;
-    border-radius: 20px;
-    padding: 25px;
-    background: white;
-    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-.card-modern::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: left 0.5s ease;
-}
-
-.card-modern:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 20px 50px rgba(0,91,234,0.2);
-}
-
-.card-modern:hover::before {
-    left: 100%;
-}
-
-.icon-modern {
-    width: 70px;
-    height: 70px;
-    border-radius: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    margin-bottom: 18px;
-    background: linear-gradient(135deg, rgba(0,91,234,0.15), rgba(0,198,251,0.1));
-    transition: all 0.35s ease;
-    position: relative;
-}
-
-.card-modern:hover .icon-modern {
-    transform: scale(1.15) rotate(5deg);
-    box-shadow: 0 8px 20px rgba(0,91,234,0.25);
-}
-
-.section-bg {
-    background: linear-gradient(180deg, #eaf4ff 0%, #ffffff 100%);
-    padding: 100px 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.section-bg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(0,198,251,0.1) 0%, transparent 70%);
-    border-radius: 50%;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(248, 113, 113, 0.05) 0%, transparent 100%);
+    border-radius: 16px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
     pointer-events: none;
 }
 
-.section-plain {
-    padding: 100px 0;
-    position: relative;
+.card:hover::before {
+    opacity: 1;
 }
 
-/* ──── SEJARAH CARD ──── */
-.sejarah-card {
-    border: none;
-    border-radius: 20px;
-    padding: 50px;
-    background: white;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    position: relative;
-    overflow: hidden;
-    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+/* ===== GRID LAYOUT ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 30px;
 }
 
-.sejarah-card::before {
-    content: '\201C';
-    position: absolute;
-    top: -20px;
-    left: 30px;
-    font-size: 140px;
-    color: #005bea;
-    opacity: 0.08;
-    font-family: Georgia, serif;
-    line-height: 1;
+.grid-item {
+    animation: scaleUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.sejarah-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #005bea, #00c6fb);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+.grid-item:nth-child(2) {
+    animation: slideInRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
 }
 
-.sejarah-card:hover::after {
-    transform: scaleX(1);
-}
-
-.sejarah-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(0,91,234,0.15);
-}
-
-/* ──── VISI MISI CARDS ──── */
-.visi-misi-card {
-    border: none;
-    border-radius: 20px;
-    padding: 40px 30px;
-    background: white;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    height: 100%;
-    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-    position: relative;
-    overflow: hidden;
-}
-
-.visi-misi-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #005bea, #00c6fb);
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.visi-misi-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 20px 50px rgba(0,91,234,0.2);
-}
-
-.visi-misi-card:hover::before {
-    transform: scaleX(1);
-}
-
-.visi-misi-card .accent-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #005bea, #00c6fb);
-    border-radius: 20px 20px 0 0;
-    display: none;
-}
-
-.visi-misi-card h4 {
-    transition: all 0.35s ease;
-}
-
-.visi-misi-card:hover h4 {
-    background: linear-gradient(135deg, #005bea, #00c6fb);
+/* ===== VISI MISI CARDS ===== */
+.grid-item h4 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #fbbf24, #f97316);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-}
-
-/* ──── GEMBALA CARD ──── */
-.gembala-card {
-    border: none;
-    border-radius: 20px;
-    padding: 50px 40px;
-    background: white;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    max-width: 680px;
-    margin: 0 auto;
-    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-    position: relative;
-    overflow: hidden;
-}
-
-.gembala-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(0,198,251,0.1) 0%, transparent 70%);
-    transition: all 0.6s ease;
-    pointer-events: none;
-}
-
-.gembala-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 20px 50px rgba(0,91,234,0.2);
-}
-
-.gembala-card:hover::before {
-    top: -30%;
-    right: -30%;
-}
-
-.gembala-img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 5px solid white;
-    box-shadow: 0 10px 35px rgba(0,91,234,0.3);
     transition: all 0.35s ease;
-    position: relative;
-    z-index: 1;
 }
 
-.gembala-img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 45px rgba(0,91,234,0.4);
+.grid-item:hover h4 {
+    filter: brightness(1.2);
 }
 
-.gembala-avatar {
+/* ===== GEMBALA SECTION ===== */
+.gembala-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.gembala-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gembala-image img,
+.avatar {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #005bea, #00c6fb);
+    object-fit: cover;
+    border: 4px solid #fbbf24;
+    box-shadow: 0 0 40px rgba(248, 113, 113, 0.3), 0 20px 60px rgba(0,0,0,0.4);
+    animation: float 4s ease-in-out infinite, fadeUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+}
+
+.avatar {
+    background: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 60px;
-    color: white;
-    margin: 0 auto 25px;
-    box-shadow: 0 10px 35px rgba(0,91,234,0.3);
-    animation: float 3s ease-in-out infinite;
+    margin: 0;
 }
 
-.gembala-avatar::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), transparent);
-    border-radius: 50%;
+.gembala-info {
+    animation: slideInRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
 }
 
-.gembala-card h4 {
-    font-size: 24px;
-    transition: all 0.35s ease;
-    position: relative;
-    z-index: 1;
-}
-
-.gembala-card:hover h4 {
-    background: linear-gradient(135deg, #005bea, #00c6fb);
+.gembala-info h4 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #fbbf24, #f97316);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
-.badge-jabatan {
-    display: inline-block;
-    background: linear-gradient(90deg, #005bea, #00c6fb);
-    color: white;
-    border-radius: 30px;
-    padding: 8px 20px;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    margin-bottom: 18px;
-    transition: all 0.35s ease;
-    box-shadow: 0 4px 15px rgba(0,91,234,0.2);
-    position: relative;
-    z-index: 1;
+.gembala-info .subtitle {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #fbbf24;
+    font-weight: 500;
 }
 
-.badge-jabatan:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0,91,234,0.3);
+.gembala-details {
+    background: rgba(248, 113, 113, 0.05);
+    border-left: 3px solid #fbbf24;
+    padding: 20px 20px 20px 25px;
+    border-radius: 8px;
+    margin-top: 20px;
+    line-height: 1.8;
 }
 
-/* ──── TEXT CONTENT ──── */
-.sejarah-card p,
-.visi-misi-card p,
-.gembala-card p {
-    transition: color 0.35s ease;
-    position: relative;
+.gembala-details p {
+    font-size: 14px;
+    color: #cbd5e1;
 }
 
-/* ──── EMPTY STATE ──── */
-.empty-state-card {
-    border: 2px dashed rgba(0,91,234,0.2);
-    border-radius: 20px;
-    padding: 60px 40px;
-    background: linear-gradient(135deg, rgba(0,91,234,0.05), rgba(0,198,251,0.05));
+/* ===== PERJALANAN SECTION ===== */
+.sejarah-card {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.8));
+    padding: 50px 40px;
+    border-radius: 16px;
+    border-left: 4px solid #fbbf24;
+    line-height: 2;
+    animation: slideInLeft 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+    font-size: 16px;
+}
+
+.sejarah-card:hover {
+    box-shadow: 0 20px 50px rgba(248, 113, 113, 0.15);
+}
+
+/* ===== CENTER UTILITY ===== */
+.center {
     text-align: center;
-    animation: fadeUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* ──── RESPONSIVE ──── */
+/* ===== SCROLL REVEAL ANIMATIONS ===== */
+.scroll-reveal {
+    opacity: 0;
+}
+
+.scroll-reveal.active {
+    animation: fadeUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.scroll-reveal-left {
+    opacity: 0;
+}
+
+.scroll-reveal-left.active {
+    animation: slideInLeft 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.scroll-reveal-right {
+    opacity: 0;
+}
+
+.scroll-reveal-right.active {
+    animation: slideInRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.scroll-reveal-scale {
+    opacity: 0;
+}
+
+.scroll-reveal-scale.active {
+    animation: scaleUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
     .hero {
-        padding: 80px 0;
+        padding: 80px 20px;
     }
 
     .hero h1 {
-        font-size: 36px;
+        font-size: 32px;
     }
 
-    .section-title {
+    .hero p {
+        font-size: 16px;
+    }
+
+    .stats-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .title {
         font-size: 28px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .gembala-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .card {
+        padding: 30px 20px;
     }
 
     .sejarah-card {
         padding: 30px 20px;
-    }
-
-    .gembala-card {
-        padding: 35px 20px;
-    }
-
-    .section-bg, .section-plain {
-        padding: 60px 0;
     }
 }
 </style>
 
 @if($data)
 
-{{-- ── HERO ── --}}
-<section class="hero">
-    <div class="container">
-        <h1>{{ $data->header_title }}</h1>
-        <p>{{ $data->header_description }}</p>
-    </div>
-</section>
+<div class="container">
 
-{{-- ── SEJARAH ── --}}
-<section class="section-plain">
-    <div class="container">
-        <div class="text-center mb-5 scroll-reveal">
-            <h2 class="section-title">Sejarah Gereja</h2>
-            <div class="divider"></div>
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>{{ $data->header_title }}</h1>
+            <p>{{ $data->header_description }}</p>
         </div>
-        <div class="sejarah-card scroll-reveal" style="animation-delay: 0.2s;">
-            <div class="d-flex align-items-start gap-4 flex-wrap flex-md-nowrap">
-                <div class="icon-modern bg-primary bg-opacity-25 text-primary flex-shrink-0">
-                    <i class="bi bi-book-half"></i>
-                </div>
-                <p class="text-muted mb-0" style="line-height:1.85;font-size:15.5px;">
-                    {{ $data->sejarah }}
-                </p>
+    </div>
+
+    <!-- STATISTICS SECTION -->
+    <div class="stats-section scroll-reveal">
+        <div class="stat-card">
+            <div class="stat-number">1978</div>
+            <div class="stat-label">Sejak Berdiri</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">2.4K+</div>
+            <div class="stat-label">Jemaat Aktif</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">12</div>
+            <div class="stat-label">Pelayanan</div>
+        </div>
+    </div>
+
+    <!-- SEJARAH / PERJALANAN IMAN KAMI -->
+    <div class="section scroll-reveal">
+        <div class="title">Perjalanan Iman Kami</div>
+        <div class="sejarah-card">
+            {{ $data->sejarah }}
+        </div>
+    </div>
+
+    <!-- VISI MISI -->
+    <div class="section scroll-reveal">
+        <div class="title">Visi & Misi</div>
+        <div class="grid">
+            <div class="card grid-item scroll-reveal-left">
+                <h4>Visi</h4>
+                <p class="subtitle">{{ $data->visi }}</p>
+            </div>
+
+            <div class="card grid-item scroll-reveal-right">
+                <h4>Misi</h4>
+                <p class="subtitle">{{ $data->misi }}</p>
             </div>
         </div>
     </div>
-</section>
 
-{{-- ── VISI & MISI ── --}}
-<section class="section-bg">
-    <div class="container">
-        <div class="text-center mb-5 scroll-reveal">
-            <h2 class="section-title">Visi &amp; Misi</h2>
-            <div class="divider"></div>
-        </div>
-        <div class="row g-4 justify-content-center">
-
-            <div class="col-md-5">
-                <div class="visi-misi-card scroll-reveal-left text-center" style="animation-delay: 0.1s;">
-                    <div class="icon-modern bg-primary bg-opacity-25 text-primary mx-auto">
-                        <i class="bi bi-eye"></i>
-                    </div>
-                    <h4 class="fw-bold mb-3">Visi</h4>
-                    <p class="text-muted mb-0" style="line-height:1.8;">{{ $data->visi }}</p>
-                </div>
+    <!-- GEMBALA SIDANG -->
+    <div class="section scroll-reveal">
+        <div class="title center">Gembala Sidang</div>
+        
+        <div class="gembala-section">
+            <div class="gembala-image">
+                @if($data->gembala_foto)
+                    <img src="{{ asset('storage/'.$data->gembala_foto) }}" alt="{{ $data->gembala_nama }}">
+                @else
+                    <div class="avatar">👤</div>
+                @endif
             </div>
 
-            <div class="col-md-5">
-                <div class="visi-misi-card scroll-reveal-right text-center" style="animation-delay: 0.2s;">
-                    <div class="icon-modern bg-primary bg-opacity-25 text-primary mx-auto">
-                        <i class="bi bi-bullseye"></i>
-                    </div>
-                    <h4 class="fw-bold mb-3">Misi</h4>
-                    <p class="text-muted mb-0" style="line-height:1.8;">{{ $data->misi }}</p>
+            <div class="gembala-info">
+                <h4>{{ $data->gembala_nama }}</h4>
+                <p class="subtitle">{{ $data->gembala_jabatan }}</p>
+                <p style="font-size: 15px; line-height: 1.8; color: #cbd5e1;">{{ $data->gembala_deskripsi }}</p>
+                
+                <div class="gembala-details">
+                    <p><strong>📍 Alamat:</strong> Jalan Gembala Sidang</p>
+                    <p><strong>📧 Email:</strong> info@gbi.id</p>
+                    <p><strong>📞 Kontak:</strong> +62-XXX-XXX-XXXX</p>
                 </div>
             </div>
-
         </div>
     </div>
-</section>
 
-{{-- ── GEMBALA ── --}}
-<section class="section-plain">
-    <div class="container">
-        <div class="text-center mb-5 scroll-reveal">
-            <h2 class="section-title">Gembala Sidang</h2>
-            <div class="divider"></div>
-        </div>
-
-        <div class="gembala-card text-center scroll-reveal-scale" style="animation-delay: 0.15s;">
-
-            @if($data->gembala_foto)
-                <img src="{{ asset('storage/' . $data->gembala_foto) }}"
-                     class="gembala-img mb-4"
-                     alt="{{ $data->gembala_nama }}">
-            @else
-                <div class="gembala-avatar">
-                    <i class="bi bi-person-fill"></i>
-                </div>
-            @endif
-
-            <h4 class="fw-bold mb-1">{{ $data->gembala_nama }}</h4>
-
-            @if($data->gembala_jabatan)
-                <div class="badge-jabatan">{{ $data->gembala_jabatan }}</div>
-            @endif
-
-            @if($data->gembala_deskripsi)
-                <p class="text-muted mt-2 mb-0"
-                   style="line-height:1.85;font-size:14.5px;max-width:480px;margin:0 auto;">
-                    {{ $data->gembala_deskripsi }}
-                </p>
-            @endif
-
-        </div>
-    </div>
-</section>
+</div>
 
 @else
 
-{{-- ── EMPTY STATE ── --}}
-<section class="hero">
-    <div class="container">
-        <h1>Tentang Gereja</h1>
-        <p>Mengenal lebih dalam rumah Tuhan kita</p>
-    </div>
-</section>
-
-<section class="section-plain">
-    <div class="container text-center">
-        <div class="empty-state-card">
-            <div class="icon-modern bg-primary bg-opacity-25 text-primary mx-auto mb-3">
-                <i class="bi bi-info-circle"></i>
-            </div>
-            <h4 class="fw-bold mb-2">Data Belum Tersedia</h4>
-            <p class="text-muted mb-0">Informasi tentang gereja belum diisi. Silakan hubungi administrator.</p>
-        </div>
-    </div>
-</section>
+<div class="container center">
+    <h2 style="color: #94a3b8; margin-top: 50px;">Data belum tersedia</h2>
+</div>
 
 @endif
 
-@endsection
-
+<!-- SCROLL REVEAL JAVASCRIPT -->
 <script>
-// ──── SCROLL REVEAL ANIMATIONS ────
 document.addEventListener('DOMContentLoaded', function() {
+    // Intersection Observer for scroll animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -100px 0px'
@@ -677,8 +545,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('in-view');
-                observer.unobserve(entry.target);
+                entry.target.classList.add('active');
+                // Optional: unobserve after animation
+                // observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
@@ -687,13 +556,56 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale').forEach(el => {
         observer.observe(el);
     });
-});
 
-// ──── RIPPLE EFFECT ON CARD CLICK ────
-document.addEventListener('DOMContentLoaded', function() {
-    const cards = document.querySelectorAll('.card-modern, .sejarah-card, .visi-misi-card, .gembala-card');
-    
-    cards.forEach(card => {
+    // Counter animation for statistics
+    const stats = document.querySelectorAll('.stat-card');
+    let hasAnimated = false;
+
+    const countObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !hasAnimated) {
+                hasAnimated = true;
+                animateStats();
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelector('.stats-section') && countObserver.observe(document.querySelector('.stats-section'));
+
+    function animateStats() {
+        const counts = [
+            { element: document.querySelector('.stat-card:nth-child(1) .stat-number'), end: 1978 },
+            { element: document.querySelector('.stat-card:nth-child(2) .stat-number'), text: '2.4K+' },
+            { element: document.querySelector('.stat-card:nth-child(3) .stat-number'), end: 12 }
+        ];
+
+        counts.forEach((item, index) => {
+            if (!item.element) return;
+            
+            if (item.text) {
+                // For text values, just show them
+                setTimeout(() => {
+                    item.element.textContent = item.text;
+                }, index * 100);
+            } else {
+                // For numbers, animate counting
+                let current = 0;
+                const increment = Math.ceil(item.end / 30);
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= item.end) {
+                        item.element.textContent = item.end;
+                        clearInterval(timer);
+                    } else {
+                        item.element.textContent = current;
+                    }
+                }, 30);
+            }
+        });
+    }
+
+    // Ripple effect on card click
+    document.querySelectorAll('.card').forEach(card => {
         card.addEventListener('click', function(e) {
             const ripple = document.createElement('span');
             const rect = this.getBoundingClientRect();
@@ -705,59 +617,38 @@ document.addEventListener('DOMContentLoaded', function() {
             ripple.style.left = x + 'px';
             ripple.style.top = y + 'px';
             ripple.classList.add('ripple');
-            
+
+            // Add ripple style if not exists
+            if (!document.querySelector('style[data-ripple]')) {
+                const style = document.createElement('style');
+                style.setAttribute('data-ripple', 'true');
+                style.textContent = `
+                    .ripple {
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(248, 113, 113, 0.6);
+                        transform: scale(0);
+                        animation: rippleAnimation 0.6s ease-out;
+                        pointer-events: none;
+                    }
+                    @keyframes rippleAnimation {
+                        to {
+                            transform: scale(4);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+
+            this.style.position = 'relative';
+            this.style.overflow = 'hidden';
             this.appendChild(ripple);
-            
+
             setTimeout(() => ripple.remove(), 600);
         });
     });
 });
-
-// ──── SMOOTH SCROLL BEHAVIOR ────
-if (!CSS.supports('scroll-behavior', 'smooth')) {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
-}
-
-// ──── PARALLAX EFFECT ON HERO ────
-window.addEventListener('scroll', function() {
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        const scrolled = window.scrollY;
-        hero.style.backgroundPosition = `center ${scrolled * 0.5}px`;
-    }
-});
-
-// ──── ADD RIPPLE EFFECT STYLES ────
-const style = document.createElement('style');
-style.textContent = `
-    .card-modern, .sejarah-card, .visi-misi-card, .gembala-card {
-        position: relative;
-        overflow: hidden;
-    }
-
-    .ripple {
-        position: absolute;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 70%);
-        transform: scale(0);
-        animation: rippleAnimation 0.6s ease-out;
-        pointer-events: none;
-    }
-
-    @keyframes rippleAnimation {
-        to {
-            transform: scale(4);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);
 </script>
+
+@endsection

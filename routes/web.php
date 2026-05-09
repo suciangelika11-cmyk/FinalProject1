@@ -1,8 +1,5 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
-namespace App\Http\Controllers\User;
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfilController;
@@ -12,9 +9,11 @@ use App\Http\Controllers\Admin\GaleriController as AdminGaleriController;
 use App\Http\Controllers\Admin\KhotbahController as AdminKhotbahController;
 use App\Http\Controllers\Admin\JadwalController as AdminJadwalController;
 use App\Http\Controllers\Admin\PelayananController as AdminPelayananController;
+use App\Http\Controllers\Admin\KegiatanPelayananController as AdminKegiatanPelayananController;
 use App\Http\Controllers\Admin\TentangController as AdminTentangController;
 use App\Http\Controllers\Admin\KontakController as AdminKontakController;
 use App\Http\Controllers\Admin\PengumumanController as AdminPengumumanController;
+use App\Http\Controllers\Admin\AbsensiController as AdminAbsensiController;
 use App\Http\Controllers\Admin\JemaatController as AdminJemaatController;
 use App\Http\Controllers\User\PengumumanController as UserPengumumanController;
 use App\Http\Controllers\User\GaleriController as UserGaleriController;
@@ -35,29 +34,10 @@ Route::get('/login', [AdminLoginController::class, 'showLoginForm'])->name('logi
 Route::post('/login', [AdminLoginController::class, 'login'])->name('login.process');
 Route::post('/logout', [AdminLoginController::class, 'logout'])->name('logout');
 
-Route::prefix('admin')->middleware(['auth', 'role:super_admin,admin,pelayan'])->group(function () {
+Route::prefix('admin')->middleware(['auth', 'role:super_admin,admin'])->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.home');
     })->name('admin.dashboard');
-});
-
-Route::prefix('admin')->middleware(['auth', 'role:super_admin'])->group(function () {
-    Route::get('/accounts', [AccountController::class, 'index'])->name('accounts.index');
-    Route::get('/accounts/create', [AccountController::class, 'create'])->name('accounts.create');
-    Route::post('/accounts', [AccountController::class, 'store'])->name('accounts.store');
-    Route::get('/accounts/{user}/edit', [AccountController::class, 'edit'])->name('accounts.edit');
-    Route::put('/accounts/{user}', [AccountController::class, 'update'])->name('accounts.update');
-    Route::delete('/accounts/{user}', [AccountController::class, 'destroy'])->name('accounts.destroy');
-});
-
-Route::get('/', function () {
-    return view('welcome');
-})->name("home");
-
-Route::middleware('auth')->prefix('admin')->group(function () {
-    Route::get('/', function () {
-        return view('admin.home');
-    })->name('welcome');
 
     Route::get('/galeri', [AdminGaleriController::class, 'index'])->name('galeri.index');
     Route::get('/galeri/create', [AdminGaleriController::class, 'create'])->name('galeri.create');
@@ -74,6 +54,14 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/pelayanan/{pelayanan}/edit', [AdminPelayananController::class, 'edit'])->name('pelayanan.edit');
     Route::put('/pelayanan/{pelayanan}', [AdminPelayananController::class, 'update'])->name('pelayanan.update');
     Route::delete('/pelayanan/{pelayanan}', [AdminPelayananController::class, 'destroy'])->name('pelayanan.destroy');
+
+    Route::get('/kegiatan', [AdminKegiatanPelayananController::class, 'index'])->name('kegiatan.index');
+    Route::get('/kegiatan/create', [AdminKegiatanPelayananController::class, 'create'])->name('kegiatan.create');
+    Route::post('/kegiatan', [AdminKegiatanPelayananController::class, 'store'])->name('kegiatan.store');
+    Route::get('/kegiatan/{kegiatan}', [AdminKegiatanPelayananController::class, 'show'])->name('kegiatan.show');
+    Route::get('/kegiatan/{kegiatan}/edit', [AdminKegiatanPelayananController::class, 'edit'])->name('kegiatan.edit');
+    Route::put('/kegiatan/{kegiatan}', [AdminKegiatanPelayananController::class, 'update'])->name('kegiatan.update');
+    Route::delete('/kegiatan/{kegiatan}', [AdminKegiatanPelayananController::class, 'destroy'])->name('kegiatan.destroy');
 
     Route::get('/tentang', [AdminTentangController::class, 'index'])->name('tentang.index');
     Route::get('/tentang/create', [AdminTentangController::class, 'create'])->name('tentang.create');
@@ -99,6 +87,13 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::put('/jadwal/{Jadwal}', [AdminJadwalController::class, 'update'])->name('jadwal.update');
     Route::delete('/jadwal/{Jadwal}', [AdminJadwalController::class, 'destroy'])->name('jadwal.destroy');
 
+    Route::get('/absensi', [AdminAbsensiController::class, 'index'])->name('absensi.index');
+    Route::get('/absensi/create', [AdminAbsensiController::class, 'create'])->name('absensi.create');
+    Route::post('/absensi/store', [AdminAbsensiController::class, 'store'])->name('absensi.store');
+    Route::get('/absensi/{absensi}/edit', [AdminAbsensiController::class, 'edit'])->name('absensi.edit');
+    Route::put('/absensi/{absensi}', [AdminAbsensiController::class, 'update'])->name('absensi.update');
+    Route::delete('/absensi/{absensi}', [AdminAbsensiController::class, 'destroy'])->name('absensi.destroy');
+
     Route::get('/kontak', [AdminKontakController::class, 'index'])->name('kontak.index');
     Route::get('/kontak/create', [AdminKontakController::class, 'create'])->name('kontak.create');
     Route::post('/kontak/store', [AdminKontakController::class, 'store'])->name('kontak.store');
@@ -121,31 +116,95 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/pengumuman/{pengumuman}/edit', [AdminPengumumanController::class, 'edit'])->name('pengumuman.edit');
     Route::put('/pengumuman/{pengumuman}', [AdminPengumumanController::class, 'update'])->name('pengumuman.update');
     Route::delete('/pengumuman/{pengumuman}', [AdminPengumumanController::class, 'destroy'])->name('pengumuman.destroy');
-
 });
 
-Route::middleware('auth')->prefix('pelayan')->group(function () {
+Route::prefix('admin')->middleware(['auth', 'role:super_admin,admin'])->group(function () {
+    Route::get('/accounts', [AccountController::class, 'index'])->name('accounts.index');
+    Route::get('/accounts/create', [AccountController::class, 'create'])->name('accounts.create');
+    Route::post('/accounts', [AccountController::class, 'store'])->name('accounts.store');
+    Route::get('/accounts/{user}/edit', [AccountController::class, 'edit'])->name('accounts.edit');
+    Route::put('/accounts/{user}', [AccountController::class, 'update'])->name('accounts.update');
+    Route::delete('/accounts/{user}', [AccountController::class, 'destroy'])->name('accounts.destroy');
+});
+
+Route::get('/', function () {
+    return view('welcome');
+})->name("home");
+
+    Route::middleware('auth', 'role:pelayan')->prefix('pelayan')->group(function () {
     Route::get('/', function () {
-        return view('pelayanan.beranda');
-    })->name('welcome');
+        return view('Pelayan.beranda');
+    })->name('pelayan.home');
 
-    Route::get('/tentang', [TentangController::class, 'index'])->name('pelayanan.metaprofil');
+    Route::get('/jadwal-ibadah', function () {
+        $jadwalMingguan = \App\Models\Jadwal::get()
+            ->groupBy('day')
+            ->mapWithKeys(function ($group, $day) {
+                return [$day => $group];
+            });
+        $acaraKhusus = \App\Models\Pengumuman::get();
+        return view('Pelayan.jadwal_ibadah.jadwalibadah', compact('jadwalMingguan', 'acaraKhusus'));
+    })->name('pelayan.jadwal_ibadah');
 
-    Route::get('/Jadwal', [UserJadwalController::class, 'index'])->name('pelayanan.jadwal');    
+    Route::get('/kegiatan-pelayan', function () {
+        $jadwalPelayan = \App\Models\Jadwal::with('pelayanan')
+            ->whereNotNull('pelayanan_id')
+            ->orderByRaw("CASE day
+                WHEN 'Minggu' THEN 1
+                WHEN 'Sabtu' THEN 2
+                WHEN 'Jumat' THEN 3
+                WHEN 'Kamis' THEN 4
+                WHEN 'Rabu' THEN 5
+                WHEN 'Selasa' THEN 6
+                WHEN 'Senin' THEN 7
+                ELSE 8 END")
+            ->orderBy('start_time')
+            ->get();
 
-    Route::get('/Khotbah', [UserKhotbahController::class, 'index'])->name('pelayanan.khotbah');
+        $pelayanans = \App\Models\Pelayanan::with('anggotas')->latest()->get();
+        $kegiatans = \App\Models\KegiatanPelayanan::latest()->get();
 
-    Route::get('/Pelayanan', [UserPelayananController::class, 'index'])->name('pelayanan.pelayanan');
+        return view('Pelayan.KegiatanPelayan.KegiatanPelayan', compact('jadwalPelayan', 'pelayanans', 'kegiatans'));
+    })->name('pelayan.kegiatan_pelayan');
 
-    Route::get('/kontak', [UserKontakController::class, 'index'])->name('pelayanan.pengumuman');
+    Route::get('/absensi', function () {
+        $absensi = \App\Models\Absensi::latest()->get();
+        return view('Pelayan.Absensi.absensi', compact('absensi'));
+    })->name('pelayan.absensi');
+
+    Route::get('/khotbah', function () {
+        $khotbah = \App\Models\Khotbah::latest()->get();
+        return view('Pelayan.Khotbah.Khotbah', compact('khotbah'));
+    })->name('pelayan.khotbah');
+
+    Route::get('/pengumuman', function () {
+        $pengumuman = \App\Models\Pengumuman::where('is_active', true)
+            ->latest()
+            ->get();
+
+        return view('Pelayan.Pengumuman.Pengumuman', compact('pengumuman'));
+    })->name('pelayan.pengumuman');
+
+    Route::get('/pengumuman/{pengumuman}', function (\App\Models\Pengumuman $pengumuman) {
+        if (!$pengumuman->is_active) {
+            abort(404);
+        }
+
+        return view('Pelayan.Pengumuman.show', compact('pengumuman'));
+    })->name('pelayan.pengumuman.show');
+
+    Route::get('/tentang', function () {
+        $data = \App\Models\Tentang::first();
+        return view('Pelayan.Tentang kami.Meta', compact('data'));
+    })->name('pelayan.tentang');
 });
 
     
-    Route::get('/tentang', [TentangController::class, 'index'])->name('user.tentang');
+    Route::get('/tentang', [UserTentangController::class, 'index'])->name('user.tentang');
 
     Route::get('/Jadwal', [UserJadwalController::class, 'index'])->name('user.jadwal');    
 
-    Route::get('/Galeri', [GaleriController::class, 'index'])->name('user.galeri');
+    Route::get('/Galeri', [UserGaleriController::class, 'index'])->name('user.galeri');
 
     Route::get('/Khotbah', [UserKhotbahController::class, 'index'])->name('user.khotbah');
 

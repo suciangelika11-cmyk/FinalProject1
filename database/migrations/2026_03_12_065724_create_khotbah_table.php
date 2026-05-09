@@ -10,11 +10,13 @@ return new class extends Migration
     {
         Schema::create('khotbah', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()
+                  ->constrained('users')->onDelete('set null');
             $table->string('title');
             $table->string('video');
             $table->text('description')->nullable();
             $table->string('thumbnail')->nullable();
-            $table->date('tanggal')->nullable();
+            $table->date('sermon_date')->nullable();
             $table->timestamps();
         });
     }

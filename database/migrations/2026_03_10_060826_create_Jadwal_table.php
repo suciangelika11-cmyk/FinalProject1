@@ -10,6 +10,10 @@ return new class extends Migration
     {
         Schema::create('jadwal', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()
+                  ->constrained('users')->onDelete('set null');
+            $table->foreignId('pelayanan_id')->nullable()
+                  ->constrained('pelayanan')->onDelete('set null');
             $table->string('title');
             $table->string('day');
             $table->time('start_time');

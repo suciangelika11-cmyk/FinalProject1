@@ -10,6 +10,8 @@ return new class extends Migration
     {
         Schema::create('jemaats', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()
+                  ->constrained('users')->onDelete('set null');
 
             $table->string('no_kk');
             $table->string('nama_keluarga');
@@ -19,22 +21,13 @@ return new class extends Migration
 
             $table->string('nama_lengkap');
             $table->string('nik')->nullable();
-            $table->string('hubungan_keluarga')->nullable();
 
             $table->string('tempat_lahir')->nullable();
             $table->date('tanggal_lahir')->nullable();
             $table->enum('jenis_kelamin', ['Laki', 'Perempuan'])->nullable();
 
-            $table->enum('baptis', ['Sudah', 'Belum'])->default('Belum');
-            $table->enum('sidi', ['Sudah', 'Belum'])->default('Belum');
-
             $table->string('handphone')->nullable();
             $table->string('pekerjaan')->nullable();
-
-            $table->date('tanggal_nikah')->nullable();
-            $table->date('tanggal_domisili')->nullable();
-
-            $table->string('surat_attestasi')->nullable();
 
             $table->timestamps();
         });

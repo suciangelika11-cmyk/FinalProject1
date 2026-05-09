@@ -40,7 +40,7 @@
                      with font-awesome or any other icon font library -->
 
                 <li class="nav-item">
-                    <a href="{{ route('welcome') }}" class="nav-link active">
+                    <a href="{{ route('admin.dashboard') }}" class="nav-link active">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Beranda
@@ -57,11 +57,29 @@
                     </a>
                 </li>
 
+                                <li class="nav-item">
+                    <a href="{{ route('kegiatan.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Kegiatan Pelayanan
+                        </p>
+                    </a>
+                </li>
+
                 <li class="nav-item">
                     <a href="{{ route('jadwal.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Jadwal Ibadah
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('absensi.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Absensi
                         </p>
                     </a>
                 </li>

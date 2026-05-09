@@ -17,11 +17,18 @@ class Galeri extends Model
         'description',
         'image',
         'event_date',
+        'user_id',
     ];
 
     protected $casts = [
         'event_date' => 'date',
     ];
+
+    // Relasi Galeri BelongsTo User
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function getImageUrlAttribute()
     {

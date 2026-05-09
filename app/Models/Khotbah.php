@@ -18,11 +18,18 @@ class Khotbah extends Model
         'description',
         'thumbnail',
         'sermon_date',
+        'user_id',
     ];
 
     protected $casts = [
         'sermon_date' => 'date',
     ];
+
+    // Relasi Khotbah BelongsTo User
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function getThumbnailUrlAttribute()
     {

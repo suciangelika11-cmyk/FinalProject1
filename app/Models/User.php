@@ -22,6 +22,30 @@ class User extends Authenticatable
         'foto',
     ];
 
+    // Relasi User HasMany Khotbah
+    public function khotbahs()
+    {
+        return $this->hasMany(Khotbah::class);
+    }
+
+    // Relasi User HasMany Pengumuman
+    public function pengumumans()
+    {
+        return $this->hasMany(Pengumuman::class);
+    }
+
+    // Relasi User HasMany Jadwal
+    public function jadwals()
+    {
+        return $this->hasMany(Jadwal::class);
+    }
+
+    // Relasi User HasMany Galeri
+    public function galeris()
+    {
+        return $this->hasMany(Galeri::class);
+    }
+
     protected $hidden = [
         'password',
         'remember_token',
@@ -47,7 +71,7 @@ class User extends Authenticatable
         return match ($this->role) {
             'super_admin' => 'Super Admin',
             'admin' => 'Admin',
-            'pelayanan' => 'Pelayanan',
+            'pelayan' => 'Pelayan',
             default => 'Administrator',
         };
     }

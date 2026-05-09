@@ -146,7 +146,7 @@
   <nav class="topbar-nav">
     <a href="#" class="active">Beranda</a>
     <a href="{{ route('tentang.index') }}">Tentang Kami</a>
-    <a href="{{ route('jadwal.index') }}">Jadwal Ibadah</a>
+    <a href="{{ route('jadwal.index') }}">Jadwal Pelayan</a>
     <a href="{{ route('galeri.index') }}">Galeri</a>
     <a href="{{ route('khotbah.index') }}">Khotbah</a>
     <a href="{{ route('pelayanan.index') }}">Pelayanan</a>
@@ -161,12 +161,14 @@
 <div class="layout">
   <aside class="sidebar">
     <div class="sidebar-section">Menu Utama</div>
-    <a href="{{ route('welcome') }}" class="active"><span class="icon">⊞</span> Dashboard</a>
+    <a href="{{ route('admin.dashboard') }}" class="active"><span class="icon">⊞</span> Dashboard</a>
     <a href="{{ route('tentang.index') }}"><span class="icon">ℹ</span> Tentang Kami</a>
     <a href="{{ route('jadwal.index') }}"><span class="icon">📅</span> Jadwal Ibadah</a>
+    <a href="{{ route('absensi.index') }}"><span class="icon">✅</span> Absensi</a>
     <a href="{{ route('galeri.index') }}"><span class="icon">🖼</span> Galeri</a>
     <a href="{{ route('khotbah.index') }}"><span class="icon">🎙</span> Khotbah</a>
     <a href="{{ route('pelayanan.index') }}"><span class="icon">🙌</span> Pelayanan</a>
+    <a href="{{ route('kegiatan.index') }}"><span class="icon">🎉</span> Kegiatan Pelayanan</a>
     <a href="{{ route('kontak.index') }}"><span class="icon">✉</span> Kontak</a>
     <a href="{{ route('pengumuman.index') }}"><span class="icon">📢</span> Pengumuman</a>
     <a href="{{ route('jemaat.index') }}"><span class="icon">👥</span> Jemaat @if($pendingJemaatCount > 0) <span style="background:#ef4444; border-radius:999px; color:#fff; padding:0 6px; font-size:11px; margin-left:4px;">{{ $pendingJemaatCount }}</span>@endif</a>
@@ -214,7 +216,10 @@
         <div class="card cyan"><div class="card-icon-wrap">📋</div><div class="card-title">Tentang Kami</div><div class="card-desc">Edit visi, misi, sejarah, dan profil gereja yang tampil di halaman publik.</div><div class="card-arrow">→</div></div>
       </a>
       <a href="{{ route('jadwal.index') }}" style="text-decoration:none">
-        <div class="card gold"><div class="card-icon-wrap">📅</div><div class="card-title">Jadwal Ibadah</div><div class="card-desc">Tambah atau ubah jadwal kebaktian mingguan, doa, dan acara khusus.</div><div class="card-arrow">→</div></div>
+        <div class="card gold"><div class="card-icon-wrap">📅</div><div class="card-title">Pelayanan</div><div class="card-desc">Tambah atau ubah jadwal pelayanan, kebaktian, dan acara khusus.</div><div class="card-arrow">→</div></div>
+      </a>
+      <a href="{{ route('absensi.index') }}" style="text-decoration:none">
+        <div class="card cyan"><div class="card-icon-wrap">✅</div><div class="card-title">Absensi</div><div class="card-desc">Kelola dan lihat data absensi ibadah untuk seluruh sesi.</div><div class="card-arrow">→</div></div>
       </a>
       <a href="{{ route('galeri.index') }}" style="text-decoration:none">
         <div class="card white"><div class="card-icon-wrap">🖼</div><div class="card-title">Galeri</div><div class="card-desc">Upload foto dan video dokumentasi kegiatan gereja untuk ditampilkan publik.</div><div class="card-arrow">→</div></div>
@@ -228,7 +233,7 @@
       <a href="{{ route('kontak.index') }}" style="text-decoration:none">
         <div class="card white"><div class="card-icon-wrap">✉</div><div class="card-title">Kontak</div><div class="card-desc">Perbarui nomor telepon, alamat, email, dan tautan media sosial gereja.</div><div class="card-arrow">→</div></div>
       </a>
-      <a href="{{ route('welcome') }}" style="text-decoration:none">
+      <a href="{{ route('admin.dashboard') }}" style="text-decoration:none">
         <div class="card cyan"><div class="card-icon-wrap">🏠</div><div class="card-title">Beranda</div><div class="card-desc">Edit banner utama, teks selamat datang, dan konten featured di halaman depan.</div><div class="card-arrow">→</div></div>
       </a>
       <a href="{{ route('pengumuman.index') }}" style="text-decoration:none">

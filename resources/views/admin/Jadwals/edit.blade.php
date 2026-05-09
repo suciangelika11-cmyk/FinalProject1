@@ -33,7 +33,7 @@
 
 <div class="form-wrap">
     <div class="form-card">
-        <h2>✏️ Edit Jadwal Ibadah & Kegiatan</h2>
+        <h2>✏️ Edit Jadwal Pelayan & Kegiatan</h2>
 
         <a href="{{ route('jadwal.index') }}" class="btn-back" style="display:inline-flex;margin-bottom:18px;">
             ← Kembali
@@ -105,6 +105,18 @@
             <div class="fg">
                 <label>Icon</label>
                 <input type="text" name="icon" value="{{ old('icon', $Jadwal->icon) }}" placeholder="Contoh: 📅">
+            </div>
+
+            <div class="fg">
+                <label>Tim Pelayanan</label>
+                <select name="pelayanan_id">
+                    <option value="">-- Pilih Tim Pelayanan --</option>
+                    @foreach($pelayanans as $team)
+                        <option value="{{ $team->id }}" {{ old('pelayanan_id', $Jadwal->pelayanan_id) == $team->id ? 'selected' : '' }}>
+                            {{ $team->title }}{{ $team->leader ? ' - ' . $team->leader : '' }}
+                        </option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="btn-row">

@@ -147,7 +147,7 @@
 <div class="content-header">
   <h1>Informasi Kontak Gereja</h1>
   <div class="breadcrumb-bar">
-    <a href="{{ route('welcome') }}">Home</a> / <span>Kontak</span>
+    <a href="{{ route('admin.dashboard') }}">Home</a> / <span>Kontak</span>
   </div>
 </div>
 

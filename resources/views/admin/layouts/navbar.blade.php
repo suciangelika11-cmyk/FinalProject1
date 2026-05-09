@@ -5,13 +5,16 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ route('welcome') }}" class="nav-link">Beranda</a>
+            <a href="{{ route('admin.dashboard') }}" class="nav-link">Beranda</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a href="{{ route('tentang.index') }}" class="nav-link">Tentang Kami</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a href="{{ route('jadwal.index') }}" class="nav-link">Jadwal Ibadah</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{ route('absensi.index') }}" class="nav-link">Absensi</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a href="{{ route('galeri.index') }}" class="nav-link">Galeri</a>

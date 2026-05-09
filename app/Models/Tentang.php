@@ -21,5 +21,12 @@ class Tentang extends Model
         'gembala_jabatan',
         'gembala_deskripsi',
         'gembala_foto',
+        'user_id',
     ];
+
+    // Relasi Tentang BelongsTo User (admin yang manage data tentang)
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

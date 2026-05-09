@@ -34,6 +34,11 @@ class AdminLoginController extends Controller
 
         $request->session()->regenerate();
 
+        // Redirect based on user role
+        if (auth()->user()->role === 'pelayan') {
+            return redirect()->route('pelayan.home');
+        }
+
         return redirect()->route('admin.dashboard');
     }
 

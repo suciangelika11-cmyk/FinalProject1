@@ -10,10 +10,13 @@ return new class extends Migration
     {
         Schema::create('kontak', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()
+                  ->constrained('users')->onDelete('set null');
             $table->string('address');
             $table->string('phone');
             $table->string('email');
             $table->text('office_hours')->nullable();
+            $table->text('map_embed')->nullable();
             $table->timestamps();
         });
     }
@@ -22,4 +25,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('kontak');
     }
-};  
+};

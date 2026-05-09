@@ -137,9 +137,9 @@
   </div>
   <div class="topbar-center">
     <nav class="topbar-nav">
-      <a href="{{ route('welcome') }}">Beranda</a>
+      <a href="{{ route('admin.dashboard') }}">Beranda</a>
       <a href="{{ route('tentang.index') }}" class="active">Tentang Kami</a>
-      <a href="{{ route('jadwal.index') }}">Jadwal Ibadah</a>
+      <a href="{{ route('jadwal.index') }}">Jadwal Pelayan</a>
       <a href="{{ route('galeri.index') }}">Galeri</a>
       <a href="{{ route('khotbah.index') }}">Khotbah</a>
       <a href="{{ route('pelayanan.index') }}">Pelayanan</a>
@@ -162,10 +162,9 @@
   </div>
   <div class="nav-section">Menu Utama</div>
   <nav>
-    <a href="{{ route('welcome') }}"><span class="ico">⊞</span> Dashboard</a>
+    <a href="{{ route('admin.dashboard') }}"><span class="ico">⊞</span> Dashboard</a>
     <a href="{{ route('tentang.index') }}" class="active"><span class="ico">ℹ</span> Tentang Kami</a>
-    <a href="{{ route('jadwal.index') }}"><span class="ico">📅</span> Jadwal Ibadah</a>
-    <a href="{{ route('galeri.index') }}"><span class="ico">🖼</span> Galeri</a>
+    <a href="{{ route('jadwal.index') }}"><span class="ico">📅</span> Jadwal Pelayan</a>      <a href="{{ route('absensi.index') }}"><span class="ico">✅</span> Absensi</a>    <a href="{{ route('galeri.index') }}"><span class="ico">🖼</span> Galeri</a>
     <a href="{{ route('khotbah.index') }}"><span class="ico">🎙</span> Khotbah</a>
     <a href="{{ route('pelayanan.index') }}"><span class="ico">🙌</span> Pelayanan</a>
     <a href="{{ route('kontak.index') }}"><span class="ico">✉</span> Kontak</a>

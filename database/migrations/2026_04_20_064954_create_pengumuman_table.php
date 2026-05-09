@@ -10,6 +10,8 @@ return new class extends Migration
     {
         Schema::create('pengumuman', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()
+                  ->constrained('users')->onDelete('set null');
             $table->string('title');
             $table->text('content');
             $table->date('publish_date')->nullable();

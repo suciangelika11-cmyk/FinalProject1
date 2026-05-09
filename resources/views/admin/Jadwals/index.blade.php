@@ -161,15 +161,15 @@
 
 @section('content')
 <div class="content-header">
-  <h1>Jadwal Ibadah & Kegiatan</h1>
-  <div class="breadcrumb-bar"><a href="{{ route('welcome') }}">Home</a> / <span>Jadwal Ibadah</span></div>
+  <h1>Pelayanan & Kegiatan</h1>
+  <div class="breadcrumb-bar"><a href="{{ route('admin.dashboard') }}">Home</a> / <span>Pelayanan</span></div>
 </div>
 
 <div class="content">
   <div class="page-hero">
-    <div class="hero-tag">📅 Jadwal Ibadah</div>
-    <h2>Jadwal Ibadah & Kegiatan</h2>
-    <p>Mari bertumbuh bersama dalam iman, doa, dan persekutuan. Kelola jadwal ibadah mingguan dan acara khusus gereja dari sini.</p>
+    <div class="hero-tag">📅 Pelayanan</div>
+    <h2>Pelayanan & Kegiatan</h2>
+    <p>Mari bertumbuh bersama dalam iman, doa, dan persekutuan. Kelola jadwal pelayanan mingguan dan acara khusus gereja dari sini.</p>
     <div class="hero-actions">
       <a href="{{ route('jadwal.create') }}" class="btn-hero-primary">＋ Tambah Jadwal</a>
       <a href="{{ route('jadwal.create') }}" class="btn-hero-outline">✨ Tambah Acara Khusus</a>

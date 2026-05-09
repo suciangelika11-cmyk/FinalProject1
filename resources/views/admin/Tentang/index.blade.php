@@ -170,7 +170,7 @@
 <div class="content-header">
   <h1>Tentang Kami</h1>
   <div class="breadcrumb-bar">
-    <a href="{{ route('welcome') }}">Home</a> / <span>Tentang Kami</span>
+    <a href="{{ route('admin.dashboard') }}">Home</a> / <span>Tentang Kami</span>
   </div>
 </div>
 

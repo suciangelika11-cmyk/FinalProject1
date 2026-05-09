@@ -4,19 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Jadwal;
+use App\Models\Pelayanan;
 use Illuminate\Http\Request;
 
 class JadwalController extends Controller
 {
     public function index()
     {
-        $jadwal = Jadwal::all();
+        $jadwal = Jadwal::with('pelayanan')->get();
         return view('admin.Jadwals.index', compact('jadwal'));
     }
 
     public function create()
     {
-        return view('admin.Jadwals.create');
+        $pelayanans = Pelayanan::orderBy('title')->get();
+        return view('admin.Jadwals.create', compact('pelayanans'));
     }
 
     public function store(Request $request)
@@ -29,7 +31,8 @@ class JadwalController extends Controller
             'location' => 'nullable',
             'description' => 'nullable',
             'category' => 'required',
-            'icon' => 'nullable'
+            'icon' => 'nullable',
+            'pelayanan_id' => 'nullable|exists:pelayanan,id'
         ]);
 
         Jadwal::create($request->all());
@@ -45,7 +48,8 @@ class JadwalController extends Controller
 
     public function edit(Jadwal $Jadwal)
     {
-        return view('admin.Jadwals.edit', compact('Jadwal'));
+        $pelayanans = Pelayanan::orderBy('title')->get();
+        return view('admin.Jadwals.edit', compact('Jadwal', 'pelayanans'));
     }
 
     public function update(Request $request, Jadwal $Jadwal)
@@ -58,7 +62,8 @@ class JadwalController extends Controller
             'location' => 'nullable',
             'description' => 'nullable',
             'category' => 'required',
-            'icon' => 'nullable'
+            'icon' => 'nullable',
+            'pelayanan_id' => 'nullable|exists:pelayanan,id'
         ]);
 
         $Jadwal->update($request->all());

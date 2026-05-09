@@ -23,24 +23,21 @@
             left: 0;
             right: 0;
             z-index: 999;
-            background: rgba(255, 255, 255, 0.2) !important;
-            backdrop-filter: blur(8px);
+            background: transparent !important;
             box-shadow: none !important;
             transform: translateY(0);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: none !important;
         }
 
         .navbar.scrolling {
-            background: rgba(255, 255, 255, 0.4) !important;
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            background: transparent !important;
+            border-bottom: none !important;
         }
 
         .navbar.scrolled {
-            background: rgba(255, 255, 255, 0.95) !important;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.15) !important;
-            border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+            background: transparent !important;
+            box-shadow: none !important;
+            border-bottom: none !important;
         }
 
         .navbar.hidden {
@@ -193,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm" id="mainNavbar">
 <div class="container">
-    <a class="navbar-brand" href="{{ route('welcome') }}"><img src="/gambar/gbi.jpeg" alt="GBI Tambunan" height="40"> GBI TAMBUNAN</a>
+    <a class="navbar-brand" href="{{ route('home') }}"><img src="/gambar/gbi.jpeg" alt="GBI Tambunan" height="40"> GBI TAMBUNAN</a>
     <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menuNav"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="menuNav">
         <ul class="navbar-nav ms-auto menu-navbar align-items-center">
@@ -256,13 +253,13 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="col-md-4 mb-4 mb-md-0 footer-section">
             <h5>Menu</h5>
             <ul>
-                <li><a href="{{ route('welcome') }}">Beranda</a></li>
+                <li><a href="{{ route('home') }}">Beranda</a></li>
                 <li><a href="{{ route('user.tentang') }}">Tentang Kami</a></li>
                 <li><a href="{{ route('user.jadwal') }}">Jadwal</a></li>
                 <li><a href="{{ route('user.galeri') }}">Galeri</a></li>
                 <li><a href="{{ route('user.khotbah') }}">Khotbah</a></li>
                 <li><a href="{{ route('user.pelayanan') }}">Pelayanan</a></li>
-                <li><a href="{{ route('welcome') }}">Login</a></li>
+                <li><a href="{{ route('login') }}">Login</a></li>
             </ul>
         </div>
 

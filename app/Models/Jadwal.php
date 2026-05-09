@@ -20,5 +20,19 @@ class Jadwal extends Model
         'description',
         'category',
         'icon',
+        'user_id',
+        'pelayanan_id',
     ];
+
+    // Relasi Jadwal BelongsTo User
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    // Relasi Jadwal BelongsTo Pelayanan
+    public function pelayanan()
+    {
+        return $this->belongsTo(Pelayanan::class);
+    }
 }
