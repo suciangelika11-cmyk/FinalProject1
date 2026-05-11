@@ -47,7 +47,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--b900);color:var(--white);
 .kh-title{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,38px);font-weight:700;color:var(--white);margin-bottom:18px;}
 .kh-rule{width:40px;height:2px;background:linear-gradient(90deg,var(--b500),var(--b300));border-radius:99px;margin:0 auto;}
 
-.container{max-width:1180px;margin:0 auto;padding:0 28px;}
+.tentang-container{max-width:1180px;margin:0 auto;padding:0 28px;}
 
 /* STATS SECTION */
 .stats-section {
@@ -290,10 +290,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--b900);color:var(--white);
     <div class="kh-hero-ring"></div>
     <div class="kh-hero-ring2"></div>
     <div class="kh-hero-glow"></div>
-    <div class="wrap container">
+    <div class="wrap tentang-container">
         <div class="kh-eyebrow"><span class="kh-dot"></span>Tentang Kami<span class="kh-dot"></span></div>
-        <h1>{{ $data->header_title ?? 'Tentang Gereja Kami' }}</h1>
-        <p>{{ $data->header_description ?? 'Mengenal lebih dekat komunitas iman kami yang berdedikasi untuk melayani dan memuliakan Tuhan' }}</p>
+<h1>Tentang GBI Tambunan</h1>
+
+<p>
+    Gereja Bethel Indonesia Tambunan hadir untuk melayani jemaat,
+    membangun iman, dan menjadi berkat bagi masyarakat.
+</p>
     </div>
 </section>
 

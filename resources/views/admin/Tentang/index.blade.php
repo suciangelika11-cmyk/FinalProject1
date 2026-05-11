@@ -196,7 +196,6 @@
   @if($tentang)
     <div class="section-head">
       <div class="section-title">📖 Sejarah Kami</div>
-      <a href="{{ route('tentang.edit', $tentang->id) }}" class="edit-btn">✏ Edit</a>
     </div>
     <div class="sejarah-card">
       <div class="sejarah-text">
@@ -206,7 +205,6 @@
 
     <div class="section-head">
       <div class="section-title">✨ Visi & Misi</div>
-      <a href="{{ route('tentang.edit', $tentang->id) }}" class="edit-btn">✏ Edit</a>
     </div>
     <div class="vm-grid">
       <div class="vm-card">
@@ -221,7 +219,6 @@
 
     <div class="section-head">
       <div class="section-title">👤 Kepemimpinan</div>
-      <a href="{{ route('tentang.edit', $tentang->id) }}" class="edit-btn">✏ Edit</a>
     </div>
     <div class="leader-grid">
       <div class="leader-card">

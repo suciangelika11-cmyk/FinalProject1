@@ -51,16 +51,6 @@
     @method('PUT')
 
     <div class="fg">
-      <label>Judul Header</label>
-      <input type="text" name="header_title" value="{{ old('header_title', $tentang->header_title) }}" required>
-    </div>
-
-    <div class="fg">
-      <label>Deskripsi Header</label>
-      <textarea name="header_description" rows="3">{{ old('header_description', $tentang->header_description) }}</textarea>
-    </div>
-
-    <div class="fg">
       <label>Sejarah Gereja</label>
       <textarea name="sejarah" rows="5" required>{{ old('sejarah', $tentang->sejarah) }}</textarea>
     </div>
