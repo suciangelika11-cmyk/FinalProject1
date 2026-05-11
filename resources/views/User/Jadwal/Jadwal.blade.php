@@ -1,526 +1,525 @@
 @extends('layouts.app')
 
 @section('content')
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-    --gold: #C9A84C;
-    --gold-light: #F0D48A;
-    --gold-dark: #A0722A;
-    --navy: #0D1B2A;
-    --navy-mid: #1B2F4A;
-    --navy-soft: #243B55;
-    --navy-card: #1A2E45;
-    --cream: #FAF7F2;
-    --cream-dark: #F0EAE0;
-    --text-main: #FFFFFF;
-    --text-muted: #94A3B8;
-    --white: #FFFFFF;
-    --radius-card: 24px;
-    --radius-pill: 100px;
+/* ===============================
+   HERO
+================================= */
+.jd-hero{
+    position:relative;
+    padding:clamp(75px,10vw,120px) 16px clamp(65px,8vw,95px);
+    overflow:hidden;
+    text-align:center;
+    background:
+        radial-gradient(circle at top left, rgba(93,146,232,.18), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(45,101,200,.16), transparent 30%),
+        linear-gradient(160deg,#0f2444 0%,#102a52 50%,#0d1e3a 100%);
+    border-bottom:1px solid rgba(93,146,232,.12);
 }
 
-body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--navy);
-    color: var(--text-main);
+.jd-hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+    background-size:60px 60px;
+    mask-image: radial-gradient(circle at center, black 20%, transparent 85%);
+    pointer-events:none;
 }
 
-/* ─── HERO ─── */
-.hero {
-    background: var(--navy);
-    position: relative;
-    overflow: hidden;
-    padding: 110px 0 80px;
-    text-align: center;
-    border-bottom: 1px solid rgba(201,168,76,0.12);
+.jd-hero .wrap{
+    position:relative;
+    z-index:2;
+    max-width:720px;
+    margin:auto;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: -120px; left: 50%;
-    transform: translateX(-50%);
-    width: 700px; height: 700px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
-    pointer-events: none;
+.eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    color:#93bef8;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    margin-bottom:20px;
 }
 
-.hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 80px;
-    background: var(--navy-mid);
-    clip-path: ellipse(55% 100% at 50% 100%);
+.eyebrow-dot{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#93bef8;
 }
 
-.hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(201,168,76,0.15);
-    border: 1px solid rgba(201,168,76,0.35);
-    border-radius: var(--radius-pill);
-    padding: 7px 20px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--gold-light);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 28px;
+.jd-hero h1{
+    font-family:'Playfair Display', serif;
+    font-size:clamp(34px,6vw,62px);
+    font-weight:700;
+    line-height:1.08;
+    color:#fff;
+    margin-bottom:18px;
+    animation:fadeUp .8s ease .2s both;
 }
 
-.hero-eyebrow span.dot {
-    width: 6px; height: 6px;
-    background: var(--gold);
-    border-radius: 50%;
-    display: inline-block;
+.jd-hero h1 em{
+    font-style:normal;
+    background:linear-gradient(135deg,#93bef8,#d7e7ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
-.hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(36px, 5vw, 58px);
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1.15;
-    margin-bottom: 18px;
+.jd-hero p{
+    font-size:clamp(14px,2vw,16px);
+    font-weight:300;
+    line-height:1.8;
+    color:rgba(255,255,255,.74);
+    max-width:520px;
+    margin:auto;
+    animation:fadeUp .8s ease .4s both;
 }
 
-.hero h1 em {
-    font-style: italic;
-    color: var(--gold-light);
+/* ===============================
+   SECTION
+================================= */
+.jd-weekly,
+.jd-special{
+    padding:clamp(60px,8vw,95px) 0;
 }
 
-.hero p {
-    font-size: 17px;
-    font-weight: 300;
-<<<<<<< HEAD
-    color: rgba(255,255,255,0.65);
-=======
-    color: rgba(255,255,255,0.88);
->>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
-    max-width: 480px;
-    margin: 0 auto;
-    line-height: 1.7;
+.jd-weekly{
+    background:#0f2040;
 }
 
-/* ─── SECTION HEADER ─── */
-.section-header {
-    text-align: center;
-    margin-bottom: 56px;
+.jd-special{
+    background:#0d1e3a;
+    border-top:1px solid rgba(93,146,232,.08);
 }
 
-.section-label {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-<<<<<<< HEAD
-    color: var(--gold-light);
-=======
-    color: #FFFFFF !important;
->>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
-    margin-bottom: 14px;
+.global-container{
+    width:100%;
+    max-width:1280px;
+    margin:auto;
+    padding:0 18px;
 }
 
-.section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(28px, 3.5vw, 40px);
-    font-weight: 600;
-<<<<<<< HEAD
-    color: var(--white);
-=======
-    color: #FFFFFF !important;
->>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
-    line-height: 1.2;
-    margin-bottom: 16px;
+.section-head{
+    text-align:center;
+    margin-bottom:60px;
 }
 
-.section-rule {
-    width: 48px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--gold), var(--gold-light));
-    border-radius: 99px;
-    margin: 0 auto;
+.section-label{
+    display:inline-block;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:#93bef8;
+    margin-bottom:14px;
 }
 
-<<<<<<< HEAD
-=======
-.section-title,
-.day-label-text,
-.special-card .card-title,
-.schedule-card .card-title {
-    color: #FFFFFF !important;
+.section-title{
+    font-family:'Playfair Display', serif;
+    font-size:clamp(30px,4vw,44px);
+    font-weight:700;
+    line-height:1.2;
+    color:#fff;
+    margin-bottom:18px;
 }
 
->>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
-/* ─── DAY LABEL ─── */
-.day-label {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 32px;
+.section-rule{
+    width:65px;
+    height:3px;
+    border-radius:999px;
+    margin:auto;
+    background:linear-gradient(90deg,#1a4a9e,#93bef8);
 }
 
-.day-label::before,
-.day-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3));
+/* ===============================
+   DAY TITLE
+================================= */
+.jd-day{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-bottom:28px;
 }
 
-.day-label::after {
-    background: linear-gradient(90deg, rgba(201,168,76,0.3), transparent);
+.jd-day::before,
+.jd-day::after{
+    content:'';
+    flex:1;
+    height:1px;
+    background:linear-gradient(90deg,transparent,rgba(93,146,232,.28));
 }
 
-.day-label-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--white);
-    white-space: nowrap;
+.jd-day::after{
+    background:linear-gradient(90deg,rgba(93,146,232,.28),transparent);
 }
 
-/* ─── SCHEDULE CARD ─── */
-.schedule-card {
-    background: var(--navy-card);
-    border-radius: var(--radius-card);
-    padding: 32px 28px;
-    border: 1px solid rgba(201,168,76,0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
+.jd-day-text{
+    font-family:'Playfair Display', serif;
+    font-size:clamp(18px,2.5vw,22px);
+    font-weight:600;
+    color:#fff;
+    white-space:nowrap;
 }
 
-.schedule-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--gold), var(--gold-light));
-    opacity: 0;
-    transition: opacity 0.3s ease;
+/* ===============================
+   CARD
+================================= */
+.jd-card,
+.jd-special-card{
+    position:relative;
+    height:100%;
+    overflow:hidden;
+    border-radius:22px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(93,146,232,.14);
+    backdrop-filter:blur(10px);
+    padding:24px;
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .3s ease;
 }
 
-.schedule-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 24px 60px rgba(0,0,0,0.35);
-    border-color: rgba(201,168,76,0.4);
+.jd-card::before,
+.jd-special-card::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:2px;
+    background:linear-gradient(90deg,#1a4a9e,#93bef8);
+    opacity:0;
+    transition:opacity .3s ease;
 }
 
-.schedule-card:hover::before {
-    opacity: 1;
+.jd-card:hover,
+.jd-special-card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(93,146,232,.34);
+    box-shadow:0 28px 60px rgba(0,0,0,.34);
 }
 
-.card-icon-wrap {
-    width: 52px;
-    height: 52px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, rgba(201,168,76,0.2), rgba(201,168,76,0.08));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    color: var(--gold-light);
-    margin-bottom: 22px;
-    flex-shrink: 0;
+.jd-card:hover::before,
+.jd-special-card:hover::before{
+    opacity:1;
 }
 
-.card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 19px;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 16px;
-    line-height: 1.3;
+.jd-card-icon{
+    width:54px;
+    height:54px;
+    border-radius:16px;
+    background:rgba(26,74,158,.16);
+    border:1px solid rgba(93,146,232,.22);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#93bef8;
+    font-size:22px;
+    margin-bottom:20px;
 }
 
-.card-meta {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13.5px;
-<<<<<<< HEAD
-    color: rgba(255,255,255,0.6);
-=======
-    color: rgba(255,255,255,0.78);
->>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
-    margin-bottom: 8px;
-    font-weight: 400;
+.jd-card-title{
+    font-family:'Playfair Display', serif;
+    font-size:20px;
+    font-weight:600;
+    color:#fff;
+    line-height:1.35;
+    margin-bottom:16px;
 }
 
-.card-meta i {
-    color: var(--gold);
-    font-size: 13px;
-    flex-shrink: 0;
+.jd-card-meta{
+    display:flex;
+    align-items:flex-start;
+    gap:8px;
+    margin-bottom:8px;
+    color:rgba(255,255,255,.68);
+    font-size:13.5px;
+    line-height:1.6;
 }
 
-.card-desc {
-    font-size: 14px;
-<<<<<<< HEAD
-    color: rgba(255,255,255,0.5);
-=======
-    color: rgba(255,255,255,0.78);
->>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
-    line-height: 1.65;
-    margin-top: 14px;
-    margin-bottom: 22px;
+.jd-card-meta i{
+    color:#5592e8;
+    font-size:13px;
+    margin-top:2px;
+    flex-shrink:0;
 }
 
-.btn-detail {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--gold-light);
-    border: 1px solid rgba(201,168,76,0.35);
-    border-radius: var(--radius-pill);
-    padding: 8px 20px;
-    text-decoration: none;
-    transition: all 0.25s ease;
-    background: transparent;
+.jd-card-desc{
+    margin-top:14px;
+    margin-bottom:22px;
+    font-size:14px;
+    line-height:1.7;
+    color:rgba(255,255,255,.58);
 }
 
-.btn-detail:hover {
-    background: var(--gold);
-    color: var(--navy);
-    border-color: var(--gold);
+/* ===============================
+   BUTTON
+================================= */
+.jd-btn-detail{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    border-radius:999px;
+    padding:10px 18px;
+    background:rgba(26,74,158,.12);
+    border:1px solid rgba(93,146,232,.28);
+    color:#93bef8;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:500;
+    transition:all .25s ease;
 }
 
-/* ─── EMPTY STATE ─── */
-.empty-state {
-    text-align: center;
-    padding: 60px 20px;
-    color: rgba(255,255,255,0.4);
+.jd-btn-detail:hover{
+    background:#1a4a9e;
+    border-color:#1a4a9e;
+    color:#fff;
 }
 
-/* ─── SPECIAL EVENTS SECTION ─── */
-.special-section {
-    background: var(--navy);
-    padding: 100px 0;
-    position: relative;
-    overflow: hidden;
-    border-top: 1px solid rgba(201,168,76,0.1);
-    border-bottom: 1px solid rgba(201,168,76,0.1);
+/* ===============================
+   BADGE
+================================= */
+.jd-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    border-radius:999px;
+    padding:7px 14px;
+    margin-top:14px;
+    background:rgba(26,74,158,.14);
+    border:1px solid rgba(93,146,232,.26);
+    color:#93bef8;
+    font-size:12px;
+    font-weight:500;
 }
 
-.special-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 80px;
-    background: var(--navy-mid);
-    clip-path: ellipse(55% 100% at 50% 0%);
+/* ===============================
+   EMPTY
+================================= */
+.jd-empty{
+    text-align:center;
+    padding:70px 20px;
+    color:rgba(255,255,255,.52);
 }
 
-.special-section::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 80px;
-    background: var(--navy);
-    clip-path: ellipse(55% 100% at 50% 100%);
+.jd-empty i{
+    font-size:44px;
+    color:rgba(93,146,232,.4);
+    display:block;
+    margin-bottom:14px;
 }
 
-/* ─── SPECIAL CARD ─── */
-.special-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(201,168,76,0.25);
-    border-radius: var(--radius-card);
-    padding: 36px 28px;
-    height: 100%;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+/* ===============================
+   ANIMATION
+================================= */
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(24px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
-.special-card::after {
-    content: '';
-    position: absolute;
-    bottom: -30px; right: -30px;
-    width: 120px; height: 120px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
-    pointer-events: none;
+/* ===============================
+   RESPONSIVE
+================================= */
+@media(max-width:768px){
+
+    .section-head{
+        margin-bottom:44px;
+    }
+
+    .jd-card,
+    .jd-special-card{
+        padding:20px;
+    }
+
+    .jd-card-title{
+        font-size:18px;
+    }
 }
 
-.special-card:hover {
-    background: rgba(255,255,255,0.09);
-    border-color: rgba(201,168,76,0.5);
-    transform: translateY(-6px);
-    box-shadow: 0 24px 60px rgba(0,0,0,0.35);
-}
+@media(max-width:576px){
 
-.special-card .card-icon-wrap {
-    background: linear-gradient(135deg, rgba(201,168,76,0.25), rgba(201,168,76,0.1));
-    color: var(--gold-light);
-}
+    .jd-day{
+        gap:10px;
+    }
 
-.special-card .card-title { color: var(--white); }
-<<<<<<< HEAD
-.special-card .card-desc  { color: rgba(255,255,255,0.55); }
-=======
-.special-card .card-desc  { color: rgba(255,255,255,0.82); }
->>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
+    .jd-day-text{
+        font-size:18px;
+    }
 
-.badge-gold {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(201,168,76,0.15);
-    border: 1px solid rgba(201,168,76,0.35);
-    color: var(--gold-light);
-    border-radius: var(--radius-pill);
-    padding: 5px 14px;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-}
+    .jd-card:hover,
+    .jd-special-card:hover{
+        transform:none;
+    }
 
-/* ─── WEEKLY SECTION ─── */
-.weekly-section {
-    background: var(--navy-mid);
-    padding: 100px 0;
-}
-
-/* ─── RESPONSIVE ─── */
-@media (max-width: 768px) {
-    .hero { padding: 80px 0 60px; }
-    .weekly-section, .special-section { padding: 80px 0; }
+    .jd-btn-detail{
+        width:100%;
+        justify-content:center;
+    }
 }
 </style>
 
-<!-- ════════════════════════════
-     HERO
-════════════════════════════ -->
-<section class="hero">
-    <div class="container position-relative" style="z-index: 1;">
-        <div class="hero-eyebrow">
-            <span class="dot"></span>
+<!-- HERO -->
+<section class="jd-hero">
+    <div class="wrap container">
+        <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
             Gereja Terbuka Untuk Semua
-            <span class="dot"></span>
+            <span class="eyebrow-dot"></span>
         </div>
-        <h1>Jadwal Ibadah<br><em>&amp; Kegiatan Jemaat</em></h1>
-        <p>Mari bertumbuh bersama dalam iman, doa, dan persekutuan yang penuh kasih</p>
+
+        <h1>
+            Jadwal Ibadah<br>
+            <em>&amp; Kegiatan Jemaat</em>
+        </h1>
+
+        <p>
+            Mari bertumbuh bersama dalam iman, doa, dan persekutuan
+            yang penuh kasih di dalam Tuhan.
+        </p>
     </div>
 </section>
 
+<!-- JADWAL MINGGUAN -->
+<section class="jd-weekly">
+    <div class="global-container">
 
-<!-- ════════════════════════════
-     JADWAL MINGGUAN
-════════════════════════════ -->
-<section class="weekly-section">
-    <div class="container">
-
-        <div class="section-header">
+        <div class="section-head">
             <span class="section-label">Setiap Minggu</span>
             <h2 class="section-title">Jadwal Mingguan</h2>
             <div class="section-rule"></div>
         </div>
 
-        @forelse ($jadwalMingguan as $hari => $kegiatanList)
+        @forelse($jadwalMingguan as $hari => $kegiatanList)
 
-            <div class="day-label mb-4">
-                <span class="day-label-text">{{ $hari }}</span>
+            <div class="jd-day">
+                <span class="jd-day-text">{{ $hari }}</span>
             </div>
 
             <div class="row g-4 mb-5">
-                @foreach ($kegiatanList as $kegiatan)
-                    <div class="col-md-6 col-lg-4">
-                        <div class="schedule-card">
-                            <div class="card-icon-wrap">
-                                <i class="{{ $kegiatan->icon ?: 'bi bi-calendar-heart' }}"></i>
-                            </div>
+                @foreach($kegiatanList as $kegiatan)
 
-                            <h3 class="card-title">{{ $kegiatan->title }}</h3>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="jd-card">
 
-                            <div class="card-meta">
-                                <i class="bi bi-clock"></i>
-                                <span>
-                                    {{ $kegiatan->start_time }}
-                                    {{ $kegiatan->end_time ? '– ' . $kegiatan->end_time : '' }} WIB
-                                </span>
-                            </div>
-
-                            <div class="card-meta">
-                                <i class="bi bi-geo-alt-fill"></i>
-                                <span>{{ $kegiatan->location ?: 'Lokasi menyusul' }}</span>
-                            </div>
-
-                            @if ($kegiatan->description)
-                                <p class="card-desc">{{ $kegiatan->description }}</p>
-                            @else
-                                <div style="flex:1;"></div>
-                            @endif
-
-                            <a href="#" class="btn-detail">
-                                Lihat Detail
-                                <i class="bi bi-arrow-right" style="font-size:12px;"></i>
-                            </a>
+                        <div class="jd-card-icon">
+                            <i class="{{ $kegiatan->icon ?: 'bi bi-calendar-heart' }}"></i>
                         </div>
+
+                        <h3 class="jd-card-title">
+                            {{ $kegiatan->title }}
+                        </h3>
+
+                        <div class="jd-card-meta">
+                            <i class="bi bi-clock"></i>
+                            <span>
+                                {{ $kegiatan->start_time }}
+                                @if($kegiatan->end_time)
+                                    - {{ $kegiatan->end_time }}
+                                @endif
+                                WIB
+                            </span>
+                        </div>
+
+                        <div class="jd-card-meta">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <span>
+                                {{ $kegiatan->location ?: 'Lokasi menyusul' }}
+                            </span>
+                        </div>
+
+                        @if($kegiatan->description)
+                        <p class="jd-card-desc">
+                            {{ $kegiatan->description }}
+                        </p>
+                        @endif
+
+                        <a href="#" class="jd-btn-detail">
+                            Lihat Detail
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
                     </div>
+                </div>
+
                 @endforeach
             </div>
 
         @empty
-            <div class="empty-state">
-                <i class="bi bi-calendar2-x" style="font-size:48px; color:rgba(201,168,76,0.5); display:block; margin-bottom:16px;"></i>
-                <p>Jadwal mingguan belum tersedia.</p>
-            </div>
+
+        <div class="jd-empty">
+            <i class="bi bi-calendar2-x"></i>
+            <p>Jadwal mingguan belum tersedia.</p>
+        </div>
+
         @endforelse
 
     </div>
 </section>
 
+<!-- ACARA KHUSUS -->
+<section class="jd-special">
+    <div class="global-container">
 
-<!-- ════════════════════════════
-     ACARA KHUSUS
-════════════════════════════ -->
-<section class="special-section">
-    <div class="container position-relative" style="z-index: 1;">
-
-        <div class="section-header">
+        <div class="section-head">
             <span class="section-label">Akan Datang</span>
             <h2 class="section-title">Acara Khusus</h2>
             <div class="section-rule"></div>
         </div>
 
         <div class="row g-4 justify-content-center">
-            @forelse ($acaraKhusus as $acara)
-                <div class="col-md-6 col-lg-4">
-                    <div class="special-card">
-                        <div class="card-icon-wrap">
-                            <i class="{{ $acara->icon ?: 'bi bi-stars' }}"></i>
-                        </div>
 
-                        <h3 class="card-title">{{ $acara->title }}</h3>
-                        <p class="card-desc">{{ $acara->description }}</p>
+            @forelse($acaraKhusus as $acara)
 
-                        <div class="badge-gold">
-                            <i class="bi bi-calendar2-check" style="font-size:11px;"></i>
-                            {{ $acara->day ?: 'Acara Khusus' }}
-                        </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+
+                <div class="jd-special-card">
+
+                    <div class="jd-card-icon">
+                        <i class="{{ $acara->icon ?: 'bi bi-stars' }}"></i>
                     </div>
+
+                    <h3 class="jd-card-title">
+                        {{ $acara->title }}
+                    </h3>
+
+                    <p class="jd-card-desc">
+                        {{ $acara->description }}
+                    </p>
+
+                    <div class="jd-badge">
+                        <i class="bi bi-calendar2-check"></i>
+                        {{ $acara->day ?: 'Acara Khusus' }}
+                    </div>
+
                 </div>
+
+            </div>
+
             @empty
-                <div class="empty-state">
-                    <i class="bi bi-calendar2-x" style="font-size:48px; color:rgba(201,168,76,0.5); display:block; margin-bottom:16px;"></i>
-                    <p style="color:rgba(255,255,255,0.45);">Belum ada acara khusus.</p>
-                </div>
+
+            <div class="jd-empty">
+                <i class="bi bi-calendar2-x"></i>
+                <p>Belum ada acara khusus.</p>
+            </div>
+
             @endforelse
+
         </div>
 
     </div>
 </section>
-
 @endsection

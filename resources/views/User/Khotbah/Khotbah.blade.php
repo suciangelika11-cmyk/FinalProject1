@@ -2,627 +2,687 @@
 
 @section('content')
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-    --gold: #C9A84C;
-    --gold-light: #F0D48A;
-    --gold-dim: rgba(201,168,76,0.18);
-    --navy: #0B1829;
-    --navy2: #13243A;
-    --navy3: #1C3354;
-    --muted: #8A95A3;
-    --r-pill: 999px;
-    --r-card: 18px;
+:root{
+    --b950:#020810;
+    --b900:#050f1f;
+    --b800:#071830;
+    --b700:#0d2448;
+    --b600:#163562;
+    --b500:#1e4a8e;
+    --b400:#2d65bf;
+    --b300:#5592e0;
+    --b200:#93bef5;
+    --white:#fff;
+    --r-pill:999px;
+    --r-card:22px;
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background: var(--navy2);
-    color: #fff;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* ── HERO ── */
-.hero {
-    position: relative;
-    padding: 100px 0 110px;
-    text-align: center;
-    overflow: hidden;
-    background: var(--navy);
+body{
+    background:var(--b900);
+    color:var(--white);
+    font-family:'DM Sans',sans-serif;
 }
 
-.hero-bg-ring {
-    position: absolute;
-    top: -160px; left: 50%;
-    transform: translateX(-50%);
-    width: 600px; height: 600px;
-    border-radius: 50%;
-    border: 1px solid rgba(201,168,76,0.07);
-    pointer-events: none;
+/* HERO */
+.kh-hero{
+    position:relative;
+    padding:120px 0 130px;
+    overflow:hidden;
+    text-align:center;
+    background:
+        radial-gradient(circle at top, rgba(45,101,191,.18), transparent 40%),
+        linear-gradient(180deg,var(--b950),var(--b900));
 }
 
-.hero-bg-ring2 {
-    position: absolute;
-    top: -80px; left: 50%;
-    transform: translateX(-50%);
-    width: 400px; height: 400px;
-    border-radius: 50%;
-    border: 1px solid rgba(201,168,76,0.05);
-    pointer-events: none;
+.kh-ring{
+    position:absolute;
+    border-radius:50%;
+    border:1px solid rgba(85,146,224,.08);
+    left:50%;
+    transform:translateX(-50%);
 }
 
-.hero-glow {
-    position: absolute;
-    top: 0; left: 50%;
-    transform: translateX(-50%);
-    width: 500px; height: 280px;
-    background: radial-gradient(ellipse at top, rgba(201,168,76,0.09) 0%, transparent 70%);
-    pointer-events: none;
+.kh-ring.one{
+    width:650px;
+    height:650px;
+    top:-260px;
 }
 
-.hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(201,168,76,0.12);
-    border: 1px solid rgba(201,168,76,0.28);
-    border-radius: var(--r-pill);
-    padding: 6px 18px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-<<<<<<< HEAD
-    color: var(--gold-light);
-=======
-    color: #FFFFFF !important;
->>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
-    margin-bottom: 28px;
+.kh-ring.two{
+    width:430px;
+    height:430px;
+    top:-150px;
 }
 
-.eyebrow-dot {
-    width: 5px; height: 5px;
-    border-radius: 50%;
-    background: var(--gold);
-    display: inline-block;
+.kh-wrap{
+    position:relative;
+    z-index:2;
 }
 
-.hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(34px, 6vw, 58px);
-    font-weight: 700;
-    line-height: 1.12;
-<<<<<<< HEAD
-    color: #fff;
-=======
-    color: #FFFFFF !important;
->>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
-    margin-bottom: 18px;
+.kh-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 18px;
+    border-radius:999px;
+    border:1px solid rgba(85,146,224,.2);
+    background:rgba(45,101,191,.08);
+    color:var(--b200);
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    margin-bottom:28px;
 }
 
-.hero h1 em { font-style: italic; color: var(--gold-light); }
-
-.hero p {
-    font-size: 15px;
-    font-weight: 300;
-<<<<<<< HEAD
-    color: rgba(255,255,255,0.5);
-    max-width: 420px;
-    margin: 0 auto;
-    line-height: 1.75;
+.kh-dot{
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:var(--b300);
 }
 
-/* ── WAVE ── */
-.wave-sep { display: block; width: 100%; overflow: hidden; line-height: 0; }
-.wave-sep svg { display: block; width: 100%; height: 60px; }
-
-/* ── BODY ── */
-.khotbah-section { background: var(--navy2); padding: 0 0 90px; }
-
-.section-header { text-align: center; padding: 60px 0 44px; }
-
-.section-label {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gold);
-    display: block;
-    margin-bottom: 12px;
-=======
-    color: rgba(255,255,255,0.88);
-    max-width: 420px;
-    margin: 0 auto;
-    line-height: 1.75;
->>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
+.kh-hero h1{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(38px,6vw,66px);
+    line-height:1.1;
+    margin-bottom:18px;
+    font-weight:700;
 }
 
-/* ── WAVE ── */
-.wave-sep { display: block; width: 100%; overflow: hidden; line-height: 0; }
-.wave-sep svg { display: block; width: 100%; height: 60px; }
-
-/* ── BODY ── */
-.khotbah-section { background: var(--navy2); padding: 0 0 90px; }
-
-.section-header { text-align: center; padding: 60px 0 44px; }
-
-.section-label {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #FFFFFF !important;
-    display: block;
-    margin-bottom: 12px;
+.kh-hero h1 em{
+    font-style:italic;
+    color:var(--b200);
 }
 
-.khotbah-section .section-title,
-.section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(26px, 4vw, 38px);
-    font-weight: 600;
-<<<<<<< HEAD
-    color: #fff;
-=======
-    color: #FFFFFF !important;
->>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
-    line-height: 1.2;
-    margin-bottom: 18px;
+.kh-hero p{
+    max-width:520px;
+    margin:auto;
+    font-size:15px;
+    line-height:1.8;
+    color:rgba(255,255,255,.72);
 }
 
-.section-rule {
-    width: 40px; height: 2px;
-    background: linear-gradient(90deg, var(--gold), var(--gold-light));
-    border-radius: 99px;
-    margin: 0 auto;
+/* WAVE */
+.kh-wave{
+    line-height:0;
+    display:block;
 }
 
-/* ── SEARCH ── */
-.search-wrap {
-    max-width: 480px;
-    margin: 0 auto 48px;
-    position: relative;
+.kh-wave svg{
+    width:100%;
+    height:70px;
+    display:block;
 }
 
-.search-icon {
-    position: absolute;
-    left: 18px; top: 50%;
-    transform: translateY(-50%);
-    color: rgba(201,168,76,0.6);
-    pointer-events: none;
-    display: flex;
-    align-items: center;
+/* SECTION */
+.kh-section{
+    background:var(--b800);
+    padding:20px 0 100px;
 }
 
-.search-input {
-    width: 100%;
-    padding: 14px 22px 14px 46px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(201,168,76,0.2);
-    border-radius: var(--r-pill);
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    color: #fff;
-    outline: none;
-    transition: border-color 0.25s, background 0.25s;
+.kh-container{
+    max-width:1180px;
+    margin:auto;
+    padding:0 24px;
 }
 
-.search-input:focus {
-    border-color: var(--gold);
-    background: rgba(201,168,76,0.06);
+.kh-head{
+    text-align:center;
+    margin-bottom:50px;
 }
 
-.search-input::placeholder { color: rgba(255,255,255,0.25); font-weight: 300; }
-
-/* ── GRID ── */
-.khotbah-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 24px;
+.kh-label{
+    display:block;
+    color:var(--b300);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+    margin-bottom:14px;
 }
 
-/* ── CARD ── */
-.khotbah-card {
-    background: var(--navy3);
-    border-radius: var(--r-card);
-    border: 1px solid rgba(201,168,76,0.1);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-    position: relative;
+.kh-title{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(28px,4vw,42px);
+    margin-bottom:18px;
 }
 
-.khotbah-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--gold), var(--gold-light));
-    opacity: 0;
-    transition: opacity 0.3s;
-    z-index: 2;
+.kh-line{
+    width:55px;
+    height:3px;
+    border-radius:999px;
+    margin:auto;
+    background:linear-gradient(90deg,var(--b500),var(--b300));
 }
 
-.khotbah-card:hover { transform: translateY(-7px); border-color: rgba(201,168,76,0.32); }
-.khotbah-card:hover::before { opacity: 1; }
+/* SEARCH */
+.kh-search-wrap{
+    max-width:500px;
+    margin:0 auto 55px;
+    position:relative;
+}
+
+.kh-search-icon{
+    position:absolute;
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+    color:rgba(147,190,245,.6);
+}
+
+.kh-search{
+    width:100%;
+    padding:15px 20px 15px 48px;
+    border-radius:999px;
+    border:1px solid rgba(85,146,224,.15);
+    background:rgba(255,255,255,.04);
+    color:#fff;
+    outline:none;
+    transition:.3s;
+}
+
+.kh-search:focus{
+    border-color:var(--b300);
+    background:rgba(255,255,255,.06);
+}
+
+.kh-search::placeholder{
+    color:rgba(255,255,255,.3);
+}
+
+/* GRID */
+.kh-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
+    gap:26px;
+}
+
+/* CARD */
+.kh-card{
+    background:rgba(13,36,72,.6);
+    border:1px solid rgba(85,146,224,.12);
+    border-radius:var(--r-card);
+    overflow:hidden;
+    transition:.35s ease;
+    display:flex;
+    flex-direction:column;
+    backdrop-filter:blur(6px);
+    position:relative;
+}
+
+.kh-card::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:2px;
+    background:linear-gradient(90deg,var(--b500),var(--b300));
+    opacity:0;
+    transition:.3s;
+}
+
+.kh-card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(85,146,224,.28);
+    box-shadow:0 25px 55px rgba(0,0,0,.35);
+}
+
+.kh-card:hover::before{
+    opacity:1;
+}
 
 /* THUMB */
-.card-thumb {
-    height: 195px;
-    overflow: hidden;
-    position: relative;
-    background: var(--navy);
-    flex-shrink: 0;
+.kh-thumb{
+    position:relative;
+    height:210px;
+    overflow:hidden;
+    background:#000;
 }
 
-.card-thumb img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease;
+.kh-thumb img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .5s ease;
 }
 
-.khotbah-card:hover .card-thumb img { transform: scale(1.05); }
-
-.thumb-placeholder {
-    width: 100%; height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    background: var(--navy);
+.kh-card:hover .kh-thumb img{
+    transform:scale(1.06);
 }
 
-.thumb-placeholder-icon {
-    width: 56px; height: 56px;
-    border-radius: 50%;
-    border: 1.5px solid rgba(201,168,76,0.25);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(240,212,138,0.55);
-    font-size: 22px;
+.kh-placeholder{
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    background:var(--b900);
 }
 
-.thumb-placeholder-label {
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: rgba(240,212,138,0.35);
+.kh-placeholder-icon{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    border:1px solid rgba(85,146,224,.2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    color:rgba(147,190,245,.5);
 }
 
-.video-badge {
-    position: absolute;
-    top: 12px; right: 12px;
-    background: rgba(11,24,41,0.8);
-    color: var(--gold-light);
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    padding: 4px 12px;
-    border-radius: var(--r-pill);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    border: 1px solid rgba(201,168,76,0.2);
-    z-index: 1;
+.kh-placeholder-text{
+    color:rgba(147,190,245,.35);
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
 }
 
-.vid-dot {
-    width: 5px; height: 5px;
-    border-radius: 50%;
-    background: var(--gold);
-    animation: pulse 1.6s infinite;
+.kh-video{
+    position:absolute;
+    top:14px;
+    right:14px;
+    background:rgba(2,8,16,.8);
+    border:1px solid rgba(85,146,224,.2);
+    padding:5px 12px;
+    border-radius:999px;
+    color:var(--b200);
+    font-size:10px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:6px;
 }
 
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-
-/* CARD BODY */
-.card-body-inner {
-    padding: 22px 20px 18px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+.kh-video-dot{
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:var(--b300);
+    animation:pulse 1.5s infinite;
 }
 
-.khotbah-date {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 10px;
+@keyframes pulse{
+    0%,100%{opacity:1;}
+    50%{opacity:.3;}
 }
 
-.khotbah-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    font-weight: 600;
-<<<<<<< HEAD
-    color: #fff;
-=======
-    color: #FFFFFF;
->>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
-    line-height: 1.4;
-    margin-bottom: 9px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+/* BODY */
+.kh-body{
+    padding:24px 22px 20px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
 }
 
-.khotbah-desc {
-    font-size: 13px;
-<<<<<<< HEAD
-    color: rgba(255,255,255,0.42);
-=======
-    color: rgba(255,255,255,0.82);
->>>>>>> fa8896a708d4b4921ee0efdd5a5aae60dafbb094
-    line-height: 1.7;
-    flex: 1;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    margin-bottom: 18px;
+.kh-date{
+    color:var(--b300);
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    font-weight:700;
+    margin-bottom:12px;
 }
 
-.card-footer-inner {
-    border-top: 1px solid rgba(201,168,76,0.1);
-    padding-top: 14px;
+.kh-card-title{
+    font-family:'Playfair Display',serif;
+    font-size:18px;
+    line-height:1.45;
+    margin-bottom:12px;
+    color:#fff;
 }
 
-.btn-tonton {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    background: var(--gold-dim);
-    border: 1px solid rgba(201,168,76,0.3);
-    color: var(--gold-light);
-    border-radius: var(--r-pill);
-    padding: 9px 18px;
-    font-size: 12px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background 0.25s, border-color 0.25s;
+.kh-desc{
+    font-size:14px;
+    line-height:1.8;
+    color:rgba(255,255,255,.68);
+    margin-bottom:22px;
+    flex:1;
 }
 
-.btn-tonton:hover {
-    background: rgba(201,168,76,0.28);
-    border-color: rgba(201,168,76,0.55);
-    color: var(--gold-light);
+/* FOOTER */
+.kh-foot{
+    border-top:1px solid rgba(85,146,224,.1);
+    padding-top:16px;
 }
 
-.btn-play {
-    width: 20px; height: 20px;
-    border-radius: 50%;
-    background: var(--gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+.kh-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 18px;
+    border-radius:999px;
+    background:rgba(45,101,191,.12);
+    border:1px solid rgba(85,146,224,.25);
+    color:var(--b200);
+    text-decoration:none;
+    font-size:13px;
+    font-weight:600;
+    transition:.3s;
 }
 
-.btn-play i { font-size: 8px; color: var(--navy); margin-left: 1px; }
+.kh-btn:hover{
+    background:rgba(45,101,191,.22);
+    border-color:rgba(85,146,224,.45);
+    color:#fff;
+}
 
-.btn-no-video {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: rgba(255,255,255,0.22);
-    font-size: 12px;
-    font-weight: 400;
+.kh-play{
+    width:22px;
+    height:22px;
+    border-radius:50%;
+    background:var(--b400);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:9px;
+}
+
+.kh-novid{
+    color:rgba(255,255,255,.3);
+    font-size:13px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
 }
 
 /* EMPTY */
-.empty-wrap {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 80px 20px;
+.kh-empty{
+    grid-column:1/-1;
+    text-align:center;
+    padding:80px 20px;
 }
 
-.empty-icon {
-    width: 72px; height: 72px;
-    border-radius: 50%;
-    border: 1.5px solid rgba(201,168,76,0.25);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    color: rgba(240,212,138,0.55);
-    margin: 0 auto 22px;
+.kh-empty-icon{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    border:1px solid rgba(85,146,224,.15);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:auto auto 24px;
+    font-size:30px;
+    color:rgba(147,190,245,.5);
 }
 
-.empty-wrap h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 8px;
+.kh-empty h4{
+    font-family:'Playfair Display',serif;
+    font-size:24px;
+    margin-bottom:10px;
 }
 
-.empty-wrap p { font-size: 14px; color: rgba(255,255,255,0.4); }
+.kh-empty p{
+    color:rgba(255,255,255,.45);
+}
 
 /* PAGINATION */
-.pagination .page-link {
-    border-radius: var(--r-pill) !important;
-    margin: 0 3px;
-    background: transparent;
-    border: 1px solid rgba(201,168,76,0.2) !important;
-    color: rgba(255,255,255,0.6);
-    font-size: 13px;
-    font-weight: 500;
-    transition: all 0.2s;
+.pagination .page-link{
+    background:transparent;
+    border:1px solid rgba(85,146,224,.18)!important;
+    color:rgba(255,255,255,.65);
+    margin:0 4px;
+    border-radius:999px!important;
 }
 
-.pagination .page-item.active .page-link {
-    background: var(--gold-dim) !important;
-    border-color: rgba(201,168,76,0.4) !important;
-    color: var(--gold-light);
+.pagination .page-item.active .page-link{
+    background:rgba(45,101,191,.22)!important;
+    color:#fff;
+    border-color:rgba(85,146,224,.4)!important;
 }
 
-.pagination .page-link:hover {
-    background: rgba(201,168,76,0.1) !important;
-    border-color: rgba(201,168,76,0.4) !important;
-    color: var(--gold-light);
+.pagination .page-link:hover{
+    background:rgba(45,101,191,.15)!important;
+    color:#fff;
 }
 
-@media (max-width: 576px) {
-    .khotbah-grid { grid-template-columns: 1fr; }
-}
+/* RESPONSIVE */
+@media(max-width:768px){
 
-<link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    .kh-hero{
+        padding:100px 0 110px;
+    }
+
+    .kh-grid{
+        grid-template-columns:1fr;
+    }
+
+    .kh-hero h1{
+        font-size:44px;
+    }
+}
 </style>
 
-{{-- ── HERO ── --}}
-<section class="hero">
-    <div class="hero-bg-ring"></div>
-    <div class="hero-bg-ring2"></div>
-    <div class="hero-glow"></div>
-    <div class="container position-relative" style="z-index:1;">
-        <div class="hero-eyebrow">
-            <span class="eyebrow-dot"></span>
+<!-- HERO -->
+<section class="kh-hero">
+
+    <div class="kh-ring one"></div>
+    <div class="kh-ring two"></div>
+
+    <div class="kh-wrap kh-container">
+
+        <div class="kh-badge">
+            <span class="kh-dot"></span>
             Firman Tuhan
-            <span class="eyebrow-dot"></span>
+            <span class="kh-dot"></span>
         </div>
-        <h1>Khotbah &amp;<br><em>Pengajaran</em></h1>
-        <p>Mendengarkan firman Tuhan untuk kehidupan yang lebih bermakna dan penuh anugerah</p>
+
+        <h1>
+            Khotbah &
+            <br>
+            <em>Pengajaran</em>
+        </h1>
+
+        <p>
+            Mendengarkan firman Tuhan untuk kehidupan yang lebih bermakna,
+            penuh kasih, dan bertumbuh dalam iman setiap hari.
+        </p>
+
     </div>
 </section>
 
-{{-- Wave Divider --}}
-<div class="wave-sep">
-    <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z" fill="#13243A"/>
+<!-- WAVE -->
+<div class="kh-wave">
+    <svg viewBox="0 0 1200 70" preserveAspectRatio="none">
+        <path d="M0,0 C300,70 900,70 1200,0 L1200,70 L0,70 Z" fill="#071830"></path>
     </svg>
 </div>
 
-{{-- ── KHOTBAH LIST ── --}}
-<section class="khotbah-section">
-    <div class="container">
+<!-- CONTENT -->
+<section class="kh-section">
 
-        <div class="section-header">
-            <span class="section-label">Arsip Khotbah</span>
-            <h2 class="section-title">Firman Tuhan</h2>
-            <div class="section-rule"></div>
+    <div class="kh-container">
+
+        <div class="kh-head">
+            <span class="kh-label">Arsip Khotbah</span>
+            <h2 class="kh-title">Firman Tuhan</h2>
+            <div class="kh-line"></div>
         </div>
 
-        {{-- Search --}}
-        <div class="search-wrap">
-            <span class="search-icon">
-                <i class="bi bi-search" style="font-size:14px;"></i>
+        <!-- SEARCH -->
+        <div class="kh-search-wrap">
+            <span class="kh-search-icon">
+                <i class="bi bi-search"></i>
             </span>
-            <input type="text"
-                   class="search-input"
-                   id="searchKhotbah"
-                   placeholder="Cari judul khotbah…">
+
+            <input
+                type="text"
+                id="searchKhotbah"
+                class="kh-search"
+                placeholder="Cari judul khotbah..."
+            >
         </div>
 
-        {{-- Grid --}}
-        <div class="khotbah-grid" id="khotbahGrid">
+        <!-- GRID -->
+        <div class="kh-grid" id="khotbahGrid">
 
             @forelse($khotbah as $item)
-            <div class="khotbah-card" data-title="{{ strtolower($item->title) }}">
 
-                <div class="card-thumb">
+            <div class="kh-card" data-title="{{ strtolower($item->title) }}">
+
+                <!-- THUMB -->
+                <div class="kh-thumb">
+
                     @if($item->thumbnail)
-                        <img src="{{ asset('storage/' . $item->thumbnail) }}"
-                             alt="{{ $item->title }}"
-                             loading="lazy">
+
+                        <img
+                            src="{{ asset('storage/'.$item->thumbnail) }}"
+                            alt="{{ $item->title }}"
+                            loading="lazy"
+                        >
+
                     @else
-                        <div class="thumb-placeholder">
-                            <div class="thumb-placeholder-icon">
+
+                        <div class="kh-placeholder">
+
+                            <div class="kh-placeholder-icon">
                                 <i class="bi bi-play-circle"></i>
                             </div>
-                            <span class="thumb-placeholder-label">Video Khotbah</span>
+
+                            <div class="kh-placeholder-text">
+                                Video Khotbah
+                            </div>
+
                         </div>
+
                     @endif
 
                     @if($item->video)
-                        <div class="video-badge">
-                            <span class="vid-dot"></span>
-                            Video
-                        </div>
+
+                    <div class="kh-video">
+                        <span class="kh-video-dot"></span>
+                        Video
+                    </div>
+
                     @endif
+
                 </div>
 
-                <div class="card-body-inner">
-                    <div class="khotbah-date">
-                        <i class="bi bi-calendar3" style="font-size:10px;"></i>
+                <!-- BODY -->
+                <div class="kh-body">
+
+                    <div class="kh-date">
+                        <i class="bi bi-calendar3"></i>
+
                         {{ $item->sermon_date
                             ? \Carbon\Carbon::parse($item->sermon_date)->translatedFormat('d F Y')
-                            : '—' }}
+                            : '-' }}
                     </div>
 
-                    <div class="khotbah-title">{{ $item->title }}</div>
+                    <div class="kh-card-title">
+                        {{ $item->title }}
+                    </div>
 
                     @if($item->description)
-                        <div class="khotbah-desc">{{ $item->description }}</div>
+
+                    <div class="kh-desc">
+                        {{ $item->description }}
+                    </div>
+
                     @endif
 
-                    <div class="card-footer-inner">
+                    <!-- FOOT -->
+                    <div class="kh-foot">
+
                         @if($item->video)
-                            <a href="{{ $item->video }}"
-                               target="_blank"
-                               rel="noopener"
-                               class="btn-tonton">
-                                <span class="btn-play">
-                                    <i class="bi bi-play-fill"></i>
-                                </span>
-                                Tonton Khotbah
-                            </a>
-                        @else
-                            <span class="btn-no-video">
-                                <i class="bi bi-camera-video-off" style="font-size:12px;"></i>
-                                Video Tidak Tersedia
+
+                        <a
+                            href="{{ $item->video }}"
+                            target="_blank"
+                            class="kh-btn"
+                        >
+
+                            <span class="kh-play">
+                                <i class="bi bi-play-fill"></i>
                             </span>
+
+                            Tonton Khotbah
+
+                        </a>
+
+                        @else
+
+                        <div class="kh-novid">
+                            <i class="bi bi-camera-video-off"></i>
+                            Video Tidak Tersedia
+                        </div>
+
                         @endif
+
                     </div>
+
                 </div>
 
             </div>
+
             @empty
-            <div class="empty-wrap">
-                <div class="empty-icon">
+
+            <div class="kh-empty">
+
+                <div class="kh-empty-icon">
                     <i class="bi bi-camera-video"></i>
                 </div>
+
                 <h4>Belum Ada Khotbah</h4>
-                <p>Khotbah akan segera ditampilkan di sini. Tetap semangat!</p>
+
+                <p>
+                    Khotbah akan segera ditampilkan di sini.
+                </p>
+
             </div>
+
             @endforelse
 
         </div>
 
-        @if(method_exists($khotbah, 'links') && $khotbah->hasPages())
-            <div class="d-flex justify-content-center mt-5">
-                {{ $khotbah->links() }}
-            </div>
+        <!-- PAGINATION -->
+        @if(method_exists($khotbah,'links') && $khotbah->hasPages())
+
+        <div class="d-flex justify-content-center mt-5">
+            {{ $khotbah->links() }}
+        </div>
+
         @endif
 
     </div>
+
 </section>
 
 <script>
-    const searchInput = document.getElementById('searchKhotbah');
-    const cards = document.querySelectorAll('.khotbah-card');
+const searchInput = document.getElementById('searchKhotbah');
 
-    searchInput.addEventListener('input', function () {
-        const q = this.value.toLowerCase().trim();
-        cards.forEach(card => {
-            const match = !q || card.dataset.title.includes(q);
-            card.style.display = match ? '' : 'none';
-        });
+searchInput.addEventListener('input', function(){
+
+    const keyword = this.value.toLowerCase().trim();
+
+    document.querySelectorAll('.kh-card').forEach(card => {
+
+        const title = card.dataset.title;
+
+        if(title.includes(keyword) || keyword === ''){
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+
     });
+
+});
 </script>
 
 @endsection

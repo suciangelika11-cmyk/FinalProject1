@@ -1,189 +1,286 @@
 @extends('layouts.app')
 
 @section('content')
+
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        min-height: 100vh;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background:
-            radial-gradient(circle at bottom right, rgba(255, 105, 180, 0.25), transparent 25%),
-            linear-gradient(135deg, #0b5f8a 0%, #182f78 45%, #5b2fd3 100%);
+body{
+    margin:0;
+    padding:0;
+    min-height:100vh;
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+    background:
+        radial-gradient(circle at top left, rgba(91,47,211,.35), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(0,191,255,.25), transparent 28%),
+        linear-gradient(135deg,#081120 0%,#10204b 45%,#25145c 100%);
+}
+
+/* WRAPPER */
+.login-wrapper{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding: 100px 15px 60px;
+}
+
+/* CARD */
+.login-card{
+    width:100%;
+    max-width:460px;
+
+    padding:38px 34px;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.35),
+        0 0 25px rgba(91,47,211,.18);
+
+    color:#fff;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.login-card::before{
+    content:'';
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:50%;
+
+    top:-70px;
+    right:-70px;
+}
+
+/* LOGO */
+.logo-wrapper{
+    width:100px;
+    height:100px;
+
+    margin:0 auto 22px;
+
+    border-radius:50%;
+    overflow:hidden;
+
+    border:3px solid rgba(255,255,255,.2);
+
+    background:rgba(255,255,255,.08);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.logo-wrapper img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.logo-placeholder{
+    width:100%;
+    height:100%;
+    background:rgba(255,255,255,.08);
+}
+
+/* TITLE */
+.login-title{
+    text-align:center;
+    font-size:2rem;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.login-subtitle{
+    text-align:center;
+    color:rgba(255,255,255,.82);
+    margin-bottom:28px;
+    line-height:1.6;
+}
+
+/* FORM */
+.form-label{
+    color:#fff;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.form-control{
+    height:54px;
+
+    border-radius:15px;
+
+    border:1px solid rgba(255,255,255,.14);
+
+    background:rgba(255,255,255,.08);
+
+    color:#fff;
+
+    padding:0 18px;
+
+    transition:.25s ease;
+}
+
+.form-control::placeholder{
+    color:rgba(255,255,255,.52);
+}
+
+.form-control:focus{
+    background:rgba(255,255,255,.12);
+    border-color:rgba(255,255,255,.35);
+    color:#fff;
+    box-shadow:none;
+}
+
+/* CHECKBOX */
+.form-check-label{
+    color:rgba(255,255,255,.9);
+}
+
+.form-check-input{
+    border-radius:5px;
+}
+
+/* BUTTON */
+.login-btn{
+    width:100%;
+    height:54px;
+
+    border:none;
+    border-radius:16px;
+
+    font-size:1rem;
+    font-weight:600;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            90deg,
+            #1fb6ff 0%,
+            #6d4cff 55%,
+            #a855f7 100%
+        );
+
+    box-shadow:
+        0 12px 25px rgba(109,76,255,.35);
+
+    transition:.28s ease;
+}
+
+.login-btn:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 15px 30px rgba(109,76,255,.45);
+}
+
+/* ALERT */
+.alert{
+    border:none;
+    border-radius:14px;
+}
+
+/* VERSE */
+.verse-box{
+    margin-top:22px;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.07);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    text-align:center;
+}
+
+.verse-title{
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.verse-text{
+    margin:0;
+    line-height:1.7;
+    color:rgba(255,255,255,.88);
+    font-size:.95rem;
+}
+
+/* FOOTER */
+.footer-text{
+    text-align:center;
+    margin-top:24px;
+    font-size:.9rem;
+    color:rgba(255,255,255,.72);
+}
+
+/* MOBILE */
+@media(max-width:576px){
+
+    .login-wrapper{
+        padding: 100px 15px 30px;
     }
 
-    .login-wrapper {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 30px 15px;
+    .login-card{
+        padding:30px 22px;
     }
 
-    .login-card {
-        width: 100%;
-        max-width: 450px;
-        background: rgba(255, 255, 255, 0.12);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-radius: 24px;
-        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.20);
-        padding: 32px 28px;
-        color: #ffffff;
+    .login-title{
+        font-size:1.7rem;
     }
 
-    .logo-wrapper {
-        width: 95px;
-        height: 95px;
-        border-radius: 50%;
-        overflow: hidden;
-        margin: 0 auto 20px;
-        border: 3px solid rgba(255, 255, 255, 0.25);
-        background: rgba(255, 255, 255, 0.15);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .logo-wrapper{
+        width:85px;
+        height:85px;
     }
-
-    .logo-wrapper img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .logo-placeholder {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.15);
-    }
-
-    .login-title {
-        text-align: center;
-        font-size: 2rem;
-        font-weight: 700;
-        margin-bottom: 8px;
-        color: #ffffff;
-    }
-
-    .login-subtitle {
-        text-align: center;
-        font-size: 1rem;
-        color: rgba(255, 255, 255, 0.85);
-        margin-bottom: 28px;
-    }
-
-    .form-label {
-        color: #ffffff;
-        font-weight: 600;
-        margin-bottom: 8px;
-    }
-
-    .form-control {
-        background: rgba(255, 255, 255, 0.12);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        color: #ffffff;
-        border-radius: 14px;
-        padding: 14px 16px;
-        height: auto;
-    }
-
-    .form-control::placeholder {
-        color: rgba(255, 255, 255, 0.65);
-    }
-
-    .form-control:focus {
-        background: rgba(255, 255, 255, 0.16);
-        color: #ffffff;
-        border-color: rgba(255, 255, 255, 0.35);
-        box-shadow: none;
-    }
-
-    .form-check-label {
-        color: rgba(255, 255, 255, 0.9);
-    }
-
-    .form-check-input {
-        border-radius: 4px;
-    }
-
-    .login-btn {
-        width: 100%;
-        border: none;
-        border-radius: 14px;
-        padding: 13px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: #ffffff;
-        background: linear-gradient(90deg, #37b6f4 0%, #9b35ea 100%);
-        box-shadow: 0 10px 25px rgba(109, 76, 255, 0.35);
-        transition: 0.3s ease;
-    }
-
-    .login-btn:hover {
-        transform: translateY(-1px);
-        opacity: 0.95;
-    }
-
-    .verse-box {
-        margin-top: 18px;
-        padding: 18px 16px;
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.10);
-        border: 1px solid rgba(255, 255, 255, 0.10);
-        text-align: center;
-    }
-
-    .verse-title {
-        font-weight: 700;
-        margin-bottom: 8px;
-        color: #ffffff;
-    }
-
-    .verse-text {
-        margin: 0;
-        font-size: 0.95rem;
-        line-height: 1.6;
-        color: rgba(255, 255, 255, 0.9);
-    }
-
-    .footer-text {
-        text-align: center;
-        margin-top: 22px;
-        font-size: 0.9rem;
-        color: rgba(255, 255, 255, 0.8);
-    }
-
-    .alert {
-        border-radius: 12px;
-    }
-
-    @media (max-width: 576px) {
-        .login-card {
-            padding: 24px 18px;
-        }
-
-        .login-title {
-            font-size: 1.7rem;
-        }
-    }
+}
 </style>
 
 <div class="login-wrapper">
+
     <div class="login-card">
 
+        {{-- LOGO --}}
         <div class="logo-wrapper">
+
             @if(file_exists(public_path('gambar/gbi.jpeg')))
-                <img src="{{ asset('gambar/gbi.jpeg') }}" alt="Logo GBI Tambunan">
+                <img
+                    src="{{ asset('gambar/gbi.jpeg') }}"
+                    alt="Logo GBI Tambunan"
+                >
             @else
                 <div class="logo-placeholder"></div>
             @endif
+
         </div>
 
-        <h1 class="login-title">GBI Tambunan</h1>
-        <p class="login-subtitle">Silakan login untuk masuk ke sistem gereja</p>
+        {{-- TITLE --}}
+        <h1 class="login-title">
+            GBI Tambunan
+        </h1>
 
+        <p class="login-subtitle">
+            Silakan login untuk masuk ke sistem informasi gereja
+        </p>
+
+        {{-- ALERT --}}
         @if(session('error'))
             <div class="alert alert-danger">
                 {{ session('error') }}
@@ -191,78 +288,93 @@
         @endif
 
         @if(session('success'))
-        <div style="
-            background:#e8f7ef;
-            border:1px solid #bfe7cf;
-            color:#1d6b43;
-            padding:10px;
-            border-radius:8px;
-            margin-bottom:15px;
-            font-weight:600;
-        ">
-            {{ session('success') }}
+            <div class="alert alert-success">
+                {{ session('success') }}
             </div>
         @endif
 
+        {{-- FORM --}}
         <form action="{{ route('login.process') }}" method="POST">
             @csrf
 
             <div class="mb-3">
-                <label for="login" class="form-label">Email / Username</label>
+
+                <label for="login" class="form-label">
+                    Email / Username
+                </label>
+
                 <input
                     type="text"
                     name="login"
                     id="login"
-                    class="form-control @error('login') is-invalid @enderror"
                     value="{{ old('login') }}"
-                    placeholder="Masukkan email atau username anda"
+                    placeholder="Masukkan email atau username"
+                    class="form-control @error('login') is-invalid @enderror"
                     required
                 >
-                @error('login')
-                    <div class="text-warning small mt-1">{{ $message }}</div>
-                @enderror
+
             </div>
 
             <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
+
+                <label for="password" class="form-label">
+                    Password
+                </label>
+
                 <input
                     type="password"
                     name="password"
                     id="password"
-                    class="form-control @error('password') is-invalid @enderror"
                     placeholder="Masukkan password"
+                    class="form-control @error('password') is-invalid @enderror"
                     required
                 >
-                @error('password')
-                    <div class="text-warning small mt-1">{{ $message }}</div>
-                @enderror
+
             </div>
 
             <div class="form-check mb-4">
+
                 <input
                     type="checkbox"
                     name="remember"
                     class="form-check-input"
                     id="remember"
                 >
-                <label class="form-check-label" for="remember">Ingat saya</label>
+
+                <label class="form-check-label" for="remember">
+                    Ingat saya
+                </label>
+
             </div>
 
             <button type="submit" class="login-btn">
                 Login
             </button>
+
         </form>
 
+        {{-- VERSE --}}
         <div class="verse-box">
-            <div class="verse-title">Mazmur 118:24</div>
+
+            <div class="verse-title">
+                Mazmur 118:24
+            </div>
+
             <p class="verse-text">
-                “Inilah hari yang dijadikan TUHAN, marilah kita bersorak-sorai dan bersukacita karenanya.”
+                “Inilah hari yang dijadikan TUHAN,
+                marilah kita bersorak-sorai dan
+                bersukacita karenanya.”
             </p>
+
         </div>
 
+        {{-- FOOTER --}}
         <div class="footer-text">
-            © 2026 GBI Tambunan | Sistem Informasi Gereja
+            © 2026 GBI Tambunan
         </div>
+
     </div>
+
 </div>
+
 @endsection

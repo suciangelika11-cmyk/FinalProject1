@@ -10,14 +10,7 @@
     $pendingJemaatCount = Jemaat::where('status', 'pending')->count();
 @endphp
 
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin Dashboard – Gereja GBI Tambunan</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <style>
+<style>
     :root {
       --bg:        #f4f6f9;
       --white:     #ffffff;
@@ -38,52 +31,12 @@
       --sidebar:   #1e2430;
       --sidebar2:  #252e3e;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: var(--bg); font-family: 'Nunito', sans-serif; color: var(--text); min-height: 100vh; overflow-x: hidden; }
 
-    .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; height: 60px; padding: 0 24px 0 0; background: var(--white); border-bottom: 1px solid var(--border); box-shadow: 0 1px 8px rgba(0,0,0,.06); }
-    .topbar-brand { display: flex; align-items: center; width: 220px; height: 100%; flex-shrink: 0; background: var(--sidebar); padding: 0 20px; gap: 10px; }
-    .topbar-logo { width: 34px; height: 34px; background: linear-gradient(135deg, var(--cyan), var(--gold)); border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 14px; color: #fff; }
-    .topbar-brand h1 { font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 700; color: #fff; letter-spacing: .4px; }
-    .topbar-brand h1 .c { color: var(--cyan); }
-    .topbar-brand h1 .g { color: var(--gold); font-size: 11px; font-weight: 600; }
-    .topbar-nav { display: flex; gap: 2px; flex: 1; padding: 0 16px; }
-    .topbar-nav a { color: var(--muted); font-size: 13px; font-weight: 600; text-decoration: none; padding: 6px 12px; border-radius: 6px; transition: all .15s; }
-    .topbar-nav a:hover { color: var(--text); background: #f0f2f5; }
-    .topbar-nav a.active { color: var(--cyan); background: var(--cyan-lt); }
-    .topbar-right { display: flex; align-items: center; gap: 14px; }
-    .view-site-btn { background: var(--cyan-lt); border: 1px solid rgba(29,168,224,.3); color: var(--cyan); font-family: 'Nunito', sans-serif; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 6px; cursor: pointer; transition: all .2s; }
-    .view-site-btn:hover { background: var(--cyan); color: #fff; }
 
-    .topbar-badge {
-      width: 34px; height: 34px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--gold), var(--cyan));
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700; color: #fff;
-      cursor: pointer; overflow: hidden; text-decoration: none;
-      border: 2px solid rgba(29,168,224,.25); flex-shrink: 0;
-      transition: box-shadow .15s;
-    }
-    .topbar-badge:hover { box-shadow: 0 0 0 3px rgba(29,168,224,.2); }
-    .topbar-badge img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
 
-    .layout { display: flex; padding-top: 60px; }
 
-    .sidebar { position: fixed; top: 60px; left: 0; bottom: 0; width: 220px; background: var(--sidebar); padding: 20px 0; display: flex; flex-direction: column; overflow-y: auto; }
-    .sidebar-section { padding: 0 16px 6px; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: rgba(255,255,255,.25); text-transform: uppercase; margin-top: 10px; }
-    .sidebar a { display: flex; align-items: center; gap: 10px; padding: 10px 20px; font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,.5); text-decoration: none; transition: all .18s; border-left: 3px solid transparent; }
-    .sidebar a:hover { color: #fff; background: rgba(255,255,255,.06); }
-    .sidebar a.active { color: #fff; border-left-color: var(--cyan); background: rgba(29,168,224,.15); }
 
-    .sidebar-footer { margin-top: auto; padding: 14px 20px; border-top: 1px solid rgba(255,255,255,.07); display: flex; align-items: center; gap: 10px; }
-    .sf-ava { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(135deg, var(--gold), var(--cyan)); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .sf-ava img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-    .sf-info { min-width: 0; }
-    .sf-name { font-size: 13px; font-weight: 700; color: rgba(255,255,255,.85); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .sf-role { font-size: 11px; color: var(--cyan); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .sf-meta { font-size: 10px; color: rgba(255,255,255,.25); margin-top: 2px; }
 
-    .main { margin-left: 220px; padding: 32px 32px 60px; min-height: calc(100vh - 60px); flex: 1; }
 
     .welcome-hero { position: relative; border-radius: 16px; overflow: hidden; padding: 36px 40px; margin-bottom: 32px; background: linear-gradient(135deg, var(--cyan-dk) 0%, var(--cyan) 60%, #29c4f0 100%); box-shadow: 0 6px 24px rgba(29,168,224,.25); }
     .welcome-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 55% 80% at 95% 50%, rgba(255,255,255,.12) 0%, transparent 65%), radial-gradient(ellipse 35% 60% at 5% 85%, rgba(200,155,60,.18) 0%, transparent 55%); pointer-events: none; }
@@ -132,73 +85,12 @@
     ::-webkit-scrollbar-thumb:hover { background: #b0b8c9; }
 
     @media (max-width: 900px) {
-      .sidebar { display: none; }
-      .main { margin-left: 0; padding: 20px; }
       .hero-stats { display: none; }
-      .topbar-brand { width: auto; }
     }
-  </style>
-</head>
-<body>
+</style>
 
-<header class="topbar">
-  <div class="topbar-brand">
-    <div class="topbar-logo">GBI</div>
-    <h1>GBI <span class="c">Tambunan</span> &nbsp;<span class="g">ADMIN</span></h1>
-  </div>
-
-  <nav class="topbar-nav">
-    <a href="#" class="active">Beranda</a>
-    <a href="{{ route('tentang.index') }}">Tentang Kami</a>
-    <a href="{{ route('jadwal.index') }}">Jadwal Pelayan</a>
-    <a href="{{ route('galeri.index') }}">Galeri</a>
-    <a href="{{ route('khotbah.index') }}">Khotbah</a>
-    <a href="{{ route('pelayanan.index') }}">Pelayanan</a>
-    <a href="{{ route('kegiatan.index') }}">Kegiatan Pelayanan</a>
-    <a href="{{ route('kontak.index') }}">Kontak</a>
-    <a href="{{ route('pengumuman.index') }}">Pengumuman</a>
-    <a href="{{ route('jemaat.index') }}">Jemaat @if($pendingJemaatCount > 0) <span style="background:#ef4444; border-radius:999px; color:#fff; padding:0 6px; font-size:11px; margin-left:4px;">{{ $pendingJemaatCount }}</span>@endif</a>
-      <img src="{{ $authUser->foto_url }}" alt="{{ $authUser->name }}">
-    </a>
-  </div>
-</header>
-
-<div class="layout">
-  <aside class="sidebar">
-    <div class="sidebar-section">Menu Utama</div>
-    <a href="{{ route('admin.dashboard') }}" class="active"><span class="icon">⊞</span> Dashboard</a>
-    <a href="{{ route('tentang.index') }}"><span class="icon">ℹ</span> Tentang Kami</a>
-    <a href="{{ route('jadwal.index') }}"><span class="icon">📅</span> Jadwal Ibadah</a>
-    <a href="{{ route('absensi.index') }}"><span class="icon">✅</span> Absensi</a>
-    <a href="{{ route('galeri.index') }}"><span class="icon">🖼</span> Galeri</a>
-    <a href="{{ route('khotbah.index') }}"><span class="icon">🎙</span> Khotbah</a>
-    <a href="{{ route('pelayanan.index') }}"><span class="icon">🙌</span> Pelayanan</a>
-    <a href="{{ route('kegiatan.index') }}"><span class="icon">🎉</span> Kegiatan Pelayanan</a>
-    <a href="{{ route('kontak.index') }}"><span class="icon">✉</span> Kontak</a>
-    <a href="{{ route('pengumuman.index') }}"><span class="icon">📢</span> Pengumuman</a>
-    <a href="{{ route('jemaat.index') }}"><span class="icon">👥</span> Jemaat @if($pendingJemaatCount > 0) <span style="background:#ef4444; border-radius:999px; color:#fff; padding:0 6px; font-size:11px; margin-left:4px;">{{ $pendingJemaatCount }}</span>@endif</a>
-    <a href="{{ route('accounts.index') }}"><span class="icon">🔒</span> Akun</a>
-
-    <div class="sidebar-section" style="margin-top:18px;">Pengaturan</div>
-    <a href="{{ route('profil.index') }}"><span class="icon">👤</span> Profil Admin</a>
-    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-      <span class="icon">🚪</span> Keluar
-    </a>
-
-    <div class="sidebar-footer">
-      <div class="sf-ava">
-        <img src="{{ $authUser->foto_url }}" alt="{{ $authUser->name }}">
-      </div>
-      <div class="sf-info">
-        <div class="sf-name">{{ $authUser->name }}</div>
-        <div class="sf-role">{{ $authUser->role_label }}</div>
-        <div class="sf-meta">Kelompok 5 PA-1 · v1.0.0</div>
-      </div>
-    </div>
-  </aside>
-
-  <main class="main">
-    <div class="welcome-hero">
+<div class="container-fluid py-4">
+<div class="welcome-hero">
       <div class="hero-tag">✦ Panel Admin</div>
       <h2>Selamat Datang,<br>
         <span class="hero-admin-name">{{ $authUser->name }}</span> 👋
@@ -255,9 +147,6 @@
         <div class="card gold"><div class="card-icon-wrap">🔒</div><div class="card-title">Akun</div><div class="card-desc">Kelola akun admin, super admin, dan pelayanan.</div><div class="card-arrow">→</div></div>
       </a>
     </div>
-  </main>
 </div>
 
-<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none">@csrf</form>
-</body>
-</html>
+@endsection

@@ -235,6 +235,8 @@
         <div class="leader-name">{{ $tentang->gembala_nama }}</div>
         <div class="leader-role">{{ $tentang->gembala_jabatan ?: 'Pimpinan Gereja' }}</div>
         <div class="leader-desc">{{ $tentang->gembala_deskripsi ?: 'Belum ada deskripsi.' }}</div>
+      </div>
+    </div>
   @else
     <div class="empty-box">
       Belum ada data Tentang. Klik <strong>Tambah Data</strong> untuk mulai mengisi.

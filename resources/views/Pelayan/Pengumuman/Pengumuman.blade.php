@@ -2,142 +2,224 @@
 
 @section('content')
 
-<style>
-body {
-    background: #f4f9ff;
-}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
+<style>
+:root {
+    --gold: #C9A96E;
+    --gold-pale: #E8D5A3;
+    --gold-dim: rgba(201,169,110,0.12);
+    --ink: #0A0E17;
+    --ink-mid: #0D1422;
+    --ink-card: rgba(12,18,32,0.97);
+    --surface: rgba(255,255,255,0.04);
+    --text: #EAE6DF;
+    --text-muted: rgba(234,230,223,0.52);
+    --border: rgba(201,169,110,0.13);
+    --border-strong: rgba(201,169,110,0.28);
+    --radius: 20px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Outfit', sans-serif; background: var(--ink); color: var(--text); }
+
+/* HERO */
 .hero {
-    background: linear-gradient(135deg, #005bea, #00c6fb);
-    padding: 90px 0;
-    color: white;
-    text-align: center;
     position: relative;
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     overflow: hidden;
+    padding: 80px 24px;
+    background: var(--ink-mid);
+    border-bottom: 1px solid var(--border);
 }
 
 .hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 40px,
-        rgba(255,255,255,0.03) 40px,
-        rgba(255,255,255,0.03) 41px
-    );
-    pointer-events: none;
+    background: radial-gradient(ellipse 65% 90% at 50% 0%, rgba(201,169,110,0.07), transparent 65%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 640px;
+}
+
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold-dim);
+    border: 1px solid var(--border-strong);
+    border-radius: 40px;
+    padding: 7px 20px;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--gold-pale);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
 }
 
 .hero h1 {
-    font-weight: 800;
-    font-size: 38px;
-    position: relative;
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(36px, 6vw, 64px);
+    line-height: 1.1;
+    margin-bottom: 16px;
 }
 
-.hero p {
-    opacity: 0.9;
-    font-size: 17px;
-    position: relative;
+.hero h1 em { color: var(--gold); font-style: italic; }
+.hero-sub { color: var(--text-muted); font-size: 15px; line-height: 1.8; font-weight: 300; }
+
+/* PAGE */
+.page-wrap {
+    width: 90%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 72px 0 100px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 52px;
+}
+
+.section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 12px;
 }
 
 .section-title {
-    font-weight: 700;
-    font-size: 28px;
-    color: #1e293b;
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(26px, 4vw, 38px);
+    color: var(--text);
+    margin-bottom: 16px;
 }
 
-.divider {
-    height: 4px;
-    width: 80px;
-    background: linear-gradient(90deg, #005bea, #00c6fb);
-    margin: 15px auto 20px;
-    border-radius: 20px;
+.section-rule {
+    width: 36px; height: 2px;
+    background: var(--gold);
+    margin: 0 auto;
+    opacity: 0.6;
 }
 
-.section-container {
-    padding: 80px 0;
-}
-
+/* GRID */
 .pengumuman-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 28px;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 22px;
 }
 
+/* CARD */
 .pengumuman-card {
-    border: none;
-    border-radius: 20px;
+    background: var(--ink-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
     overflow: hidden;
-    background: white;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    transition: all 0.35s ease;
     display: flex;
     flex-direction: column;
     height: 100%;
+    position: relative;
+    transition: all 0.32s ease;
+}
+
+.pengumuman-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1;
 }
 
 .pengumuman-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    border-color: var(--border-strong);
+    transform: translateY(-6px);
+    box-shadow: 0 22px 56px rgba(0,0,0,0.4);
 }
 
-.pengumuman-card .accent-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #005bea, #00c6fb);
-    opacity: 0;
-    transition: opacity 0.3s;
-}
+.pengumuman-card:hover::before { opacity: 1; }
 
-.pengumuman-card:hover .accent-bar {
-    opacity: 1;
-}
-
-.pengumuman-image {
+/* IMAGE */
+.card-img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
-    display: block;
-    position: relative;
     overflow: hidden;
 }
 
-.pengumuman-image-placeholder {
-    width: 100%;
-    height: 200px;
-    background: linear-gradient(135deg, #005bea, #00c6fb);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 48px;
-    color: rgba(255,255,255,0.7);
+.card-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.82);
+    transition: transform 0.5s ease, filter 0.3s;
 }
 
-.pengumuman-body {
-    padding: 22px;
+.pengumuman-card:hover .card-img img {
+    transform: scale(1.05);
+    filter: brightness(0.92);
+}
+
+.card-img-placeholder {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, rgba(201,169,110,0.07), rgba(201,169,110,0.02));
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+.card-img-placeholder i {
+    font-size: 36px;
+    color: var(--gold);
+    opacity: 0.3;
+}
+
+.card-img-placeholder span {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+/* BODY */
+.card-body {
+    padding: 24px;
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
-.pengumuman-date {
-    font-size: 11.5px;
-    font-weight: 700;
-    letter-spacing: 0.8px;
+.card-date {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #005bea;
+    color: var(--gold);
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
 }
 
-.pengumuman-title {
-    font-size: 16.5px;
-    font-weight: 700;
-    color: #1e293b;
+.card-title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 17px;
+    color: var(--text);
     line-height: 1.45;
     margin-bottom: 12px;
     display: -webkit-box;
@@ -146,143 +228,135 @@ body {
     overflow: hidden;
 }
 
-.pengumuman-content {
-    font-size: 13.5px;
-    color: #6b7280;
-    line-height: 1.7;
+.card-excerpt {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.75;
     flex: 1;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
-.pengumuman-footer {
+.card-footer {
     padding-top: 14px;
-    border-top: 1px solid #f1f5f9;
+    border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-.btn-baca {
+.btn-read {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    background: linear-gradient(135deg, #005bea, #00c6fb);
-    color: white;
-    border-radius: 50px;
-    padding: 9px 22px;
-    font-size: 13px;
-    font-weight: 700;
+    gap: 8px;
+    background: var(--gold-dim);
+    border: 1px solid var(--border-strong);
+    color: var(--gold-pale);
+    border-radius: 40px;
+    padding: 10px 22px;
+    font-size: 12px;
+    font-weight: 500;
     text-decoration: none;
-    border: none;
-    transition: all 0.25s ease;
-    box-shadow: 0 4px 14px rgba(0,91,234,0.25);
+    transition: all 0.25s;
 }
 
-.btn-baca:hover {
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(0,91,234,0.35);
+.btn-read:hover {
+    background: var(--gold);
+    color: var(--ink);
+    border-color: var(--gold);
 }
 
-.empty-wrap {
+/* EMPTY */
+.empty-state {
     text-align: center;
-    padding: 60px 20px;
-    grid-column: 1 / -1;
+    padding: 70px 20px;
+    grid-column: 1/-1;
 }
 
 .empty-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 20px;
-    background: linear-gradient(135deg, #005bea20, #00c6fb20);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 36px;
-    color: #005bea;
+    width: 72px; height: 72px;
+    border-radius: 18px;
+    background: var(--gold-dim);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    color: var(--gold);
     margin: 0 auto 20px;
+    opacity: 0.6;
 }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 576px) {
-    .pengumuman-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero h1 {
-        font-size: 28px;
-    }
-
-    .hero p {
-        font-size: 15px;
-    }
+/* RESPONSIVE */
+@media(max-width: 576px) {
+    .pengumuman-grid { grid-template-columns: 1fr; }
 }
 </style>
 
+<!-- HERO -->
 <section class="hero">
-    <div class="container">
-        <h1>Pengumuman Gereja</h1>
-        <p>Informasi terbaru dan pengumuman resmi dari gereja</p>
+    <div class="hero-content">
+        <div class="hero-eyebrow">
+            <i class="fa-solid fa-bullhorn" style="font-size:10px;"></i>
+            Informasi Gereja
+        </div>
+        <h1>Pengumuman <em>Gereja</em></h1>
+        <p class="hero-sub">Informasi terbaru dan pengumuman resmi dari gereja untuk seluruh jemaat</p>
     </div>
 </section>
 
-<section class="section-container">
-    <div class="container">
+<!-- CONTENT -->
+<div class="page-wrap">
+    <div class="section-header">
+        <span class="section-label">Terkini</span>
+        <h2 class="section-title">Berita &amp; Pengumuman</h2>
+        <div class="section-rule"></div>
+    </div>
 
-        <div class="text-center mb-5">
-            <h2 class="section-title">Berita Terkini</h2>
-            <div class="divider"></div>
-        </div>
+    <div class="pengumuman-grid">
+        @forelse($pengumuman as $item)
+            <div class="pengumuman-card">
 
-        <div class="pengumuman-grid">
-            @forelse($pengumuman as $item)
-                <div class="pengumuman-card">
-                    <div class="accent-bar"></div>
-
+                <div class="card-img">
                     @if($item->image)
-                        <img src="{{ asset('storage/' . $item->image) }}" 
-                             class="pengumuman-image" 
-                             alt="{{ $item->title }}"
-                             loading="lazy">
+                        <img src="{{ asset('storage/' . $item->image) }}"
+                             alt="{{ $item->title }}" loading="lazy">
                     @else
-                        <div class="pengumuman-image-placeholder">
-                            <i class="bi bi-newspaper"></i>
+                        <div class="card-img-placeholder">
+                            <i class="fa-regular fa-newspaper"></i>
+                            <span>Pengumuman</span>
                         </div>
                     @endif
+                </div>
 
-                    <div class="pengumuman-body">
-                        <div class="pengumuman-date">
-                            <i class="bi bi-calendar3"></i>
-                            {{ $item->publish_date ? \Carbon\Carbon::parse($item->publish_date)->translatedFormat('d F Y') : '—' }}
-                        </div>
+                <div class="card-body">
+                    <div class="card-date">
+                        <i class="fa-regular fa-calendar"></i>
+                        {{ $item->publish_date
+                            ? \Carbon\Carbon::parse($item->publish_date)->translatedFormat('d F Y')
+                            : '—' }}
+                    </div>
 
-                        <h3 class="pengumuman-title">{{ $item->title }}</h3>
+                    <h3 class="card-title">{{ $item->title }}</h3>
 
-                        <div class="pengumuman-content">
-                            {{ \Illuminate\Support\Str::limit($item->content, 120) }}
-                        </div>
+                    <div class="card-excerpt">
+                        {{ \Illuminate\Support\Str::limit($item->content, 120) }}
+                    </div>
 
-                        <div class="pengumuman-footer">
-                            <a href="{{ route('pelayan.pengumuman.show', $item->id) }}" class="btn-baca">
-                                <i class="bi bi-arrow-right"></i>
-                                Baca Selengkapnya
-                            </a>
-                        </div>
+                    <div class="card-footer">
+                        <a href="{{ route('pelayan.pengumuman.show', $item->id) }}" class="btn-read">
+                            <i class="fa-solid fa-arrow-right" style="font-size:10px;"></i>
+                            Baca Selengkapnya
+                        </a>
                     </div>
                 </div>
-            @empty
-                <div class="empty-wrap">
-                    <div class="empty-icon">
-                        <i class="bi bi-newspaper"></i>
-                    </div>
-                    <h4 class="fw-bold mb-2">Belum Ada Pengumuman</h4>
-                    <p class="text-muted">Pengumuman akan segera ditampilkan di sini. Tetap update!</p>
-                </div>
-            @endforelse
-        </div>
+            </div>
 
+        @empty
+            <div class="empty-state">
+                <div class="empty-icon"><i class="fa-regular fa-newspaper"></i></div>
+                <h4 style="margin-bottom:8px;font-size:18px;">Belum Ada Pengumuman</h4>
+                <p style="color:var(--text-muted);font-size:14px;">Pengumuman akan segera ditampilkan di sini. Tetap update!</p>
+            </div>
+        @endforelse
     </div>
-</section>
+</div>
 
 @endsection

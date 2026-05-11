@@ -2,53 +2,49 @@
 
 @section('content')
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
-    --gold: #C9A84C;
-    --gold-light: #F0D48A;
-    --gold-dark: #A0722A;
-    --navy: #0D1B2A;
-    --navy-mid: #1B2F4A;
-    --navy-soft: #243B55;
-    --navy-card: #1A2E45;
-    --cream: #FAF7F2;
-    --cream-dark: #F0EAE0;
-    --text-main: #FFFFFF;
-    --text-muted: #94A3B8;
-    --white: #FFFFFF;
-    --radius-card: 24px;
-    --radius-pill: 100px;
+    --gold: #C9A96E;
+    --gold-pale: #E8D5A3;
+    --gold-dim: rgba(201,169,110,0.12);
+    --ink: #0A0E17;
+    --ink-mid: #0E1524;
+    --ink-card: rgba(15,22,38,0.95);
+    --surface: rgba(255,255,255,0.04);
+    --surface-hover: rgba(255,255,255,0.07);
+    --text: #EAE6DF;
+    --text-muted: rgba(234,230,223,0.52);
+    --border: rgba(201,169,110,0.13);
+    --border-strong: rgba(201,169,110,0.3);
+    --radius: 20px;
+    --radius-sm: 12px;
 }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Outfit', sans-serif; background: var(--ink); color: var(--text); }
 
-body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--navy);
-    color: var(--text-main);
-}
-
-/* ─── HERO ─── */
+/* HERO */
 .hero {
-    background: var(--navy);
     position: relative;
-    overflow: hidden;
-    padding: 110px 0 80px;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    border-bottom: 1px solid rgba(201,168,76,0.12);
+    overflow: hidden;
+    padding: 100px 24px 120px;
+    background: var(--ink-mid);
 }
 
 .hero::before {
     content: '';
     position: absolute;
-    top: -120px; left: 50%;
-    transform: translateX(-50%);
-    width: 700px; height: 700px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
-    pointer-events: none;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 100% at 50% 0%, rgba(201,169,110,0.08), transparent 65%);
 }
 
 .hero::after {
@@ -56,443 +52,381 @@ body {
     position: absolute;
     bottom: 0; left: 0; right: 0;
     height: 80px;
-    background: var(--navy-mid);
+    background: var(--ink);
     clip-path: ellipse(55% 100% at 50% 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
 }
 
 .hero-eyebrow {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: rgba(201,168,76,0.15);
-    border: 1px solid rgba(201,168,76,0.35);
-    border-radius: var(--radius-pill);
+    background: var(--gold-dim);
+    border: 1px solid var(--border-strong);
+    border-radius: 40px;
     padding: 7px 20px;
-    font-size: 13px;
+    font-size: 10px;
     font-weight: 500;
-    color: var(--gold-light);
-    letter-spacing: 0.08em;
+    color: var(--gold-pale);
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    margin-bottom: 28px;
-}
-
-.hero-eyebrow span.dot {
-    width: 6px; height: 6px;
-    background: var(--gold);
-    border-radius: 50%;
-    display: inline-block;
+    margin-bottom: 24px;
 }
 
 .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(36px, 5vw, 58px);
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1.15;
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(38px, 6vw, 68px);
+    line-height: 1.1;
     margin-bottom: 18px;
 }
 
-.hero h1 em {
-    font-style: italic;
-    color: var(--gold-light);
-}
+.hero h1 em { color: var(--gold); font-style: italic; }
 
-.hero p {
-    font-size: 17px;
+.hero-sub {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.8;
     font-weight: 300;
-    color: rgba(255,255,255,0.88);
-    max-width: 480px;
-    margin: 0 auto;
-    line-height: 1.7;
 }
 
-/* ─── SECTION HEADER ─── */
+/* WEEKLY SECTION */
+.weekly {
+    background: var(--ink);
+    padding: 80px 0 100px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1160px;
+    margin: 0 auto;
+}
+
 .section-header {
     text-align: center;
-    margin-bottom: 56px;
+    margin-bottom: 64px;
 }
 
 .section-label {
     display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: #FFFFFF !important;
+    color: var(--gold);
     margin-bottom: 14px;
 }
 
 .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(28px, 3.5vw, 40px);
-    font-weight: 600;
-    color: #FFFFFF !important;
-    line-height: 1.2;
-    margin-bottom: 16px;
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(26px, 4vw, 40px);
+    color: var(--text);
+    margin-bottom: 18px;
 }
 
 .section-rule {
-    width: 48px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--gold), var(--gold-light));
-    border-radius: 99px;
+    width: 40px;
+    height: 2px;
+    background: var(--gold);
     margin: 0 auto;
+    opacity: 0.7;
 }
 
-.section-title,
-.day-label-text,
-.special-card .card-title,
-.schedule-card .card-title {
-    color: #FFFFFF !important;
-}
-
-/* ─── DAY LABEL ─── */
-.day-label {
+/* DAY DIVIDER */
+.day-divider {
     display: flex;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 32px;
+    gap: 20px;
+    margin-bottom: 28px;
+    margin-top: 52px;
 }
 
-.day-label::before,
-.day-label::after {
+.day-divider:first-child { margin-top: 0; }
+
+.day-divider::before,
+.day-divider::after {
     content: '';
     flex: 1;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3));
+    background: var(--border);
 }
 
-.day-label::after {
-    background: linear-gradient(90deg, rgba(201,168,76,0.3), transparent);
-}
-
-.day-label-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--white);
+.day-name {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 20px;
+    color: var(--text);
     white-space: nowrap;
+    letter-spacing: 0.02em;
 }
 
-/* ─── SCHEDULE CARD ─── */
+/* SCHEDULE CARD */
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 22px;
+    margin-bottom: 20px;
+}
+
 .schedule-card {
-    background: var(--navy-card);
-    border-radius: var(--radius-card);
+    background: var(--ink-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
     padding: 32px 28px;
-    border: 1px solid rgba(201,168,76,0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
     position: relative;
     overflow: hidden;
+    transition: all 0.32s ease;
+    height: 100%;
 }
 
 .schedule-card::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s;
 }
 
 .schedule-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 24px 60px rgba(0,0,0,0.35);
-    border-color: rgba(201,168,76,0.4);
+    border-color: var(--border-strong);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
 }
 
-.schedule-card:hover::before {
-    opacity: 1;
-}
+.schedule-card:hover::before { opacity: 1; }
 
-.card-icon-wrap {
-    width: 52px;
-    height: 52px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, rgba(201,168,76,0.2), rgba(201,168,76,0.08));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    color: var(--gold-light);
-    margin-bottom: 22px;
-    flex-shrink: 0;
+.card-icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    background: var(--gold-dim);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    color: var(--gold);
+    margin-bottom: 20px;
 }
 
 .card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 19px;
-    font-weight: 600;
-    color: var(--white);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 18px;
+    color: var(--text);
     margin-bottom: 16px;
-    line-height: 1.3;
+    line-height: 1.35;
 }
 
 .card-meta {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 13.5px;
-    color: rgba(255,255,255,0.78);
+    gap: 9px;
+    font-size: 13px;
+    color: var(--text-muted);
     margin-bottom: 8px;
-    font-weight: 400;
 }
 
-.card-meta i {
-    color: var(--gold);
-    font-size: 13px;
-    flex-shrink: 0;
-}
+.card-meta i { color: var(--gold); font-size: 12px; }
 
 .card-desc {
-    font-size: 14px;
-    color: rgba(255,255,255,0.78);
-    line-height: 1.65;
-    margin-top: 14px;
-    margin-bottom: 22px;
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: 14px 0 20px;
+    flex: 1;
 }
 
 .btn-detail {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    font-size: 13px;
+    gap: 7px;
+    font-size: 12px;
     font-weight: 500;
-    color: var(--gold-light);
-    border: 1px solid rgba(201,168,76,0.35);
-    border-radius: var(--radius-pill);
-    padding: 8px 20px;
+    color: var(--gold-pale);
+    border: 1px solid var(--border-strong);
+    border-radius: 40px;
+    padding: 8px 18px;
     text-decoration: none;
-    transition: all 0.25s ease;
-    background: transparent;
+    transition: all 0.25s;
+    width: fit-content;
 }
 
 .btn-detail:hover {
     background: var(--gold);
-    color: var(--navy);
+    color: var(--ink);
     border-color: var(--gold);
 }
 
-/* ─── EMPTY STATE ─── */
-.empty-state {
-    text-align: center;
-    padding: 60px 20px;
-    color: rgba(255,255,255,0.4);
-}
-
-/* ─── SPECIAL EVENTS SECTION ─── */
-.special-section {
-    background: var(--navy);
+/* SPECIAL SECTION */
+.special {
+    background: var(--ink-mid);
     padding: 100px 0;
     position: relative;
     overflow: hidden;
-    border-top: 1px solid rgba(201,168,76,0.1);
-    border-bottom: 1px solid rgba(201,168,76,0.1);
+    border-top: 1px solid var(--border);
 }
 
-.special-section::before {
+.special::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 80px;
-    background: var(--navy-mid);
-    clip-path: ellipse(55% 100% at 50% 0%);
+    inset: 0;
+    background: radial-gradient(ellipse 50% 60% at 50% 50%, rgba(201,169,110,0.04), transparent 70%);
 }
 
-.special-section::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 80px;
-    background: var(--navy);
-    clip-path: ellipse(55% 100% at 50% 100%);
-}
-
-/* ─── SPECIAL CARD ─── */
 .special-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(201,168,76,0.25);
-    border-radius: var(--radius-card);
-    padding: 36px 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 30px;
     height: 100%;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
     position: relative;
-    overflow: hidden;
-}
-
-.special-card::after {
-    content: '';
-    position: absolute;
-    bottom: -30px; right: -30px;
-    width: 120px; height: 120px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
-    pointer-events: none;
+    z-index: 1;
 }
 
 .special-card:hover {
-    background: rgba(255,255,255,0.09);
-    border-color: rgba(201,168,76,0.5);
-    transform: translateY(-6px);
-    box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+    background: var(--surface-hover);
+    border-color: var(--border-strong);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
 }
 
-.special-card .card-icon-wrap {
-    background: linear-gradient(135deg, rgba(201,168,76,0.25), rgba(201,168,76,0.1));
-    color: var(--gold-light);
-}
-
-.special-card .card-title { color: var(--white); }
-.special-card .card-desc  { color: rgba(255,255,255,0.82); }
-
-.badge-gold {
+.badge-day {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    background: rgba(201,168,76,0.15);
-    border: 1px solid rgba(201,168,76,0.35);
-    color: var(--gold-light);
-    border-radius: var(--radius-pill);
-    padding: 5px 14px;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
+    gap: 7px;
+    background: var(--gold-dim);
+    border: 1px solid var(--border-strong);
+    border-radius: 40px;
+    padding: 6px 16px;
+    font-size: 11px;
+    color: var(--gold-pale);
+    margin-top: 18px;
 }
 
-/* ─── WEEKLY SECTION ─── */
-.weekly-section {
-    background: var(--navy-mid);
-    padding: 100px 0;
+/* EMPTY */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
 }
 
-/* ─── RESPONSIVE ─── */
-@media (max-width: 768px) {
-    .hero { padding: 80px 0 60px; }
-    .weekly-section, .special-section { padding: 80px 0; }
+.empty-icon {
+    font-size: 40px;
+    color: var(--gold);
+    opacity: 0.3;
+    margin-bottom: 16px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+    .weekly, .special { padding: 60px 0; }
+    .schedule-grid { grid-template-columns: 1fr; }
 }
 </style>
 
-<!-- ════════════════════════════
-     HERO
-════════════════════════════ -->
+<!-- HERO -->
 <section class="hero">
-    <div class="container position-relative" style="z-index: 1;">
+    <div class="hero-content">
         <div class="hero-eyebrow">
-            <span class="dot"></span>
+            <i class="fa-solid fa-church" style="font-size:10px;"></i>
             Gereja Terbuka Untuk Semua
-            <span class="dot"></span>
         </div>
         <h1>Jadwal Ibadah<br><em>&amp; Kegiatan Jemaat</em></h1>
-        <p>Mari bertumbuh bersama dalam iman, doa, dan persekutuan yang penuh kasih</p>
+        <p class="hero-sub">Mari bertumbuh bersama dalam iman, doa, dan persekutuan yang penuh kasih</p>
     </div>
 </section>
 
-
-<!-- ════════════════════════════
-     JADWAL MINGGUAN
-════════════════════════════ -->
-<section class="weekly-section">
+<!-- JADWAL MINGGUAN -->
+<section class="weekly">
     <div class="container">
-
         <div class="section-header">
-            <span class="section-label">Setiap Minggu</span>
+            <div class="section-label">Setiap Minggu</div>
             <h2 class="section-title">Jadwal Mingguan</h2>
             <div class="section-rule"></div>
         </div>
 
         @forelse ($jadwalMingguan as $hari => $kegiatanList)
-
-            <div class="day-label mb-4">
-                <span class="day-label-text">{{ $hari }}</span>
+            <div class="day-divider">
+                <span class="day-name">{{ $hari }}</span>
             </div>
 
-            <div class="row g-4 mb-5">
+            <div class="schedule-grid">
                 @foreach ($kegiatanList as $kegiatan)
-                    <div class="col-md-6 col-lg-4">
-                        <div class="schedule-card">
-                            <div class="card-icon-wrap">
-                                <i class="{{ $kegiatan->icon ?: 'bi bi-calendar-heart' }}"></i>
-                            </div>
-
-                            <h3 class="card-title">{{ $kegiatan->title }}</h3>
-
-                            <div class="card-meta">
-                                <i class="bi bi-clock"></i>
-                                <span>
-                                    {{ $kegiatan->start_time }}
-                                    {{ $kegiatan->end_time ? '– ' . $kegiatan->end_time : '' }} WIB
-                                </span>
-                            </div>
-
-                            <div class="card-meta">
-                                <i class="bi bi-geo-alt-fill"></i>
-                                <span>{{ $kegiatan->location ?: 'Lokasi menyusul' }}</span>
-                            </div>
-
-                            @if ($kegiatan->description)
-                                <p class="card-desc">{{ $kegiatan->description }}</p>
-                            @else
-                                <div style="flex:1;"></div>
-                            @endif
-
-                            <a href="#" class="btn-detail">
-                                Lihat Detail
-                                <i class="bi bi-arrow-right" style="font-size:12px;"></i>
-                            </a>
+                    <div class="schedule-card">
+                        <div class="card-icon">
+                            <i class="{{ $kegiatan->icon ?: 'fa-solid fa-calendar-heart' }}"></i>
                         </div>
+
+                        <h3 class="card-title">{{ $kegiatan->title }}</h3>
+
+                        <div class="card-meta">
+                            <i class="fa-regular fa-clock"></i>
+                            <span>
+                                {{ $kegiatan->start_time }}
+                                {{ $kegiatan->end_time ? '– ' . $kegiatan->end_time : '' }} WIB
+                            </span>
+                        </div>
+
+                        <div class="card-meta">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>{{ $kegiatan->location ?: 'Lokasi menyusul' }}</span>
+                        </div>
+
+                        @if ($kegiatan->description)
+                            <p class="card-desc">{{ $kegiatan->description }}</p>
+                        @else
+                            <div style="flex:1;"></div>
+                        @endif
+
+                        <a href="#" class="btn-detail">
+                            Lihat Detail
+                            <i class="fa-solid fa-arrow-right" style="font-size:10px;"></i>
+                        </a>
                     </div>
                 @endforeach
             </div>
-
         @empty
             <div class="empty-state">
-                <i class="bi bi-calendar2-x" style="font-size:48px; color:rgba(201,168,76,0.5); display:block; margin-bottom:16px;"></i>
+                <div class="empty-icon"><i class="fa-regular fa-calendar-xmark"></i></div>
                 <p>Jadwal mingguan belum tersedia.</p>
             </div>
         @endforelse
-
     </div>
 </section>
 
-
-<!-- ════════════════════════════
-     ACARA KHUSUS
-════════════════════════════ -->
-<section class="special-section">
-    <div class="container position-relative" style="z-index: 1;">
-
+<!-- ACARA KHUSUS -->
+<section class="special">
+    <div class="container" style="position:relative;z-index:1;">
         <div class="section-header">
-            <span class="section-label">Akan Datang</span>
+            <div class="section-label">Akan Datang</div>
             <h2 class="section-title">Acara Khusus</h2>
             <div class="section-rule"></div>
         </div>
 
-        <div class="row g-4 justify-content-center">
+        <div class="schedule-grid">
             @forelse ($acaraKhusus as $acara)
-                <div class="col-md-6 col-lg-4">
-                    <div class="special-card">
-                        <div class="card-icon-wrap">
-                            <i class="{{ $acara->icon ?: 'bi bi-stars' }}"></i>
-                        </div>
-
-                        <h3 class="card-title">{{ $acara->title }}</h3>
-                        <p class="card-desc">{{ $acara->description }}</p>
-
-                        <div class="badge-gold">
-                            <i class="bi bi-calendar2-check" style="font-size:11px;"></i>
-                            {{ $acara->day ?: 'Acara Khusus' }}
-                        </div>
+                <div class="special-card">
+                    <div class="card-icon">
+                        <i class="{{ $acara->icon ?: 'fa-solid fa-star' }}"></i>
+                    </div>
+                    <h3 class="card-title">{{ $acara->title }}</h3>
+                    <p class="card-desc">{{ $acara->description }}</p>
+                    <div class="badge-day">
+                        <i class="fa-regular fa-calendar-check" style="font-size:10px;"></i>
+                        {{ $acara->day ?: 'Acara Khusus' }}
                     </div>
                 </div>
             @empty
-                <div class="empty-state">
-                    <i class="bi bi-calendar2-x" style="font-size:48px; color:rgba(201,168,76,0.5); display:block; margin-bottom:16px;"></i>
-                    <p style="color:rgba(255,255,255,0.45);">Belum ada acara khusus.</p>
+                <div class="empty-state" style="grid-column:1/-1;">
+                    <div class="empty-icon"><i class="fa-regular fa-calendar-xmark"></i></div>
+                    <p>Belum ada acara khusus.</p>
                 </div>
             @endforelse
         </div>
-
     </div>
 </section>
 

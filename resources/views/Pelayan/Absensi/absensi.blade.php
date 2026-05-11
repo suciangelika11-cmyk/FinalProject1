@@ -6,213 +6,773 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
 <style>
 :root{
-    --gold:#C9A84C;
-    --gold-light:#E8C97A;
-    --navy:#05101F;
-    --navy-card:rgba(11,31,56,.88);
-    --white:#F0EDE6;
-    --white-dim:rgba(240,237,230,.65);
-    --line:rgba(201,168,76,.18);
+    --gold:#d4a844;
+    --gold-light:#f0d070;
+
+    --navy:#0a1628;
+    --navy2:#102040;
+    --blue:#1a4a9e;
+    --blue-light:#5592e8;
+
+    --white:#ffffff;
+    --text-soft:rgba(255,255,255,.72);
+
+    --card:rgba(255,255,255,.06);
+    --card-hover:rgba(255,255,255,.1);
+
+    --border:rgba(93,146,232,.18);
+    --border-hover:rgba(93,146,232,.38);
+
+    --radius:28px;
+
+    --font-title:'Libre Baskerville', serif;
+    --font-body:'Outfit', sans-serif;
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+/* =====================================
+BASE
+===================================== */
 
 body{
-    background:var(--navy);
+    background:
+        radial-gradient(circle at top,
+        rgba(85,146,232,.08),
+        transparent 40%),
+        linear-gradient(180deg,#081120 0%,#09182f 100%);
+
     color:var(--white);
-    font-family:'DM Sans',sans-serif;
+
+    font-family:var(--font-body);
+
+    overflow-x:hidden;
 }
 
-/* HERO */
+/* =====================================
+HERO
+===================================== */
+
 .hero{
     position:relative;
-    min-height:460px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
     overflow:hidden;
-    padding:40px 20px;
-    background:
-        radial-gradient(circle at top, rgba(201,168,76,.13), transparent 40%),
-        linear-gradient(180deg,#081526 0%, #05101F 100%);
+
+    padding:150px 20px 130px;
+
+    text-align:center;
 }
 
 .hero::before{
     content:'';
+
     position:absolute;
-    width:450px;
-    height:450px;
-    border-radius:50%;
-    background:rgba(201,168,76,.05);
-    filter:blur(50px);
+    inset:0;
+
+    background:
+        radial-gradient(circle at top right,
+        rgba(85,146,232,.15),
+        transparent 35%);
+}
+
+.hero::after{
+    content:'';
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:-1px;
+
+    height:120px;
+
+    background:#0c1c35;
+
+    border-radius:100% 100% 0 0;
 }
 
 .hero-content{
     position:relative;
     z-index:2;
-    max-width:780px;
+
+    max-width:760px;
+    margin:auto;
 }
 
-.hero-small{
-    color:var(--gold);
-    letter-spacing:4px;
-    text-transform:uppercase;
+.hero-eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    padding:9px 18px;
+
+    border-radius:999px;
+
+    background:rgba(85,146,232,.12);
+
+    border:1px solid rgba(85,146,232,.22);
+
+    color:#c8e0fd;
+
     font-size:11px;
-    margin-bottom:20px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+
+    margin-bottom:28px;
 }
 
 .hero h1{
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(58px,7vw,100px);
-    line-height:1;
-    margin-bottom:18px;
+    font-family:var(--font-title);
+
+    font-size:clamp(42px,7vw,74px);
+
+    line-height:1.15;
+
+    margin-bottom:22px;
 }
 
-.hero h1 span{
+.hero h1 em{
     color:var(--gold);
     font-style:italic;
 }
 
-.hero p{
-    color:var(--white-dim);
-    line-height:1.8;
-    font-size:15px;
-}
-
-/* PAGE */
-.page-wrap{
-    width:90%;
-    max-width:1180px;
+.hero-desc{
+    max-width:650px;
     margin:auto;
-    padding:70px 0 100px;
-}
 
-.section-title{
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(36px,5vw,56px);
-    margin:40px 0 30px;
-    color:var(--white);
-}
+    color:var(--text-soft);
 
-.section-desc{
-    color:var(--white-dim);
-    margin-bottom:40px;
-    line-height:1.6;
     font-size:15px;
+    line-height:1.9;
 }
 
-/* TABLE */
-.table-wrap{
-    overflow-x:auto;
-    background:var(--navy-card);
-    border:1px solid var(--line);
-    border-radius:20px;
-    backdrop-filter:blur(10px);
+/* =====================================
+CONTENT
+===================================== */
+
+.page-wrap{
+    width:min(92%,1180px);
+
+    margin:auto;
+
+    padding:80px 0 100px;
+
+    position:relative;
+    z-index:10;
 }
 
-.table-wrap table{
-    width:100%;
-    color:var(--white);
-    text-align:left;
+.section-eyebrow{
+    display:flex;
+    align-items:center;
+    gap:18px;
+
+    margin-bottom:48px;
 }
 
-.table-wrap th{
-    padding:18px 24px;
-    color:var(--gold);
-    font-weight:600;
-    border-bottom:1px solid var(--line);
-    font-size:13px;
-    letter-spacing:2px;
+.section-eyebrow::before,
+.section-eyebrow::after{
+    content:'';
+    flex:1;
+    height:1px;
+
+    background:var(--border);
+}
+
+.section-eyebrow span{
+    color:#c8e0fd;
+
+    font-size:10px;
+    letter-spacing:.22em;
     text-transform:uppercase;
 }
 
-.table-wrap td{
-    padding:16px 24px;
-    border-bottom:1px solid rgba(255,255,255,.05);
+/* =====================================
+CARD
+===================================== */
+
+.absensi-card{
+    display:grid;
+
+    grid-template-columns:190px 1fr 260px;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    backdrop-filter:blur(16px);
+
+    margin-bottom:28px;
+
+    transition:.35s ease;
+}
+
+.absensi-card:hover{
+    transform:translateY(-8px);
+
+    border-color:var(--border-hover);
+
+    background:var(--card-hover);
+
+    box-shadow:
+        0 28px 60px rgba(0,0,0,.38);
+}
+
+/* =====================================
+DATE
+===================================== */
+
+.card-date{
+    background:rgba(85,146,232,.05);
+
+    border-right:1px solid var(--border);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:40px 20px;
+}
+
+.date-weekday{
+    color:#c8e0fd;
+
+    font-size:10px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+}
+
+.date-num{
+    font-family:var(--font-title);
+
+    font-size:64px;
+
+    line-height:1;
+
+    margin-bottom:10px;
+}
+
+.date-month{
+    color:var(--text-soft);
+
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+}
+
+/* =====================================
+INFO
+===================================== */
+
+.card-info{
+    padding:42px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.card-tag{
+    color:#c8e0fd;
+
+    font-size:10px;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+
+    margin-bottom:16px;
+}
+
+.card-preacher{
+    font-family:var(--font-title);
+
+    font-size:34px;
+
+    line-height:1.35;
+
+    margin-bottom:18px;
+}
+
+.card-divider{
+    width:54px;
+    height:2px;
+
+    background:linear-gradient(
+        90deg,
+        var(--gold),
+        transparent
+    );
+
+    margin-bottom:22px;
+}
+
+.card-session{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    width:fit-content;
+
+    padding:11px 18px;
+
+    border-radius:999px;
+
+    background:rgba(85,146,232,.08);
+
+    border:1px solid rgba(85,146,232,.2);
+
+    color:#dbeafe;
+
+    font-size:13px;
+}
+
+/* =====================================
+STATS
+===================================== */
+
+.card-stats{
+    border-left:1px solid var(--border);
+
+    padding:28px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.stats-box{
+    width:100%;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.05);
+
+    border-radius:24px;
+
+    padding:28px 20px;
+
+    text-align:center;
+}
+
+.stats-icon{
+    width:58px;
+    height:58px;
+
+    margin:auto auto 18px;
+
+    border-radius:18px;
+
+    background:rgba(85,146,232,.12);
+
+    color:#93bef8;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:22px;
+}
+
+.stats-value{
+    font-family:var(--font-title);
+
+    font-size:40px;
+
+    margin-bottom:10px;
+}
+
+.stats-label{
+    color:var(--text-soft);
+
+    font-size:13px;
+}
+
+/* =====================================
+EMPTY
+===================================== */
+
+.empty-state{
+    text-align:center;
+
+    padding:100px 20px;
+}
+
+.empty-icon{
+    width:82px;
+    height:82px;
+
+    margin:auto auto 24px;
+
+    border-radius:50%;
+
+    background:rgba(85,146,232,.08);
+
+    border:1px solid var(--border);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#93bef8;
+
+    font-size:30px;
+}
+
+.empty-title{
+    font-family:var(--font-title);
+
+    font-size:28px;
+
+    margin-bottom:12px;
+}
+
+.empty-text{
+    color:var(--text-soft);
+
     font-size:14px;
+    line-height:1.9;
 }
 
-.table-wrap tr:hover{
-    background:rgba(255,255,255,.02);
+/* =====================================
+FOOTER
+===================================== */
+
+.page-footer{
+    margin-top:90px;
+
+    padding-top:45px;
+
+    border-top:1px solid var(--border);
+
+    text-align:center;
 }
 
-.table-wrap tr:last-child td{
-    border-bottom:none;
+.footer-icon{
+    width:60px;
+    height:60px;
+
+    margin:0 auto 18px;
+
+    border-radius:50%;
+
+    background:rgba(85,146,232,.08);
+
+    border:1px solid var(--border);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#93bef8;
+
+    font-size:22px;
 }
 
-@media(max-width:768px){
-    .page-wrap{
-        padding:40px 0 60px;
+.footer-quote{
+    font-family:var(--font-title);
+
+    font-size:17px;
+
+    color:var(--text-soft);
+
+    font-style:italic;
+}
+
+/* =====================================
+TABLET
+===================================== */
+
+@media(max-width:1100px){
+
+    .absensi-card{
+        grid-template-columns:1fr;
     }
 
-    .section-title{
+    .card-date{
+        border-right:none;
+        border-bottom:1px solid var(--border);
+
+        flex-direction:row;
+
+        gap:20px;
+    }
+
+    .date-num{
+        margin-bottom:0;
+    }
+
+    .card-stats{
+        border-left:none;
+        border-top:1px solid var(--border);
+    }
+}
+
+/* =====================================
+MOBILE
+===================================== */
+
+@media(max-width:768px){
+
+    .hero{
+        padding:120px 18px 105px;
+    }
+
+    .hero::after{
+        height:85px;
+    }
+
+    .hero h1{
+        font-size:46px;
+    }
+
+    .hero-desc{
+        font-size:14px;
+    }
+
+    .page-wrap{
+        width:100%;
+
+        padding:50px 16px 70px;
+    }
+
+    .section-eyebrow{
+        margin-bottom:36px;
+    }
+
+    .absensi-card{
+        border-radius:24px;
+    }
+
+    .card-date{
+        flex-direction:column;
+
+        gap:5px;
+
+        padding:24px 18px;
+    }
+
+    .date-num{
+        font-size:48px;
+    }
+
+    .card-info{
+        padding:26px 20px;
+    }
+
+    .card-preacher{
+        font-size:26px;
+    }
+
+    .card-session{
+        width:100%;
+        justify-content:center;
+    }
+
+    .card-stats{
+        padding:18px;
+    }
+
+    .stats-value{
+        font-size:34px;
+    }
+
+    .empty-state{
+        padding:70px 20px;
+    }
+}
+
+/* =====================================
+SMALL MOBILE
+===================================== */
+
+@media(max-width:480px){
+
+    .hero{
+        padding:100px 16px 90px;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero-eyebrow{
+        font-size:9px;
+
+        padding:7px 14px;
+    }
+
+    .hero-desc{
+        font-size:13px;
+    }
+
+    .page-wrap{
+        padding:45px 14px 60px;
+    }
+
+    .card-info{
+        padding:22px 16px;
+    }
+
+    .card-preacher{
+        font-size:22px;
+    }
+
+    .stats-box{
+        padding:24px 18px;
+    }
+
+    .stats-value{
         font-size:28px;
     }
 
-    .table-wrap th,
-    .table-wrap td{
-        padding:12px 14px;
-        font-size:12px;
+    .footer-quote{
+        font-size:14px;
+        line-height:1.8;
     }
 }
 </style>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 <section class="hero">
+
     <div class="hero-content">
-        <div class="hero-small">Gereja Beriman</div>
-        <h1>Data <span>Absensi</span></h1>
-        <p>Rekam kehadiran pelayan dalam setiap pelayanan ibadah gereja.</p>
+
+        <div class="hero-eyebrow">
+            <i class="fa-solid fa-circle-dot" style="font-size:7px;"></i>
+            Gereja Bethel Indonesia
+        </div>
+
+        <h1>
+            Data <em>Absensi</em>
+        </h1>
+
+        <p class="hero-desc">
+            Rekap kehadiran jemaat dan pelayan dalam setiap ibadah gereja dengan tampilan modern, elegan, dan responsif.
+        </p>
+
     </div>
+
 </section>
 
-<!-- MAIN CONTENT -->
+<!-- CONTENT -->
 <div class="page-wrap">
-    <h2 class="section-title">Absensi Ibadah</h2>
-    <p class="section-desc">Halaman ini menampilkan data absensi pelayan dari berbagai ibadah yang telah dilaksanakan.</p>
+
+    <div class="section-eyebrow">
+        <span>Rekap Kehadiran Ibadah</span>
+    </div>
 
     @if($absensi && $absensi->count() > 0)
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tanggal</th>
-                        <th>Sesi</th>
-                        <th>Pengkhotbah</th>
-                        <th>Jumlah Jemaat</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse($absensi as $item)
-                        <tr>
-                            <td>{{ \Carbon\Carbon::parse($item->date)->format('d M Y') }}</td>
-                            <td>{{ $item->session }}</td>
-                            <td>{{ $item->pengkhotbah }}</td>
-                            <td style="color:var(--gold);font-weight:600;">{{ $item->jumlah }}</td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="4" style="text-align:center;padding:40px!important;color:var(--white-dim);">Belum ada data absensi.</td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
-        </div>
+
+        @foreach($absensi as $item)
+
+        <article class="absensi-card">
+
+            <!-- DATE -->
+            <div class="card-date">
+
+                <div class="date-weekday">
+                    {{ \Carbon\Carbon::parse($item->date)->translatedFormat('l') }}
+                </div>
+
+                <div class="date-num">
+                    {{ \Carbon\Carbon::parse($item->date)->format('d') }}
+                </div>
+
+                <div class="date-month">
+                    {{ \Carbon\Carbon::parse($item->date)->translatedFormat('F Y') }}
+                </div>
+
+            </div>
+
+            <!-- INFO -->
+            <div class="card-info">
+
+                <div class="card-tag">
+                    Pengkhotbah
+                </div>
+
+                <h2 class="card-preacher">
+                    {{ $item->pengkhotbah }}
+                </h2>
+
+                <div class="card-divider"></div>
+
+                <div class="card-session">
+                    <i class="fa-regular fa-clock"></i>
+                    {{ $item->session }}
+                </div>
+
+            </div>
+
+            <!-- STATS -->
+            <div class="card-stats">
+
+                <div class="stats-box">
+
+                    <div class="stats-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div class="stats-value">
+                        {{ number_format($item->jumlah) }}
+                    </div>
+
+                    <div class="stats-label">
+                        Jemaat Hadir
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        @endforeach
+
     @else
-        <div style="background:var(--navy-card);border:1px solid var(--line);border-radius:20px;padding:40px;text-align:center;color:var(--white-dim);">
-            <p>Belum ada data absensi.</p>
+
+    <div class="empty-state">
+
+        <div class="empty-icon">
+            <i class="fa-solid fa-folder-open"></i>
         </div>
+
+        <h3 class="empty-title">
+            Belum Ada Data
+        </h3>
+
+        <p class="empty-text">
+            Data absensi ibadah belum tersedia saat ini.
+        </p>
+
+    </div>
+
     @endif
+
+    <!-- FOOTER -->
+    <div class="page-footer">
+
+        <div class="footer-icon">
+            <i class="fa-solid fa-church"></i>
+        </div>
+
+        <p class="footer-quote">
+            “Kesetiaan dalam pelayanan dimulai dari kehadiran.”
+        </p>
+
+    </div>
+
 </div>
 
 @endsection

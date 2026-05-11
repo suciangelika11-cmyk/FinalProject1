@@ -69,7 +69,7 @@ Route::prefix('admin')->middleware(['auth', 'role:super_admin,admin'])->group(fu
     Route::get('/tentang/{Tentang}', [AdminTentangController::class, 'show'])->name('tentang.show');
     Route::get('/tentang/{tentang}/edit', [AdminTentangController::class, 'edit'])->name('tentang.edit');
     Route::put('/tentang/{tentang}', [AdminTentangController::class, 'update'])->name('tentang.update');
-    Route::delete('/tentang/{Tentang}', [AdminTentangController::class, 'destroy'])->name('tentang.destroy');
+    Route::delete('/tentang/{tentang}', [AdminTentangController::class, 'destroy'])->name('tentang.destroy');
 
     Route::get('/khotbah', [AdminKhotbahController::class, 'index'])->name('khotbah.index');
     Route::get('/khotbah/create', [AdminKhotbahController::class, 'create'])->name('khotbah.create');
