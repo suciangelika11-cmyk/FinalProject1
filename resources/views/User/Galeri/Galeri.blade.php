@@ -1,752 +1,397 @@
 @extends('layouts.app')
 
 @section('content')
-
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-    --navy-950: #050d1a;
-    --navy-900: #0a1628;
-    --navy-800: #0f2040;
-    --navy-700: #152b56;
-    --navy-600: #1c3a72;
-    --navy-500: #1e4a8e;
-    --gold:     #c9a84c;
-    --gold-lt:  #e8cc80;
-    --gold-dim: #8a6b2a;
-    --silver:   #a8b8cc;
-    --silver-lt:#d4e0ec;
-    --white:    #ffffff;
-    --text-muted: #7a90a8;
-    --card-bg:  #0d1e38;
-    --card-border: rgba(201,168,76,0.18);
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-    background: var(--navy-900);
-    font-family: 'DM Sans', sans-serif;
-    color: var(--silver-lt);
-    -webkit-font-smoothing: antialiased;
-}
-
-/* ── ANIMATIONS ── */
-@keyframes heroReveal {
-    from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes shimmer {
-    0%   { background-position: -200% center; }
-    100% { background-position: 200% center; }
-}
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes scaleIn {
-    from { opacity: 0; transform: scale(0.88); }
-    to   { opacity: 1; transform: scale(1); }
-}
-@keyframes lineDraw {
-    from { width: 0; }
-    to   { width: 60px; }
-}
-@keyframes orbFloat {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50%       { transform: translateY(-18px) scale(1.04); }
-}
-@keyframes pulse-ring {
-    0%   { box-shadow: 0 0 0 0 rgba(201,168,76,0.25); }
-    70%  { box-shadow: 0 0 0 14px rgba(201,168,76,0); }
-    100% { box-shadow: 0 0 0 0 rgba(201,168,76,0); }
-}
-@keyframes cardEntrance {
-    from { opacity: 0; transform: translateY(40px) scale(0.96); }
-    to   { opacity: 1; transform: translateY(0) scale(1); }
-}
-@keyframes lightboxOpen {
-    from { opacity: 0; transform: scale(0.9) translateY(16px); }
-    to   { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-/* ── HERO ── */
-.hero {
+/* HERO */
+.g-hero {
     position: relative;
-    min-height: 560px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background: var(--navy-950);
+    padding: clamp(70px, 10vw, 110px) 16px clamp(60px, 8vw, 90px);
     text-align: center;
-    padding: 120px 24px 100px;
+    overflow: hidden;
+    background: linear-gradient(160deg, #0f2444 0%, #102a52 50%, #0d1e3a 100%);
 }
 
-.hero-bg-grid {
-    position: absolute;
-    inset: 0;
+.g-hero-grid {
+    position: absolute; inset: 0;
     background-image:
-        linear-gradient(rgba(201,168,76,0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(201,168,76,0.07) 1px, transparent 1px);
+        linear-gradient(rgba(93,146,232,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(93,146,232,0.06) 1px, transparent 1px);
     background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 0%, transparent 100%);
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 0%, transparent 100%);
     pointer-events: none;
 }
 
-.hero-orb {
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-    filter: blur(60px);
-    animation: orbFloat 7s ease-in-out infinite;
+.g-hero-orb {
+    position: absolute; border-radius: 50%; pointer-events: none; filter: blur(65px);
 }
-.hero-orb-1 {
+.g-hero-orb-1 {
     width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(30,74,142,0.6) 0%, transparent 70%);
-    top: -120px; left: -100px;
-    animation-delay: 0s;
+    background: radial-gradient(circle, rgba(45,101,200,0.4) 0%, transparent 70%);
+    top: -150px; left: -100px;
 }
-.hero-orb-2 {
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(201,168,76,0.25) 0%, transparent 70%);
-    bottom: -80px; right: -60px;
-    animation-delay: 3.5s;
-}
-.hero-orb-3 {
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(21,43,86,0.8) 0%, transparent 70%);
-    top: 30%; left: 50%; transform: translateX(-50%);
-    animation-delay: 1.5s;
+.g-hero-orb-2 {
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(93,146,232,0.2) 0%, transparent 70%);
+    bottom: -60px; right: -50px;
 }
 
-.hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(201,168,76,0.1);
-    border: 1px solid rgba(201,168,76,0.3);
-    color: var(--gold);
-    font-size: 11.5px;
-    font-weight: 600;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    padding: 8px 20px;
-    border-radius: 100px;
-    margin-bottom: 28px;
-    animation: heroReveal 0.8s ease 0.1s both;
-    position: relative;
-    z-index: 2;
-}
-.hero-badge::before {
-    content: '';
-    width: 6px; height: 6px;
-    background: var(--gold);
-    border-radius: 50%;
-    animation: pulse-ring 2.5s ease-out infinite;
-}
+.g-hero-inner { position: relative; z-index: 2; max-width: 600px; margin: 0 auto; }
 
-.hero-title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(42px, 7vw, 72px);
+.g-hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 7vw, 62px);
     font-weight: 800;
-    color: var(--white);
+    color: #fff;
     line-height: 1.1;
-    letter-spacing: -0.5px;
-    position: relative;
-    z-index: 2;
-    animation: heroReveal 0.9s ease 0.3s both;
+    margin-bottom: 18px;
+    animation: fadeUp 0.8s ease 0.25s both;
 }
-.hero-title span {
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-lt) 50%, var(--gold) 100%);
+
+.g-hero-title span {
+    background: linear-gradient(135deg, #93bef8 0%, #c8e0fd 50%, #93bef8 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: shimmer 3.5s linear infinite;
+    animation: shimmerText 3.5s linear infinite;
 }
 
-.hero-sub {
-    font-size: 17px;
+.g-hero-sub {
+    font-size: clamp(14px, 2vw, 16px);
     font-weight: 300;
-    color: rgba(255,255,255,0.88);
-    max-width: 500px;
-    margin: 20px auto 0;
-    line-height: 1.7;
-    letter-spacing: 0.3px;
-    position: relative;
-    z-index: 2;
-    animation: heroReveal 0.9s ease 0.5s both;
+    color: rgba(255,255,255,0.72);
+    max-width: 460px;
+    margin: 0 auto 0;
+    line-height: 1.75;
+    animation: fadeUp 0.8s ease 0.4s both;
 }
 
-.hero-divider {
-    width: 1px;
-    height: 60px;
-    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+.g-hero-line {
+    width: 1px; height: 50px;
+    background: linear-gradient(to bottom, transparent, #93bef8, transparent);
     margin: 36px auto 0;
-    position: relative;
-    z-index: 2;
-    animation: heroReveal 1s ease 0.7s both;
+    animation: fadeUp 0.8s ease 0.55s both;
 }
 
-/* ── SECTION ── */
-.gallery-section {
-    padding: 90px 0 110px;
+/* SECTION */
+.g-section {
+    padding: clamp(48px, 8vw, 80px) 0 clamp(56px, 10vw, 100px);
+    background: #0f2040;
     position: relative;
 }
 
-.gallery-section::before {
+.g-section::before {
     content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(93,146,232,0.22), transparent);
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 28px;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 64px;
-    animation: fadeUp 0.8s ease 0.1s both;
-}
-
-.section-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #FFFFFF !important;
-    margin-bottom: 14px;
-    display: block;
-}
-
-.gallery-section .section-title,
-.gallery-section .section-label,
-.gallery-section h2.section-title {
-    color: #FFFFFF !important;
-}
-
-.section-title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(30px, 4vw, 42px);
-    font-weight: 700;
-    color: #FFFFFF !important;
-    line-height: 1.2;
-    margin-bottom: 16px;
-}
-
-.section-rule {
-    width: 60px;
-    height: 2px;
-    background: linear-gradient(90deg, var(--gold-dim), var(--gold));
-    margin: 0 auto;
-    border-radius: 2px;
-    animation: lineDraw 0.8s ease 0.4s both;
-}
-
-/* ── GALLERY GRID ── */
-.gallery-grid {
+/* GRID */
+.g-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px;
 }
 
-/* ── GALLERY CARD ── */
-.gallery-card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 20px;
+/* CARD */
+.g-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(93,146,232,0.16);
+    border-radius: 18px;
     overflow: hidden;
     cursor: pointer;
-    position: relative;
-    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1),
-                box-shadow 0.4s ease,
-                border-color 0.3s ease;
-    animation: cardEntrance 0.7s cubic-bezier(0.34,1.56,0.64,1) both;
     display: flex;
     flex-direction: column;
+    transition: transform 0.4s cubic-bezier(.34,1.56,.64,1),
+                box-shadow 0.4s ease,
+                border-color 0.3s ease;
+    backdrop-filter: blur(8px);
+    animation: cardIn 0.6s cubic-bezier(.34,1.56,.64,1) both;
 }
 
-.gallery-card:nth-child(1)  { animation-delay: 0.05s; }
-.gallery-card:nth-child(2)  { animation-delay: 0.13s; }
-.gallery-card:nth-child(3)  { animation-delay: 0.21s; }
-.gallery-card:nth-child(4)  { animation-delay: 0.29s; }
-.gallery-card:nth-child(5)  { animation-delay: 0.37s; }
-.gallery-card:nth-child(6)  { animation-delay: 0.45s; }
-.gallery-card:nth-child(7)  { animation-delay: 0.53s; }
-.gallery-card:nth-child(8)  { animation-delay: 0.61s; }
-.gallery-card:nth-child(9)  { animation-delay: 0.69s; }
+.g-card:nth-child(1){animation-delay:.05s}
+.g-card:nth-child(2){animation-delay:.12s}
+.g-card:nth-child(3){animation-delay:.19s}
+.g-card:nth-child(4){animation-delay:.26s}
+.g-card:nth-child(5){animation-delay:.33s}
+.g-card:nth-child(6){animation-delay:.40s}
 
-.gallery-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 32px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.3);
-    border-color: rgba(201,168,76,0.4);
+@keyframes cardIn {
+    from { opacity: 0; transform: translateY(32px) scale(.96); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* Image area */
-.card-img-wrap {
+.g-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 28px 56px rgba(10,22,40,0.5), 0 0 0 1px rgba(93,146,232,0.3);
+    border-color: rgba(93,146,232,0.42);
+}
+
+.g-card-img {
     position: relative;
-    height: 230px;
+    height: 200px;
     overflow: hidden;
-    background: var(--navy-800);
+    background: #0a1e3c;
     flex-shrink: 0;
 }
 
-.card-img-wrap img {
-    width: 100%;
-    height: 100%;
+.g-card-img img {
+    width: 100%; height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.65s cubic-bezier(0.34,1.56,0.64,1);
-}
-.gallery-card:hover .card-img-wrap img {
-    transform: scale(1.1);
+    transition: transform 0.6s cubic-bezier(.34,1.56,.64,1);
 }
 
-.card-img-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        transparent 30%,
-        rgba(5,13,26,0.85) 100%
-    );
+.g-card:hover .g-card-img img { transform: scale(1.08); }
+
+.g-card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 35%, rgba(10,22,40,0.88) 100%);
     opacity: 0;
-    transition: opacity 0.35s ease;
-    display: flex;
-    align-items: flex-end;
-    padding: 20px;
-}
-.gallery-card:hover .card-img-overlay {
-    opacity: 1;
+    transition: opacity 0.3s;
+    display: flex; align-items: flex-end; padding: 18px;
 }
 
-.overlay-zoom {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--gold-lt);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-.overlay-zoom svg {
-    width: 18px; height: 18px;
-    stroke: var(--gold-lt);
-    fill: none;
-    stroke-width: 2;
-    stroke-linecap: round;
+.g-card:hover .g-card-overlay { opacity: 1; }
+
+.g-overlay-hint {
+    display: flex; align-items: center; gap: 7px;
+    color: #c8e0fd;
+    font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
 }
 
-/* Corner accent */
-.card-corner {
-    position: absolute;
-    top: 0; right: 0;
-    width: 0; height: 0;
-    border-left: 46px solid transparent;
-    border-top: 46px solid rgba(201,168,76,0.12);
-    transition: border-color 0.3s ease;
-    pointer-events: none;
-    z-index: 2;
-}
-.gallery-card:hover .card-corner {
-    border-top-color: rgba(201,168,76,0.28);
+.g-card-placeholder {
+    height: 200px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 10px;
+    background: linear-gradient(135deg, #0d2040, #112a50);
+    color: rgba(93,146,232,0.32);
 }
 
-/* Card placeholder */
-.card-placeholder {
-    height: 230px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    background: linear-gradient(135deg, var(--navy-800), var(--navy-700));
-    color: rgba(201,168,76,0.3);
-}
-.card-placeholder svg {
-    width: 44px; height: 44px;
-    stroke: currentColor; fill: none;
-    stroke-width: 1.5; stroke-linecap: round;
-}
-.card-placeholder span {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: rgba(201,168,76,0.35);
-}
+.g-card-placeholder svg { width: 40px; height: 40px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; }
+.g-card-placeholder span { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; }
 
-/* Card body */
-.card-body {
-    padding: 22px 24px 24px;
+.g-card-body {
+    padding: 16px 18px 18px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    border-top: 1px solid rgba(201,168,76,0.1);
+    border-top: 1px solid rgba(93,146,232,0.1);
 }
 
-.card-title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1.4;
-    margin-bottom: 9px;
-    transition: color 0.3s ease;
-}
-.gallery-card:hover .card-title {
-    color: var(--gold-lt);
+.g-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px; font-weight: 700;
+    color: #fff;
+    line-height: 1.4; margin-bottom: 8px;
+    transition: color 0.3s;
 }
 
-.card-desc {
-    font-size: 13.5px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.78);
-    line-height: 1.7;
-    flex-grow: 1;
+.g-card:hover .g-card-title { color: #c8e0fd; }
+
+.g-card-desc {
+    font-size: 13px; font-weight: 300;
+    color: rgba(255,255,255,0.62);
+    line-height: 1.7; flex-grow: 1;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
-.card-date {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 12px;
-    font-weight: 500;
-    color: rgba(255,255,255,0.78);
-    letter-spacing: 0.3px;
-}
-.card-date svg {
-    width: 13px; height: 13px;
-    stroke: var(--gold-dim); fill: none;
-    stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
-    flex-shrink: 0;
+.g-card-date {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 12px; font-weight: 500; color: #93bef8;
 }
 
-/* ── PAGINATION ── */
-.pagination-wrap {
-    display: flex;
-    justify-content: center;
-    margin-top: 56px;
-}
-.pagination-wrap .pagination {
-    display: flex;
-    gap: 6px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.pagination-wrap .page-item .page-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px; height: 40px;
-    border-radius: 10px;
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    color: var(--silver);
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-.pagination-wrap .page-item.active .page-link,
-.pagination-wrap .page-item .page-link:hover {
-    background: linear-gradient(135deg, var(--gold-dim), var(--gold));
-    border-color: transparent;
-    color: var(--navy-950);
-    font-weight: 700;
-}
+.g-card-date svg { width: 12px; height: 12px; stroke: #5592e8; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
 
-/* ── EMPTY STATE ── */
-.empty-state {
-    text-align: center;
-    padding: 80px 20px;
-    animation: fadeUp 0.8s ease both;
-}
-.empty-icon {
-    width: 90px; height: 90px;
-    background: rgba(201,168,76,0.08);
-    border: 1px solid rgba(201,168,76,0.2);
-    border-radius: 22px;
+/* PAGINATION */
+.g-pagi { display: flex; justify-content: center; margin-top: 52px; }
+.g-pagi .pagination { display: flex; gap: 5px; list-style: none; padding: 0; margin: 0; flex-wrap: wrap; justify-content: center; }
+.g-pagi .page-item .page-link {
     display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 24px;
+    width: 40px; height: 40px; border-radius: 10px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(93,146,232,0.18);
+    color: rgba(255,255,255,0.6);
+    font-size: 14px; font-weight: 500;
+    text-decoration: none; transition: all 0.3s;
 }
-.empty-icon svg {
-    width: 40px; height: 40px;
-    stroke: var(--gold); fill: none;
-    stroke-width: 1.5; stroke-linecap: round;
-}
-.empty-state h4 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 10px;
-}
-.empty-state p {
-    font-size: 14.5px;
-    color: rgba(255,255,255,0.78);
-    font-weight: 300;
+.g-pagi .page-item.active .page-link,
+.g-pagi .page-item .page-link:hover {
+    background: linear-gradient(135deg, #1a4a9e, #2d65c8);
+    border-color: transparent; color: #fff; font-weight: 700;
 }
 
-/* ── LIGHTBOX ── */
-.lightbox-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(5,13,26,0.96);
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-    backdrop-filter: blur(12px);
+/* EMPTY */
+.g-empty { text-align: center; padding: 80px 20px; animation: fadeUp 0.7s ease both; }
+.g-empty-icon {
+    width: 80px; height: 80px;
+    background: rgba(93,146,232,0.1);
+    border: 1px solid rgba(93,146,232,0.2);
+    border-radius: 20px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 22px;
 }
-.lightbox-overlay.open {
-    display: flex;
-    animation: fadeIn 0.25s ease;
-}
-.lightbox-inner {
-    position: relative;
-    max-width: 960px;
-    width: 100%;
-    animation: lightboxOpen 0.38s cubic-bezier(0.34,1.56,0.64,1);
-}
-.lightbox-inner img {
-    width: 100%;
-    border-radius: 18px;
-    display: block;
-    max-height: 78vh;
-    object-fit: contain;
-    background: var(--navy-900);
-    box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,168,76,0.15);
-}
-.lightbox-close {
-    position: absolute;
-    top: -52px; right: 0;
-    background: rgba(201,168,76,0.12);
-    border: 1px solid rgba(201,168,76,0.25);
-    color: var(--gold-lt);
-    width: 42px; height: 42px;
-    border-radius: 50%;
-    font-size: 16px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-.lightbox-close:hover {
-    background: rgba(201,168,76,0.22);
-    transform: scale(1.08) rotate(90deg);
-}
-.lightbox-caption {
-    text-align: center;
-    margin-top: 22px;
-}
-.lightbox-caption .lb-title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 8px;
-}
-.lightbox-caption .lb-desc {
-    font-size: 14px;
-    color: var(--silver);
-    font-weight: 300;
-    max-width: 580px;
-    margin: 0 auto;
-    line-height: 1.7;
-}
+.g-empty-icon svg { width: 36px; height: 36px; stroke: #93bef8; fill: none; stroke-width: 1.5; stroke-linecap: round; }
+.g-empty h4 { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.g-empty p { font-size: 14px; color: rgba(255,255,255,0.5); }
 
-/* ── FOOTER STRIP ── */
-.gallery-footer-strip {
-    background: var(--navy-950);
-    border-top: 1px solid rgba(201,168,76,0.12);
-    padding: 36px 0;
-    text-align: center;
+/* LIGHTBOX */
+.g-lightbox {
+    display: none; position: fixed; inset: 0;
+    background: rgba(10,22,40,0.96);
+    z-index: 9999; align-items: center; justify-content: center;
+    padding: 16px; backdrop-filter: blur(16px);
+    overflow-y: auto;
 }
-.gallery-footer-strip p {
-    font-size: 13px;
-    color: rgba(255,255,255,0.78);
-    letter-spacing: 0.3px;
+.g-lightbox.open { display: flex; animation: fadeIn 0.22s ease; }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+.g-lb-inner { position: relative; max-width: 960px; width: 100%; animation: lbOpen 0.35s cubic-bezier(.34,1.56,.64,1); margin: auto; }
+@keyframes lbOpen { from{opacity:0;transform:scale(.9) translateY(14px)} to{opacity:1;transform:scale(1) translateY(0)} }
+.g-lb-inner img { width: 100%; border-radius: 14px; display: block; max-height: 70vh; object-fit: contain; background: #0a1e3c; box-shadow: 0 40px 80px rgba(0,0,0,0.7); }
+.g-lb-close {
+    position: absolute; top: -48px; right: 0;
+    background: rgba(93,146,232,0.15);
+    border: 1px solid rgba(93,146,232,0.3);
+    color: #93bef8; width: 38px; height: 38px;
+    border-radius: 50%; font-size: 14px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
 }
+.g-lb-close:hover { background: rgba(93,146,232,0.28); transform: scale(1.08) rotate(90deg); }
+.g-lb-caption { text-align: center; margin-top: 20px; padding: 0 8px; }
+.g-lb-caption .lb-title { font-family: 'Playfair Display', serif; font-size: clamp(16px, 3vw, 19px); font-weight: 700; color: #fff; margin-bottom: 7px; }
+.g-lb-caption .lb-desc { font-size: 13.5px; color: rgba(255,255,255,0.58); font-weight: 300; max-width: 520px; margin: 0 auto; line-height: 1.7; }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 768px) {
-    .hero { padding: 90px 20px 80px; }
-    .gallery-section { padding: 60px 0 80px; }
-    .gallery-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
-    .card-img-wrap { height: 180px; }
-    .card-body { padding: 16px 18px 18px; }
-    .card-title { font-size: 15px; }
+/* FOOTER STRIP */
+.g-footer-strip {
+    background: #0a1628;
+    border-top: 1px solid rgba(93,146,232,0.1);
+    padding: 32px 16px; text-align: center;
 }
-@media (max-width: 520px) {
-    .gallery-grid { grid-template-columns: 1fr; }
-    .card-img-wrap { height: 220px; }
+.g-footer-strip p { font-size: 13px; color: rgba(255,255,255,0.4); margin: 0; }
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+    .g-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    .g-card-img, .g-card-placeholder { height: 140px; }
+    .g-card-body { padding: 12px 12px 14px; }
+    .g-card:hover { transform: none; }
+    .g-lb-close { top: -44px; }
 }
 </style>
 
-{{-- ── HERO ── --}}
-<section class="hero">
-    <div class="hero-bg-grid"></div>
-    <div class="hero-orb hero-orb-1"></div>
-    <div class="hero-orb hero-orb-2"></div>
-    <div class="hero-orb hero-orb-3"></div>
-    <div>
-        <div class="hero-badge">
-            Galeri Gereja
+<section class="g-hero">
+    <div class="g-hero-grid"></div>
+    <div class="g-hero-orb g-hero-orb-1"></div>
+    <div class="g-hero-orb g-hero-orb-2"></div>
+    <div class="g-hero-inner">
+        <div class="eyebrow" style="animation: fadeUp .7s ease .1s both;">
+            <span class="eyebrow-dot"></span>Galeri Gereja<span class="eyebrow-dot"></span>
         </div>
-        <h1 class="hero-title">Momen <span>Bersejarah</span><br>dalam Iman Kita</h1>
-        <p class="hero-sub">Abadikan setiap perjalanan rohani, perayaan, dan kebersamaan yang mempererat persekutuan kita.</p>
-        <div class="hero-divider"></div>
+        <h1 class="g-hero-title">Momen <span>Bersejarah</span><br>dalam Iman Kita</h1>
+        <p class="g-hero-sub">Abadikan setiap perjalanan rohani, perayaan, dan kebersamaan yang mempererat persekutuan kita.</p>
+        <div class="g-hero-line"></div>
     </div>
 </section>
 
-{{-- ── GALLERY ── --}}
-<section class="gallery-section">
-    <div class="container">
-
-        <div class="section-header">
+<section class="g-section">
+    <div class="global-container">
+        <div class="section-head">
             <span class="section-label">Koleksi Foto</span>
             <h2 class="section-title">Kenangan yang Terpatri</h2>
             <div class="section-rule"></div>
         </div>
 
         @if($galeris->isNotEmpty())
-
-        <div class="gallery-grid" id="galleryGrid">
+        <div class="g-grid">
             @foreach($galeris as $item)
-            <div class="gallery-card"
-                 onclick="openLightbox(
-                   '{{ $item->image ? asset('storage/' . $item->image) : '' }}',
-                   `{{ addslashes($item->title ?? '') }}`,
-                   `{{ addslashes($item->description ?? '') }}`
-                 )">
-
-                <div class="card-corner"></div>
-
+            <div class="g-card" onclick="gLightbox('{{ $item->image ? asset('storage/'.$item->image) : '' }}','{{ addslashes($item->title ?? '') }}','{{ addslashes($item->description ?? '') }}')">
                 @if($item->image)
-                <div class="card-img-wrap">
-                    <img src="{{ asset('storage/' . $item->image) }}"
-                         alt="{{ $item->title ?? 'Foto Galeri' }}"
-                         loading="lazy">
-                    <div class="card-img-overlay">
-                        <div class="overlay-zoom">
-                            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                <div class="g-card-img">
+                    <img src="{{ asset('storage/'.$item->image) }}" alt="{{ $item->title ?? 'Foto Galeri' }}" loading="lazy">
+                    <div class="g-card-overlay">
+                        <div class="g-overlay-hint">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#c8e0fd" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
                             Lihat Foto
                         </div>
                     </div>
                 </div>
                 @else
-                <div class="card-placeholder">
+                <div class="g-card-placeholder">
                     <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
                     <span>Foto</span>
                 </div>
                 @endif
-
-                <div class="card-body">
-                    @if($item->title)
-                        <div class="card-title">{{ $item->title }}</div>
-                    @endif
-                    @if($item->description)
-                        <div class="card-desc">{{ $item->description }}</div>
-                    @endif
+                <div class="g-card-body">
+                    @if($item->title)<div class="g-card-title">{{ $item->title }}</div>@endif
+                    @if($item->description)<div class="g-card-desc">{{ $item->description }}</div>@endif
                     @if($item->event_date)
-                        <div class="card-date">
-                            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                            {{ $item->event_date->translatedFormat('d F Y') }}
-                        </div>
+                    <div class="g-card-date">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        {{ $item->event_date->translatedFormat('d F Y') }}
+                    </div>
                     @elseif($item->created_at)
-                        <div class="card-date">
-                            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                            {{ $item->created_at->translatedFormat('d F Y') }}
-                        </div>
+                    <div class="g-card-date">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        {{ $item->created_at->translatedFormat('d F Y') }}
+                    </div>
                     @endif
                 </div>
-
             </div>
             @endforeach
         </div>
 
-        {{-- Pagination --}}
-        @if(method_exists($galeris, 'links') && $galeris->hasPages())
-            <div class="pagination-wrap">
-                {{ $galeris->links() }}
-            </div>
+        @if(method_exists($galeris,'links') && $galeris->hasPages())
+        <div class="g-pagi">{{ $galeris->links() }}</div>
         @endif
 
         @else
-
-        <div class="empty-state">
-            <div class="empty-icon">
-                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            </div>
+        <div class="g-empty">
+            <div class="g-empty-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
             <h4>Belum Ada Foto</h4>
             <p>Galeri foto gereja akan segera ditampilkan di sini.</p>
         </div>
-
         @endif
-
     </div>
 </section>
 
-{{-- ── FOOTER STRIP ── --}}
-<div class="gallery-footer-strip">
+<div class="g-footer-strip">
     <p>Setiap gambar adalah saksi bisu dari perjalanan iman kita bersama.</p>
 </div>
 
-{{-- ── LIGHTBOX ── --}}
-<div class="lightbox-overlay" id="lightbox" onclick="handleLightboxClick(event)">
-    <div class="lightbox-inner">
-        <button class="lightbox-close" id="lightboxCloseBtn" onclick="closeLightbox()">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-            </svg>
+<div class="g-lightbox" id="gLightboxEl" onclick="if(event.target===this)gClose()">
+    <div class="g-lb-inner">
+        <button class="g-lb-close" onclick="gClose()" aria-label="Tutup">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
-        <img id="lightboxImg" src="" alt="">
-        <div class="lightbox-caption">
-            <div class="lb-title" id="lightboxTitle"></div>
-            <div class="lb-desc" id="lightboxDesc"></div>
+        <img id="gLbImg" src="" alt="">
+        <div class="g-lb-caption">
+            <div class="lb-title" id="gLbTitle"></div>
+            <div class="lb-desc" id="gLbDesc"></div>
         </div>
     </div>
 </div>
 
 <script>
-function openLightbox(src, title, desc) {
+function gLightbox(src, title, desc) {
     if (!src) return;
-    document.getElementById('lightboxImg').src = src;
-    document.getElementById('lightboxTitle').textContent = title || '';
-    document.getElementById('lightboxDesc').textContent = desc || '';
-    document.getElementById('lightbox').classList.add('open');
+    document.getElementById('gLbImg').src = src;
+    document.getElementById('gLbTitle').textContent = title || '';
+    document.getElementById('gLbDesc').textContent = desc || '';
+    document.getElementById('gLightboxEl').classList.add('open');
     document.body.style.overflow = 'hidden';
 }
-function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('open');
+function gClose() {
+    document.getElementById('gLightboxEl').classList.remove('open');
     document.body.style.overflow = '';
 }
-function handleLightboxClick(e) {
-    if (e.target === document.getElementById('lightbox')) closeLightbox();
-}
-document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeLightbox();
-});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') gClose(); });
 </script>
-
 @endsection

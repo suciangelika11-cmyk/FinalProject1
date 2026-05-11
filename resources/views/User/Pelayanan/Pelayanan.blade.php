@@ -1,499 +1,308 @@
 @extends('layouts.app')
 
 @section('content')
-
 <style>
-/* ===== Reset & Base ===== */
-*, *::before, *::after { box-sizing: border-box; }
-
-/* ===== Hero ===== */
-.pel-hero {
-    background: linear-gradient(160deg, #0d1e3a 0%, #0a1628 60%, #091322 100%);
-    padding: 100px 0 80px;
-    text-align: center;
-    border-bottom: 1px solid rgba(99,179,237,0.12);
+/* HERO */
+.pl-hero {
     position: relative;
+    padding: clamp(70px, 10vw, 110px) 16px clamp(60px, 8vw, 90px);
+    text-align: center;
     overflow: hidden;
+    background: linear-gradient(160deg, #0f2444 0%, #102a52 50%, #0d1e3a 100%);
 }
-.pel-hero::before {
-    content: '';
-    position: absolute;
-    top: -100px; right: -80px;
-    width: 400px; height: 400px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(66,153,225,0.12) 0%, transparent 70%);
+
+.pl-hero::before {
+    content: ''; position: absolute; top: -100px; right: -80px;
+    width: 380px; height: 380px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(93,146,232,0.14) 0%, transparent 70%);
     pointer-events: none;
 }
-.pel-hero::after {
-    content: '';
-    position: absolute;
-    bottom: -80px; left: -60px;
-    width: 300px; height: 300px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(49,130,206,0.08) 0%, transparent 70%);
+.pl-hero::after {
+    content: ''; position: absolute; bottom: -80px; left: -60px;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(45,101,200,0.1) 0%, transparent 70%);
     pointer-events: none;
 }
-.pel-hero .container { position: relative; z-index: 1; }
 
-.pel-hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(66,153,225,0.15);
-    border: 1px solid rgba(66,153,225,0.3);
-    color: #90cdf4;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    padding: 5px 16px;
-    border-radius: 20px;
-    margin-bottom: 24px;
-    text-transform: uppercase;
-}
-.pel-hero-badge span {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: #63b3ed;
-    display: inline-block;
+.pl-hero .wrap { position: relative; z-index: 1; }
+
+.pl-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 6vw, 52px); font-weight: 700;
+    color: #fff; line-height: 1.15; margin-bottom: 18px;
+    animation: fadeUp 0.8s ease 0.25s both;
 }
 
-.pel-hero h1 {
-    font-size: 52px;
-    font-weight: 700;
-    color: #f7fafc;
-    line-height: 1.15;
-    margin-bottom: 20px;
-    letter-spacing: -0.01em;
-}
-.pel-hero h1 .accent { color: #63b3ed; }
-.pel-hero p {
-    color: #90a4b8;
-    font-size: 16px;
-    line-height: 1.8;
-    max-width: 580px;
-    margin: 0 auto;
+.pl-hero h1 .accent { color: #93bef8; }
+
+.pl-hero p {
+    color: rgba(255,255,255,0.68); font-size: clamp(14px, 2vw, 16px);
+    line-height: 1.78; max-width: 520px; margin: 0 auto;
+    animation: fadeUp 0.8s ease 0.4s both;
 }
 
-/* ===== Stats Strip ===== */
-.pel-stats {
-    background: #0d1e3a;
-    border-bottom: 1px solid rgba(99,179,237,0.08);
-    padding: 36px 0;
-}
-.pel-stats-inner {
-    display: flex;
-    justify-content: center;
-    gap: 64px;
-    flex-wrap: wrap;
-}
-.pel-stat { text-align: center; }
-.pel-stat-num {
-    font-size: 32px;
-    font-weight: 700;
-    color: #63b3ed;
-    line-height: 1;
-    margin-bottom: 4px;
-}
-.pel-stat-label {
-    font-size: 12px;
-    color: #7a93ad;
-    font-weight: 500;
-    letter-spacing: 0.03em;
+/* STATS BAR */
+.pl-stats {
+    background: rgba(10,22,40,0.7);
+    border-bottom: 1px solid rgba(93,146,232,0.1);
+    padding: clamp(20px, 4vw, 34px) 16px; backdrop-filter: blur(8px);
 }
 
-/* ===== Section ===== */
-.pel-section {
-    background: #0a1628;
-    padding: 80px 0;
-}
-.pel-section.alt {
-    background: #0d1e3a;
+.pl-stats-inner {
+    display: flex; justify-content: center;
+    gap: clamp(20px, 5vw, 60px); flex-wrap: wrap;
+    max-width: 1180px; margin: 0 auto;
 }
 
-.pel-section-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #63b3ed;
-    margin-bottom: 8px;
-}
-.pel-section-title {
-    font-size: 30px;
-    font-weight: 700;
-    color: #f0f6ff;
-    margin-bottom: 8px;
-}
-.pel-section-sub {
-    font-size: 15px;
-    color: #7a93ad;
-    margin-bottom: 48px;
-}
+.pl-stat { text-align: center; }
+.pl-stat-num { font-size: clamp(22px, 4vw, 30px); font-weight: 700; color: #93bef8; line-height: 1; margin-bottom: 4px; }
+.pl-stat-label { font-size: 12px; color: rgba(255,255,255,0.48); font-weight: 500; letter-spacing: .03em; }
 
-/* ===== Leader Cards ===== */
-.pel-leader-grid {
+/* SECTIONS */
+.pl-sec { padding: clamp(48px, 8vw, 80px) 0; }
+.pl-sec.alt { background: #0f2040; }
+
+.pl-sec-label { font-size: 10.5px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; color: #5592e8; margin-bottom: 7px; }
+.pl-sec-title { font-family: 'Playfair Display', serif; font-size: clamp(20px, 3vw, 27px); font-weight: 700; color: #fff; margin-bottom: 8px; }
+.pl-sec-sub { font-size: 14.5px; color: rgba(255,255,255,0.48); margin-bottom: 36px; }
+
+/* LEADER GRID */
+.pl-leader-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 24px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-.pel-leader-card {
-    background: #111f36;
-    border: 1px solid rgba(99,179,237,0.1);
-    border-radius: 20px;
-    padding: 36px 24px;
-    text-align: center;
-    transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
-    position: relative;
-    overflow: hidden;
-}
-.pel-leader-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 50%;
-    transform: translateX(-50%);
-    width: 50%; height: 2px;
-    background: linear-gradient(90deg, transparent, #63b3ed, transparent);
-    opacity: 0;
-    transition: opacity 0.25s;
-}
-.pel-leader-card:hover {
-    border-color: rgba(99,179,237,0.3);
-    background: #152236;
-    transform: translateY(-4px);
-}
-.pel-leader-card:hover::before { opacity: 1; }
-
-.pel-avatar {
-    width: 96px;
-    height: 96px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #1a3a5c, #2b4f7a);
-    border: 2px solid rgba(99,179,237,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    font-weight: 600;
-    color: #90cdf4;
-    margin: 0 auto 20px;
-    position: relative;
-    overflow: hidden;
-}
-.pel-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    inset: 0;
-}
-.pel-avatar-ring {
-    position: absolute;
-    inset: -6px;
-    border-radius: 50%;
-    border: 1px solid rgba(99,179,237,0.18);
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 18px; max-width: 880px; margin: 0 auto;
 }
 
-.pel-lc-name {
-    font-size: 16px;
-    font-weight: 600;
-    color: #e2e8f0;
-    margin-bottom: 8px;
-}
-.pel-lc-role {
-    font-size: 12px;
-    color: #63b3ed;
-    background: rgba(99,179,237,0.1);
-    display: inline-block;
-    padding: 3px 12px;
-    border-radius: 20px;
-    font-weight: 500;
+.pl-leader-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(93,146,232,0.12);
+    border-radius: 18px; padding: clamp(22px, 4vw, 34px) 20px; text-align: center;
+    transition: border-color 0.25s, background 0.25s, transform 0.3s;
+    position: relative; overflow: hidden; backdrop-filter: blur(6px);
 }
 
-/* ===== Team Cards ===== */
-.pel-team-grid {
+.pl-leader-card::before {
+    content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 56%; height: 2px;
+    background: linear-gradient(90deg, transparent, #2d65c8, transparent);
+    opacity: 0; transition: opacity 0.25s;
+}
+
+.pl-leader-card:hover { border-color: rgba(93,146,232,0.3); background: rgba(255,255,255,0.09); transform: translateY(-5px); }
+.pl-leader-card:hover::before { opacity: 1; }
+
+.pl-avatar {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: linear-gradient(135deg, #0d2448, #1a4a9e);
+    border: 2px solid rgba(93,146,232,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 600; color: #93bef8;
+    margin: 0 auto 16px; position: relative; overflow: hidden;
+}
+
+.pl-avatar img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+
+.pl-lc-name { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.88); margin-bottom: 8px; }
+.pl-lc-role { font-size: 11.5px; color: #93bef8; background: rgba(93,146,232,0.12); display: inline-block; padding: 3px 12px; border-radius: 20px; font-weight: 500; }
+
+/* TEAM GRID */
+.pl-team-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
-    margin-bottom: 56px;
+    gap: 18px;
 }
-.pel-team-card {
-    background: #111f36;
-    border: 1px solid rgba(99,179,237,0.08);
-    border-radius: 20px;
-    padding: 32px 28px;
-    transition: border-color 0.25s, transform 0.25s;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-.pel-team-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #2b4f7a, #63b3ed, #90cdf4);
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-.pel-team-card:hover {
-    border-color: rgba(99,179,237,0.25);
-    transform: translateY(-6px);
-}
-.pel-team-card:hover::after { opacity: 1; }
 
-.pel-tc-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
-    background: rgba(49,130,206,0.12);
-    border: 1px solid rgba(99,179,237,0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    color: #63b3ed;
-    margin-bottom: 18px;
+.pl-team-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(93,146,232,0.1);
+    border-radius: 18px; padding: clamp(20px, 3vw, 28px) clamp(16px, 3vw, 24px);
+    transition: border-color 0.25s, transform 0.3s;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    backdrop-filter: blur(6px);
+}
+
+.pl-team-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #0d2448, #2d65c8, #93bef8);
+    opacity: 0; transition: opacity 0.3s;
+}
+
+.pl-team-card:hover { border-color: rgba(93,146,232,0.24); transform: translateY(-6px); }
+.pl-team-card:hover::after { opacity: 1; }
+
+.pl-tc-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: rgba(26,74,158,0.16);
+    border: 1px solid rgba(93,146,232,0.18);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 19px; color: #93bef8; margin-bottom: 15px;
     transition: background 0.25s, border-color 0.25s;
-}
-.pel-team-card:hover .pel-tc-icon {
-    background: rgba(49,130,206,0.2);
-    border-color: rgba(99,179,237,0.3);
+    flex-shrink: 0;
 }
 
-.pel-tc-title {
-    font-size: 17px;
-    font-weight: 600;
-    color: #f0f6ff;
-    margin-bottom: 10px;
+.pl-team-card:hover .pl-tc-icon { background: rgba(26,74,158,0.28); border-color: rgba(93,146,232,0.32); }
+
+.pl-tc-title { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+.pl-tc-desc { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.72; margin-bottom: 14px; flex-grow: 1; }
+
+.pl-divider { height: 1px; background: rgba(93,146,232,0.1); margin: 12px 0; }
+
+.pl-member-list { list-style: none; padding: 0; margin: 0; }
+.pl-member-item {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 8px; padding: 5px 0; border-bottom: 1px solid rgba(93,146,232,0.06);
+    flex-wrap: wrap;
 }
-.pel-tc-desc {
-    font-size: 13px;
-    color: #7a93ad;
-    line-height: 1.75;
-    margin-bottom: 18px;
-    flex-grow: 1;
+.pl-member-item:last-child { border-bottom: none; }
+.pl-mi-name { font-size: 12.5px; color: rgba(255,255,255,0.72); font-weight: 500; }
+.pl-mi-role { font-size: 11px; color: #93bef8; background: rgba(93,146,232,0.1); padding: 2px 9px; border-radius: 10px; white-space: nowrap; font-weight: 500; }
+
+.pl-no-data { grid-column: 1/-1; text-align: center; color: rgba(255,255,255,0.32); font-size: 14.5px; padding: 44px 20px; background: rgba(93,146,232,0.04); border-radius: 14px; border: 1px dashed rgba(93,146,232,0.14); }
+
+/* CTA */
+.pl-cta {
+    background: #0a1628;
+    border-top: 1px solid rgba(93,146,232,0.1);
+    padding: clamp(52px, 8vw, 80px) 16px; text-align: center;
 }
 
-.pel-divider {
-    height: 1px;
-    background: rgba(99,179,237,0.1);
-    margin: 16px 0;
-}
+.pl-cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(20px, 3vw, 27px); font-weight: 700; color: #fff; margin-bottom: 11px; }
+.pl-cta p { font-size: 15px; color: rgba(255,255,255,0.52); max-width: 460px; margin: 0 auto 34px; line-height: 1.7; }
 
-.pel-member-list { list-style: none; padding: 0; margin: 0; }
-.pel-member-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    padding: 7px 0;
-    border-bottom: 1px solid rgba(99,179,237,0.05);
-}
-.pel-member-item:last-child { border-bottom: none; }
-.pel-mi-name {
-    font-size: 13px;
-    color: #cbd5e0;
-    font-weight: 500;
-}
-.pel-mi-role {
-    font-size: 11px;
-    color: #63b3ed;
-    background: rgba(99,179,237,0.1);
-    padding: 2px 10px;
-    border-radius: 10px;
-    white-space: nowrap;
-    font-weight: 500;
-}
-
-/* ===== No Data ===== */
-.pel-no-data {
-    grid-column: 1 / -1;
-    text-align: center;
-    color: #7a93ad;
-    font-size: 15px;
-    padding: 48px 20px;
-    background: rgba(99,179,237,0.04);
-    border-radius: 16px;
-    border: 1px dashed rgba(99,179,237,0.15);
-}
-
-/* ===== CTA ===== */
-.pel-cta {
-    background: #091322;
-    border-top: 1px solid rgba(99,179,237,0.08);
-    padding: 80px 0;
-    text-align: center;
-}
-.pel-cta h2 {
-    font-size: 28px;
-    font-weight: 700;
-    color: #f0f6ff;
-    margin-bottom: 12px;
-}
-.pel-cta p {
-    font-size: 15px;
-    color: #7a93ad;
-    max-width: 500px;
-    margin: 0 auto 36px;
-    line-height: 1.7;
-}
-.pel-join-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(135deg, #2b6cb0, #3182ce);
-    color: #fff;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 14px 32px;
-    border-radius: 12px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 8px 30px rgba(49,130,206,0.35);
+.pl-join-btn {
+    display: inline-flex; align-items: center; gap: 9px;
+    background: linear-gradient(135deg, #153565, #1a4a9e, #2d65c8);
+    color: #fff; font-size: 14.5px; font-weight: 600;
+    padding: 13px 28px; border-radius: 11px;
+    text-decoration: none; border: none; cursor: pointer;
+    box-shadow: 0 8px 28px rgba(26,74,158,0.4);
     transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
 }
-.pel-join-btn:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(49,130,206,0.45);
-    color: #fff;
-    text-decoration: none;
-}
-.pel-join-btn i { font-size: 14px; }
 
-/* ===== Responsive ===== */
+.pl-join-btn:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 12px 38px rgba(26,74,158,0.5); color: #fff; text-decoration: none; }
+
+/* RESPONSIVE */
 @media (max-width: 1024px) {
-    .pel-team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pl-team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-
-@media (max-width: 768px) {
-    .pel-hero h1 { font-size: 34px; }
-    .pel-hero { padding: 70px 0 60px; }
-    .pel-team-grid,
-    .pel-leader-grid { grid-template-columns: 1fr; gap: 16px; }
-    .pel-stats-inner { gap: 32px; }
-    .pel-section { padding: 56px 0; }
-    .pel-section-title { font-size: 24px; }
+@media (max-width: 640px) {
+    .pl-team-grid { grid-template-columns: 1fr; }
+    .pl-leader-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .pl-leader-card:hover { transform: none; }
+    .pl-team-card:hover { transform: none; }
+    .pl-stat { min-width: 80px; }
+}
+@media (max-width: 380px) {
+    .pl-leader-grid { grid-template-columns: 1fr; }
 }
 </style>
 
-{{-- ===== Hero ===== --}}
-<section class="pel-hero">
-    <div class="container">
-        <div class="pel-hero-badge"><span></span> Gereja Berima</div>
+<section class="pl-hero">
+    <div class="container wrap">
+        <div class="eyebrow" style="animation: fadeUp .7s ease .1s both;">
+            <span class="eyebrow-dot"></span>Gereja Beriman<span class="eyebrow-dot"></span>
+        </div>
         <h1>Pelayanan &amp; <span class="accent">Komunitas</span></h1>
         <p>Bergabunglah dengan berbagai tim pelayanan dan temukan tempat Anda untuk melayani Tuhan bersama kami.</p>
     </div>
 </section>
 
-{{-- ===== Stats Strip ===== --}}
-<div class="pel-stats">
-    <div class="pel-stats-inner">
-        <div class="pel-stat">
-            <div class="pel-stat-num">{{ $timPelayanan->count() }}</div>
-            <div class="pel-stat-label">Tim Pelayanan</div>
+<div class="pl-stats">
+    <div class="pl-stats-inner">
+        <div class="pl-stat">
+            <div class="pl-stat-num">{{ $timPelayanan->count() }}</div>
+            <div class="pl-stat-label">Tim Pelayanan</div>
         </div>
-        <div class="pel-stat">
-            <div class="pel-stat-num">{{ $kepemimpinan->count() }}</div>
-            <div class="pel-stat-label">Pemimpin</div>
+        <div class="pl-stat">
+            <div class="pl-stat-num">{{ $kepemimpinan->count() }}</div>
+            <div class="pl-stat-label">Pemimpin</div>
         </div>
-        <div class="pel-stat">
-            <div class="pel-stat-num">{{ $timPelayanan->sum(fn($t) => $t->anggotas->count()) }}+</div>
-            <div class="pel-stat-label">Anggota Aktif</div>
+        <div class="pl-stat">
+            <div class="pl-stat-num">{{ $timPelayanan->sum(fn($t) => $t->anggotas->count()) }}+</div>
+            <div class="pl-stat-label">Anggota Aktif</div>
         </div>
-        <div class="pel-stat">
-            <div class="pel-stat-num">1</div>
-            <div class="pel-stat-label">Jemaat</div>
+        <div class="pl-stat">
+            <div class="pl-stat-num">1</div>
+            <div class="pl-stat-label">Jemaat</div>
         </div>
     </div>
 </div>
 
-{{-- ===== Kepemimpinan ===== --}}
-<section class="pel-section alt">
-    <div class="container">
-        <div class="pel-section-label">Kepemimpinan</div>
-        <div class="pel-section-title">Gembala &amp; Pemimpin</div>
-        <div class="pel-section-sub">Dipimpin dengan kasih, hikmat, dan dedikasi penuh.</div>
-
-        <div class="pel-leader-grid">
+<section class="pl-sec alt">
+    <div class="global-container">
+        <div class="pl-sec-label">Kepemimpinan</div>
+        <div class="pl-sec-title">Gembala &amp; Pemimpin</div>
+        <div class="pl-sec-sub">Dipimpin dengan kasih, hikmat, dan dedikasi penuh.</div>
+        <div class="pl-leader-grid">
             @forelse($kepemimpinan as $item)
-                <div class="pel-leader-card">
-                    <div class="pel-avatar">
-                        <div class="pel-avatar-ring"></div>
-                        @if($item->photo)
-                            <img src="{{ asset('storage/' . $item->photo) }}" alt="{{ $item->leader ?: $item->title }}">
-                        @else
-                            {{ strtoupper(substr($item->leader ?: $item->title, 0, 2)) }}
-                        @endif
-                    </div>
-                    <div class="pel-lc-name">{{ $item->leader ?: $item->title }}</div>
-                    <div class="pel-lc-role">{{ $item->title }}</div>
+            <div class="pl-leader-card">
+                <div class="pl-avatar">
+                    @if($item->photo)
+                        <img src="{{ asset('storage/'.$item->photo) }}" alt="{{ $item->leader ?: $item->title }}">
+                    @else
+                        {{ strtoupper(substr($item->leader ?: $item->title, 0, 2)) }}
+                    @endif
                 </div>
+                <div class="pl-lc-name">{{ $item->leader ?: $item->title }}</div>
+                <div class="pl-lc-role">{{ $item->title }}</div>
+            </div>
             @empty
-                <div class="pel-no-data">Belum ada data kepemimpinan.</div>
+            <div class="pl-no-data">Belum ada data kepemimpinan.</div>
             @endforelse
         </div>
     </div>
 </section>
 
-{{-- ===== Tim Pelayanan ===== --}}
-<section class="pel-section">
-    <div class="container">
-        <div class="pel-section-label">Tim Pelayanan</div>
-        <div class="pel-section-title">Tim Kami</div>
-        <div class="pel-section-sub">Berbagai tim yang melayani dengan dedikasi dan kasih.</div>
-
-        <div class="pel-team-grid">
+<section class="pl-sec" style="background:#0d1e3a;">
+    <div class="global-container">
+        <div class="pl-sec-label">Tim Pelayanan</div>
+        <div class="pl-sec-title">Tim Kami</div>
+        <div class="pl-sec-sub">Berbagai tim yang melayani dengan dedikasi dan kasih.</div>
+        <div class="pl-team-grid">
             @forelse($timPelayanan as $tim)
-                <div class="pel-team-card">
-                    <div class="pel-tc-icon">
-                        @if($tim->icon && str_contains($tim->icon, 'fa-'))
-                            <i class="fa {{ $tim->icon }}"></i>
-                        @else
-                            {{ $tim->icon ?: '♪' }}
-                        @endif
-                    </div>
-                    <div class="pel-tc-title">{{ $tim->title }}</div>
-                    <div class="pel-tc-desc">{{ $tim->description ?: 'Melayani dengan penuh dedikasi dan kasih.' }}</div>
-                    <div class="pel-divider"></div>
-
-                    <ul class="pel-member-list">
-                        @if($tim->anggotas->count())
-                            @foreach($tim->anggotas as $anggota)
-                                <li class="pel-member-item">
-                                    <span class="pel-mi-name">{{ $anggota->nama }}</span>
-                                    <span class="pel-mi-role">{{ $anggota->bagian ?: '-' }}</span>
-                                </li>
-                            @endforeach
-                        @else
-                            <li class="pel-member-item">
-                                <span class="pel-mi-name">{{ $tim->leader ?: 'Koordinator belum ditentukan' }}</span>
-                                <span class="pel-mi-role">Koordinator</span>
-                            </li>
-                        @endif
-                    </ul>
+            <div class="pl-team-card">
+                <div class="pl-tc-icon">
+                    @if($tim->icon && str_contains($tim->icon,'bi-'))
+                        <i class="bi {{ $tim->icon }}"></i>
+                    @else
+                        {{ $tim->icon ?: '♪' }}
+                    @endif
                 </div>
+                <div class="pl-tc-title">{{ $tim->title }}</div>
+                <div class="pl-tc-desc">{{ $tim->description ?: 'Melayani dengan penuh dedikasi dan kasih.' }}</div>
+                <div class="pl-divider"></div>
+                <ul class="pl-member-list">
+                    @if($tim->anggotas->count())
+                        @foreach($tim->anggotas as $anggota)
+                        <li class="pl-member-item">
+                            <span class="pl-mi-name">{{ $anggota->nama }}</span>
+                            <span class="pl-mi-role">{{ $anggota->bagian ?: '-' }}</span>
+                        </li>
+                        @endforeach
+                    @else
+                    <li class="pl-member-item">
+                        <span class="pl-mi-name">{{ $tim->leader ?: 'Koordinator belum ditentukan' }}</span>
+                        <span class="pl-mi-role">Koordinator</span>
+                    </li>
+                    @endif
+                </ul>
+            </div>
             @empty
-                <div class="pel-no-data">Belum ada data tim pelayanan.</div>
+            <div class="pl-no-data">Belum ada data tim pelayanan.</div>
             @endforelse
         </div>
     </div>
 </section>
 
-{{-- ===== CTA ===== --}}
-<section class="pel-cta">
-    <div class="container">
+<section class="pl-cta">
+    <div class="global-container">
         <h2>Siap untuk Bergabung?</h2>
         <p>Temukan tempat Anda dalam pelayanan dan jadilah bagian dari komunitas yang mengasihi Tuhan.</p>
-        <a href="{{ route('jemaat.create') }}" class="pel-join-btn">
-            <i class="fa fa-user-plus"></i>
+        <a href="{{ route('jemaat.create') }}" class="pl-join-btn">
+            <i class="bi bi-person-plus"></i>
             Bergabung dengan Pelayanan
         </a>
     </div>
 </section>
-
 @endsection
