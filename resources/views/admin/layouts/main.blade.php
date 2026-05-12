@@ -635,11 +635,6 @@
     </div>
   </div>
 
-  <div class="sidebar-search">
-    <span style="color:rgba(255,255,255,.4)">🔍</span>
-    <input type="text" placeholder="Search..."/>
-  </div>
-
   <div class="nav-section">Menu Utama</div>
 
   <nav>
