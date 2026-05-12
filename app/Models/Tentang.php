@@ -12,8 +12,6 @@ class Tentang extends Model
     protected $table = 'tentang';
 
     protected $fillable = [
-        'header_title',
-        'header_description',
         'sejarah',
         'visi',
         'misi',
