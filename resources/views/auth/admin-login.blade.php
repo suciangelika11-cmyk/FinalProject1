@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.login')
 
 @section('content')
 
@@ -231,6 +231,47 @@ body{
     color:rgba(255,255,255,.72);
 }
 
+/* BACK BUTTON */
+.back-btn{
+    position:fixed;
+    top:24px;
+    left:24px;
+
+    padding:12px 18px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.18);
+
+    color:#fff;
+    text-decoration:none;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-size:.95rem;
+    font-weight:600;
+
+    backdrop-filter:blur(12px);
+
+    z-index:9999;
+
+    transition:.25s ease;
+}
+
+.back-btn i{
+    font-size:1.1rem;
+}
+
+.back-btn:hover{
+    background:rgba(255,255,255,.18);
+    color:#fff;
+
+    transform:translateY(-2px);
+}
+
 /* MOBILE */
 @media(max-width:576px){
 
@@ -252,6 +293,11 @@ body{
     }
 }
 </style>
+
+<a href="{{ route('home') }}" class="back-btn">
+    <i class="bi bi-arrow-left"></i>
+    <span>Kembali</span>
+</a>
 
 <div class="login-wrapper">
 

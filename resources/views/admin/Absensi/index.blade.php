@@ -27,7 +27,6 @@
 
 <div class="content-header">
   <h1>Kelola Absensi</h1>
-  <div class="breadcrumb-bar"><a href="{{ route('admin.dashboard') }}">Home</a> / <span>Absensi</span></div>
 </div>
 
 <div class="content">

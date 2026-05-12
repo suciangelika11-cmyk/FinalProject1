@@ -226,8 +226,8 @@
 <div class="account-page">
     <div class="account-header">
         <div>
-            <h1>Tambah Akun Admin / Pelayan</h1>
-            <p>Buat akun baru untuk admin lain atau pelayan yang akan mengakses dashboard.</p>
+            <h1>Pelayan</h1>
+            <p>Buat akun baru untuk pelayan yang akan mengakses dashboard.</p>
         </div>
 
         <a href="{{ route('accounts.index') }}" class="btn-back">
@@ -330,7 +330,6 @@
                         <label>Role</label>
                         <select name="role" class="form-select-custom" required>
                             <option value="">-- Pilih Role --</option>
-                            <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
                             <option value="pelayan" {{ old('role') == 'pelayan' ? 'selected' : '' }}>Pelayan</option>
                         </select>
                     </div>

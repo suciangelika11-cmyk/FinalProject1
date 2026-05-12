@@ -31,7 +31,6 @@
 <div class="content-header">
   <div>
     <h1>Kegiatan Pelayanan</h1>
-    <div class="breadcrumb-bar"><a href="{{ route('admin.dashboard') }}">Home</a> / <span>Kegiatan Pelayanan</span></div>
   </div>
   <a href="{{ route('kegiatan.create') }}" class="btn-primary">+ Tambah Kegiatan</a>
 </div>
