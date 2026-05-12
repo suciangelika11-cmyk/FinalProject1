@@ -441,7 +441,7 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
 
             <div>
-                <span class="brand-title">Pelayan GBI</span>
+                <span class="brand-title">Pelayan GBI</span><br>
                 <span class="brand-sub">GBI Tambunan</span>
             </div>
 
