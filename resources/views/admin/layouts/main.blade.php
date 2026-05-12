@@ -581,6 +581,7 @@
     <a href="{{ route('admin.dashboard') }}" @if(request()->routeIs('admin.dashboard')) class="active" @endif>Beranda</a>
     <a href="{{ route('tentang.index') }}" @if(request()->routeIs('tentang.*')) class="active" @endif>Tentang Kami</a>
     <a href="{{ route('jadwal.index') }}" @if(request()->routeIs('jadwal.*')) class="active" @endif>Jadwal Ibadah</a>
+    <a href="{{ route('absensi.index') }}" @if(request()->routeIs('absensi.*')) class="active" @endif>Absensi</a>
     <a href="{{ route('galeri.index') }}" @if(request()->routeIs('galeri.*')) class="active" @endif>Galeri</a>
     <a href="{{ route('khotbah.index') }}" @if(request()->routeIs('khotbah.*')) class="active" @endif>Khotbah</a>
     <a href="{{ route('pelayanan.index') }}" @if(request()->routeIs('pelayanan.*')) class="active" @endif>Pelayanan</a>
