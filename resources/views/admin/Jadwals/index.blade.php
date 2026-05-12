@@ -741,7 +741,6 @@
 
   <div class="section-head">
     <div class="section-title">📅 Jadwal Mingguan</div>
-    <a href="{{ route('jadwal.create') }}" class="add-btn">＋ Tambah Jadwal</a>
   </div>
 
   @php
@@ -827,7 +826,6 @@
 
   <div class="section-head" style="margin-top:8px;">
     <div class="section-title">✨ Acara Khusus</div>
-    <a href="{{ route('jadwal.create') }}" class="add-btn">＋ Tambah Acara</a>
   </div>
 
   @php

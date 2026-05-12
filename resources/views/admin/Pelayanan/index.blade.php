@@ -913,10 +913,6 @@
 
     <div class="section-title">👤 Kepemimpinan</div>
 
-    <a href="{{ route('pelayanan.create') }}" class="add-btn">
-      ＋ Tambah Pemimpin
-    </a>
-
   </div>
 
   <div class="section-panel">
@@ -989,10 +985,6 @@
   <div class="section-head">
 
     <div class="section-title">🙌 Tim Pelayanan</div>
-
-    <a href="{{ route('pelayanan.create') }}" class="add-btn">
-      ＋ Tambah Tim
-    </a>
 
   </div>
 
@@ -1094,10 +1086,6 @@
   <div class="section-head">
 
     <div class="section-title">🖼 Pelayanan dalam Aksi</div>
-
-    <a href="{{ route('pelayanan.create') }}" class="add-btn">
-      ＋ Tambah Foto
-    </a>
 
   </div>
 
