@@ -54,8 +54,6 @@ class TentangController extends Controller
     public function update(Request $request, Tentang $tentang)
     {
         $request->validate([
-            'header_title' => 'required|string|max:255',
-            'header_description' => 'nullable|string',
             'sejarah' => 'required|string',
             'visi' => 'required|string',
             'misi' => 'required|string',
@@ -66,8 +64,6 @@ class TentangController extends Controller
         ]);
 
         $data = $request->only([
-            'header_title',
-            'header_description',
             'sejarah',
             'visi',
             'misi',
