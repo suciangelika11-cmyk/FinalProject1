@@ -103,6 +103,3 @@ function previewImage(event) {
 }
 </script>
 @endsection
-
-
-rapikan code ini tanpa kau ubah code nya sedikit apapun itu
