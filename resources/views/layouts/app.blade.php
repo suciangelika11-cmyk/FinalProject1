@@ -664,8 +664,8 @@ document.addEventListener('DOMContentLoaded', function () {
                        href="{{ route('home') }}">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('user.tentang') ? 'active' : '' }}"
-                       href="{{ route('user.tentang') }}">Tentang Kami</a>
+                    <a class="nav-link {{ request()->routeIs('user.pengumuman') ? 'active' : '' }}"
+                       href="{{ route('user.pengumuman') }}">Pengumuman</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('user.jadwal') ? 'active' : '' }}"
@@ -688,8 +688,8 @@ document.addEventListener('DOMContentLoaded', function () {
                        href="{{ route('user.kontak') }}">Kontak</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('user.pengumuman') ? 'active' : '' }}"
-                       href="{{ route('user.pengumuman') }}">Pengumuman</a>
+                    <a class="nav-link {{ request()->routeIs('user.tentang') ? 'active' : '' }}"
+                       href="{{ route('user.tentang') }}">Tentang Kami</a>
                 </li>
 
                 @auth

@@ -65,8 +65,7 @@ Route::prefix('admin')->middleware(['auth', 'role:super_admin,admin'])->group(fu
 
     Route::get('/tentang', [AdminTentangController::class, 'index'])->name('tentang.index');
     Route::get('/tentang/create', [AdminTentangController::class, 'create'])->name('tentang.create');
-    Route::post('/tentang/store', [AdminTentangController::class, 'store'])->name('tentang.store');
-    Route::get('/tentang/{Tentang}', [AdminTentangController::class, 'show'])->name('tentang.show');
+    Route::post('/tentang', [AdminTentangController::class, 'store'])->name('tentang.store');
     Route::get('/tentang/{tentang}/edit', [AdminTentangController::class, 'edit'])->name('tentang.edit');
     Route::put('/tentang/{tentang}', [AdminTentangController::class, 'update'])->name('tentang.update');
     Route::delete('/tentang/{tentang}', [AdminTentangController::class, 'destroy'])->name('tentang.destroy');

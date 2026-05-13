@@ -167,7 +167,7 @@
 
       <div class="form-group">
         <label>Tanggal</label>
-        <input type="date" name="tanggal" class="form-control" value="{{ old('tanggal', \Carbon\Carbon::parse($kegiatan->tanggal)->format('Y-m-d')) }}" required>
+        <input type="date" name="tanggal" class="form-control" value="{{ old('tanggal', \Carbon\Carbon::parse($kegiatan->tanggal)->format('Y-m-d')) }}" min="{{ date('Y-m-d') }}" required>
       </div>
 
       <div class="form-group">

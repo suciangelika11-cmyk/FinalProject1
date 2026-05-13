@@ -62,7 +62,7 @@
 
             <div class="fg">
                 <label>Tanggal Kegiatan</label>
-                <input type="date" name="event_date" value="{{ old('event_date', $Galeri->event_date) }}">
+                <input type="date" name="event_date" value="{{ old('event_date', $Galeri->event_date) }}" min="{{ date('Y-m-d') }}" required>
             </div>
 
             <div class="fg">

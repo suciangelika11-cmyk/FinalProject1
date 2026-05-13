@@ -186,7 +186,7 @@
 
             <div class="fg">
                 <label>Tanggal</label>
-                <input type="date" name="date" value="{{ old('date', date('Y-m-d')) }}" required>
+                <input type="date" name="date" value="{{ old('date', date('Y-m-d')) }}" min="{{ date('Y-m-d') }}" required>
             </div>
 
             <div class="form-row-2">

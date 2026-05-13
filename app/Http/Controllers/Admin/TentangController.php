@@ -15,35 +15,23 @@ class TentangController extends Controller
         return view('admin.tentang.index', compact('tentang'));
     }
 
-    public function create()
-    {
-        $tentang = Tentang::latest()->first();
-
-        if ($tentang) {
-            return redirect()->route('tentang.edit', $tentang->id)
-                ->with('error', 'Data Tentang sudah ada. Silakan edit data yang ada.');
-        }
-
-        return view('admin.tentang.create');
-    }
-
-    public function store(Request $request)
+public function create()
 {
-    $data = Tentang::first(); // ambil 1 data saja
+    return view('admin.tentang.create');
+}
 
+public function store(Request $request)
+{
     $input = $request->all();
 
     if ($request->hasFile('gembala_foto')) {
         $input['gembala_foto'] = $request->file('gembala_foto')->store('tentang', 'public');
     }
 
-    if ($data) {
-        $data->update($input);
-    } else {
-        Tentang::create($input);
-    }
+    Tentang::create($input);
 
-    return redirect()->back()->with('success', 'Data berhasil disimpan');
+    return redirect()->route('tentang.index')
+        ->with('success', 'Data berhasil ditambahkan');
 }
 
     public function edit(Tentang $tentang)

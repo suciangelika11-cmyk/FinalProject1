@@ -28,7 +28,7 @@
   .content { padding:28px 28px 80px; }
 
   .page-hero {
-    position:relative; overflow:hidden; border-radius:18px; margin-bottom:32px;
+    position:relative; overflow:hidden; border-radius:18px; margin-bottom:60px;
     background:linear-gradient(135deg, var(--cyan-dk), var(--cyan), #29c4f0);
     padding:42px 48px; box-shadow:0 12px 40px rgba(29,168,224,.2), inset 0 1px 0 rgba(255,255,255,.2);
     animation:slideInRight .7s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -63,7 +63,7 @@
   .btn-hero-outline:hover { background:rgba(255,255,255,.2); border-color:rgba(255,255,255,.6); transform:translateY(-3px); }
 
   .section-head {
-    display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; flex-wrap:wrap;
+    display:flex; align-items:center; justify-content:space-between; margin-top:20px; margin-bottom:24px; flex-wrap:wrap;
     gap:12px; padding:0 0 16px 0; animation:slideInLeft .6s ease-out both;
   }
   .section-title {
@@ -77,26 +77,70 @@
     box-shadow:0 4px 16px rgba(0,0,0,.06); transition:all .3s cubic-bezier(0.34, 1.56, 0.64, 1);
     animation:fadeUp .6s ease-out both;
   }
-  .sejarah-card { padding:28px; margin-bottom:24px; animation-delay:0.1s; }
-  .sejarah-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(0,0,0,.12); border-color:var(--cyan-lt); }
-  .sejarah-text, .leader-desc { font-size:14.5px; color:var(--muted); line-height:1.8; }
+  .sejarah-card {
+    padding: 30px 34px;
+    margin-bottom: 34px;
+    animation-delay: 0.1s;
+    border-radius: 18px;
+    background: #ffffff;
+    border: 1px solid #e4e8ef;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+}
+  .sejarah-card:hover {
+    transform: none;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+    border-color: #d0d7e3;
+}
+  .sejarah-text {
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.9;
+    text-align: justify;
+    word-break: break-word;
+}
+  .leader-desc {
+    font-size: 14.5px;
+    color: #64748b;
+    line-height: 1.8;
+    word-break: break-word;
+}
 
-  .vm-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:28px; }
+  .vm-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-bottom: 38px;
+}
   .vm-card {
-    padding:28px; animation-delay:0.15s;
-    background:linear-gradient(135deg, rgba(255,255,255,.95), var(--white));
-    position:relative;
+    padding: 28px 30px;
+    animation-delay: 0.15s;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #e4e8ef;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+    position: relative;
   }
   .vm-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--cyan), var(--purple)); opacity:0; transition:opacity .3s; }
-  .vm-card:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(0,0,0,.1); border-color:var(--cyan-lt); }
+  .vm-card:hover {
+    transform: none;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+    border-color: #d0d7e3;
+  }
   .vm-card:hover::before { opacity:1; }
   .vm-title {
     font-family:'Rajdhani',sans-serif; font-size:18px; font-weight:700; color:var(--text);
     margin-bottom:12px; letter-spacing:-0.3px;
   }
   .vm-quote {
-    font-size:14px; color:var(--muted); line-height:1.8; border-left:4px solid var(--cyan);
-    padding-left:16px; font-style:italic; transition:all .3s;
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.85;
+    border-left: 4px solid var(--cyan);
+    padding: 14px 0 14px 18px;
+    background: #f8fafc;
+    border-radius: 0 12px 12px 0;
+    font-style: normal;
+    word-break: break-word;
   }
   .vm-card:hover .vm-quote { color:var(--text); border-color:var(--purple); }
 
@@ -344,12 +388,6 @@ document.addEventListener('DOMContentLoaded', function() {
       window.requestAnimationFrame(() => {
         const scrolled = window.scrollY;
         const heroBeforeEl = document.querySelector('.page-hero::before');
-        
-        // Parallax effect on hero
-        const hero = document.querySelector('.page-hero');
-        if (hero && scrolled < 500) {
-          hero.style.transform = `translateY(${scrolled * 0.3}px)`;
-        }
         
         ticking = false;
       });

@@ -166,7 +166,7 @@
 
       <div class="form-group">
         <label>Tanggal</label>
-        <input type="date" name="tanggal" class="form-control" value="{{ old('tanggal') }}" required>
+        <input type="date" name="tanggal" class="form-control" value="{{ old('tanggal') }}" min="{{ date('Y-m-d') }}" required>
       </div>
 
       <div class="form-group">

@@ -697,7 +697,6 @@
 
     <div class="hero-actions">
       <a href="{{ route('jadwal.create') }}" class="btn-hero-primary">＋ Tambah Jadwal</a>
-      <a href="{{ route('jadwal.create') }}" class="btn-hero-outline">✨ Tambah Acara Khusus</a>
     </div>
   </div>
 

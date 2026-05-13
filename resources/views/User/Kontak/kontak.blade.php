@@ -6,7 +6,7 @@
     $gereja = "GBI Tambunan";
     $whatsapp = $kontak && $kontak->phone
         ? preg_replace('/[^0-9]/', '', $kontak->phone)
-        : '6281384871163';
+        : '6281632228286';
 @endphp
 
 <style>
@@ -644,11 +644,17 @@ function kirimWA() {
     var nama  = document.getElementById("nama").value;
     var email = document.getElementById("email").value;
     var pesan = document.getElementById("pesan").value;
+
     var text  = "Shalom 🙏%0A%0A"
               + "Nama: "  + encodeURIComponent(nama)  + "%0A"
               + "Email: " + encodeURIComponent(email) + "%0A"
               + "Pesan: " + encodeURIComponent(pesan);
-    window.open("https://wa.me/{{ $whatsapp }}?text=" + text, '_blank');
+
+    window.open("https://wa.me/{{ $whatsapp }}?text=" + text, "_blank");
+
+    setTimeout(function () {
+        window.location.href = "{{ route('home') }}";
+    }, 2000);
 }
 </script>
 

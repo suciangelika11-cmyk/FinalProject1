@@ -260,7 +260,7 @@
 
                     <div class="form-group">
                         <label>Tanggal Publish</label>
-                        <input type="date" name="publish_date" class="form-control-custom" value="{{ old('publish_date') }}">
+                        <input type="date" name="publish_date" class="form-control-custom" value="{{ old('publish_date') }}" min="{{ date('Y-m-d') }}" required>
                     </div>
 
                     <div class="form-group">
