@@ -258,6 +258,11 @@
     font-size:14px;
     line-height:1.7;
     color:rgba(255,255,255,.58);
+
+    display:-webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
 }
 
 /* ===============================
@@ -443,11 +448,11 @@
 
                         @if($kegiatan->description)
                         <p class="jd-card-desc">
-                            {{ $kegiatan->description }}
+                            {{ \Illuminate\Support\Str::limit($kegiatan->description, 140, '...') }}
                         </p>
                         @endif
 
-                        <a href="#" class="jd-btn-detail">
+                        <a href="{{ route('user.jadwal.show', $kegiatan->id) }}" class="jd-btn-detail">
                             Lihat Detail
                             <i class="bi bi-arrow-right"></i>
                         </a>
