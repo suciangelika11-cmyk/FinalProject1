@@ -14,7 +14,6 @@ class Jemaat extends Model
         'nama_keluarga',
         'alamat_domisili',
         'alamat_ktp',
-        'kolom',
         'nama_lengkap',
         'nik',
         'tempat_lahir',
@@ -24,16 +23,27 @@ class Jemaat extends Model
         'pekerjaan',
         'status_pernikahan',
         'status',
+        'confirmed_at',
     ];
 
-    // Relasi Jemaat HasMany PelayananAnggota
+    protected $casts = [
+        'tanggal_lahir' => 'date',
+        'confirmed_at' => 'datetime',
+    ];
+
+    /*
+    |--------------------------------------------------------------------------
+    | RELATIONSHIP
+    |--------------------------------------------------------------------------
+    */
+
+    // Jemaat memiliki banyak anggota pelayanan
     public function pelayanan_anggotas()
     {
         return $this->hasMany(PelayananAnggota::class);
     }
 
-    // Relasi Jemaat BelongsTo User (jika ada user account untuk jemaat)
-    // Relasi Jemaat BelongsTo User
+    // Jemaat dimiliki oleh user
     public function user()
     {
         return $this->belongsTo(User::class);
