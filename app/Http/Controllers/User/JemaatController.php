@@ -19,57 +19,58 @@ class JemaatController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'no_kk' => 'required|string|max:255',
-            'nama_keluarga' => 'required|string|max:255',
-            'alamat_domisili' => 'required|string',
-            'alamat_ktp' => 'nullable|string',
-            'kolom' => 'required|string|max:255',
-            'nama_lengkap' => 'required|string|max:255',
-            'nik' => 'required|string|max:255',
-            'tempat_lahir' => 'nullable|string|max:255',
-            'tanggal_lahir' => 'nullable|date',
-            'jenis_kelamin' => 'nullable|in:Laki,Perempuan',
-            'handphone' => 'nullable|string|max:20',
-            'pekerjaan' => 'nullable|string|max:255',
-            'status_pernikahan' => 'required|in:Sudah Menikah,Belum Menikah',
-            'status' => 'sometimes|in:pending,confirmed',
+            'no_kk' => 'required',
+            'nama_keluarga' => 'required',
+            'alamat_domisili' => 'required',
+            'alamat_ktp' => 'required',
+            'nama_lengkap' => 'required',
+            'nik' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required|date',
+            'jenis_kelamin' => 'required',
+            'handphone' => 'required',
+            'pekerjaan' => 'required',
+            'status_pernikahan' => 'required',
         ]);
 
-        try {
-            DB::beginTransaction();
+        Jemaat::create([
+            'no_kk' => $request->no_kk,
+            'nama_keluarga' => $request->nama_keluarga,
+            'alamat_domisili' => $request->alamat_domisili,
+            'alamat_ktp' => $request->alamat_ktp,
+            'nama_lengkap' => $request->nama_lengkap,
+            'nik' => $request->nik,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'handphone' => $request->handphone,
+            'pekerjaan' => $request->pekerjaan,
+            'status_pernikahan' => $request->status_pernikahan,
+            'status' => 'pending',
+        ]);
 
-            $data = $request->only([
-                'no_kk',
-                'nama_keluarga',
-                'alamat_domisili',
-                'alamat_ktp',
-                'kolom',
-                'nama_lengkap',
-                'nik',
-                'tempat_lahir',
-                'tanggal_lahir',
-                'jenis_kelamin',
-                'handphone',
-                'pekerjaan',
-                'status_pernikahan',
-                'status',
-            ]);
+        return redirect()
+            ->back()
+            ->with('success', 'Pendaftaran jemaat berhasil dikirim.');
+    }
 
-            $data['status'] = $data['status'] ?? 'pending';
-            $jemaat = Jemaat::create($data);
+    public function index()
+    {
+        $jemaats = Jemaat::latest()->get();
 
-            DB::commit();
+        return view('admin.jemaat.index', compact('jemaats'));
+    }
 
-            return redirect()->back()
-                ->with('success', 'Pendaftaran berhasil dikirim. Admin akan menerima notifikasi pendaftaran jemaat baru.');
-        } catch (\Throwable $e) {
-            DB::rollBack();
+    public function confirm($id)
+    {
+        $jemaat = Jemaat::findOrFail($id);
 
-            Log::error('Gagal simpan jemaat: ' . $e->getMessage());
+        $jemaat->update([
+            'status' => 'confirmed',
+        ]);
 
-            return back()
-                ->withInput()
-                ->with('error', 'Data gagal disimpan. Silakan coba lagi.');
-        }
+        return redirect()
+            ->back()
+            ->with('success', 'Pendaftaran jemaat berhasil dikonfirmasi.');
     }
 }

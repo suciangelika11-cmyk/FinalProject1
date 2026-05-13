@@ -208,27 +208,6 @@
     </div>
 </section>
 
-<div class="pl-stats">
-    <div class="pl-stats-inner">
-        <div class="pl-stat">
-            <div class="pl-stat-num">{{ $timPelayanan->count() }}</div>
-            <div class="pl-stat-label">Tim Pelayanan</div>
-        </div>
-        <div class="pl-stat">
-            <div class="pl-stat-num">{{ $kepemimpinan->count() }}</div>
-            <div class="pl-stat-label">Pemimpin</div>
-        </div>
-        <div class="pl-stat">
-            <div class="pl-stat-num">{{ $timPelayanan->sum(fn($t) => $t->anggotas->count()) }}+</div>
-            <div class="pl-stat-label">Anggota Aktif</div>
-        </div>
-        <div class="pl-stat">
-            <div class="pl-stat-num">1</div>
-            <div class="pl-stat-label">Jemaat</div>
-        </div>
-    </div>
-</div>
-
 <section class="pl-sec alt">
     <div class="global-container">
         <div class="pl-sec-label">Kepemimpinan</div>
@@ -295,14 +274,4 @@
     </div>
 </section>
 
-<section class="pl-cta">
-    <div class="global-container">
-        <h2>Siap untuk Bergabung?</h2>
-        <p>Temukan tempat Anda dalam pelayanan dan jadilah bagian dari komunitas yang mengasihi Tuhan.</p>
-        <a href="{{ route('jemaat.create') }}" class="pl-join-btn">
-            <i class="bi bi-person-plus"></i>
-            Bergabung dengan Pelayanan
-        </a>
-    </div>
-</section>
 @endsection

@@ -280,7 +280,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 36px;
-    align-items: start;
+    align-items: stretch;
 }
 @media (max-width: 768px) {
     .contact-grid { grid-template-columns: 1fr; gap: 28px; }
@@ -289,6 +289,11 @@ body {
 /* ── INFO COLUMN ── */
 .info-col {
     animation: slideLeft 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.15s both;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 32px;
+    height: 100%;
 }
 .info-header { margin-bottom: 28px; }
 
@@ -372,6 +377,7 @@ body {
 /* ── FORM COLUMN ── */
 .form-col {
     animation: slideRight 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.25s both;
+    height: 100%;
 }
 .form-card {
     background: var(--card-bg);
@@ -380,6 +386,7 @@ body {
     padding: 36px;
     position: relative;
     overflow: hidden;
+    height: 100%;
 }
 .form-card::before {
     content: '';
@@ -387,6 +394,9 @@ body {
     top: 0; left: 10%; right: 10%;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.info-card:last-child {
+    margin-bottom: 0;
 }
 .form-title {
     font-family: 'Playfair Display', Georgia, serif;

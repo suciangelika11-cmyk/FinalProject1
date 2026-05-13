@@ -218,17 +218,6 @@
                     @error('alamat_ktp')<div class="jm-feedback">{{ $message }}</div>@enderror
                 </div>
 
-                <div class="jm-group">
-                    <label class="jm-label">Kolom</label>
-                    <select name="kolom" class="jm-select @error('kolom') jm-invalid @enderror">
-                        <option value="">-- Pilih Kolom --</option>
-                        <option value="Kolom 1" {{ old('kolom') == 'Kolom 1' ? 'selected' : '' }}>Kolom 1</option>
-                        <option value="Kolom 2" {{ old('kolom') == 'Kolom 2' ? 'selected' : '' }}>Kolom 2</option>
-                        <option value="Kolom 3" {{ old('kolom') == 'Kolom 3' ? 'selected' : '' }}>Kolom 3</option>
-                    </select>
-                    @error('kolom')<div class="jm-feedback">{{ $message }}</div>@enderror
-                </div>
-
                 <div class="jm-divider"></div>
                 <div class="jm-section-title">Data Pribadi</div>
 

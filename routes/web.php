@@ -202,7 +202,8 @@ Route::get('/', function () {
     
     Route::get('/tentang', [UserTentangController::class, 'index'])->name('user.tentang');
 
-    Route::get('/Jadwal', [UserJadwalController::class, 'index'])->name('user.jadwal');    
+    Route::get('/Jadwal', [UserJadwalController::class, 'index'])->name('user.jadwal');
+    Route::get('/jadwal/{id}', [UserJadwalController::class, 'show'])->name('user.jadwal.show');
 
     Route::get('/Galeri', [UserGaleriController::class, 'index'])->name('user.galeri');
 

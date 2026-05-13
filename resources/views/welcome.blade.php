@@ -383,8 +383,6 @@ section {
             <div class="card scroll"><h3>SESI 2</h3><p>11:00 WIB</p></div>
             <div class="card scroll"><h3>SESI 3</h3><p>16:00 WIB</p></div>
         </div>
-
-        <a href="{{ route('user.jemaat') }}" class="btn-main">Jadi Jemaat</a>
     </div>
 </section>
 

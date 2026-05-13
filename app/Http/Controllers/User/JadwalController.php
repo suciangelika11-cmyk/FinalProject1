@@ -27,4 +27,10 @@ class JadwalController extends Controller
 
         return view('User.Jadwal.Jadwal', compact('jadwalMingguan', 'acaraKhusus'));
     }
+
+    public function show($id)
+    {
+        $jadwal = Jadwal::findOrFail($id);
+        return view('user.jadwal.show', compact('jadwal'));
+    }
 }
