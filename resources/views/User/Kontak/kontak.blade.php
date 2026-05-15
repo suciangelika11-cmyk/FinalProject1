@@ -504,6 +504,30 @@ body {
     color: var(--text-muted);
 }
 
+/* ── MAPS ── */
+.map-section {
+    margin-top: 40px;
+    width: 100%;
+    animation: fadeUp 0.8s ease 0.35s both;
+}
+
+.map-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 16px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.map-card iframe {
+    width: 100%;
+    height: 420px;
+    border: 0;
+    border-radius: 14px;
+    display: block;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 600px) {
     .form-card { padding: 26px 22px; }
@@ -631,13 +655,20 @@ body {
             </div>
 
         </div>
+{{-- MAPS --}}
+<div class="map-section">
+    <div class="map-card">
+        <iframe
+            src="https://www.google.com/maps?q=GBI%20Tambunan-Laguboti&output=embed"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</div>
     </div>
 </section>
 
-{{-- FOOTER STRIP --}}
-<div class="footer-strip">
-    <p>&copy; {{ date('Y') }} {{ $gereja }} — All Rights Reserved</p>
-</div>
 
 <script>
 function kirimWA() {

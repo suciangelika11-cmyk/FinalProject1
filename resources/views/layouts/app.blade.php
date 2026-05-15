@@ -616,27 +616,6 @@
 </head>
 <body>
 
-<audio id="bg-music" src="{{ asset('audio/Yesusku Kau Terindah - OFFICIAL MUSIC VIDEO (1).mp3') }}" autoplay loop muted hidden></audio>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const audio = document.getElementById('bg-music');
-    const lastTime = localStorage.getItem('musicTime');
-    if (lastTime) {
-        audio.pause();
-        audio.currentTime = parseFloat(lastTime);
-    }
-    function enableAudio() {
-        audio.muted = false;
-        audio.play().catch(()=>{});
-        window.removeEventListener('click', enableAudio);
-        window.removeEventListener('keydown', enableAudio);
-    }
-    window.addEventListener('click', enableAudio);
-    window.addEventListener('keydown', enableAudio);
-    setInterval(() => { localStorage.setItem('musicTime', audio.currentTime); }, 1000);
-});
-</script>
-
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg" id="mainNavbar">
     <div class="container">
