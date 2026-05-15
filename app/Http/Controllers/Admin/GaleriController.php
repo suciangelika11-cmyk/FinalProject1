@@ -24,9 +24,9 @@ class GaleriController extends Controller
     {
             $request->validate([
                 'title' => 'required',
-                'description' => 'nullable',
+                'description' => 'required',
                 'image' => 'required|image',
-                'event_date' => 'nullable|date',
+                'event_date' => 'required|date',
             ]);
 
             // Validasi custom: jika event_date diisi, pastikan hari (tanggal) antara 1-31

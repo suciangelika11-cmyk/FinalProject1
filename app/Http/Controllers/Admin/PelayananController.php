@@ -26,9 +26,8 @@ class PelayananController extends Controller
     $request->validate([
         'title' => 'required|string|max:255',
         'category' => 'required|in:kepemimpinan,tim,aksi',
-        'leader' => 'nullable|string|max:255',
-        'description' => 'nullable|string',
-        'icon' => 'nullable|string|max:50',
+        'leader' => 'required|string|max:255',
+        'description' => 'required|string',
         'photo' => 'nullable|image|max:2048',
 
         'anggota_nama.*' => 'nullable|string|max:255',
@@ -43,7 +42,6 @@ class PelayananController extends Controller
             'category',
             'leader',
             'description',
-            'icon',
         ]);
 
         if ($request->hasFile('photo')) {
@@ -87,9 +85,8 @@ class PelayananController extends Controller
     $request->validate([
         'title' => 'required|string|max:255',
         'category' => 'required|in:kepemimpinan,tim,aksi',
-        'leader' => 'nullable|string|max:255',
-        'description' => 'nullable|string',
-        'icon' => 'nullable|string|max:50',
+        'leader' => 'required|string|max:255',
+        'description' => 'required|string',
         'photo' => 'nullable|image|max:2048',
 
         'anggota_nama.*' => 'nullable|string|max:255',
@@ -104,7 +101,6 @@ class PelayananController extends Controller
             'category',
             'leader',
             'description',
-            'icon',
         ]);
 
         if ($request->hasFile('photo')) {

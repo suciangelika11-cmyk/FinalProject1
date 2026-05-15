@@ -17,7 +17,6 @@ class Pelayanan extends Model
         'category',
         'leader',
         'description',
-        'icon',
         'photo',
     ];
 

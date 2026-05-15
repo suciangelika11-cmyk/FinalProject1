@@ -12,10 +12,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->enum('category', ['kepemimpinan', 'tim', 'aksi']);
-            $table->string('leader')->nullable();
-            $table->text('description')->nullable();
-            $table->string('icon')->nullable();
-            $table->string('photo')->nullable();
+            $table->string('leader');
+            $table->text('description');
+            $table->string('photo');
             $table->timestamps();
         });
     }
