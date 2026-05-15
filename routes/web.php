@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\Admin\AccountController;
@@ -23,18 +22,19 @@ use App\Http\Controllers\User\PelayananController as UserPelayananController;
 use App\Http\Controllers\User\TentangController as UserTentangController;
 use App\Http\Controllers\User\KontakController as UserKontakController;
 use App\Http\Controllers\User\JemaatController;
+use App\Http\Controllers\Pelayan\JadwalIbadahController as PelayanJadwalIbadahController;
+use App\Http\Controllers\Pelayan\KegiatanPelayanController as PelayanKegiatanPelayanController;
+use App\Http\Controllers\Pelayan\AbsensiController as PelayanAbsensiController;
+use App\Http\Controllers\Pelayan\KhotbahController as PelayanKhotbahController;
+use App\Http\Controllers\Pelayan\PengumumanController as PelayanPengumumanController;
+use App\Http\Controllers\Pelayan\TentangController as PelayanTentangController;
 
-Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-Route::post('/login', [AuthController::class, 'login'])->name('login.perform');
-Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
-Route::post('/register', [AuthController::class, 'register'])->name('register.perform');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/login', [AdminLoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AdminLoginController::class, 'login'])->name('login.process');
 Route::post('/logout', [AdminLoginController::class, 'logout'])->name('logout');
 
-Route::prefix('admin')->middleware(['auth', 'role:super_admin,admin'])->group(function () {
+Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.home');
     })->name('admin.dashboard');
@@ -126,124 +126,36 @@ Route::prefix('admin')->middleware(['auth', 'role:super_admin,admin'])->group(fu
     Route::delete('/accounts/{user}', [AccountController::class, 'destroy'])->name('accounts.destroy');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-})->name("home");
 
     Route::middleware('auth', 'role:pelayan')->prefix('pelayan')->group(function () {
     Route::get('/', function () {
         return view('Pelayan.beranda');
     })->name('pelayan.home');
 
-    Route::get('/jadwal-ibadah', function () {
-        $jadwalMingguan = \App\Models\Jadwal::get()
-            ->groupBy('day')
-            ->mapWithKeys(function ($group, $day) {
-                return [$day => $group];
-            });
-        $acaraKhusus = \App\Models\Pengumuman::get();
-        return view('Pelayan.jadwal_ibadah.jadwalibadah', compact('jadwalMingguan', 'acaraKhusus'));
-    })->name('pelayan.jadwal_ibadah');
-
-    Route::get('/kegiatan-pelayan', function () {
-        $jadwalPelayan = \App\Models\Jadwal::with('pelayanan')
-            ->whereNotNull('pelayanan_id')
-            ->orderByRaw("CASE day
-                WHEN 'Minggu' THEN 1
-                WHEN 'Sabtu' THEN 2
-                WHEN 'Jumat' THEN 3
-                WHEN 'Kamis' THEN 4
-                WHEN 'Rabu' THEN 5
-                WHEN 'Selasa' THEN 6
-                WHEN 'Senin' THEN 7
-                ELSE 8 END")
-            ->orderBy('start_time')
-            ->get();
-
-        $pelayanans = \App\Models\Pelayanan::with('anggotas')->latest()->get();
-        $kegiatans = \App\Models\KegiatanPelayanan::latest()->get();
-
-        return view('Pelayan.KegiatanPelayan.KegiatanPelayan', compact('jadwalPelayan', 'pelayanans', 'kegiatans'));
-    })->name('pelayan.kegiatan_pelayan');
-
-    Route::get('/absensi', function () {
-        $absensi = \App\Models\Absensi::latest()->get();
-        return view('Pelayan.Absensi.absensi', compact('absensi'));
-    })->name('pelayan.absensi');
-
-    Route::get('/khotbah', function () {
-        $khotbah = \App\Models\Khotbah::latest()->get();
-        return view('Pelayan.Khotbah.Khotbah', compact('khotbah'));
-    })->name('pelayan.khotbah');
-
-    Route::get('/pengumuman', function () {
-        $pengumuman = \App\Models\Pengumuman::where('is_active', true)
-            ->latest()
-            ->get();
-
-        return view('Pelayan.Pengumuman.Pengumuman', compact('pengumuman'));
-    })->name('pelayan.pengumuman');
-
-    Route::get('/pengumuman/{pengumuman}', function (\App\Models\Pengumuman $pengumuman) {
-        if (!$pengumuman->is_active) {
-            abort(404);
-        }
-
-        return view('Pelayan.Pengumuman.show', compact('pengumuman'));
-    })->name('pelayan.pengumuman.show');
-
-    Route::get('/tentang', function () {
-        $data = \App\Models\Tentang::first();
-        return view('Pelayan.Tentang kami.Meta', compact('data'));
-    })->name('pelayan.tentang');
+    Route::get('/jadwal-ibadah',[PelayanJadwalIbadahController::class, 'index'])->name('pelayan.jadwal_ibadah');
+    Route::get('/kegiatan-pelayan',[PelayanKegiatanPelayanController::class, 'index'])->name('pelayan.kegiatan_pelayan');
+    Route::get('/absensi',[PelayanAbsensiController::class, 'index'])->name('pelayan.absensi');
+    Route::get('/khotbah',[PelayanKhotbahController::class, 'index'])->name('pelayan.khotbah');
+    Route::get('/pengumuman',[PelayanPengumumanController::class, 'index'])->name('pelayan.pengumuman');
+    Route::get('/pengumuman/{pengumuman}',[PelayanPengumumanController::class, 'show'])->name('pelayan.pengumuman.show');
+    Route::get('/tentang',[PelayanTentangController::class, 'index'])->name('pelayan.tentang');
 });
 
+Route::get('/', function () {
+    return view('welcome');
+})->name("home");
     
     Route::get('/tentang', [UserTentangController::class, 'index'])->name('user.tentang');
-
     Route::get('/Jadwal', [UserJadwalController::class, 'index'])->name('user.jadwal');
     Route::get('/jadwal/{id}', [UserJadwalController::class, 'show'])->name('user.jadwal.show');
-
     Route::get('/Galeri', [UserGaleriController::class, 'index'])->name('user.galeri');
-
     Route::get('/Khotbah', [UserKhotbahController::class, 'index'])->name('user.khotbah');
-
     Route::get('/Pelayanan', [UserPelayananController::class, 'index'])->name('user.pelayanan');
-
     Route::get('/kontak', [UserKontakController::class, 'index'])->name('user.kontak');
-
-Route::get('/Jemaat', function () {
-    return view('User.Jemaat.form');
-})->name('user.jemaat');
-
-Route::get('/Gereja', function () {
-    return view('gereja');
-})->name('user.gereja');
-
-Route::get('/Ibadah', function () {
-    return view('ibadah');
-})->name('user.ibadah');
-
-Route::get('/cg', function () {
-    return view('cg');
-})->name('user.cg');
-
-Route::get('/terhubung', function () {
-    return view('terhubung');
-})->name('user.terhubung');
-
-Route::get('/media', function () {
-    return view('media');
-})->name('user.media');
-
-Route::get('/donate', function () {
-    return view('donate');
-})->name('user.donate');
-
-Route::get('/jadi-jemaat', [JemaatController::class, 'create'])->name('jemaat.create');
-Route::post('/jadi-jemaat', [JemaatController::class, 'store'])->name('jemaat.store');
-
-Route::get('/pengumuman', [UserPengumumanController::class, 'index'])->name('user.pengumuman');
-Route::get('/pengumuman/{pengumuman}', [UserPengumumanController::class, 'show'])->name('user.pengumuman.show');
+    Route::get('/Jemaat', function () {return view('User.Jemaat.form');})->name('user.jemaat');
+    Route::get('/jadi-jemaat', [JemaatController::class, 'create'])->name('jemaat.create');
+    Route::post('/jadi-jemaat', [JemaatController::class, 'store'])->name('jemaat.store');
+    Route::get('/pengumuman', [UserPengumumanController::class, 'index'])->name('user.pengumuman');
+    Route::get('/pengumuman/{pengumuman}', [UserPengumumanController::class, 'show'])->name('user.pengumuman.show');
 
 ?>

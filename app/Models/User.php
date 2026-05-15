@@ -69,7 +69,6 @@ class User extends Authenticatable
     public function getRoleLabelAttribute()
     {
         return match ($this->role) {
-            'super_admin' => 'Super Admin',
             'admin' => 'Admin',
             'pelayan' => 'Pelayan',
             default => 'Administrator',

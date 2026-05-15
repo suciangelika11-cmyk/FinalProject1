@@ -16,7 +16,6 @@
     $authUser = Auth::user();
 
     $displayRole = match($authUser->role ?? '') {
-        'super_admin' => 'Super Admin',
         'admin' => 'Admin',
         'pelayanan' => 'Pelayanan',
         default => 'Administrator',
@@ -639,47 +638,47 @@
 
   <nav>
     <a href="{{ route('admin.dashboard') }}" @if(request()->routeIs('admin.dashboard')) class="active" @endif>
-      <span class="ico">⊞</span> Dashboard
+      Dashboard
     </a>
 
     <a href="{{ route('tentang.index') }}" @if(request()->routeIs('tentang.*')) class="active" @endif>
-      <span class="ico">ℹ</span> Tentang Kami
+      Tentang Kami
     </a>
 
     <a href="{{ route('jadwal.index') }}" @if(request()->routeIs('jadwal.*')) class="active" @endif>
-      <span class="ico">📅</span> Jadwal Ibadah
+      Jadwal Ibadah
     </a>
 
     <a href="{{ route('absensi.index') }}" @if(request()->routeIs('absensi.*')) class="active" @endif>
-      <span class="ico">✅</span> Absensi
+      Absensi
     </a>
 
     <a href="{{ route('galeri.index') }}" @if(request()->routeIs('galeri.*')) class="active" @endif>
-      <span class="ico">🖼</span> Galeri
+      Galeri
     </a>
 
     <a href="{{ route('khotbah.index') }}" @if(request()->routeIs('khotbah.*')) class="active" @endif>
-      <span class="ico">🎙</span> Khotbah
+      Khotbah
     </a>
 
     <a href="{{ route('pelayanan.index') }}" @if(request()->routeIs('pelayanan.*')) class="active" @endif>
-      <span class="ico">🙌</span> Pelayanan
+      Pelayanan
     </a>
 
     <a href="{{ route('kegiatan.index') }}" @if(request()->routeIs('kegiatan.*')) class="active" @endif>
-      <span class="ico">🎉</span> Kegiatan Pelayanan
+      Kegiatan Pelayanan
     </a>
 
     <a href="{{ route('kontak.index') }}" @if(request()->routeIs('kontak.*')) class="active" @endif>
-      <span class="ico">✉</span> Kontak
+      Kontak
     </a>
 
     <a href="{{ route('pengumuman.index') }}" @if(request()->routeIs('pengumuman.*')) class="active" @endif>
-      <span class="ico">📢</span> Pengumuman
+      Pengumuman
     </a>
 
     <a href="{{ route('jemaat.index') }}" @if(request()->routeIs('jemaat.*')) class="active" @endif>
-      <span class="ico">👥</span> Jemaat
+      Jemaat
 
       @if($pendingJemaatCount > 0)
         <span style="font-size:11px; background:#ef4444; color:#fff; padding:2px 8px; border-radius:999px; margin-left:6px;">
