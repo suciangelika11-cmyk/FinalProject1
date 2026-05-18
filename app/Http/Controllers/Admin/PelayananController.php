@@ -69,8 +69,12 @@ class PelayananController extends Controller
                 ];
             }
 
-            if ($request->hasFile('photo')) {
-                $data['photo'] = $request->file('photo')->store('pelayanan', 'public');
+            if ($request->category == 'kepemimpinan' && $request->hasFile('photo_kepemimpinan')) {
+                $data['photo'] = $request->file('photo_kepemimpinan')->store('pelayanan', 'public');
+            }
+
+            if ($request->category == 'aksi' && $request->hasFile('photo_aksi')) {
+                $data['photo'] = $request->file('photo_aksi')->store('pelayanan', 'public');
             }
 
             $pelayanan = Pelayanan::create($data);
@@ -120,7 +124,8 @@ class PelayananController extends Controller
             'title_aksi' => 'required_if:category,aksi|nullable|string|max:255',
             'description_aksi' => 'required_if:category,aksi|nullable|string',
 
-            'photo' => 'nullable|image|max:2048',
+            'photo_kepemimpinan' => 'nullable|image|max:2048',
+            'photo_aksi' => 'nullable|image|max:2048',
 
             'anggota_nama.*' => 'nullable|string|max:255',
             'anggota_bagian.*' => 'nullable|string|max:255',

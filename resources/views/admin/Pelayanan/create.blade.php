@@ -482,7 +482,7 @@
             <div class="fg">
               <label>Foto</label>
 
-              <input type="file" name="photo" id="photo-kepemimpinan" accept="image/*">
+              <input type="file" name="photo_kepemimpinan" id="photo-kepemimpinan" accept="image/*">
 
               <img id="preview-kepemimpinan" class="img-preview" style="display:none;">
             </div>
@@ -541,7 +541,8 @@
 
             <div class="fg">
               <label>Foto</label>
-              <input type="file" name="photo">
+
+              <input type="file" name="photo_aksi" id="photo-aksi" accept="image/*">
             </div>
 
           </div>
@@ -598,9 +599,9 @@
         item.style.marginBottom = '10px';
 
         item.innerHTML = `
-          <input type="text" name="anggota_nama[]" placeholder="Nama anggota">
-          <input type="text" name="anggota_bagian[]" placeholder="Bagian / jabatan">
-        `;
+              <input type="text" name="anggota_nama[]" placeholder="Nama anggota">
+              <input type="text" name="anggota_bagian[]" placeholder="Bagian / jabatan">
+            `;
 
         wrapper.appendChild(item);
       }
