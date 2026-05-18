@@ -1,0 +1,26 @@
+[
+  {
+    "color": "orange",
+    "type": "cat",
+    "size": "small",
+    "name": "Willow"
+  },
+  {
+    "color": "white",
+    "type": "horse",
+    "size": "small",
+    "name": "Porkpie"
+  },
+  {
+    "color": "black",
+    "type": "panda",
+    "size": "small",
+    "name": "Luna"
+  },
+  {
+    "color": "gray",
+    "type": "monkey",
+    "size": "small",
+    "name": "Punch"
+  }
+]

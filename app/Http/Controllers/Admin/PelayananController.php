@@ -12,138 +12,190 @@ use Illuminate\Support\Facades\DB;
 class PelayananController extends Controller
 {
     public function index()
-{
-    $pelayanan = Pelayanan::with('anggotas')->latest()->get();
-    return view('admin.pelayanan.index', compact('pelayanan'));
-}
+    {
+        $pelayanan = Pelayanan::with('anggotas')->latest()->get();
+
+        return view('admin.pelayanan.index', compact('pelayanan'));
+    }
+
     public function create()
     {
         return view('admin.pelayanan.create');
     }
 
     public function store(Request $request)
-{
-    $request->validate([
-        'title' => 'required|string|max:255',
-        'category' => 'required|in:kepemimpinan,tim,aksi',
-        'leader' => 'required|string|max:255',
-        'description' => 'required|string',
-        'photo' => 'nullable|image|max:2048',
+    {
+        $request->validate([
+            'category' => 'required|in:kepemimpinan,tim,aksi',
 
-        'anggota_nama.*' => 'nullable|string|max:255',
-        'anggota_bagian.*' => 'nullable|string|max:255',
-    ]);
+            'title_kepemimpinan' => 'required_if:category,kepemimpinan|nullable|string|max:255',
+            'leader_kepemimpinan' => 'required_if:category,kepemimpinan|nullable|string|max:255',
 
-    DB::beginTransaction();
+            'title_tim' => 'required_if:category,tim|nullable|string|max:255',
+            'description_tim' => 'required_if:category,tim|nullable|string',
 
-    try {
-        $data = $request->only([
-            'title',
-            'category',
-            'leader',
-            'description',
+            'title_aksi' => 'required_if:category,aksi|nullable|string|max:255',
+            'description_aksi' => 'required_if:category,aksi|nullable|string',
+
+            'photo' => 'nullable|image|max:2048',
+
+            'anggota_nama.*' => 'nullable|string|max:255',
+            'anggota_bagian.*' => 'nullable|string|max:255',
         ]);
 
-        if ($request->hasFile('photo')) {
-            $data['photo'] = $request->file('photo')->store('pelayanan', 'public');
-        }
+        DB::beginTransaction();
 
-        $pelayanan = Pelayanan::create($data);
+        try {
+            if ($request->category == 'kepemimpinan') {
+                $data = [
+                    'title' => $request->title_kepemimpinan,
+                    'category' => 'kepemimpinan',
+                    'leader' => $request->leader_kepemimpinan,
+                    'description' => null,
+                ];
+            } elseif ($request->category == 'tim') {
+                $data = [
+                    'title' => $request->title_tim,
+                    'category' => 'tim',
+                    'leader' => null,
+                    'description' => $request->description_tim,
+                ];
+            } else {
+                $data = [
+                    'title' => $request->title_aksi,
+                    'category' => 'aksi',
+                    'leader' => null,
+                    'description' => $request->description_aksi,
+                ];
+            }
 
-        if ($request->has('anggota_nama')) {
-            foreach ($request->anggota_nama as $index => $nama) {
-                $bagian = $request->anggota_bagian[$index] ?? null;
+            if ($request->hasFile('photo')) {
+                $data['photo'] = $request->file('photo')->store('pelayanan', 'public');
+            }
 
-                if (!empty($nama)) {
-                    PelayananAnggota::create([
-                        'pelayanan_id' => $pelayanan->id,
-                        'nama' => $nama,
-                        'bagian' => $bagian,
-                    ]);
+            $pelayanan = Pelayanan::create($data);
+
+            if ($request->category == 'tim' && $request->has('anggota_nama')) {
+                foreach ($request->anggota_nama as $index => $nama) {
+                    $bagian = $request->anggota_bagian[$index] ?? null;
+
+                    if (!empty($nama)) {
+                        PelayananAnggota::create([
+                            'pelayanan_id' => $pelayanan->id,
+                            'nama' => $nama,
+                            'bagian' => $bagian,
+                        ]);
+                    }
                 }
             }
+
+            DB::commit();
+
+            return redirect()->route('pelayanan.index')
+                ->with('success', 'Data pelayanan berhasil ditambahkan');
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            throw $e;
         }
-
-        DB::commit();
-
-        return redirect()->route('pelayanan.index')
-            ->with('success', 'Data pelayanan berhasil ditambahkan');
-    } catch (\Throwable $e) {
-        DB::rollBack();
-        throw $e;
     }
-}
 
     public function edit(Pelayanan $pelayanan)
-{
-    $pelayanan->load('anggotas');
-    return view('admin.pelayanan.edit', compact('pelayanan'));
-}
+    {
+        $pelayanan->load('anggotas');
+
+        return view('admin.pelayanan.edit', compact('pelayanan'));
+    }
 
     public function update(Request $request, Pelayanan $pelayanan)
-{
-    $request->validate([
-        'title' => 'required|string|max:255',
-        'category' => 'required|in:kepemimpinan,tim,aksi',
-        'leader' => 'required|string|max:255',
-        'description' => 'required|string',
-        'photo' => 'nullable|image|max:2048',
+    {
+        $request->validate([
+            'category' => 'required|in:kepemimpinan,tim,aksi',
 
-        'anggota_nama.*' => 'nullable|string|max:255',
-        'anggota_bagian.*' => 'nullable|string|max:255',
-    ]);
+            'title_kepemimpinan' => 'required_if:category,kepemimpinan|nullable|string|max:255',
+            'leader_kepemimpinan' => 'required_if:category,kepemimpinan|nullable|string|max:255',
 
-    DB::beginTransaction();
+            'title_tim' => 'required_if:category,tim|nullable|string|max:255',
+            'description_tim' => 'required_if:category,tim|nullable|string',
 
-    try {
-        $data = $request->only([
-            'title',
-            'category',
-            'leader',
-            'description',
+            'title_aksi' => 'required_if:category,aksi|nullable|string|max:255',
+            'description_aksi' => 'required_if:category,aksi|nullable|string',
+
+            'photo' => 'nullable|image|max:2048',
+
+            'anggota_nama.*' => 'nullable|string|max:255',
+            'anggota_bagian.*' => 'nullable|string|max:255',
         ]);
 
-        if ($request->hasFile('photo')) {
-            if ($pelayanan->photo && Storage::disk('public')->exists($pelayanan->photo)) {
-                Storage::disk('public')->delete($pelayanan->photo);
+        DB::beginTransaction();
+
+        try {
+            if ($request->category == 'kepemimpinan') {
+                $data = [
+                    'title' => $request->title_kepemimpinan,
+                    'category' => 'kepemimpinan',
+                    'leader' => $request->leader_kepemimpinan,
+                    'description' => null,
+                ];
+            } elseif ($request->category == 'tim') {
+                $data = [
+                    'title' => $request->title_tim,
+                    'category' => 'tim',
+                    'leader' => null,
+                    'description' => $request->description_tim,
+                    'photo' => null,
+                ];
+            } else {
+                $data = [
+                    'title' => $request->title_aksi,
+                    'category' => 'aksi',
+                    'leader' => null,
+                    'description' => $request->description_aksi,
+                ];
             }
 
-            $data['photo'] = $request->file('photo')->store('pelayanan', 'public');
-        }
+            if ($request->hasFile('photo')) {
+                if ($pelayanan->photo && Storage::disk('public')->exists($pelayanan->photo)) {
+                    Storage::disk('public')->delete($pelayanan->photo);
+                }
 
-        $pelayanan->update($data);
+                $data['photo'] = $request->file('photo')->store('pelayanan', 'public');
+            }
 
-        $pelayanan->anggotas()->delete();
+            $pelayanan->update($data);
 
-        if ($request->has('anggota_nama')) {
-            foreach ($request->anggota_nama as $index => $nama) {
-                $bagian = $request->anggota_bagian[$index] ?? null;
+            $pelayanan->anggotas()->delete();
 
-                if (!empty($nama)) {
-                    PelayananAnggota::create([
-                        'pelayanan_id' => $pelayanan->id,
-                        'nama' => $nama,
-                        'bagian' => $bagian,
-                    ]);
+            if ($request->category == 'tim' && $request->has('anggota_nama')) {
+                foreach ($request->anggota_nama as $index => $nama) {
+                    $bagian = $request->anggota_bagian[$index] ?? null;
+
+                    if (!empty($nama)) {
+                        PelayananAnggota::create([
+                            'pelayanan_id' => $pelayanan->id,
+                            'nama' => $nama,
+                            'bagian' => $bagian,
+                        ]);
+                    }
                 }
             }
+
+            DB::commit();
+
+            return redirect()->route('pelayanan.index')
+                ->with('success', 'Data pelayanan berhasil diperbarui');
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            throw $e;
         }
-
-        DB::commit();
-
-        return redirect()->route('pelayanan.index')
-            ->with('success', 'Data pelayanan berhasil diperbarui');
-    } catch (\Throwable $e) {
-        DB::rollBack();
-        throw $e;
     }
-}
 
     public function destroy(Pelayanan $pelayanan)
     {
         if ($pelayanan->photo && Storage::disk('public')->exists($pelayanan->photo)) {
             Storage::disk('public')->delete($pelayanan->photo);
         }
+
+        $pelayanan->anggotas()->delete();
 
         $pelayanan->delete();
 
