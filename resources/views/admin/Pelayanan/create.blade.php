@@ -599,9 +599,9 @@
         item.style.marginBottom = '10px';
 
         item.innerHTML = `
-              <input type="text" name="anggota_nama[]" placeholder="Nama anggota">
-              <input type="text" name="anggota_bagian[]" placeholder="Bagian / jabatan">
-            `;
+                <input type="text" name="anggota_nama[]" placeholder="Nama anggota">
+                <input type="text" name="anggota_bagian[]" placeholder="Bagian / jabatan">
+              `;
 
         wrapper.appendChild(item);
       }

@@ -4,16 +4,15 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     public function up(): void
     {
         Schema::create('jadwal', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable()
-                  ->constrained('users')->onDelete('set null');
+                ->constrained('users')->onDelete('set null');
             $table->foreignId('pelayanan_id')->nullable()
-                  ->constrained('pelayanan')->onDelete('set null');
+                ->constrained('pelayanan')->onDelete('set null');
             $table->string('title');
             $table->string('day');
             $table->time('start_time');

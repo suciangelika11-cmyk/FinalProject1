@@ -15,7 +15,7 @@ class GaleriController extends Controller
         if ($request->filled('q')) {
             $query->where(function ($q) use ($request) {
                 $q->where('title', 'like', '%' . $request->q . '%')
-                  ->orWhere('description', 'like', '%' . $request->q . '%');
+                    ->orWhere('description', 'like', '%' . $request->q . '%');
             });
         }
 

@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\Schema;
 // langsung di 2026_03_10_060826_create_Jadwal_table.php
 // Migration ini tidak perlu melakukan perubahan lagi.
 
-return new class extends Migration
-{
+return new class extends Migration {
     public function up(): void
     {
         // FK pelayanan_id sudah ada di create_Jadwal_table

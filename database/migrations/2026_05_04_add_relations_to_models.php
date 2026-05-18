@@ -9,8 +9,7 @@ use Illuminate\Support\Facades\Schema;
 // kolom/FK secara terpisah. File ini dipertahankan agar urutan migration
 // tidak berubah, namun tidak melakukan perubahan apapun.
 
-return new class extends Migration
-{
+return new class extends Migration {
     public function up(): void
     {
         // Semua relasi FK sudah ada di migration masing-masing tabel

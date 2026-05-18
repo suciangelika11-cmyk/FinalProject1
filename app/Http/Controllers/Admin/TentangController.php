@@ -15,24 +15,24 @@ class TentangController extends Controller
         return view('admin.tentang.index', compact('tentang'));
     }
 
-public function create()
-{
-    return view('admin.tentang.create');
-}
-
-public function store(Request $request)
-{
-    $input = $request->all();
-
-    if ($request->hasFile('gembala_foto')) {
-        $input['gembala_foto'] = $request->file('gembala_foto')->store('tentang', 'public');
+    public function create()
+    {
+        return view('admin.tentang.create');
     }
 
-    Tentang::create($input);
+    public function store(Request $request)
+    {
+        $input = $request->all();
 
-    return redirect()->route('tentang.index')
-        ->with('success', 'Data berhasil ditambahkan');
-}
+        if ($request->hasFile('gembala_foto')) {
+            $input['gembala_foto'] = $request->file('gembala_foto')->store('tentang', 'public');
+        }
+
+        Tentang::create($input);
+
+        return redirect()->route('tentang.index')
+            ->with('success', 'Data berhasil ditambahkan');
+    }
 
     public function edit(Tentang $tentang)
     {

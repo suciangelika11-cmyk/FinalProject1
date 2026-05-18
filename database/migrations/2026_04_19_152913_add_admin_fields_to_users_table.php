@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\Schema;
 // di migration 2026_04_18_091135_add_username_to_users_table.php
 // Migration ini tidak perlu menambahkan kolom lagi (sudah ada pengecekan)
 
-return new class extends Migration
-{
+return new class extends Migration {
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
