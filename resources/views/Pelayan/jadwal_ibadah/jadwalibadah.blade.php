@@ -42,17 +42,6 @@
         }
 
         /* HERO */
-        .hero {
-            position: relative;
-            min-height: 420px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-            padding: 100px 24px 120px;
-            background: var(--ink-mid);
-        }
 
         .hero::before {
             content: '';
@@ -119,7 +108,7 @@
             padding: 80px 0 100px;
         }
 
-        .container {
+        .jadwal-container {
             width: 90%;
             max-width: 1160px;
             margin: 0 auto;
@@ -380,7 +369,7 @@
 
     <!-- JADWAL MINGGUAN -->
     <section class="weekly">
-        <div class="container">
+        <div class="jadwal-container">
             <div class="section-header">
                 <div class="section-label">Setiap Minggu</div>
                 <h2 class="section-title">Jadwal Mingguan</h2>
@@ -438,7 +427,7 @@
 
     <!-- ACARA KHUSUS -->
     <section class="special">
-        <div class="container" style="position:relative;z-index:1;">
+        <div class="jadwal-container" style="position:relative;z-index:1;">
             <div class="section-header">
                 <div class="section-label">Akan Datang</div>
                 <h2 class="section-title">Acara Khusus</h2>

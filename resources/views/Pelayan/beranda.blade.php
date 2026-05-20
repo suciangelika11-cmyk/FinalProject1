@@ -201,7 +201,7 @@
             background: var(--ink-mid);
         }
 
-        .container {
+        .beranda-container {
             width: 90%;
             max-width: 1160px;
             margin: 0 auto;
@@ -655,7 +655,7 @@
 
     <!-- IBADAH MINGGU -->
     <section class="sessions-section">
-        <div class="container">
+        <div class="beranda-container">
             <div class="section-eyebrow reveal">
                 <span>Ibadah Mingguan</span>
             </div>
@@ -690,7 +690,7 @@
 
     <!-- TENTANG -->
     <section class="about-section">
-        <div class="container">
+        <div class="beranda-container">
             <div class="about-inner">
                 <div class="reveal">
                     <div class="about-label">Tentang Kami</div>
@@ -728,7 +728,7 @@
 
     <!-- DONASI -->
     <section class="donasi-section">
-        <div class="container">
+        <div class="beranda-container">
             <div class="section-eyebrow reveal"><span>Persembahan & Donasi</span></div>
             <h2 class="section-title reveal">Dukung Pelayanan Gereja</h2>
 

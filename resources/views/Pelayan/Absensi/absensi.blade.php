@@ -60,15 +60,6 @@
     HERO
     ===================================== */
 
-        .hero {
-            position: relative;
-            overflow: hidden;
-
-            padding: 150px 20px 130px;
-
-            text-align: center;
-        }
-
         .hero::before {
             content: '';
 

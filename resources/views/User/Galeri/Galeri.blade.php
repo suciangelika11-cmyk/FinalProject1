@@ -640,9 +640,7 @@
     </section>
 
     <div class="g-footer-strip">
-        <p>
-            Setiap gambar adalah saksi bisu dari perjalanan iman kita bersama.
-        </p>
+
     </div>
 
     <div class="g-lightbox" id="gLightboxEl" onclick="if(event.target===this)gClose()">

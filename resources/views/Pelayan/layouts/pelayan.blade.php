@@ -369,6 +369,18 @@
             color: #f87171;
         }
 
+        .hero {
+            position: relative;
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            padding: 100px 24px 120px;
+            background: var(--ink-mid);
+        }
+
         @media(max-width:991px) {
 
             .navbar-collapse {

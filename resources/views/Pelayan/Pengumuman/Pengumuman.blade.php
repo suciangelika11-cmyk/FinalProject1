@@ -40,18 +40,6 @@
         }
 
         /* HERO */
-        .hero {
-            position: relative;
-            min-height: 380px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-            padding: 80px 24px;
-            background: var(--ink-mid);
-            border-bottom: 1px solid var(--border);
-        }
 
         .hero::before {
             content: '';
