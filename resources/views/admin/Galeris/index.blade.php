@@ -980,7 +980,22 @@
       </div>
     @endif
 
+
   </div>
+
+          <div class="pcard-body">
+            <div class="pcard-title">{{ $item->title }}</div>
+            <div class="pcard-desc">{{ $item->description ?: '-' }}</div>
+          </div>
+        </div>
+      @endforeach
+    </div>
+  @else
+    <div class="empty-state">
+      <p>Tidak ada foto ditemukan. Coba upload foto baru.</p>
+    </div>
+  @endif
+
 
   @push('scripts')
     <script>
