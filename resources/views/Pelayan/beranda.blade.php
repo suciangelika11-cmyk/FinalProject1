@@ -739,7 +739,7 @@
                     <p class="donasi-card-sub">Scan QR Code menggunakan aplikasi dompet digitalmu</p>
 
                     <div class="donasi-placeholder">
-                        [ QR CODE ]
+                        <img src="{{ asset('gambar/qris.jpeg') }}" class="qris-img">
                     </div>
 
                     <ol class="steps">

@@ -438,10 +438,6 @@
       <div class="card-header">
         <h3>✉ Informasi Kontak Gereja</h3>
         <div class="card-tools">
-          <form method="GET" action="{{ route('kontak.index') }}" class="search-box">
-            <span style="color:#b0b8c9;font-size:13px;">🔍</span>
-            <input type="text" name="q" value="{{ request('q') }}" placeholder="Cari kontak...">
-          </form>
           <a href="{{ route('kontak.create') }}" class="btn-tambah">
             <span style="font-size:15px;font-weight:900;">＋</span> Tambah Kontak
           </a>

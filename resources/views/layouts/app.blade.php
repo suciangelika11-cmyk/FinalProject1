@@ -928,7 +928,7 @@
 
             <div class="footer-bottom">
                 <p class="footer-copyright">
-                    © 2025 GBI Tambunan. All rights reserved. Made with <span class="heart">❤</span> for God's glory.
+                    © 2026 GBI Tambunan. All rights reserved. Made with <span class="heart">❤</span> for God's glory.
                 </p>
                 <p class="footer-built">Built with <strong>Team 05</strong></p>
             </div>

@@ -425,12 +425,6 @@
         Perbarui informasi pelayanan yang ada. Pastikan semua data diisi dengan benar sebelum menyimpan perubahan.
       </p>
 
-      <div class="hero-actions">
-        <a href="{{ route('pelayanan.index') }}" class="btn-hero-primary">
-          ← Kembali ke Daftar
-        </a>
-      </div>
-
     </div>
 
     <div class="section-panel">

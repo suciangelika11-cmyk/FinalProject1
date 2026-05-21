@@ -557,8 +557,8 @@
 
                             <i class="fa-regular fa-calendar"></i>
 
-                            {{ $item->tanggal
-                ? \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y')
+                            {{ $item->sermon_date
+                ? \Carbon\Carbon::parse($item->sermon_date)->translatedFormat('d F Y')
                 : '—' }}
 
                         </div>

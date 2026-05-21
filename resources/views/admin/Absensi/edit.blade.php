@@ -165,10 +165,6 @@
         <div class="form-card">
             <h2>✏️ Edit Data Absensi</h2>
 
-            <a href="{{ route('absensi.index') }}" class="btn-back" style="display:inline-flex;margin-bottom:18px;">
-                ← Kembali
-            </a>
-
             @if ($errors->any())
                 <div
                     style="background:#fdf0f0;border:1px solid #f5c6cb;border-radius:8px;padding:14px;margin-bottom:18px;color:#e05555;font-size:13px;">
