@@ -214,7 +214,7 @@
             background: var(--navy-dark);
         }
 
-        .container {
+        .beranda-container {
             width: 90%;
             max-width: 1160px;
             margin: 0 auto;
@@ -558,7 +558,7 @@
 
     <!-- IBADAH MINGGU -->
     <section class="sessions-section">
-        <div class="container">
+        <div class="beranda-container">
             <div class="section-eyebrow reveal">
                 <span>Ibadah Mingguan</span>
             </div>
@@ -591,10 +591,50 @@
         </div>
     </section>
 
+<<<<<<< HEAD:resources/views/Pelayan/beranda/beranda.blade.php
+=======
+    <!-- TENTANG -->
+    <section class="about-section">
+        <div class="beranda-container">
+            <div class="about-inner">
+                <div class="reveal">
+                    <div class="about-label">Tentang Kami</div>
+                    <h2 class="about-heading">Gereja yang Fokus Pada Pertumbuhan Rohani</h2>
+                    <p class="about-text">GBI Tambunan adalah gereja yang berkomitmen untuk membangun jemaat yang kuat dalam
+                        iman, aktif dalam pelayanan, dan penuh kasih dalam persekutuan. Kami percaya bahwa setiap orang
+                        memiliki panggilan mulia dari Tuhan.</p>
+
+                    <div class="about-stat-grid">
+                        <div class="about-stat">
+                            <div class="about-stat-num">3×</div>
+                            <div class="about-stat-label">Ibadah setiap Minggu</div>
+                        </div>
+                        <div class="about-stat">
+                            <div class="about-stat-num">∞</div>
+                            <div class="about-stat-label">Kasih yang tercurah</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-visual reveal">
+                    <div class="about-box">
+                        <div class="about-cross">
+                            <i class="fa-solid fa-cross"></i>
+                        </div>
+                        <p class="about-quote">"Karena begitu besar kasih Allah akan dunia ini, sehingga Ia telah
+                            mengaruniakan Anak-Nya yang tunggal."</p>
+                        <div style="margin-top:20px;font-size:12px;color:var(--gold);letter-spacing:0.1em;">— Yohanes 3:16
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+>>>>>>> 345e4aa07069f33de2acccec842637325bed1e18:resources/views/Pelayan/beranda.blade.php
 
     <!-- DONASI -->
     <section class="donasi-section">
-        <div class="container">
+        <div class="beranda-container">
             <div class="section-eyebrow reveal"><span>Persembahan & Donasi</span></div>
             <h2 class="section-title reveal">Dukung Pelayanan Gereja</h2>
 
@@ -605,7 +645,7 @@
                     <p class="donasi-card-sub">Scan QR Code menggunakan aplikasi dompet digitalmu</p>
 
                     <div class="donasi-placeholder">
-                        [ QR CODE ]
+                        <img src="{{ asset('gambar/qris.jpeg') }}" class="qris-img">
                     </div>
 
                     <ol class="steps">

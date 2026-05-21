@@ -9,8 +9,17 @@ use Illuminate\Support\Facades\Storage;
 
 class GaleriController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+
+        $query = Galeri::query();
+
+        // SEARCH
+        if ($request->q) {
+            $query->where('title', 'like', '%' . $request->q . '%')
+                ->orWhere('description', 'like', '%' . $request->q . '%');
+        }
+
         $galeri = Galeri::latest()->get();
         return view('admin.Galeris.index', compact('galeri'));
     }

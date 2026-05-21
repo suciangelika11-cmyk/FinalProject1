@@ -58,6 +58,7 @@
         }
 
         /* ================= HERO ================= */
+<<<<<<< HEAD
         .hero {
             position: relative;
             min-height: 420px;
@@ -69,6 +70,8 @@
             padding: 120px 24px 110px;
             background: var(--navy);
         }
+=======
+>>>>>>> 345e4aa07069f33de2acccec842637325bed1e18
 
         .hero::before {
             content: '';

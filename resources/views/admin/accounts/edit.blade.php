@@ -230,11 +230,6 @@
                 <p>Perbarui data akun admin atau pelayan sesuai kebutuhan aksesnya.</p>
             </div>
 
-            <a href="{{ route('accounts.index') }}" class="btn-back">
-                ← Kembali
-            </a>
-        </div>
-
         <div class="account-card">
             <div class="account-card-top">
                 <h2>Form Edit Akun</h2>

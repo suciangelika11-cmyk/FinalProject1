@@ -44,6 +44,7 @@
             color: var(--text);
         }
 
+<<<<<<< HEAD
         /* ================= HERO ================= */
         .hero {
             position: relative;
@@ -57,6 +58,9 @@
             background: var(--ink-mid);
             border-bottom: 1px solid var(--border);
         }
+=======
+        /* HERO */
+>>>>>>> 345e4aa07069f33de2acccec842637325bed1e18
 
         .hero::before {
             content: '';

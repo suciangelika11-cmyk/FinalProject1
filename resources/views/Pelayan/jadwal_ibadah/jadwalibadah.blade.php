@@ -449,12 +449,16 @@
             border-right: none;
             border-bottom: 1px solid var(--border);
 
+<<<<<<< HEAD
             flex-direction: row;
             justify-content: center;
             gap: 18px;
 
             padding: 26px;
         }
+=======
+        /* HERO */
+>>>>>>> 345e4aa07069f33de2acccec842637325bed1e18
 
         .date-num {
             font-size: 48px;
@@ -488,8 +492,15 @@
             padding: 55px 0 80px;
         }
 
+<<<<<<< HEAD
         .section-eyebrow {
             margin-bottom: 36px;
+=======
+        .jadwal-container {
+            width: 90%;
+            max-width: 1160px;
+            margin: 0 auto;
+>>>>>>> 345e4aa07069f33de2acccec842637325bed1e18
         }
 
         .card-info {
@@ -603,7 +614,7 @@
 
     <!-- JADWAL MINGGUAN -->
     <section class="weekly">
-        <div class="container">
+        <div class="jadwal-container">
             <div class="section-header">
                 <div class="section-label">Setiap Minggu</div>
                 <h2 class="section-title">Jadwal Mingguan</h2>
@@ -661,7 +672,7 @@
 
     <!-- ACARA KHUSUS -->
     <section class="special">
-        <div class="container" style="position:relative;z-index:1;">
+        <div class="jadwal-container" style="position:relative;z-index:1;">
             <div class="section-header">
                 <div class="section-label">Akan Datang</div>
                 <h2 class="section-title">Acara Khusus</h2>

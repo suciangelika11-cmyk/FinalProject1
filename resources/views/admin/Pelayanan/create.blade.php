@@ -412,13 +412,6 @@
         Tambahkan data pelayanan baru ke dalam sistem. Isi formulir di bawah dengan informasi yang lengkap dan akurat.
       </p>
 
-      <div class="hero-actions">
-        <a href="{{ route('pelayanan.index') }}" class="btn-hero-primary">
-          ← Kembali ke Daftar
-        </a>
-      </div>
-    </div>
-
     <div class="section-panel">
 
       <div class="section-label">

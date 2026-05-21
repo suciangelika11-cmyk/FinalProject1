@@ -315,11 +315,24 @@
 
         /* BOX */
         .donasi-box {
-            border: 2px dashed rgba(255, 255, 255, 0.4);
-            padding: clamp(40px, 8vw, 100px) 20px;
-            border-radius: 15px;
-            margin: 25px 0;
-            text-align: center;
+            width: 100%;
+            height: 500px;
+
+            border: 2px dashed #999;
+            border-radius: 20px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .qris-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         /* REKENING */
@@ -452,8 +465,7 @@
                 <div class="card scroll">
                     <h3>QRIS</h3>
                     <div class="donasi-box">
-                        QR CODE
-                        <!-- <img src="{{ asset('gambar/qris.png') }}" width="250" style="max-width:100%;height:auto;"> -->
+                        <img src="{{ asset('gambar/qris.jpeg') }}" class="qris-img">
                     </div>
                     <ol style="text-align:left;">
                         <li>Scan QR</li>

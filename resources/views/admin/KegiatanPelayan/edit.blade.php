@@ -133,14 +133,6 @@
     <div>
       <h1>Edit Kegiatan Pelayanan</h1>
 
-      <div class="breadcrumb-bar">
-        <a href="{{ route('admin.dashboard') }}">Home</a> /
-        <a href="{{ route('kegiatan.index') }}">Kegiatan</a> /
-        <span>Edit</span>
-      </div>
-    </div>
-  </div>
-
   <div class="content">
     <div class="card">
       <h2>Form Edit Kegiatan</h2>

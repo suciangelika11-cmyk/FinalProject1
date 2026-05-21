@@ -6,9 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin – GBI Tambunan</title>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
 
   @php
     use App\Models\Jemaat;
@@ -647,47 +646,47 @@
 
     <nav>
       <a href="{{ route('admin.dashboard') }}" @if(request()->routeIs('admin.dashboard')) class="active" @endif>
-        Dashboard
+        <span class="ico"><i class="ri-dashboard-line"></i></span> Dashboard
       </a>
 
       <a href="{{ route('tentang.index') }}" @if(request()->routeIs('tentang.*')) class="active" @endif>
-        Tentang Kami
+        <span class="ico"><i class="ri-information-line"></i></span>Tentang Kami
       </a>
 
       <a href="{{ route('jadwal.index') }}" @if(request()->routeIs('jadwal.*')) class="active" @endif>
-        Jadwal Ibadah
+        <span class="ico"><i class="ri-calendar-2-line"></i></span>Jadwal Ibadah
       </a>
 
       <a href="{{ route('absensi.index') }}" @if(request()->routeIs('absensi.*')) class="active" @endif>
-        Absensi
+        <span class="ico"><i class="ri-checkbox-circle-line"></i></span>Absensi
       </a>
 
       <a href="{{ route('galeri.index') }}" @if(request()->routeIs('galeri.*')) class="active" @endif>
-        Galeri
+        <span class="ico"><i class="ri-image-line"></i></span>Galeri
       </a>
 
       <a href="{{ route('khotbah.index') }}" @if(request()->routeIs('khotbah.*')) class="active" @endif>
-        Khotbah
+        <span class="ico"><i class="ri-book-line"></i></span>Khotbah
       </a>
 
       <a href="{{ route('pelayanan.index') }}" @if(request()->routeIs('pelayanan.*')) class="active" @endif>
-        Pelayanan
+        <span class="ico"><i class="ri-service-line"></i></span>Pelayanan
       </a>
 
       <a href="{{ route('kegiatan.index') }}" @if(request()->routeIs('kegiatan.*')) class="active" @endif>
-        Kegiatan Pelayanan
+        <span class="ico"><i class="ri-calendar-event-line"></i></span>Kegiatan Pelayanan
       </a>
 
       <a href="{{ route('kontak.index') }}" @if(request()->routeIs('kontak.*')) class="active" @endif>
-        Kontak
+        <span class="ico"><i class="ri-phone-line"></i></span>Kontak
       </a>
 
       <a href="{{ route('pengumuman.index') }}" @if(request()->routeIs('pengumuman.*')) class="active" @endif>
-        Pengumuman
+        <span class="ico"><i class="ri-notification-2-line"></i></span>Pengumuman
       </a>
 
       <a href="{{ route('jemaat.index') }}" @if(request()->routeIs('jemaat.*')) class="active" @endif>
-        Jemaat
+        <span class="ico"><i class="ri-group-line"></i></span>Jemaat
 
         @if($pendingJemaatCount > 0)
           <span
@@ -698,7 +697,7 @@
       </a>
 
       <a href="{{ route('accounts.index') }}" @if(request()->routeIs('accounts.*')) class="active" @endif>
-        <span class="ico">🔒</span> Akun
+        <span class="ico"><i class="ri-lock-line"></i></span> Akun
       </a>
     </nav>
 
@@ -706,11 +705,11 @@
 
     <nav>
       <a href="{{ route('profil.index') }}" @if(request()->routeIs('profil.*')) class="active" @endif>
-        <span class="ico">👤</span> Profil Admin
+        <span class="ico"><i class="ri-user-line"></i></span> Profil Admin
       </a>
 
       <a href="{{ route('logout') }}" onclick="confirmLogout(event)">
-        <span class="ico">🚪</span> Keluar
+        <span class="ico"><i class="ri-logout-box-r-line"></i></span> Keluar
       </a>
     </nav>
 

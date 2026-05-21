@@ -45,18 +45,6 @@
         }
 
         /* ================= HERO ================= */
-        .hero {
-            position: relative;
-            min-height: 380px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-            padding: 100px 20px 80px;
-            background: var(--ink-mid);
-            border-bottom: 1px solid var(--border);
-        }
 
         .hero::before {
             content: '';
@@ -491,8 +479,8 @@
 
                             <i class="fa-regular fa-calendar"></i>
 
-                            {{ $item->tanggal
-                ? \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y')
+                            {{ $item->sermon_date
+                ? \Carbon\Carbon::parse($item->sermon_date)->translatedFormat('d F Y')
                 : '—' }}
 
                         </div>

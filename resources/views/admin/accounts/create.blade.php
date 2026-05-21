@@ -230,11 +230,6 @@
                 <p>Buat akun baru untuk pelayan yang akan mengakses dashboard.</p>
             </div>
 
-            <a href="{{ route('accounts.index') }}" class="btn-back">
-                ← Kembali
-            </a>
-        </div>
-
         <div class="account-card">
             <div class="account-card-top">
                 <h2>Form Tambah Akun</h2>

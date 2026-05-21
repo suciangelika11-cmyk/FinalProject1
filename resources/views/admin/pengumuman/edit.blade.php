@@ -227,10 +227,6 @@
             <div>
                 <h1>Edit Pengumuman</h1>
             </div>
-
-            <a href="{{ route('pengumuman.index') }}" class="btn-back">
-                ← Kembali
-            </a>
         </div>
 
         <div class="pengumuman-card">

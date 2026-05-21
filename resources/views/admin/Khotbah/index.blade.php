@@ -572,7 +572,6 @@
       <p>Tambah, edit, dan kelola video khotbah jemaat GBI Tambunan.</p>
       <div class="hero-actions">
         <a href="{{ route('khotbah.create') }}" class="btn-hero-primary">＋ Tambah Khotbah</a>
-        <a href="{{ route('khotbah.create') }}" class="btn-hero-outline">🔗 Tambah Video</a>
       </div>
     </div>
 
