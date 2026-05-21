@@ -988,8 +988,10 @@
             <div class="pcard-desc">{{ $item->description ?: '-' }}</div>
           </div>
         </div>
-      @endforeach
-    </div>
+
+    
+    </div>@endforeach
+  
   @else
     <div class="empty-state">
       <p>Tidak ada foto ditemukan. Coba upload foto baru.</p>
