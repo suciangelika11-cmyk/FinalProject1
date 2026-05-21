@@ -129,8 +129,8 @@ Route::prefix('admin')->middleware(['auth', 'role:super_admin,admin'])->group(fu
 
     Route::middleware('auth', 'role:pelayan')->prefix('pelayan')->group(function () {
     Route::get('/', function () {
-        return view('Pelayan.beranda');
-    })->name('pelayan.home');
+    return view('Pelayan.beranda.beranda');
+})->name('pelayan.home');
 
     Route::get('/jadwal-ibadah',[PelayanJadwalIbadahController::class, 'index'])->name('pelayan.jadwal_ibadah');
     Route::get('/kegiatan-pelayan',[PelayanKegiatanPelayanController::class, 'index'])->name('pelayan.kegiatan_pelayan');

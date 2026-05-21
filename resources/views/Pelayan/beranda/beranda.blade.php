@@ -13,18 +13,25 @@
 
     <style>
         :root {
-            --gold: #C9A96E;
-            --gold-pale: #E8D5A3;
-            --gold-dim: rgba(201, 169, 110, 0.15);
+            --blue-light: #ADE1FB;
+            --blue-mid: #266CA9;
+            --blue-dark: #0F2573;
+            --navy: #041D56;
+            --navy-dark: #01082D;
+
             --ink: #0A0E17;
             --ink-card: rgba(14, 20, 35, 0.92);
             --ink-mid: #111827;
+
             --surface: rgba(255, 255, 255, 0.04);
             --surface-hover: rgba(255, 255, 255, 0.07);
+
             --text: #EAE6DF;
-            --text-muted: rgba(234, 230, 223, 0.55);
-            --border: rgba(201, 169, 110, 0.14);
-            --border-strong: rgba(201, 169, 110, 0.32);
+            --text-muted: rgba(173, 225, 251, 0.7);
+
+            --border: rgba(38, 108, 169, 0.2);
+            --border-strong: rgba(173, 225, 251, 0.35);
+
             --radius: 18px;
             --radius-sm: 10px;
         }
@@ -39,12 +46,11 @@
 
         body {
             font-family: 'Outfit', sans-serif;
-            background: var(--ink);
-            color: var(--text);
+            background: var(--navy-dark);
+            color: var(--blue-light);
             overflow-x: hidden;
         }
 
-        /* NOISE OVERLAY */
         body::before {
             content: '';
             position: fixed;
@@ -78,8 +84,8 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(ellipse 80% 70% at 50% 60%, transparent 30%, rgba(10, 14, 23, 0.85) 100%),
-                linear-gradient(180deg, rgba(10, 14, 23, 0.2) 0%, transparent 30%, transparent 70%, var(--ink) 100%);
+                radial-gradient(ellipse 80% 70% at 50% 60%, transparent 30%, rgba(1, 8, 45, 0.9) 100%),
+                linear-gradient(180deg, rgba(1, 8, 45, 0.2) 0%, transparent 30%, transparent 70%, var(--navy-dark) 100%);
             z-index: 2;
         }
 
@@ -88,7 +94,7 @@
             width: 600px;
             height: 600px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(201, 169, 110, 0.06) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(173, 225, 251, 0.08) 0%, transparent 70%);
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -108,13 +114,13 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--gold-dim);
+            background: rgba(38, 108, 169, 0.15);
             border: 1px solid var(--border-strong);
             border-radius: 40px;
             padding: 8px 22px;
             font-size: 11px;
             font-weight: 500;
-            color: var(--gold-pale);
+            color: var(--blue-light);
             letter-spacing: 0.18em;
             text-transform: uppercase;
             margin-bottom: 32px;
@@ -123,7 +129,7 @@
         .hero-badge .dot {
             width: 5px;
             height: 5px;
-            background: var(--gold);
+            background: var(--blue-mid);
             border-radius: 50%;
         }
 
@@ -131,18 +137,18 @@
             font-family: 'Libre Baskerville', serif;
             font-size: clamp(42px, 7vw, 82px);
             line-height: 1.1;
-            color: var(--text);
+            color: var(--blue-light);
             margin-bottom: 20px;
             letter-spacing: -0.02em;
         }
 
         .hero h1 em {
             font-style: italic;
-            color: var(--gold);
+            color: var(--blue-mid);
         }
 
         .hero-sub {
-            color: var(--text-muted);
+            color: rgba(173, 225, 251, 0.8);
             font-size: 17px;
             font-weight: 300;
             line-height: 1.8;
@@ -153,8 +159,8 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: var(--gold);
-            color: var(--ink);
+            background: var(--blue-mid);
+            color: white;
             padding: 16px 38px;
             border-radius: 40px;
             font-size: 14px;
@@ -165,9 +171,10 @@
         }
 
         .hero-cta:hover {
-            background: var(--gold-pale);
+            background: var(--blue-light);
+            color: var(--navy-dark);
             transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(201, 169, 110, 0.3);
+            box-shadow: 0 12px 40px rgba(173, 225, 251, 0.25);
         }
 
         .hero-scroll {
@@ -180,7 +187,7 @@
             flex-direction: column;
             align-items: center;
             gap: 8px;
-            color: var(--text-muted);
+            color: var(--blue-light);
             font-size: 11px;
             letter-spacing: 0.14em;
             text-transform: uppercase;
@@ -190,15 +197,21 @@
         .hero-scroll-line {
             width: 1px;
             height: 40px;
-            background: linear-gradient(to bottom, var(--gold), transparent);
+            background: linear-gradient(to bottom, var(--blue-light), transparent);
         }
 
-        /* SESSIONS */
-        .sessions-section {
+        /* SECTION */
+        .sessions-section,
+        .donasi-section {
             position: relative;
             z-index: 1;
             padding: 100px 0;
-            background: var(--ink-mid);
+            background: var(--navy);
+        }
+
+        .about-section {
+            padding: 100px 0;
+            background: var(--navy-dark);
         }
 
         .container {
@@ -223,7 +236,7 @@
         }
 
         .section-eyebrow span {
-            color: var(--gold);
+            color: var(--blue-mid);
             font-size: 11px;
             font-weight: 500;
             letter-spacing: 0.2em;
@@ -236,7 +249,7 @@
             font-size: clamp(28px, 4vw, 46px);
             text-align: center;
             margin-bottom: 56px;
-            color: var(--text);
+            color: var(--blue-light);
         }
 
         .sessions-grid {
@@ -246,42 +259,33 @@
             margin-bottom: 48px;
         }
 
-        .session-card {
-            background: var(--surface);
+        .session-card,
+        .about-stat,
+        .about-box,
+        .donasi-card {
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border);
             border-radius: var(--radius);
+            transition: all 0.35s ease;
+        }
+
+        .session-card {
             padding: 44px 32px;
             text-align: center;
-            transition: all 0.35s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .session-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            opacity: 0;
-            transition: opacity 0.35s;
-        }
-
-        .session-card:hover {
-            background: var(--surface-hover);
+        .session-card:hover,
+        .donasi-card:hover {
+            background: rgba(255, 255, 255, 0.05);
             border-color: var(--border-strong);
             transform: translateY(-6px);
         }
 
-        .session-card:hover::before {
-            opacity: 1;
-        }
-
         .session-number {
             font-size: 11px;
-            color: var(--gold);
+            color: var(--blue-mid);
             font-weight: 500;
             letter-spacing: 0.2em;
             text-transform: uppercase;
@@ -291,57 +295,13 @@
         .session-time {
             font-family: 'Libre Baskerville', serif;
             font-size: 42px;
-            color: var(--text);
+            color: var(--blue-light);
             margin-bottom: 8px;
         }
 
         .session-wib {
             font-size: 13px;
-            color: var(--text-muted);
-        }
-
-        .btn-outline {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            border: 1px solid var(--border-strong);
-            color: var(--gold-pale);
-            padding: 14px 36px;
-            border-radius: 40px;
-            font-size: 13px;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            background: transparent;
-            cursor: pointer;
-        }
-
-        .btn-outline:hover {
-            background: var(--gold);
-            border-color: var(--gold);
-            color: var(--ink);
-        }
-
-        /* ABOUT */
-        .about-section {
-            padding: 100px 0;
-            background: var(--ink);
-        }
-
-        .about-inner {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .about-label {
-            color: var(--gold);
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 20px;
+            color: rgba(173, 225, 251, 0.7);
         }
 
         .about-heading {
@@ -349,57 +309,40 @@
             font-size: clamp(26px, 3.5vw, 42px);
             line-height: 1.25;
             margin-bottom: 24px;
-            color: var(--text);
+            color: var(--blue-light);
         }
 
-        .about-text {
-            color: var(--text-muted);
-            line-height: 1.9;
-            font-size: 15px;
-            margin-bottom: 32px;
-        }
-
-        .about-stat-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+        .about-text,
+        .about-quote,
+        .donasi-card-sub,
+        .page-end-text {
+            color: rgba(173, 225, 251, 0.8);
         }
 
         .about-stat {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
             padding: 24px;
         }
 
         .about-stat-num {
             font-family: 'Libre Baskerville', serif;
             font-size: 36px;
-            color: var(--gold);
+            color: var(--blue-mid);
             margin-bottom: 6px;
         }
 
         .about-stat-label {
             font-size: 12px;
-            color: var(--text-muted);
-            font-weight: 300;
-        }
-
-        .about-visual {
-            position: relative;
+            color: rgba(173, 225, 251, 0.7);
         }
 
         .about-box {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
             padding: 48px;
             text-align: center;
         }
 
         .about-cross {
             font-size: 64px;
-            color: var(--gold);
+            color: var(--blue-mid);
             margin-bottom: 24px;
         }
 
@@ -407,14 +350,7 @@
             font-family: 'Libre Baskerville', serif;
             font-size: 18px;
             font-style: italic;
-            color: var(--text-muted);
             line-height: 1.7;
-        }
-
-        /* DONASI */
-        .donasi-section {
-            padding: 100px 0;
-            background: var(--ink-mid);
         }
 
         .donasi-grid {
@@ -424,29 +360,19 @@
         }
 
         .donasi-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
             padding: 44px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-
-        .donasi-card:hover {
-            border-color: var(--border-strong);
         }
 
         .donasi-card-icon {
             width: 52px;
             height: 52px;
             border-radius: 14px;
-            background: var(--gold-dim);
+            background: rgba(38, 108, 169, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 22px;
-            color: var(--gold);
+            color: var(--blue-light);
             margin-bottom: 24px;
         }
 
@@ -454,23 +380,18 @@
             font-family: 'Libre Baskerville', serif;
             font-size: 22px;
             margin-bottom: 12px;
-        }
-
-        .donasi-card-sub {
-            color: var(--text-muted);
-            font-size: 13px;
-            margin-bottom: 30px;
+            color: var(--blue-light);
         }
 
         .donasi-placeholder {
-            background: rgba(201, 169, 110, 0.07);
+            background: rgba(38, 108, 169, 0.08);
             border: 1px dashed var(--border-strong);
             border-radius: 12px;
             height: 180px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-muted);
+            color: var(--blue-light);
             font-size: 13px;
             letter-spacing: 0.08em;
             text-transform: uppercase;
@@ -482,28 +403,31 @@
             font-size: 26px;
             letter-spacing: 0.06em;
             margin-bottom: 18px;
-            color: var(--gold-pale);
+            color: var(--blue-light);
         }
 
-        .btn-copy {
+        .btn-copy,
+        .btn-outline {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--gold-dim);
+            background: rgba(38, 108, 169, 0.12);
             border: 1px solid var(--border-strong);
-            color: var(--gold-pale);
+            color: var(--blue-light);
             padding: 12px 28px;
             border-radius: 40px;
             font-size: 13px;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.25s;
+            text-decoration: none;
         }
 
-        .btn-copy:hover {
-            background: var(--gold);
-            color: var(--ink);
-            border-color: var(--gold);
+        .btn-copy:hover,
+        .btn-outline:hover {
+            background: var(--blue-light);
+            color: var(--navy-dark);
+            border-color: var(--blue-light);
         }
 
         .steps {
@@ -518,7 +442,7 @@
             align-items: center;
             gap: 12px;
             font-size: 13px;
-            color: var(--text-muted);
+            color: rgba(173, 225, 251, 0.75);
             padding: 8px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -528,38 +452,29 @@
             width: 22px;
             height: 22px;
             border-radius: 50%;
-            background: var(--gold-dim);
+            background: rgba(38, 108, 169, 0.15);
             border: 1px solid var(--border-strong);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 11px;
-            color: var(--gold);
+            color: var(--blue-light);
             flex-shrink: 0;
         }
 
-        /* FOOTER AREA */
         .page-end {
             padding: 60px 0;
-            background: var(--ink);
+            background: var(--navy-dark);
             text-align: center;
             border-top: 1px solid var(--border);
         }
 
         .page-end-icon {
             font-size: 28px;
-            color: var(--gold);
+            color: var(--blue-mid);
             margin-bottom: 16px;
         }
 
-        .page-end-text {
-            font-family: 'Libre Baskerville', serif;
-            font-style: italic;
-            font-size: 18px;
-            color: var(--text-muted);
-        }
-
-        /* ANIMATIONS */
         @keyframes fadeUp {
             from {
                 opacity: 0;
@@ -595,27 +510,19 @@
             transform: translateY(0);
         }
 
-        /* RESPONSIVE */
         @media(max-width: 900px) {
-            .sessions-grid {
+            .sessions-grid,
+            .donasi-grid,
+            .about-inner {
                 grid-template-columns: 1fr;
             }
 
             .about-inner {
-                grid-template-columns: 1fr;
                 gap: 48px;
-            }
-
-            .donasi-grid {
-                grid-template-columns: 1fr;
             }
         }
 
         @media(max-width: 600px) {
-            .sessions-grid {
-                grid-template-columns: 1fr;
-            }
-
             .about-stat-grid {
                 grid-template-columns: 1fr 1fr;
             }
@@ -641,10 +548,6 @@
 
             <p class="hero-sub">Tempat bertumbuh dalam iman, doa, dan pelayanan<br>yang penuh kasih bagi semua jemaat.</p>
 
-            <a href="{{ route('user.jemaat') }}" class="hero-cta">
-                <i class="fa-solid fa-church"></i>
-                Bergabung Sebagai Jemaat
-            </a>
         </div>
 
         <div class="hero-scroll">
@@ -688,43 +591,6 @@
         </div>
     </section>
 
-    <!-- TENTANG -->
-    <section class="about-section">
-        <div class="container">
-            <div class="about-inner">
-                <div class="reveal">
-                    <div class="about-label">Tentang Kami</div>
-                    <h2 class="about-heading">Gereja yang Fokus Pada Pertumbuhan Rohani</h2>
-                    <p class="about-text">GBI Tambunan adalah gereja yang berkomitmen untuk membangun jemaat yang kuat dalam
-                        iman, aktif dalam pelayanan, dan penuh kasih dalam persekutuan. Kami percaya bahwa setiap orang
-                        memiliki panggilan mulia dari Tuhan.</p>
-
-                    <div class="about-stat-grid">
-                        <div class="about-stat">
-                            <div class="about-stat-num">3×</div>
-                            <div class="about-stat-label">Ibadah setiap Minggu</div>
-                        </div>
-                        <div class="about-stat">
-                            <div class="about-stat-num">∞</div>
-                            <div class="about-stat-label">Kasih yang tercurah</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="about-visual reveal">
-                    <div class="about-box">
-                        <div class="about-cross">
-                            <i class="fa-solid fa-cross"></i>
-                        </div>
-                        <p class="about-quote">"Karena begitu besar kasih Allah akan dunia ini, sehingga Ia telah
-                            mengaruniakan Anak-Nya yang tunggal."</p>
-                        <div style="margin-top:20px;font-size:12px;color:var(--gold);letter-spacing:0.1em;">— Yohanes 3:16
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- DONASI -->
     <section class="donasi-section">

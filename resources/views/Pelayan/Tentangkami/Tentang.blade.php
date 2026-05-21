@@ -11,21 +11,26 @@
 
     <style>
         :root {
-            --gold: #C9A96E;
-            --gold-pale: #E8D5A3;
-            --gold-dim: rgba(201, 169, 110, 0.12);
-            --ink: #0A0E17;
-            --ink-mid: #0D1422;
-            --ink-card: rgba(12, 18, 32, 0.97);
-            --surface: rgba(255, 255, 255, 0.04);
-            --surface-hover: rgba(255, 255, 255, 0.07);
-            --text: #EAE6DF;
-            --text-muted: rgba(234, 230, 223, 0.52);
-            --border: rgba(201, 169, 110, 0.13);
-            --border-strong: rgba(201, 169, 110, 0.28);
-            --radius: 20px;
-            --radius-sm: 12px;
-        }
+    --gold: #7FCBF5;
+    --gold-pale: #D6F1FF;
+    --gold-dim: rgba(127, 203, 245, 0.12);
+
+    --ink: #07111F;
+    --ink-mid: #0C1830;
+    --ink-card: rgba(12, 18, 32, 0.97);
+
+    --surface: rgba(255, 255, 255, 0.04);
+    --surface-hover: rgba(255, 255, 255, 0.07);
+
+    --text: #DDF5FF;
+    --text-muted: rgba(173, 225, 251, 0.72);
+
+    --border: rgba(127, 203, 245, 0.14);
+    --border-strong: rgba(127, 203, 245, 0.32);
+
+    --radius: 20px;
+    --radius-sm: 12px;
+}
 
         *,
         *::before,
@@ -37,7 +42,7 @@
 
         body {
             font-family: 'Outfit', sans-serif;
-            background: var(--ink);
+            background: linear-gradient(180deg, #07111F 0%, #0A1933 100%);
             color: var(--text);
         }
 

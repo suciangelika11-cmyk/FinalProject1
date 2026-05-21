@@ -9,362 +9,585 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    <style>
-        :root {
-            --gold: #C9A96E;
-            --gold-pale: #E8D5A3;
-            --gold-dim: rgba(201, 169, 110, 0.12);
-            --ink: #0A0E17;
-            --ink-mid: #0E1524;
-            --ink-card: rgba(15, 22, 38, 0.95);
-            --surface: rgba(255, 255, 255, 0.04);
-            --surface-hover: rgba(255, 255, 255, 0.07);
-            --text: #EAE6DF;
-            --text-muted: rgba(234, 230, 223, 0.52);
-            --border: rgba(201, 169, 110, 0.13);
-            --border-strong: rgba(201, 169, 110, 0.3);
-            --radius: 20px;
-            --radius-sm: 12px;
+<style>
+    :root {
+        --blue-light: #ADE1FB;
+        --blue-mid: #266CA9;
+        --blue-dark: #0F2573;
+        --navy: #041D56;
+        --navy-dark: #01082D;
+
+        --ink: #0A0E17;
+        --ink-mid: #0D1422;
+        --ink-card: rgba(12, 19, 34, 0.96);
+
+        --surface: rgba(255, 255, 255, 0.04);
+
+        --text: #ADE1FB;
+        --text-muted: rgba(173, 225, 251, 0.72);
+
+        --border: rgba(38, 108, 169, 0.2);
+        --border-strong: rgba(173, 225, 251, 0.35);
+
+        --radius: 22px;
+
+        --purple-dim: rgba(38, 108, 169, 0.12);
+        --purple: #266CA9;
+
+        --green-dim: rgba(15, 37, 115, 0.12);
+        --green: #0F2573;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    body {
+        font-family: 'Outfit', sans-serif;
+        background: var(--navy-dark);
+        color: var(--blue-light);
+    }
+
+    /* ================= HERO ================= */
+    .hero {
+        position: relative;
+        min-height: 420px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+        padding: 120px 24px 110px;
+        background: var(--navy);
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(
+                ellipse 70% 100% at 50% 0%,
+                rgba(173, 225, 251, 0.08),
+                transparent 65%
+            );
+    }
+
+    .hero::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 80px;
+        background: var(--navy-dark);
+        clip-path: ellipse(55% 100% at 50% 100%);
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 720px;
+        width: 100%;
+    }
+
+    .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(38, 108, 169, 0.15);
+        border: 1px solid var(--border-strong);
+        border-radius: 40px;
+        padding: 8px 20px;
+        font-size: 10px;
+        font-weight: 500;
+        color: var(--blue-light);
+        letter-spacing: .22em;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+    }
+
+    .hero h1 {
+        font-family: 'Libre Baskerville', serif;
+        font-size: clamp(38px, 6vw, 70px);
+        line-height: 1.1;
+        margin-bottom: 18px;
+        color: var(--blue-light);
+    }
+
+    .hero h1 em {
+        color: var(--blue-mid);
+        font-style: italic;
+    }
+
+    .hero-sub {
+        color: var(--text-muted);
+        font-size: 15px;
+        line-height: 1.9;
+        font-weight: 300;
+        max-width: 620px;
+        margin: auto;
+    }
+
+    /* ================= PAGE ================= */
+    .page-wrap {
+        width: min(92%, 1180px);
+        margin: auto;
+        padding: 70px 0 100px;
+    }
+
+    /* ================= SECTION ================= */
+    .section-eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 50px;
+    }
+
+    .section-eyebrow::before,
+    .section-eyebrow::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+    }
+
+    .section-eyebrow span {
+        color: var(--blue-mid);
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: .22em;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+
+    /* ================= CARD ================= */
+    .kegiatan-card {
+        display: grid;
+        grid-template-columns: 170px 1fr 340px;
+        background: var(--ink-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        margin-bottom: 28px;
+        transition: .35s ease;
+    }
+
+    .kegiatan-card:hover {
+        border-color: var(--border-strong);
+        transform: translateY(-4px);
+        box-shadow: 0 22px 55px rgba(0, 0, 0, .42);
+    }
+
+    /* ================= DATE ================= */
+    .card-date {
+        background: rgba(38, 108, 169, 0.08);
+        border-right: 1px solid var(--border);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .date-weekday {
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: .20em;
+        text-transform: uppercase;
+        color: var(--blue-mid);
+        margin-bottom: 10px;
+    }
+
+    .date-num {
+        font-family: 'Libre Baskerville', serif;
+        font-size: 62px;
+        line-height: 1;
+        color: var(--blue-light);
+        margin-bottom: 8px;
+    }
+
+    .date-month {
+        font-size: 11px;
+        letter-spacing: .15em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+    }
+
+    /* ================= INFO ================= */
+    .card-info {
+        padding: 38px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .card-tag {
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: .22em;
+        text-transform: uppercase;
+        color: var(--blue-mid);
+        margin-bottom: 12px;
+    }
+
+    .card-preacher {
+        font-family: 'Libre Baskerville', serif;
+        font-size: 34px;
+        line-height: 1.2;
+        color: var(--blue-light);
+        margin-bottom: 18px;
+        word-break: break-word;
+    }
+
+    .card-divider {
+        width: 45px;
+        height: 2px;
+        background: var(--blue-mid);
+        opacity: .6;
+        margin-bottom: 18px;
+    }
+
+    .card-tema {
+        font-family: 'Libre Baskerville', serif;
+        font-style: italic;
+        font-size: 16px;
+        color: var(--text-muted);
+        line-height: 1.8;
+        margin-bottom: 22px;
+    }
+
+    .card-verse {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        background: rgba(38, 108, 169, 0.12);
+        border: 1px solid var(--border-strong);
+        border-radius: 40px;
+        padding: 10px 18px;
+        font-size: 12px;
+        color: var(--blue-light);
+        width: fit-content;
+        flex-wrap: wrap;
+    }
+
+    /* ================= TEAM ================= */
+    .card-team {
+        background: rgba(255, 255, 255, 0.025);
+        border-left: 1px solid var(--border);
+
+        padding: 28px 24px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .team-heading {
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: .20em;
+        text-transform: uppercase;
+        color: var(--blue-mid);
+    }
+
+    /* ================= SUB TEAM ================= */
+    .sub-team {
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 16px;
+        padding: 16px;
+    }
+
+    .sub-team-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+
+    .sub-team-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        flex-shrink: 0;
+    }
+
+    .sub-team-icon.worship {
+        background: rgba(38, 108, 169, 0.15);
+        color: var(--blue-light);
+    }
+
+    .sub-team-icon.media {
+        background: rgba(15, 37, 115, 0.15);
+        color: #7FB9FF;
+    }
+
+    .sub-team-icon.liturgi {
+        background: rgba(173, 225, 251, 0.12);
+        color: var(--blue-mid);
+    }
+
+    .sub-team-name {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--blue-light);
+    }
+
+    .sub-team-desc {
+        font-size: 11px;
+        color: var(--text-muted);
+    }
+
+    .member-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+
+        padding: 10px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .member-name {
+        font-size: 12px;
+        color: var(--blue-light);
+        word-break: break-word;
+    }
+
+    .member-badge {
+        font-size: 10px;
+        font-weight: 500;
+        border-radius: 40px;
+        padding: 4px 12px;
+        white-space: nowrap;
+    }
+
+    .member-badge.worship {
+        background: rgba(38, 108, 169, 0.15);
+        color: var(--blue-light);
+    }
+
+    .member-badge.media {
+        background: rgba(15, 37, 115, 0.15);
+        color: #7FB9FF;
+    }
+
+    .member-badge.liturgi {
+        background: rgba(173, 225, 251, 0.12);
+        color: var(--blue-mid);
+    }
+
+    /* ================= FOOTER ================= */
+    .page-footer {
+        margin-top: 80px;
+        border-top: 1px solid var(--border);
+        padding-top: 45px;
+        text-align: center;
+    }
+
+    .footer-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        border: 1px solid var(--border-strong);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin: 0 auto 18px;
+
+        font-size: 20px;
+        color: var(--blue-mid);
+    }
+
+    .footer-quote {
+        font-family: 'Libre Baskerville', serif;
+        font-style: italic;
+        font-size: 17px;
+        color: var(--text-muted);
+        line-height: 1.8;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media(max-width:1200px) {
+
+        .kegiatan-card {
+            grid-template-columns: 150px 1fr 320px;
         }
 
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        .card-preacher {
+            font-size: 30px;
+        }
+    }
+
+    @media(max-width:992px) {
+
+        .kegiatan-card {
+            grid-template-columns: 1fr;
         }
 
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: var(--ink);
-            color: var(--text);
-        }
+        .card-date {
+            border-right: none;
+            border-bottom: 1px solid var(--border);
 
-        /* HERO */
-        .hero {
-            position: relative;
-            min-height: 420px;
-            display: flex;
-            align-items: center;
+            flex-direction: row;
             justify-content: center;
-            text-align: center;
-            overflow: hidden;
-            padding: 100px 24px 120px;
-            background: var(--ink-mid);
+            gap: 18px;
+
+            padding: 26px;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse 70% 100% at 50% 0%, rgba(201, 169, 110, 0.08), transparent 65%);
+        .date-num {
+            font-size: 48px;
+            margin-bottom: 0;
         }
 
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 80px;
-            background: var(--ink);
-            clip-path: ellipse(55% 100% at 50% 100%);
+        .card-team {
+            border-left: none;
+            border-top: 1px solid var(--border);
         }
+    }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 680px;
-        }
+    @media(max-width:768px) {
 
-        .hero-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--gold-dim);
-            border: 1px solid var(--border-strong);
-            border-radius: 40px;
-            padding: 7px 20px;
-            font-size: 10px;
-            font-weight: 500;
-            color: var(--gold-pale);
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 24px;
+        .hero {
+            min-height: 360px;
+            padding: 100px 20px 90px;
         }
 
         .hero h1 {
-            font-family: 'Libre Baskerville', serif;
-            font-size: clamp(38px, 6vw, 68px);
-            line-height: 1.1;
-            margin-bottom: 18px;
-        }
-
-        .hero h1 em {
-            color: var(--gold);
-            font-style: italic;
+            font-size: clamp(30px, 10vw, 48px);
         }
 
         .hero-sub {
-            color: var(--text-muted);
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.8;
-            font-weight: 300;
         }
 
-        /* WEEKLY SECTION */
-        .weekly {
-            background: var(--ink);
-            padding: 80px 0 100px;
+        .page-wrap {
+            width: 94%;
+            padding: 55px 0 80px;
         }
 
-        .container {
-            width: 90%;
-            max-width: 1160px;
-            margin: 0 auto;
+        .section-eyebrow {
+            margin-bottom: 36px;
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 64px;
+        .card-info {
+            padding: 24px 20px;
         }
 
-        .section-label {
-            display: inline-block;
-            font-size: 10px;
-            font-weight: 500;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 14px;
+        .card-preacher {
+            font-size: 24px;
         }
 
-        .section-title {
-            font-family: 'Libre Baskerville', serif;
-            font-size: clamp(26px, 4vw, 40px);
-            color: var(--text);
-            margin-bottom: 18px;
-        }
-
-        .section-rule {
-            width: 40px;
-            height: 2px;
-            background: var(--gold);
-            margin: 0 auto;
-            opacity: 0.7;
-        }
-
-        /* DAY DIVIDER */
-        .day-divider {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 28px;
-            margin-top: 52px;
-        }
-
-        .day-divider:first-child {
-            margin-top: 0;
-        }
-
-        .day-divider::before,
-        .day-divider::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-        }
-
-        .day-name {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 20px;
-            color: var(--text);
-            white-space: nowrap;
-            letter-spacing: 0.02em;
-        }
-
-        /* SCHEDULE CARD */
-        .schedule-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 22px;
-            margin-bottom: 20px;
-        }
-
-        .schedule-card {
-            background: var(--ink-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 32px 28px;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.32s ease;
-            height: 100%;
-        }
-
-        .schedule-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .schedule-card:hover {
-            border-color: var(--border-strong);
-            transform: translateY(-6px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-        }
-
-        .schedule-card:hover::before {
-            opacity: 1;
-        }
-
-        .card-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 14px;
-            background: var(--gold-dim);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            color: var(--gold);
-            margin-bottom: 20px;
-        }
-
-        .card-title {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 18px;
-            color: var(--text);
-            margin-bottom: 16px;
-            line-height: 1.35;
-        }
-
-        .card-meta {
-            display: flex;
-            align-items: center;
-            gap: 9px;
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-
-        .card-meta i {
-            color: var(--gold);
-            font-size: 12px;
-        }
-
-        .card-desc {
-            font-size: 13px;
-            color: var(--text-muted);
+        .card-tema {
+            font-size: 15px;
             line-height: 1.7;
-            margin: 14px 0 20px;
-            flex: 1;
         }
 
-        .btn-detail {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--gold-pale);
-            border: 1px solid var(--border-strong);
-            border-radius: 40px;
-            padding: 8px 18px;
-            text-decoration: none;
-            transition: all 0.25s;
-            width: fit-content;
+        .card-team {
+            padding: 20px;
         }
 
-        .btn-detail:hover {
-            background: var(--gold);
-            color: var(--ink);
-            border-color: var(--gold);
+        .sub-team {
+            padding: 14px;
+        }
+    }
+
+    @media(max-width:576px) {
+
+        .hero {
+            min-height: 320px;
         }
 
-        /* SPECIAL SECTION */
-        .special {
-            background: var(--ink-mid);
-            padding: 100px 0;
-            position: relative;
-            overflow: hidden;
-            border-top: 1px solid var(--border);
+        .hero-eyebrow {
+            font-size: 9px;
+            padding: 7px 14px;
+            letter-spacing: .18em;
         }
 
-        .special::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse 50% 60% at 50% 50%, rgba(201, 169, 110, 0.04), transparent 70%);
+        .hero-sub {
+            font-size: 13px;
         }
 
-        .special-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 36px 30px;
-            height: 100%;
-            transition: all 0.3s;
-            position: relative;
-            z-index: 1;
+        .card-date {
+            flex-direction: column;
+            gap: 6px;
+            padding: 22px 18px;
         }
 
-        .special-card:hover {
-            background: var(--surface-hover);
-            border-color: var(--border-strong);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        .date-weekday {
+            font-size: 9px;
         }
 
-        .badge-day {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            background: var(--gold-dim);
-            border: 1px solid var(--border-strong);
-            border-radius: 40px;
-            padding: 6px 16px;
-            font-size: 11px;
-            color: var(--gold-pale);
-            margin-top: 18px;
+        .date-num {
+            font-size: 42px;
         }
 
-        /* EMPTY */
-        .empty-state {
+        .date-month {
+            font-size: 10px;
+        }
+
+        .card-info {
+            padding: 22px 18px;
+        }
+
+        .card-preacher {
+            font-size: 21px;
+        }
+
+        .card-tema {
+            font-size: 14px;
+        }
+
+        .card-team {
+            padding: 18px;
+        }
+
+        .sub-team-head {
+            align-items: flex-start;
+        }
+
+        .member-row {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .member-badge {
+            margin-top: 4px;
+        }
+
+        .card-verse {
+            width: 100%;
+            justify-content: center;
             text-align: center;
-            padding: 60px 20px;
-            color: var(--text-muted);
         }
 
-        .empty-icon {
-            font-size: 40px;
-            color: var(--gold);
-            opacity: 0.3;
-            margin-bottom: 16px;
+        .footer-quote {
+            font-size: 15px;
         }
-
-        /* RESPONSIVE */
-        @media(max-width: 768px) {
-
-            .weekly,
-            .special {
-                padding: 60px 0;
-            }
-
-            .schedule-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    }
+</style>
 
     <!-- HERO -->
     <section class="hero">

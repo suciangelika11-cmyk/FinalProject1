@@ -23,8 +23,13 @@
             --blue: #1a4a9e;
             --blue-light: #5592e8;
 
+            /* FONT COLOR PALETTE */
+            --text: #ADE1FB;
+            --text-soft: #7FCBF5;
+            --text-heading: #D6F1FF;
+            --text-muted: rgba(173, 225, 251, .72);
+
             --white: #ffffff;
-            --text-soft: rgba(255, 255, 255, .72);
 
             --card: rgba(255, 255, 255, .06);
             --card-hover: rgba(255, 255, 255, .1);
@@ -49,7 +54,7 @@
                     transparent 40%),
                 linear-gradient(180deg, #081120 0%, #09182f 100%);
 
-            color: var(--white);
+            color: var(--text);
 
             font-family: var(--font-body);
 
@@ -118,7 +123,7 @@
 
             border: 1px solid rgba(85, 146, 232, .22);
 
-            color: #c8e0fd;
+            color: #ADE1FB;
 
             font-size: 11px;
             letter-spacing: .18em;
@@ -135,10 +140,12 @@
             line-height: 1.15;
 
             margin-bottom: 22px;
+
+            color: var(--text-heading);
         }
 
         .hero h1 em {
-            color: var(--gold);
+            color: #7FCBF5;
             font-style: italic;
         }
 
@@ -185,7 +192,7 @@
         }
 
         .section-eyebrow span {
-            color: #c8e0fd;
+            color: #ADE1FB;
 
             font-size: 10px;
             letter-spacing: .22em;
@@ -247,7 +254,7 @@
         }
 
         .date-weekday {
-            color: #c8e0fd;
+            color: #ADE1FB;
 
             font-size: 10px;
             letter-spacing: .18em;
@@ -264,6 +271,8 @@
             line-height: 1;
 
             margin-bottom: 10px;
+
+            color: var(--text-heading);
         }
 
         .date-month {
@@ -287,7 +296,7 @@
         }
 
         .card-tag {
-            color: #c8e0fd;
+            color: #ADE1FB;
 
             font-size: 10px;
             letter-spacing: .24em;
@@ -304,6 +313,8 @@
             line-height: 1.35;
 
             margin-bottom: 18px;
+
+            color: var(--text-heading);
         }
 
         .card-divider {
@@ -332,7 +343,7 @@
 
             border: 1px solid rgba(85, 146, 232, .2);
 
-            color: #dbeafe;
+            color: #D6F1FF;
 
             font-size: 13px;
         }
@@ -390,6 +401,8 @@
             font-size: 40px;
 
             margin-bottom: 10px;
+
+            color: var(--text-heading);
         }
 
         .stats-label {
@@ -435,6 +448,8 @@
             font-size: 28px;
 
             margin-bottom: 12px;
+
+            color: var(--text-heading);
         }
 
         .empty-text {
@@ -487,159 +502,6 @@
             color: var(--text-soft);
 
             font-style: italic;
-        }
-
-        /* =====================================
-    TABLET
-    ===================================== */
-
-        @media(max-width:1100px) {
-
-            .absensi-card {
-                grid-template-columns: 1fr;
-            }
-
-            .card-date {
-                border-right: none;
-                border-bottom: 1px solid var(--border);
-
-                flex-direction: row;
-
-                gap: 20px;
-            }
-
-            .date-num {
-                margin-bottom: 0;
-            }
-
-            .card-stats {
-                border-left: none;
-                border-top: 1px solid var(--border);
-            }
-        }
-
-        /* =====================================
-    MOBILE
-    ===================================== */
-
-        @media(max-width:768px) {
-
-            .hero {
-                padding: 120px 18px 105px;
-            }
-
-            .hero::after {
-                height: 85px;
-            }
-
-            .hero h1 {
-                font-size: 46px;
-            }
-
-            .hero-desc {
-                font-size: 14px;
-            }
-
-            .page-wrap {
-                width: 100%;
-
-                padding: 50px 16px 70px;
-            }
-
-            .section-eyebrow {
-                margin-bottom: 36px;
-            }
-
-            .absensi-card {
-                border-radius: 24px;
-            }
-
-            .card-date {
-                flex-direction: column;
-
-                gap: 5px;
-
-                padding: 24px 18px;
-            }
-
-            .date-num {
-                font-size: 48px;
-            }
-
-            .card-info {
-                padding: 26px 20px;
-            }
-
-            .card-preacher {
-                font-size: 26px;
-            }
-
-            .card-session {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .card-stats {
-                padding: 18px;
-            }
-
-            .stats-value {
-                font-size: 34px;
-            }
-
-            .empty-state {
-                padding: 70px 20px;
-            }
-        }
-
-        /* =====================================
-    SMALL MOBILE
-    ===================================== */
-
-        @media(max-width:480px) {
-
-            .hero {
-                padding: 100px 16px 90px;
-            }
-
-            .hero h1 {
-                font-size: 38px;
-            }
-
-            .hero-eyebrow {
-                font-size: 9px;
-
-                padding: 7px 14px;
-            }
-
-            .hero-desc {
-                font-size: 13px;
-            }
-
-            .page-wrap {
-                padding: 45px 14px 60px;
-            }
-
-            .card-info {
-                padding: 22px 16px;
-            }
-
-            .card-preacher {
-                font-size: 22px;
-            }
-
-            .stats-box {
-                padding: 24px 18px;
-            }
-
-            .stats-value {
-                font-size: 28px;
-            }
-
-            .footer-quote {
-                font-size: 14px;
-                line-height: 1.8;
-            }
         }
     </style>
 

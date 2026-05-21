@@ -492,6 +492,13 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('pelayan.jadwal_ibadah') ? 'active' : '' }}"
+                            href="{{ route('pelayan.tentang') }}">
+                            Tentang Kami
+                        </a>
+                    </li>
+
                 </ul>
 
                 <ul class="navbar-nav ms-auto">
@@ -590,61 +597,61 @@
 
                 <div class="col-lg-2">
 
-                    <h6 class="footer-heading">
-                        Menu
-                    </h6>
+                   <h6 class="footer-heading">
+    Menu
+</h6>
 
-                    <ul class="footer-nav">
+<ul class="footer-nav">
 
-                        <li>
-                            <a href="{{ route('pelayan.home') }}">
-                                Beranda
-                            </a>
-                        </li>
+    <li>
+        <a href="{{ route('pelayan.home') }}">
+            Beranda
+        </a>
+    </li>
 
-                        <li>
-                            <a href="{{ route('pelayan.jadwal_ibadah') }}">
-                                Jadwal
-                            </a>
-                        </li>
+    <li>
+        <a href="{{ route('pelayan.jadwal_ibadah') }}">
+            Jadwal
+        </a>
+    </li>
 
-                        <li>
-                            <a href="{{ route('pelayan.absensi') }}">
-                                Absensi
-                            </a>
-                        </li>
+    <li>
+        <a href="{{ route('pelayan.kegiatan_pelayan') }}">
+            Kegiatan
+        </a>
+    </li>
 
-                        <li>
-                            <a href="{{ route('pelayan.pengumuman') }}">
-                                Pengumuman
-                            </a>
-                        </li>
+    <li>
+        <a href="{{ route('pelayan.absensi') }}">
+            Absensi
+        </a>
+    </li>
 
-                    </ul>
+</ul>
 
-                </div>
+</div>
 
-                <div class="col-lg-2">
+<div class="col-lg-2">
 
-                    <h6 class="footer-heading">
-                        Info
-                    </h6>
+    <h6 class="footer-heading">
+        Info
+    </h6>
 
-                    <ul class="footer-nav">
+    <ul class="footer-nav">
 
-                        <li>
-                            <a href="{{ route('pelayan.tentang') }}">
-                                Tentang Kami
-                            </a>
-                        </li>
+        <li>
+            <a href="{{ route('pelayan.pengumuman') }}">
+                Pengumuman
+            </a>
+        </li>
 
-                        <li>
-                            <a href="{{ route('home') }}">
-                                Website Utama
-                            </a>
-                        </li>
+        <li>
+            <a href="{{ route('pelayan.tentang') }}">
+                Tentang Kami
+            </a>
+        </li>
 
-                    </ul>
+    </ul>
 
                 </div>
 

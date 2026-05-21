@@ -11,17 +11,23 @@
 
     <style>
         :root {
-            --gold: #C9A96E;
-            --gold-pale: #E8D5A3;
-            --gold-dim: rgba(201, 169, 110, 0.12);
-            --ink: #0A0E17;
-            --ink-mid: #0D1422;
+            --gold: #7FCBF5;
+            --gold-pale: #D6F1FF;
+            --gold-dim: rgba(127, 203, 245, 0.12);
+
+            --ink: #07111F;
+            --ink-mid: #0C1830;
             --ink-card: rgba(12, 18, 32, 0.97);
+
             --surface: rgba(255, 255, 255, 0.04);
-            --text: #EAE6DF;
-            --text-muted: rgba(234, 230, 223, 0.52);
-            --border: rgba(201, 169, 110, 0.13);
-            --border-strong: rgba(201, 169, 110, 0.28);
+
+            /* FONT COLORS */
+            --text: #DDF5FF;
+            --text-muted: rgba(173, 225, 251, 0.72);
+
+            --border: rgba(127, 203, 245, 0.14);
+            --border-strong: rgba(127, 203, 245, 0.32);
+
             --radius: 20px;
         }
 
@@ -34,6 +40,8 @@
         body {
             font-family: 'Outfit', sans-serif;
             overflow-x: hidden;
+            background: linear-gradient(180deg, #07111F 0%, #0A1933 100%);
+            color: var(--text);
         }
 
         /* ================= HERO ================= */
@@ -56,7 +64,7 @@
             inset: 0;
             background:
                 radial-gradient(ellipse 65% 90% at 50% 0%,
-                    rgba(201, 169, 110, 0.07),
+                    rgba(127, 203, 245, 0.08),
                     transparent 65%);
         }
 
@@ -91,7 +99,7 @@
         }
 
         .hero h1 em {
-            color: var(--gold);
+            color: #7FCBF5;
             font-style: italic;
         }
 
@@ -121,7 +129,7 @@
             font-weight: 500;
             letter-spacing: 0.22em;
             text-transform: uppercase;
-            color: var(--gold);
+            color: #7FCBF5;
             display: block;
             margin-bottom: 12px;
         }
@@ -136,7 +144,7 @@
         .section-rule {
             width: 40px;
             height: 2px;
-            background: var(--gold);
+            background: #7FCBF5;
             margin: 0 auto;
             opacity: .7;
         }
@@ -153,7 +161,7 @@
             left: 18px;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--gold);
+            color: #7FCBF5;
             font-size: 14px;
         }
 
@@ -175,7 +183,7 @@
 
         .search-input:focus {
             border-color: var(--border-strong);
-            box-shadow: 0 0 0 4px rgba(201, 169, 110, 0.08);
+            box-shadow: 0 0 0 4px rgba(127, 203, 245, 0.08);
         }
 
         /* ================= GRID ================= */
@@ -206,7 +214,7 @@
             height: 2px;
             background: linear-gradient(90deg,
                     transparent,
-                    var(--gold),
+                    #7FCBF5,
                     transparent);
             opacity: 0;
             transition: .3s;
@@ -236,7 +244,7 @@
             height: 100%;
             object-fit: cover;
             transition: .5s ease;
-            filter: brightness(.86);
+            filter: brightness(.9);
         }
 
         .khotbah-card:hover .card-thumb img {
@@ -247,8 +255,8 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(135deg,
-                    rgba(201, 169, 110, 0.08),
-                    rgba(201, 169, 110, 0.02));
+                    rgba(127, 203, 245, 0.08),
+                    rgba(127, 203, 245, 0.02));
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -258,7 +266,7 @@
 
         .thumb-placeholder i {
             font-size: 42px;
-            color: var(--gold);
+            color: #7FCBF5;
             opacity: .35;
         }
 
@@ -299,7 +307,7 @@
             font-weight: 500;
             letter-spacing: .12em;
             text-transform: uppercase;
-            color: var(--gold);
+            color: #7FCBF5;
             margin-bottom: 12px;
             display: flex;
             align-items: center;
@@ -353,9 +361,9 @@
         }
 
         .btn-watch:hover {
-            background: var(--gold);
-            border-color: var(--gold);
-            color: var(--ink);
+            background: #7FCBF5;
+            border-color: #7FCBF5;
+            color: #07111F;
         }
 
         .btn-no-video {
@@ -383,7 +391,7 @@
             align-items: center;
             justify-content: center;
             font-size: 30px;
-            color: var(--gold);
+            color: #7FCBF5;
             margin: 0 auto 22px;
             opacity: .7;
         }
@@ -394,92 +402,6 @@
             justify-content: center;
             margin-top: 55px;
             overflow-x: auto;
-        }
-
-        /* ================= RESPONSIVE ================= */
-        @media (max-width: 992px) {
-
-            .hero {
-                min-height: 330px;
-                padding-top: 90px;
-            }
-
-            .page-wrap {
-                padding: 60px 0 80px;
-            }
-
-            .khotbah-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-        }
-
-        @media (max-width: 768px) {
-
-            .hero {
-                min-height: 300px;
-                padding: 90px 18px 60px;
-            }
-
-            .hero-sub {
-                font-size: 14px;
-                line-height: 1.8;
-            }
-
-            .section-header {
-                margin-bottom: 36px;
-            }
-
-            .search-bar {
-                margin-bottom: 40px;
-            }
-
-            .card-body {
-                padding: 20px;
-            }
-
-            .khotbah-title {
-                font-size: 16px;
-            }
-        }
-
-        @media (max-width: 576px) {
-
-            .page-wrap {
-                width: 94%;
-                padding: 50px 0 70px;
-            }
-
-            .hero h1 {
-                font-size: 42px;
-            }
-
-            .hero-eyebrow {
-                font-size: 9px;
-                padding: 7px 16px;
-            }
-
-            .search-input {
-                font-size: 13px;
-                padding: 13px 18px 13px 44px;
-            }
-
-            .khotbah-grid {
-                grid-template-columns: 1fr;
-                gap: 18px;
-            }
-
-            .btn-watch {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .card-body {
-                padding: 18px;
-            }
-
-            .khotbah-desc {
-                -webkit-line-clamp: unset;
-            }
         }
     </style>
 

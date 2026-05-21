@@ -12,7 +12,7 @@ class TentangController extends Controller
         $data = Tentang::first();
 
         return view(
-            'Pelayan.TentangKami.Meta',
+            'Pelayan.TentangKami.Tentang',
             compact('data')
         );
     }

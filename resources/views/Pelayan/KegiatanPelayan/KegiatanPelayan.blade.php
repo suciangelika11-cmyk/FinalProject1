@@ -11,9 +11,11 @@
 
     <style>
         :root {
-            --gold: #C9A96E;
-            --gold-pale: #E8D5A3;
-            --gold-dim: rgba(201, 169, 110, 0.12);
+            --blue-light: #ADE1FB;
+            --blue-mid: #266CA9;
+            --blue-dark: #0F2573;
+            --navy: #041D56;
+            --navy-dark: #01082D;
 
             --ink: #0A0E17;
             --ink-mid: #0D1422;
@@ -21,19 +23,19 @@
 
             --surface: rgba(255, 255, 255, 0.04);
 
-            --text: #EAE6DF;
-            --text-muted: rgba(234, 230, 223, 0.55);
+            --text: #ADE1FB;
+            --text-muted: rgba(173, 225, 251, 0.72);
 
-            --border: rgba(201, 169, 110, 0.13);
-            --border-strong: rgba(201, 169, 110, 0.28);
+            --border: rgba(38, 108, 169, 0.2);
+            --border-strong: rgba(173, 225, 251, 0.35);
 
             --radius: 22px;
 
-            --purple-dim: rgba(139, 92, 246, 0.1);
-            --purple: #a78bfa;
+            --purple-dim: rgba(38, 108, 169, 0.12);
+            --purple: #266CA9;
 
-            --green-dim: rgba(52, 211, 153, 0.1);
-            --green: #6ee7b7;
+            --green-dim: rgba(15, 37, 115, 0.12);
+            --green: #0F2573;
         }
 
         *,
@@ -51,8 +53,8 @@
 
         body {
             font-family: 'Outfit', sans-serif;
-            background: var(--ink);
-            color: var(--text);
+            background: var(--navy-dark);
+            color: var(--blue-light);
         }
 
         /* ================= HERO ================= */
@@ -65,7 +67,7 @@
             text-align: center;
             overflow: hidden;
             padding: 120px 24px 110px;
-            background: var(--ink-mid);
+            background: var(--navy);
         }
 
         .hero::before {
@@ -73,9 +75,11 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(ellipse 70% 100% at 50% 0%,
-                    rgba(201, 169, 110, 0.08),
-                    transparent 65%);
+                radial-gradient(
+                    ellipse 70% 100% at 50% 0%,
+                    rgba(173, 225, 251, 0.08),
+                    transparent 65%
+                );
         }
 
         .hero::after {
@@ -85,7 +89,7 @@
             left: 0;
             right: 0;
             height: 80px;
-            background: var(--ink);
+            background: var(--navy-dark);
             clip-path: ellipse(55% 100% at 50% 100%);
         }
 
@@ -100,13 +104,13 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: var(--gold-dim);
+            background: rgba(38, 108, 169, 0.15);
             border: 1px solid var(--border-strong);
             border-radius: 40px;
             padding: 8px 20px;
             font-size: 10px;
             font-weight: 500;
-            color: var(--gold-pale);
+            color: var(--blue-light);
             letter-spacing: .22em;
             text-transform: uppercase;
             margin-bottom: 24px;
@@ -117,10 +121,11 @@
             font-size: clamp(38px, 6vw, 70px);
             line-height: 1.1;
             margin-bottom: 18px;
+            color: var(--blue-light);
         }
 
         .hero h1 em {
-            color: var(--gold);
+            color: var(--blue-mid);
             font-style: italic;
         }
 
@@ -157,7 +162,7 @@
         }
 
         .section-eyebrow span {
-            color: var(--gold);
+            color: var(--blue-mid);
             font-size: 10px;
             font-weight: 500;
             letter-spacing: .22em;
@@ -185,7 +190,7 @@
 
         /* ================= DATE ================= */
         .card-date {
-            background: rgba(201, 169, 110, 0.06);
+            background: rgba(38, 108, 169, 0.08);
             border-right: 1px solid var(--border);
 
             display: flex;
@@ -202,7 +207,7 @@
             font-weight: 500;
             letter-spacing: .20em;
             text-transform: uppercase;
-            color: var(--gold);
+            color: var(--blue-mid);
             margin-bottom: 10px;
         }
 
@@ -210,7 +215,7 @@
             font-family: 'Libre Baskerville', serif;
             font-size: 62px;
             line-height: 1;
-            color: var(--text);
+            color: var(--blue-light);
             margin-bottom: 8px;
         }
 
@@ -234,7 +239,7 @@
             font-weight: 500;
             letter-spacing: .22em;
             text-transform: uppercase;
-            color: var(--gold);
+            color: var(--blue-mid);
             margin-bottom: 12px;
         }
 
@@ -242,7 +247,7 @@
             font-family: 'Libre Baskerville', serif;
             font-size: 34px;
             line-height: 1.2;
-            color: var(--text);
+            color: var(--blue-light);
             margin-bottom: 18px;
             word-break: break-word;
         }
@@ -250,8 +255,8 @@
         .card-divider {
             width: 45px;
             height: 2px;
-            background: var(--gold);
-            opacity: .5;
+            background: var(--blue-mid);
+            opacity: .6;
             margin-bottom: 18px;
         }
 
@@ -268,12 +273,12 @@
             display: inline-flex;
             align-items: center;
             gap: 9px;
-            background: var(--gold-dim);
+            background: rgba(38, 108, 169, 0.12);
             border: 1px solid var(--border-strong);
             border-radius: 40px;
             padding: 10px 18px;
             font-size: 12px;
-            color: var(--gold-pale);
+            color: var(--blue-light);
             width: fit-content;
             flex-wrap: wrap;
         }
@@ -295,7 +300,7 @@
             font-weight: 500;
             letter-spacing: .20em;
             text-transform: uppercase;
-            color: var(--gold);
+            color: var(--blue-mid);
         }
 
         /* ================= SUB TEAM ================= */
@@ -325,24 +330,24 @@
         }
 
         .sub-team-icon.worship {
-            background: var(--gold-dim);
-            color: var(--gold);
+            background: rgba(38, 108, 169, 0.15);
+            color: var(--blue-light);
         }
 
         .sub-team-icon.media {
-            background: var(--purple-dim);
-            color: var(--purple);
+            background: rgba(15, 37, 115, 0.15);
+            color: #7FB9FF;
         }
 
         .sub-team-icon.liturgi {
-            background: var(--green-dim);
-            color: var(--green);
+            background: rgba(173, 225, 251, 0.12);
+            color: var(--blue-mid);
         }
 
         .sub-team-name {
             font-size: 13px;
             font-weight: 600;
-            color: var(--text);
+            color: var(--blue-light);
         }
 
         .sub-team-desc {
@@ -362,7 +367,7 @@
 
         .member-name {
             font-size: 12px;
-            color: var(--text);
+            color: var(--blue-light);
             word-break: break-word;
         }
 
@@ -375,18 +380,18 @@
         }
 
         .member-badge.worship {
-            background: var(--gold-dim);
-            color: var(--gold-pale);
+            background: rgba(38, 108, 169, 0.15);
+            color: var(--blue-light);
         }
 
         .member-badge.media {
-            background: var(--purple-dim);
-            color: var(--purple);
+            background: rgba(15, 37, 115, 0.15);
+            color: #7FB9FF;
         }
 
         .member-badge.liturgi {
-            background: var(--green-dim);
-            color: var(--green);
+            background: rgba(173, 225, 251, 0.12);
+            color: var(--blue-mid);
         }
 
         /* ================= FOOTER ================= */
@@ -410,7 +415,7 @@
             margin: 0 auto 18px;
 
             font-size: 20px;
-            color: var(--gold);
+            color: var(--blue-mid);
         }
 
         .footer-quote {
@@ -423,7 +428,6 @@
 
         /* ================= RESPONSIVE ================= */
 
-        /* LAPTOP */
         @media(max-width:1200px) {
 
             .kegiatan-card {
@@ -435,7 +439,6 @@
             }
         }
 
-        /* TABLET */
         @media(max-width:992px) {
 
             .kegiatan-card {
@@ -464,7 +467,6 @@
             }
         }
 
-        /* MOBILE */
         @media(max-width:768px) {
 
             .hero {
@@ -512,7 +514,6 @@
             }
         }
 
-        /* SMALL MOBILE */
         @media(max-width:576px) {
 
             .hero {
