@@ -12,13 +12,14 @@ class GaleriController extends Controller
     public function index(Request $request)
     {
 
-        $query = Galeri::query();
+    $search = $request->q;
 
-        // SEARCH
-        if ($request->q) {
-            $query->where('title', 'like', '%' . $request->q . '%')
-                ->orWhere('description', 'like', '%' . $request->q . '%');
-        }
+    if ($search) {
+        $galeri = Galeri::where('title', 'LIKE', "%$search%")
+            ->get();
+    } else {
+        $galeri = Galeri::all();
+    }
 
         $galeri = Galeri::latest()->get();
         return view('admin.Galeris.index', compact('galeri'));
