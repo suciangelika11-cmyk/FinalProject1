@@ -389,7 +389,7 @@
       <a href="{{ route('jadwal.index') }}" style="text-decoration:none">
         <div class="card white">
           <div class="card-icon-wrap"><span class="ico"><i class="ri-calendar-line"></i></span></div>
-          <div class="card-title">Pelayanan</div>
+          <div class="card-title">Jadwal Ibadah</div>
           <div class="card-desc">Tambah atau ubah jadwal pelayanan, kebaktian, dan acara khusus.</div>
           <div class="card-arrow">→</div>
         </div>

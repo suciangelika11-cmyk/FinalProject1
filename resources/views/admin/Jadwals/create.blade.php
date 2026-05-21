@@ -239,11 +239,6 @@
                 </div>
 
                 <div class="fg">
-                    <label>Icon</label>
-                    <input type="text" name="icon" value="{{ old('icon') }}" placeholder="Contoh: 📅">
-                </div>
-
-                <div class="fg">
                     <label>Tim Pelayanan</label>
 
                     <select name="pelayanan_id">

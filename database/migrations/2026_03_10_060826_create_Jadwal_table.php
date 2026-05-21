@@ -20,7 +20,6 @@ return new class extends Migration {
             $table->string('location')->nullable();
             $table->text('description')->nullable();
             $table->enum('category', ['mingguan', 'acara_khusus']);
-            $table->string('icon')->nullable();
             $table->timestamps();
         });
     }

@@ -677,7 +677,7 @@
 
 @section('content')
   <div class="content-header">
-    <h1>Pelayanan & Kegiatan</h1>
+    <h1>Jadwal Ibadah</h1>
 
     <div class="breadcrumb-bar">
       <a href="{{ route('admin.dashboard') }}">Home</a> / <span>Pelayanan</span>
@@ -686,9 +686,9 @@
 
   <div class="content">
     <div class="page-hero">
-      <div class="hero-tag">📅 Pelayanan</div>
+      <div class="hero-tag">📅 Jadwal Ibadah</div>
 
-      <h2>Pelayanan & Kegiatan</h2>
+      <h2>Jadwal Ibadah</h2>
 
       <p>
         Mari bertumbuh bersama dalam iman, doa, dan persekutuan.

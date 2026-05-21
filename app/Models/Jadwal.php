@@ -19,7 +19,6 @@ class Jadwal extends Model
         'location',
         'description',
         'category',
-        'icon',
         'user_id',
         'pelayanan_id',
     ];
