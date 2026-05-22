@@ -175,28 +175,16 @@
       animation: fadeUp .35s ease both;
     }
 
-    .stat-card:nth-child(1) {
-      animation-delay: .05s;
-    }
-
-    .stat-card:nth-child(2) {
-      animation-delay: .10s;
-    }
-
-    .stat-card:nth-child(3) {
-      animation-delay: .15s;
-    }
-
-    .stat-card:nth-child(4) {
-      animation-delay: .20s;
-    }
+    .stat-card:nth-child(1) { animation-delay: .05s; }
+    .stat-card:nth-child(2) { animation-delay: .10s; }
+    .stat-card:nth-child(3) { animation-delay: .15s; }
+    .stat-card:nth-child(4) { animation-delay: .20s; }
 
     @keyframes fadeUp {
       from {
         opacity: 0;
         transform: translateY(14px)
       }
-
       to {
         opacity: 1;
         transform: translateY(0)
@@ -213,21 +201,10 @@
       font-size: 18px;
     }
 
-    .ic {
-      background: var(--cyan-lt);
-    }
-
-    .ig {
-      background: var(--gold-lt);
-    }
-
-    .is {
-      background: var(--success-lt);
-    }
-
-    .ip {
-      background: var(--purple-lt);
-    }
+    .ic { background: var(--cyan-lt); }
+    .ig { background: var(--gold-lt); }
+    .is { background: var(--success-lt); }
+    .ip { background: var(--purple-lt); }
 
     .stat-val {
       font-family: 'Rajdhani', sans-serif;
@@ -236,21 +213,10 @@
       line-height: 1;
     }
 
-    .vc {
-      color: var(--cyan);
-    }
-
-    .vg {
-      color: var(--gold);
-    }
-
-    .vs {
-      color: var(--success);
-    }
-
-    .vp {
-      color: var(--purple);
-    }
+    .vc { color: var(--cyan); }
+    .vg { color: var(--gold); }
+    .vs { color: var(--success); }
+    .vp { color: var(--purple); }
 
     .stat-lbl {
       font-size: 11.5px;
@@ -303,37 +269,14 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, .04);
     }
 
-    .day-label.senin {
-      border-left: 3px solid var(--cyan);
-    }
-
-    .day-label.selasa {
-      border-left: 3px solid var(--purple);
-    }
-
-    .day-label.rabu {
-      border-left: 3px solid var(--success);
-    }
-
-    .day-label.kamis {
-      border-left: 3px solid var(--orange);
-    }
-
-    .day-label.jumat {
-      border-left: 3px solid var(--gold);
-    }
-
-    .day-label.sabtu {
-      border-left: 3px solid var(--danger);
-    }
-
-    .day-label.minggu {
-      border-left: 3px solid var(--cyan);
-    }
-
-    .day-label.khusus {
-      border-left: 3px solid var(--purple);
-    }
+    .day-label.senin { border-left: 3px solid var(--cyan); }
+    .day-label.selasa { border-left: 3px solid var(--purple); }
+    .day-label.rabu { border-left: 3px solid var(--success); }
+    .day-label.kamis { border-left: 3px solid var(--orange); }
+    .day-label.jumat { border-left: 3px solid var(--gold); }
+    .day-label.sabtu { border-left: 3px solid var(--danger); }
+    .day-label.minggu { border-left: 3px solid var(--cyan); }
+    .day-label.khusus { border-left: 3px solid var(--purple); }
 
     .jadwal-grid {
       display: grid;
@@ -369,29 +312,12 @@
       border-radius: 13px 13px 0 0;
     }
 
-    .jcard.c::before {
-      background: linear-gradient(90deg, var(--cyan), #29c4f0);
-    }
-
-    .jcard.g::before {
-      background: linear-gradient(90deg, var(--gold), #f0c050);
-    }
-
-    .jcard.s::before {
-      background: linear-gradient(90deg, var(--success), #4cdb8f);
-    }
-
-    .jcard.r::before {
-      background: linear-gradient(90deg, var(--danger), #ff7a7a);
-    }
-
-    .jcard.p::before {
-      background: linear-gradient(90deg, var(--purple), #a78bfa);
-    }
-
-    .jcard.o::before {
-      background: linear-gradient(90deg, var(--orange), #fbbf24);
-    }
+    .jcard.c::before { background: linear-gradient(90deg, var(--cyan), #29c4f0); }
+    .jcard.g::before { background: linear-gradient(90deg, var(--gold), #f0c050); }
+    .jcard.s::before { background: linear-gradient(90deg, var(--success), #4cdb8f); }
+    .jcard.r::before { background: linear-gradient(90deg, var(--danger), #ff7a7a); }
+    .jcard.p::before { background: linear-gradient(90deg, var(--purple), #a78bfa); }
+    .jcard.o::before { background: linear-gradient(90deg, var(--orange), #fbbf24); }
 
     .jcard-icon {
       width: 44px;
@@ -404,29 +330,12 @@
       margin-bottom: 14px;
     }
 
-    .jcard.c .jcard-icon {
-      background: var(--cyan-lt);
-    }
-
-    .jcard.g .jcard-icon {
-      background: var(--gold-lt);
-    }
-
-    .jcard.s .jcard-icon {
-      background: var(--success-lt);
-    }
-
-    .jcard.r .jcard-icon {
-      background: var(--danger-lt);
-    }
-
-    .jcard.p .jcard-icon {
-      background: var(--purple-lt);
-    }
-
-    .jcard.o .jcard-icon {
-      background: var(--orange-lt);
-    }
+    .jcard.c .jcard-icon { background: var(--cyan-lt); }
+    .jcard.g .jcard-icon { background: var(--gold-lt); }
+    .jcard.s .jcard-icon { background: var(--success-lt); }
+    .jcard.r .jcard-icon { background: var(--danger-lt); }
+    .jcard.p .jcard-icon { background: var(--purple-lt); }
+    .jcard.o .jcard-icon { background: var(--orange-lt); }
 
     .jcard-title {
       font-family: 'Rajdhani', sans-serif;
@@ -480,71 +389,23 @@
       text-decoration: none;
     }
 
-    .jcard.c .btn-detail {
-      background: var(--cyan-lt);
-      color: var(--cyan);
-      border-color: rgba(29, 168, 224, .25);
-    }
+    .jcard.c .btn-detail { background: var(--cyan-lt); color: var(--cyan); border-color: rgba(29, 168, 224, .25); }
+    .jcard.c .btn-detail:hover { background: var(--cyan); color: #fff; }
 
-    .jcard.c .btn-detail:hover {
-      background: var(--cyan);
-      color: #fff;
-    }
+    .jcard.g .btn-detail { background: var(--gold-lt); color: var(--gold); border-color: rgba(200, 155, 60, .25); }
+    .jcard.g .btn-detail:hover { background: var(--gold); color: #fff; }
 
-    .jcard.g .btn-detail {
-      background: var(--gold-lt);
-      color: var(--gold);
-      border-color: rgba(200, 155, 60, .25);
-    }
+    .jcard.s .btn-detail { background: var(--success-lt); color: var(--success); border-color: rgba(46, 168, 106, .25); }
+    .jcard.s .btn-detail:hover { background: var(--success); color: #fff; }
 
-    .jcard.g .btn-detail:hover {
-      background: var(--gold);
-      color: #fff;
-    }
+    .jcard.r .btn-detail { background: var(--danger-lt); color: var(--danger); border-color: rgba(224, 85, 85, .25); }
+    .jcard.r .btn-detail:hover { background: var(--danger); color: #fff; }
 
-    .jcard.s .btn-detail {
-      background: var(--success-lt);
-      color: var(--success);
-      border-color: rgba(46, 168, 106, .25);
-    }
+    .jcard.p .btn-detail { background: var(--purple-lt); color: var(--purple); border-color: rgba(139, 92, 246, .25); }
+    .jcard.p .btn-detail:hover { background: var(--purple); color: #fff; }
 
-    .jcard.s .btn-detail:hover {
-      background: var(--success);
-      color: #fff;
-    }
-
-    .jcard.r .btn-detail {
-      background: var(--danger-lt);
-      color: var(--danger);
-      border-color: rgba(224, 85, 85, .25);
-    }
-
-    .jcard.r .btn-detail:hover {
-      background: var(--danger);
-      color: #fff;
-    }
-
-    .jcard.p .btn-detail {
-      background: var(--purple-lt);
-      color: var(--purple);
-      border-color: rgba(139, 92, 246, .25);
-    }
-
-    .jcard.p .btn-detail:hover {
-      background: var(--purple);
-      color: #fff;
-    }
-
-    .jcard.o .btn-detail {
-      background: var(--orange-lt);
-      color: var(--orange);
-      border-color: rgba(249, 115, 22, .25);
-    }
-
-    .jcard.o .btn-detail:hover {
-      background: var(--orange);
-      color: #fff;
-    }
+    .jcard.o .btn-detail { background: var(--orange-lt); color: var(--orange); border-color: rgba(249, 115, 22, .25); }
+    .jcard.o .btn-detail:hover { background: var(--orange); color: #fff; }
 
     .jcard-actions {
       display: flex;
@@ -571,10 +432,7 @@
       align-items: center;
     }
 
-    .btn-edit:hover {
-      background: var(--cyan);
-      color: #fff;
-    }
+    .btn-edit:hover { background: var(--cyan); color: #fff; }
 
     .btn-del {
       background: var(--danger-lt);
@@ -582,10 +440,7 @@
       border: 1px solid rgba(224, 85, 85, .2);
     }
 
-    .btn-del:hover {
-      background: var(--danger);
-      color: #fff;
-    }
+    .btn-del:hover { background: var(--danger); color: #fff; }
 
     .bulan-badge {
       display: inline-block;
@@ -597,41 +452,12 @@
       border-radius: 20px;
     }
 
-    .b-c {
-      background: var(--cyan-lt);
-      color: var(--cyan);
-      border: 1px solid rgba(29, 168, 224, .25);
-    }
-
-    .b-g {
-      background: var(--gold-lt);
-      color: var(--gold);
-      border: 1px solid rgba(200, 155, 60, .25);
-    }
-
-    .b-s {
-      background: var(--success-lt);
-      color: var(--success);
-      border: 1px solid rgba(46, 168, 106, .25);
-    }
-
-    .b-r {
-      background: var(--danger-lt);
-      color: var(--danger);
-      border: 1px solid rgba(224, 85, 85, .25);
-    }
-
-    .b-p {
-      background: var(--purple-lt);
-      color: var(--purple);
-      border: 1px solid rgba(139, 92, 246, .25);
-    }
-
-    .b-o {
-      background: var(--orange-lt);
-      color: var(--orange);
-      border: 1px solid rgba(249, 115, 22, .25);
-    }
+    .b-c { background: var(--cyan-lt); color: var(--cyan); border: 1px solid rgba(29, 168, 224, .25); }
+    .b-g { background: var(--gold-lt); color: var(--gold); border: 1px solid rgba(200, 155, 60, .25); }
+    .b-s { background: var(--success-lt); color: var(--success); border: 1px solid rgba(46, 168, 106, .25); }
+    .b-r { background: var(--danger-lt); color: var(--danger); border: 1px solid rgba(224, 85, 85, .25); }
+    .b-p { background: var(--purple-lt); color: var(--purple); border: 1px solid rgba(139, 92, 246, .25); }
+    .b-o { background: var(--orange-lt); color: var(--orange); border: 1px solid rgba(249, 115, 22, .25); }
 
     .add-btn {
       display: inline-flex;
@@ -658,43 +484,33 @@
     }
 
     @media(max-width:1100px) {
-      .jadwal-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+      .jadwal-grid { grid-template-columns: 1fr 1fr; }
     }
 
     @media(max-width:900px) {
-      .jadwal-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .stats-row {
-        grid-template-columns: 1fr 1fr;
-      }
+      .jadwal-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
     }
   </style>
 @endpush
 
 @section('content')
-  <div class="content-header">
-    <h1>Jadwal Ibadah</h1>
+  <div class="container py-4">
 
-    <div class="breadcrumb-bar">
-      <a href="{{ route('admin.dashboard') }}">Home</a> / <span>Pelayanan</span>
+    <div class="content-header px-0 mb-4">
+      <h1>Jadwal Ibadah</h1>
+      <div class="breadcrumb-bar">
+        <a href="{{ route('admin.dashboard') }}">Home</a> / <span>Pelayanan</span>
+      </div>
     </div>
-  </div>
 
-  <div class="content">
     <div class="page-hero">
       <div class="hero-tag">📅 Jadwal Ibadah</div>
-
       <h2>Jadwal Ibadah</h2>
-
       <p>
         Mari bertumbuh bersama dalam iman, doa, dan persekutuan.
         Kelola jadwal pelayanan mingguan dan acara khusus gereja dari sini.
       </p>
-
       <div class="hero-actions">
         <a href="{{ route('jadwal.create') }}" class="btn-hero-primary">＋ Tambah Jadwal</a>
       </div>
@@ -703,7 +519,6 @@
     <div class="stats-row">
       <div class="stat-card">
         <div class="stat-icon ic">📅</div>
-
         <div>
           <div class="stat-val vc">{{ $jadwal->where('category', 'mingguan')->count() }}</div>
           <div class="stat-lbl">Jadwal Mingguan</div>
@@ -712,7 +527,6 @@
 
       <div class="stat-card">
         <div class="stat-icon ig">✨</div>
-
         <div>
           <div class="stat-val vg">{{ $jadwal->where('category', 'acara_khusus')->count() }}</div>
           <div class="stat-lbl">Acara Khusus</div>
@@ -721,7 +535,6 @@
 
       <div class="stat-card">
         <div class="stat-icon is">⛪</div>
-
         <div>
           <div class="stat-val vs">{{ $jadwal->where('category', 'mingguan')->pluck('day')->unique()->count() }}</div>
           <div class="stat-lbl">Hari Aktif</div>
@@ -730,7 +543,6 @@
 
       <div class="stat-card">
         <div class="stat-icon ip">📍</div>
-
         <div>
           <div class="stat-val vp">{{ $jadwal->whereNotNull('location')->pluck('location')->unique()->count() }}</div>
           <div class="stat-lbl">Lokasi</div>
@@ -766,9 +578,8 @@
       ];
 
       $warnaCycle = ['c', 'g', 's', 'r', 'p', 'o'];
+      $adaMingguan = false;
     @endphp
-
-    @php $adaMingguan = false; @endphp
 
     @foreach($hariList as $hari)
       @php
@@ -807,7 +618,6 @@
                     onsubmit="return confirm('Hapus jadwal ini?')">
                     @csrf
                     @method('DELETE')
-
                     <button type="submit" class="act-btn btn-del">🗑</button>
                   </form>
                 </div>
@@ -819,8 +629,7 @@
     @endforeach
 
     @if(!$adaMingguan)
-      <div
-        style="text-align:center; padding:32px; color:var(--muted); font-size:13px; background:var(--white); border:1px dashed var(--border); border-radius:12px; margin-bottom:24px;">
+      <div style="text-align:center; padding:32px; color:var(--muted); font-size:13px; background:var(--white); border:1px dashed var(--border); border-radius:12px; margin-bottom:24px;">
         Belum ada jadwal mingguan. Klik <strong>Tambah Jadwal</strong> untuk menambahkan.
       </div>
     @endif
@@ -855,7 +664,6 @@
                   onsubmit="return confirm('Hapus acara ini?')">
                   @csrf
                   @method('DELETE')
-
                   <button type="submit" class="act-btn btn-del">🗑</button>
                 </form>
               </div>
@@ -864,10 +672,10 @@
         @endforeach
       </div>
     @else
-      <div
-        style="text-align:center;padding:32px;color:var(--muted);font-size:13px;background:var(--white);border:1px dashed var(--border);border-radius:12px;">
+      <div style="text-align:center;padding:32px;color:var(--muted);font-size:13px;background:var(--white);border:1px dashed var(--border);border-radius:12px;">
         Belum ada acara khusus. Klik <strong>Tambah Acara</strong> untuk menambahkan.
       </div>
     @endif
+
   </div>
 @endsection

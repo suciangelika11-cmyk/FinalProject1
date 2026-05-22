@@ -57,6 +57,13 @@
         color: var(--blue-light);
     }
 
+    /* ================= WRAPPER UTAMA JADWAL ================= */
+    .jadwal-container {
+        width: min(92%, 1180px);
+        margin: 0 auto;
+        padding: 60px 0;
+    }
+
     /* ================= HERO ================= */
     .hero {
         position: relative;
@@ -138,341 +145,172 @@
         margin: auto;
     }
 
-    /* ================= PAGE ================= */
-    .page-wrap {
-        width: min(92%, 1180px);
-        margin: auto;
-        padding: 70px 0 100px;
+    /* ================= SECTION HEADERS ================= */
+    .section-header {
+        margin-bottom: 40px;
     }
 
-    /* ================= SECTION ================= */
-    .section-eyebrow {
+    .section-label {
+        color: var(--blue-mid);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: .22em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+    }
+
+    .section-title {
+        font-family: 'Libre Baskerville', serif;
+        font-size: 32px;
+        color: var(--blue-light);
+        margin-bottom: 12px;
+    }
+
+    .section-rule {
+        width: 60px;
+        height: 3px;
+        background: var(--blue-mid);
+        border-radius: 2px;
+    }
+
+    /* ================= DAY DIVIDER ================= */
+    .day-divider {
         display: flex;
         align-items: center;
         gap: 16px;
-        margin-bottom: 50px;
+        margin: 40px 0 24px;
     }
 
-    .section-eyebrow::before,
-    .section-eyebrow::after {
+    .day-divider::after {
         content: '';
         flex: 1;
         height: 1px;
         background: var(--border);
     }
 
-    .section-eyebrow span {
-        color: var(--blue-mid);
-        font-size: 10px;
-        font-weight: 500;
-        letter-spacing: .22em;
-        text-transform: uppercase;
-        white-space: nowrap;
+    .day-name {
+        color: var(--blue-light);
+        font-weight: 600;
+        font-size: 18px;
+        letter-spacing: 0.05em;
     }
 
-    /* ================= CARD ================= */
-    .kegiatan-card {
+    /* ================= GRID & CARDS ================= */
+    .schedule-grid {
         display: grid;
-        grid-template-columns: 170px 1fr 340px;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 24px;
+        margin-bottom: 40px;
+    }
+
+    .schedule-card, .special-card {
         background: var(--ink-card);
         border: 1px solid var(--border);
         border-radius: var(--radius);
-        overflow: hidden;
-        margin-bottom: 28px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
         transition: .35s ease;
     }
 
-    .kegiatan-card:hover {
+    .schedule-card:hover, .special-card:hover {
         border-color: var(--border-strong);
         transform: translateY(-4px);
-        box-shadow: 0 22px 55px rgba(0, 0, 0, .42);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, .4);
     }
 
-    /* ================= DATE ================= */
-    .card-date {
-        background: rgba(38, 108, 169, 0.08);
-        border-right: 1px solid var(--border);
-
+    .card-icon {
+        width: 46px;
+        height: 46px;
+        background: rgba(38, 108, 169, 0.15);
+        color: var(--blue-light);
+        border-radius: 12px;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
-
-        text-align: center;
-        padding: 40px 20px;
+        font-size: 18px;
+        margin-bottom: 20px;
     }
 
-    .date-weekday {
-        font-size: 10px;
-        font-weight: 500;
-        letter-spacing: .20em;
-        text-transform: uppercase;
-        color: var(--blue-mid);
-        margin-bottom: 10px;
-    }
-
-    .date-num {
+    .card-title {
         font-family: 'Libre Baskerville', serif;
-        font-size: 62px;
-        line-height: 1;
+        font-size: 22px;
         color: var(--blue-light);
-        margin-bottom: 8px;
+        margin-bottom: 16px;
     }
 
-    .date-month {
-        font-size: 11px;
-        letter-spacing: .15em;
-        text-transform: uppercase;
-        color: var(--text-muted);
-    }
-
-    /* ================= INFO ================= */
-    .card-info {
-        padding: 38px;
+    .card-meta {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .card-tag {
-        font-size: 10px;
-        font-weight: 500;
-        letter-spacing: .22em;
-        text-transform: uppercase;
-        color: var(--blue-mid);
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        color: var(--text-muted);
         margin-bottom: 12px;
     }
 
-    .card-preacher {
-        font-family: 'Libre Baskerville', serif;
-        font-size: 34px;
-        line-height: 1.2;
-        color: var(--blue-light);
-        margin-bottom: 18px;
-        word-break: break-word;
+    .card-meta i {
+        color: var(--blue-mid);
+        width: 16px;
     }
 
-    .card-divider {
-        width: 45px;
-        height: 2px;
-        background: var(--blue-mid);
-        opacity: .6;
-        margin-bottom: 18px;
-    }
-
-    .card-tema {
-        font-family: 'Libre Baskerville', serif;
-        font-style: italic;
-        font-size: 16px;
+    .card-desc {
+        font-size: 14px;
         color: var(--text-muted);
-        line-height: 1.8;
-        margin-bottom: 22px;
+        line-height: 1.6;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        flex: 1;
     }
 
-    .card-verse {
+    .btn-detail {
         display: inline-flex;
         align-items: center;
-        gap: 9px;
+        gap: 8px;
+        color: var(--blue-light);
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        margin-top: auto;
+        transition: 0.2s;
+    }
+
+    .btn-detail:hover {
+        color: var(--blue-mid);
+    }
+
+    .badge-day {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
         background: rgba(38, 108, 169, 0.12);
         border: 1px solid var(--border-strong);
         border-radius: 40px;
-        padding: 10px 18px;
-        font-size: 12px;
+        padding: 6px 14px;
+        font-size: 11px;
         color: var(--blue-light);
         width: fit-content;
-        flex-wrap: wrap;
+        margin-top: 15px;
     }
 
-    /* ================= TEAM ================= */
-    .card-team {
-        background: rgba(255, 255, 255, 0.025);
-        border-left: 1px solid var(--border);
-
-        padding: 28px 24px;
-
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
+    /* ================= EMPTY STATE ================= */
+    .empty-state {
+        text-align: center;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px dashed var(--border);
+        border-radius: var(--radius);
+        color: var(--text-muted);
+        grid-column: 1 / -1;
     }
 
-    .team-heading {
-        font-size: 10px;
-        font-weight: 500;
-        letter-spacing: .20em;
-        text-transform: uppercase;
+    .empty-icon {
+        font-size: 36px;
         color: var(--blue-mid);
-    }
-
-    /* ================= SUB TEAM ================= */
-    .sub-team {
-        background: rgba(255, 255, 255, 0.035);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 16px;
-        padding: 16px;
-    }
-
-    .sub-team-head {
-        display: flex;
-        align-items: center;
-        gap: 12px;
         margin-bottom: 12px;
     }
 
-    .sub-team-icon {
-        width: 36px;
-        height: 36px;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-        flex-shrink: 0;
-    }
-
-    .sub-team-icon.worship {
-        background: rgba(38, 108, 169, 0.15);
-        color: var(--blue-light);
-    }
-
-    .sub-team-icon.media {
-        background: rgba(15, 37, 115, 0.15);
-        color: #7FB9FF;
-    }
-
-    .sub-team-icon.liturgi {
-        background: rgba(173, 225, 251, 0.12);
-        color: var(--blue-mid);
-    }
-
-    .sub-team-name {
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--blue-light);
-    }
-
-    .sub-team-desc {
-        font-size: 11px;
-        color: var(--text-muted);
-    }
-
-    .member-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-
-        padding: 10px 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .member-name {
-        font-size: 12px;
-        color: var(--blue-light);
-        word-break: break-word;
-    }
-
-    .member-badge {
-        font-size: 10px;
-        font-weight: 500;
-        border-radius: 40px;
-        padding: 4px 12px;
-        white-space: nowrap;
-    }
-
-    .member-badge.worship {
-        background: rgba(38, 108, 169, 0.15);
-        color: var(--blue-light);
-    }
-
-    .member-badge.media {
-        background: rgba(15, 37, 115, 0.15);
-        color: #7FB9FF;
-    }
-
-    .member-badge.liturgi {
-        background: rgba(173, 225, 251, 0.12);
-        color: var(--blue-mid);
-    }
-
-    /* ================= FOOTER ================= */
-    .page-footer {
-        margin-top: 80px;
-        border-top: 1px solid var(--border);
-        padding-top: 45px;
-        text-align: center;
-    }
-
-    .footer-icon {
-        width: 56px;
-        height: 56px;
-        border-radius: 50%;
-        border: 1px solid var(--border-strong);
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        margin: 0 auto 18px;
-
-        font-size: 20px;
-        color: var(--blue-mid);
-    }
-
-    .footer-quote {
-        font-family: 'Libre Baskerville', serif;
-        font-style: italic;
-        font-size: 17px;
-        color: var(--text-muted);
-        line-height: 1.8;
-    }
-
     /* ================= RESPONSIVE ================= */
-
-    @media(max-width:1200px) {
-
-        .kegiatan-card {
-            grid-template-columns: 150px 1fr 320px;
-        }
-
-        .card-preacher {
-            font-size: 30px;
-        }
-    }
-
-    @media(max-width:992px) {
-
-        .kegiatan-card {
-            grid-template-columns: 1fr;
-        }
-
-        .card-date {
-            border-right: none;
-            border-bottom: 1px solid var(--border);
-
-<<<<<<< HEAD
-            flex-direction: row;
-            justify-content: center;
-            gap: 18px;
-
-            padding: 26px;
-        }
-=======
-        /* HERO */
->>>>>>> 345e4aa07069f33de2acccec842637325bed1e18
-
-        .date-num {
-            font-size: 48px;
-            margin-bottom: 0;
-        }
-
-        .card-team {
-            border-left: none;
-            border-top: 1px solid var(--border);
-        }
-    }
-
     @media(max-width:768px) {
-
         .hero {
             min-height: 360px;
             padding: 100px 20px 90px;
@@ -482,125 +320,21 @@
             font-size: clamp(30px, 10vw, 48px);
         }
 
-        .hero-sub {
-            font-size: 14px;
-            line-height: 1.8;
-        }
-
-        .page-wrap {
-            width: 94%;
-            padding: 55px 0 80px;
-        }
-
-<<<<<<< HEAD
-        .section-eyebrow {
-            margin-bottom: 36px;
-=======
         .jadwal-container {
             width: 90%;
-            max-width: 1160px;
-            margin: 0 auto;
->>>>>>> 345e4aa07069f33de2acccec842637325bed1e18
+            padding: 40px 0;
         }
 
-        .card-info {
-            padding: 24px 20px;
+        .section-title {
+            font-size: 26px;
         }
 
-        .card-preacher {
-            font-size: 24px;
-        }
-
-        .card-tema {
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
-        .card-team {
-            padding: 20px;
-        }
-
-        .sub-team {
-            padding: 14px;
-        }
-    }
-
-    @media(max-width:576px) {
-
-        .hero {
-            min-height: 320px;
-        }
-
-        .hero-eyebrow {
-            font-size: 9px;
-            padding: 7px 14px;
-            letter-spacing: .18em;
-        }
-
-        .hero-sub {
-            font-size: 13px;
-        }
-
-        .card-date {
-            flex-direction: column;
-            gap: 6px;
-            padding: 22px 18px;
-        }
-
-        .date-weekday {
-            font-size: 9px;
-        }
-
-        .date-num {
-            font-size: 42px;
-        }
-
-        .date-month {
-            font-size: 10px;
-        }
-
-        .card-info {
-            padding: 22px 18px;
-        }
-
-        .card-preacher {
-            font-size: 21px;
-        }
-
-        .card-tema {
-            font-size: 14px;
-        }
-
-        .card-team {
-            padding: 18px;
-        }
-
-        .sub-team-head {
-            align-items: flex-start;
-        }
-
-        .member-row {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .member-badge {
-            margin-top: 4px;
-        }
-
-        .card-verse {
-            width: 100%;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .footer-quote {
-            font-size: 15px;
+        .schedule-grid {
+            grid-template-columns: 1fr;
         }
     }
 </style>
 
-    <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-eyebrow">
@@ -612,7 +346,6 @@
         </div>
     </section>
 
-    <!-- JADWAL MINGGUAN -->
     <section class="weekly">
         <div class="jadwal-container">
             <div class="section-header">
@@ -670,7 +403,6 @@
         </div>
     </section>
 
-    <!-- ACARA KHUSUS -->
     <section class="special">
         <div class="jadwal-container" style="position:relative;z-index:1;">
             <div class="section-header">
@@ -693,7 +425,7 @@
                         </div>
                     </div>
                 @empty
-                    <div class="empty-state" style="grid-column:1/-1;">
+                    <div class="empty-state">
                         <div class="empty-icon"><i class="fa-regular fa-calendar-xmark"></i></div>
                         <p>Belum ada acara khusus.</p>
                     </div>
