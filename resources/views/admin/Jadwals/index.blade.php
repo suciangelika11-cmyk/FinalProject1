@@ -686,7 +686,7 @@
 
   <div class="content">
     <div class="page-hero">
-      <div class="hero-tag">📅 Jadwal Ibadah</div>
+      <div class="hero-tag"><i class="ri-calendar-2-line"></i> Jadwal Ibadah</div>
 
       <h2>Jadwal Ibadah</h2>
 

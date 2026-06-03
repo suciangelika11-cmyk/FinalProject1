@@ -144,11 +144,19 @@
         <h1>Kelola Absensi</h1>
     </div>
 
+    
+    
+
     <div class="content">
+
+        <div class="breadcrumb-bar">
+      <a href="{{ route('admin.dashboard') }}">Home</a> / <span>Pelayanan</span>
+    </div>
+  </div>
 
         <div class="page-hero">
             <div class="hero-tag">
-                ✅ Absensi Ibadah
+                <i class="ri-checkbox-circle-line"></i>Absensi Ibadah
             </div>
 
             <h2>Kelola Data Absensi</h2>

@@ -835,7 +835,7 @@
 
     <div class="page-hero">
 
-      <div class="hero-tag">🙌 Pelayanan</div>
+      <div class="hero-tag"><i class="ri-service-line"></i> Pelayanan</div>
 
       <h2>Pelayanan & Komunitas</h2>
 

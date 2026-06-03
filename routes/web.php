@@ -28,6 +28,7 @@ use App\Http\Controllers\Pelayan\AbsensiController as PelayanAbsensiController;
 use App\Http\Controllers\Pelayan\KhotbahController as PelayanKhotbahController;
 use App\Http\Controllers\Pelayan\PengumumanController as PelayanPengumumanController;
 use App\Http\Controllers\Pelayan\TentangController as PelayanTentangController;
+use App\Http\Controllers\IbadahController;
 
 
 Route::get('/login', [AdminLoginController::class, 'showLoginForm'])->name('login');
@@ -141,9 +142,7 @@ Route::prefix('admin')->middleware(['auth', 'role:super_admin,admin'])->group(fu
     Route::get('/tentang',[PelayanTentangController::class, 'index'])->name('pelayan.tentang');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-})->name("home");
+Route::get('/', [IbadahController::class, 'index'])->name("home");
     
     Route::get('/tentang', [UserTentangController::class, 'index'])->name('user.tentang');
     Route::get('/Jadwal', [UserJadwalController::class, 'index'])->name('user.jadwal');

@@ -7,49 +7,51 @@
         rel="stylesheet">
 
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #020617, #0f172a, #1e3a8a);
-            color: #ffffff;
+        :root {
+            --primary: #769FCD;
+            --secondary: #B9D7EA;
+            --accent: #D6E6F2;
+            --bg: #F7FBFC;
+
+            --text-dark: #2E4A62;
+            --text-soft: #5D7B97;
         }
 
-        .hero-home,
-        .hero-text,
-        section,
-        .card,
-        .card h3,
-        .card p,
-        .card ol,
-        .card li,
-        .hero-text h1,
-        .hero-text p,
-        section h2,
-        section p,
-        .donasi-title,
-        .donasi-sub,
-        .rek {
-            color: #ffffff;
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(180deg,
+                    #F7FBFC 0%,
+                    #D6E6F2 100%);
+            color: var(--text-dark);
+            overflow-x: hidden;
         }
 
         /* HERO */
         .hero-home {
             position: relative;
+            width: 100%;
             height: 100vh;
-            min-height: 400px;
+            min-height: 500px;
             overflow: hidden;
+            padding: 0;
+            margin: 0;
         }
 
         .hero-video {
+            position: absolute;
+            inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.35) blur(2px);
+            filter: brightness(.4);
         }
 
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.75) 100%);
+            background:
+                linear-gradient(rgba(20, 35, 55, .55),
+                    rgba(20, 35, 55, .75));
         }
 
         .hero-text {
@@ -59,6 +61,7 @@
             transform: translateY(-50%);
             text-align: center;
             padding: 0 24px;
+            color: white;
         }
 
         /* EYEBROW */
@@ -66,176 +69,413 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            font-family: 'Inter', sans-serif;
             font-size: clamp(10px, 1.5vw, 12px);
             font-weight: 600;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.55);
+            color: rgba(255, 255, 255, .75);
             margin-bottom: clamp(14px, 3vw, 22px);
-            animation: fadeUp 0.8s ease 0.2s both;
+            animation: fadeUp .8s ease .2s both;
         }
 
         .hero-eyebrow::before,
         .hero-eyebrow::after {
             content: '';
-            display: inline-block;
             width: clamp(24px, 4vw, 40px);
             height: 1px;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, .4);
         }
 
-        /* MAIN TITLE */
+        /* TITLE */
         .hero-text h1 {
             font-family: 'Cormorant Garamond', serif;
-            line-height: 1.0;
-            margin: 0 0 clamp(10px, 2vw, 18px);
-            animation: fadeUp 0.9s ease 0.35s both;
+            line-height: 1;
+            margin-bottom: 18px;
+            animation: fadeUp .9s ease .35s both;
         }
 
         .hero-text h1 .word-selamat {
             display: block;
-            font-weight: 300;
             font-style: italic;
-            color: rgba(255, 255, 255, 0.7);
+            font-weight: 300;
+            color: rgba(255, 255, 255, .8);
             font-size: clamp(1.8rem, 5vw, 3.8rem);
-            letter-spacing: 0.04em;
-            margin-bottom: 2px;
         }
 
         .hero-text h1 .word-datang {
             display: block;
             font-weight: 700;
-            font-style: normal;
-            color: #ffffff;
+            color: white;
             font-size: clamp(3.2rem, 10vw, 7.5rem);
-            line-height: 0.88;
-            letter-spacing: -0.03em;
         }
 
         .hero-text h1 .word-di {
             display: block;
-            font-weight: 300;
             font-style: italic;
-            color: rgba(255, 255, 255, 0.55);
+            color: rgba(255, 255, 255, .7);
             font-size: clamp(1.1rem, 2.8vw, 2rem);
-            letter-spacing: 0.12em;
             margin-top: 8px;
         }
 
         .hero-text h1 .word-church {
             display: block;
-            font-weight: 700;
-            font-style: normal;
             font-size: clamp(2.4rem, 7vw, 5.6rem);
-            letter-spacing: -0.02em;
-            line-height: 1;
-            background: linear-gradient(130deg, #bfdbfe 0%, #c4b5fd 45%, #93c5fd 100%);
+            font-weight: 700;
+            background:
+                linear-gradient(135deg,
+                    #B9D7EA,
+                    #FFFFFF,
+                    #769FCD);
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: shimmer 4s linear infinite;
+            animation: shimmer 5s linear infinite;
         }
 
         @keyframes shimmer {
-            0% {
+            from {
                 background-position: -200% center;
             }
 
-            100% {
+            to {
                 background-position: 200% center;
             }
+        }
+
+        .hero-text p {
+            color: rgba(255, 255, 255, .75);
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            font-size: .9rem;
         }
 
         /* DIVIDER */
         .hero-divider {
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             gap: 12px;
-            margin: clamp(18px, 3vw, 28px) auto;
-            animation: fadeUp 0.9s ease 0.5s both;
+            margin: 24px auto;
         }
 
         .hero-divider-line {
-            display: inline-block;
-            width: clamp(36px, 7vw, 70px);
+            width: 70px;
             height: 1px;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.35));
-        }
-
-        .hero-divider-line.flip {
-            background: linear-gradient(to left, transparent, rgba(255, 255, 255, 0.35));
+            background: rgba(255, 255, 255, .4);
         }
 
         .hero-divider-dot {
             width: 5px;
             height: 5px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.45);
-            display: inline-block;
+            background: rgba(255, 255, 255, .6);
         }
 
         .hero-divider-dot.sm {
             width: 3px;
             height: 3px;
-            opacity: 0.3;
+            opacity: .5;
         }
 
-        /* SUBTITLE */
-        .hero-text p {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(0.78rem, 1.8vw, 0.92rem);
-            font-weight: 300;
-            letter-spacing: 0.18em;
-            color: rgba(255, 255, 255, 0.48);
-            text-transform: uppercase;
+        /* SECTION */
+        section {
+            padding: clamp(48px, 8vw, 100px) 16px;
+            color: var(--text-dark);
+        }
+
+        section h2 {
+            color: var(--text-dark);
+            font-weight: 800;
+        }
+
+        section p {
+            color: var(--text-soft);
+        }
+
+        /* CARD */
+        .card {
+            background: rgba(255, 255, 255, .88);
+            border: 1px solid rgba(118, 159, 205, .15);
+            border-radius: 24px;
+            backdrop-filter: blur(16px);
+            padding: clamp(20px, 4vw, 40px);
+
+            box-shadow:
+                0 10px 35px rgba(118, 159, 205, .10);
+
+            transition: .4s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow:
+                0 25px 60px rgba(118, 159, 205, .18);
+        }
+
+        .card h3,
+        .card h4 {
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .card p,
+        .card li,
+        .card ol {
+            color: var(--text-soft);
+        }
+
+        /* GRID */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(450px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* BUTTON */
+        .btn-main {
+            display: inline-block;
+            background:
+                linear-gradient(135deg,
+                    #769FCD,
+                    #B9D7EA);
+
+            color: var(--text-dark);
+            padding: 14px 40px;
+            border-radius: 999px;
+            font-weight: 700;
+            text-decoration: none;
+            border: none;
+
+            box-shadow:
+                0 10px 25px rgba(118, 159, 205, .25);
+        }
+
+        .btn-main:hover {
+            transform: translateY(-2px);
+        }
+
+        /* BUTTON COPY */
+        .btn-copy {
+            margin-top: 15px;
+            padding: 12px 30px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+
+            background:
+                linear-gradient(135deg,
+                    #769FCD,
+                    #B9D7EA);
+
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        /* DONASI */
+.support-section{
+    padding:80px 0;
+}
+
+.support-title{
+    font-size:4rem;
+    font-family:'Cormorant Garamond', serif;
+    color:#2e4a62;
+    margin-bottom:10px;
+}
+
+.support-subtitle{
+    color:#5d7b97;
+    font-size:1.2rem;
+    margin-bottom:50px;
+}
+
+.support-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.support-card{
+    background:#fff;
+    border-radius:28px;
+    padding:28px;
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
+}
+
+.card-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.card-header h3{
+    font-size:2rem;
+    color:#2e4a62;
+    font-family:'Cormorant Garamond', serif;
+    margin:0;
+}
+
+.card-header span{
+    color:#9ebce0;
+    font-size:1.5rem;
+}
+
+.qris-wrapper{
+    border:1px solid #dce7f3;
+    border-radius:20px;
+    overflow:hidden;
+    padding:20px;
+    max-width:420px;
+    margin:auto;
+}
+
+.qris-wrapper img{
+    max-height:350px;
+    object-fit:contain;
+}
+
+.qris-info{
+    text-align:center;
+    margin-top:20px;
+    color:#5d7b97;
+}
+
+.thank-you{
+    margin-top:15px;
+    color:#2673d6;
+    font-weight:600;
+}
+
+.join-banner{
+    background:linear-gradient(
+        135deg,
+        #5ca8f5,
+        #2673d6
+    );
+    border-radius:18px;
+    padding:30px;
+    color:white;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    min-height:180px;
+}
+
+.join-content h4{
+    font-size:2.5rem;
+    font-weight:700;
+    margin-bottom:20px;
+    color:white;
+}
+
+.join-content p{
+    color:white;
+    font-size:1.05rem;
+    line-height:1.8;
+}
+
+.join-icon{
+    font-size:7rem;
+    opacity:.18;
+}
+
+.join-buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:25px;
+    margin-bottom:25px;
+}
+
+.join-top-text{
+    text-align:center;
+    color:#35557b;
+    line-height:2;
+    font-size:1.1rem;
+    margin-bottom:25px;
+}
+
+.btn-primary,
+.btn-secondary{
+    flex:1;
+    text-align:center;
+    padding:16px;
+    border-radius:15px;
+    text-decoration:none;
+    font-weight:700;
+}
+
+.btn-primary{
+    background:#2673d6;
+    color:white;
+}
+
+.btn-secondary{
+    border:2px solid #2673d6;
+    color:#2673d6;
+}
+
+.join-features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    text-align:center;
+    padding-top:25px;
+    border-top:1px solid #e6edf6;
+}
+
+.feature{
+    padding:10px;
+}
+
+.feature-icon{
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.feature p{
+    color:#5d7b97;
+    font-size:.95rem;
+}
+
+@media(max-width:992px){
+
+    .support-grid{
+        grid-template-columns:1fr;
+    }
+
+    .support-title{
+        font-size:3rem;
+    }
+
+    .join-features{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+}
+        /* ANIMATION */
+        .scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: .8s;
+        }
+
+        .scroll.show {
             opacity: 1;
-            animation: fadeUp 0.9s ease 0.6s both;
-            margin: 0;
-        }
-
-        /* SCROLL INDICATOR */
-        .hero-scroll {
-            position: absolute;
-            bottom: 28px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            animation: fadeUp 1s ease 1.1s both;
-        }
-
-        .hero-scroll span {
-            font-size: 9px;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.3);
-            font-family: 'Inter', sans-serif;
-        }
-
-        .hero-scroll-line {
-            width: 1px;
-            height: 36px;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.45), transparent);
-            animation: scrollPulse 2.2s ease infinite;
-        }
-
-        @keyframes scrollPulse {
-
-            0%,
-            100% {
-                opacity: 0.3;
-                transform: scaleY(0.8) translateY(-4px);
-            }
-
-            50% {
-                opacity: 1;
-                transform: scaleY(1) translateY(0);
-            }
+            transform: translateY(0);
         }
 
         @keyframes fadeUp {
@@ -250,123 +490,9 @@
             }
         }
 
-        /* SECTION */
-        section {
-            padding: clamp(48px, 8vw, 100px) 16px;
-        }
+        /* MOBILE */
+        @media(max-width:768px) {
 
-        /* CARD */
-        .card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: clamp(20px, 4vw, 40px);
-            transition: 0.4s;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
-        }
-
-        /* GRID */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        /* BUTTON */
-        .btn-main {
-            display: inline-block;
-            background: linear-gradient(135deg, #3b82f6, #6366f1);
-            padding: 14px 40px;
-            border-radius: 999px;
-            color: white;
-            font-weight: 700;
-            border: none;
-            text-decoration: none;
-            margin-top: 16px;
-        }
-
-        /* DONASI */
-        .donasi-section {
-            background: linear-gradient(135deg, #0f172a, #1e3a8a);
-        }
-
-        .donasi-title {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 900;
-            margin-bottom: 12px;
-        }
-
-        .donasi-sub {
-            margin-bottom: 40px;
-            opacity: 0.8;
-        }
-
-        /* BOX */
-        .donasi-box {
-            width: 100%;
-            height: 500px;
-
-            border: 2px dashed #999;
-            border-radius: 20px;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            padding: 20px;
-            overflow: hidden;
-        }
-
-        .qris-img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        /* REKENING */
-        .rek {
-            font-size: 1.4rem;
-            font-weight: bold;
-            word-break: break-all;
-        }
-
-        /* BUTTON COPY */
-        .btn-copy {
-            margin-top: 15px;
-            padding: 12px 30px;
-            border-radius: 10px;
-            border: none;
-            background: linear-gradient(135deg, #3b82f6, #6366f1);
-            color: white;
-            cursor: pointer;
-        }
-
-        /* SCROLL ANIMATION */
-        .scroll {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: 0.8s;
-        }
-
-        .scroll.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* RESPONSIVE */
-        @media(max-width: 768px) {
             .grid-3 {
                 grid-template-columns: 1fr;
                 gap: 16px;
@@ -378,15 +504,12 @@
             }
 
             .card {
-                border-radius: 14px;
-            }
-
-            .hero-scroll {
-                bottom: 16px;
+                border-radius: 18px;
             }
         }
 
-        @media(min-width: 480px) and (max-width: 768px) {
+        @media(min-width:480px) and (max-width:768px) {
+
             .grid-3 {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 12px;
@@ -436,55 +559,115 @@
             <h2 class="scroll">Ibadah Minggu</h2>
 
             <div class="grid-3" style="margin: 32px 0 24px;">
-                <div class="card scroll">
-                    <h3>SESI 1</h3>
-                    <p>09:00 WIB</p>
-                </div>
-                <div class="card scroll">
-                    <h3>SESI 2</h3>
-                    <p>11:00 WIB</p>
-                </div>
-                <div class="card scroll">
-                    <h3>SESI 3</h3>
-                    <p>16:00 WIB</p>
-                </div>
+                @foreach($ibadahs as $ibadah)
+                    <div class="card scroll">
+                        <h3>{{ $ibadah->nama_sesi }}</h3>
+                        <p>{{ \Carbon\Carbon::parse($ibadah->jam_ibadah)->format('H:i') }} WIB</p>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
 
-    <!-- DONASI -->
-    <section class="donasi-section">
-        <div class="container text-center">
 
-            <h2 class="donasi-title scroll">Donasi</h2>
-            <p class="donasi-sub scroll">Dukung pelayanan melalui QRIS &amp; Transfer</p>
+    <!-- DUKUNG BERSAMA -->
+    <section class="support-section">
+        <div class="container">
 
-            <div class="grid-2">
+            <h2 class="support-title">Dukung Bersama</h2>
+            <p class="support-subtitle">
+                Dukung pelayanan dan bertumbuh bersama dalam keluarga GBI Tambunan
+            </p>
 
-                <!-- QRIS -->
-                <div class="card scroll">
-                    <h3>QRIS</h3>
-                    <div class="donasi-box">
-                        <img src="{{ asset('gambar/qris.jpeg') }}" class="qris-img">
+            <div class="support-grid">
+
+                <!-- CARD QRIS -->
+                <div class="support-card">
+
+                    <div class="card-header">
+                        <span>• • •</span>
+                        <h3>QRIS</h3>
+                        <span>• • •</span>
                     </div>
-                    <ol style="text-align:left;">
-                        <li>Scan QR</li>
-                        <li>Masukkan nominal</li>
-                        <li>Konfirmasi</li>
-                    </ol>
+
+                    <div class="qris-wrapper">
+                        <img src="{{ asset('gambar/qris.jpeg') }}" alt="QRIS">
+                    </div>
+
+                    <div class="qris-info">
+                        <p>
+                            Scan QR menggunakan aplikasi e-wallet / mobile banking
+                        </p>
+
+                        <p>
+                            Masukkan nominal dan konfirmasi pembayaran.
+                        </p>
+
+                        <div class="thank-you">
+                            ❤️ Terima kasih untuk setiap dukungan Anda ❤️
+                        </div>
+                    </div>
+
                 </div>
 
-                <!-- TRANSFER -->
-                <div class="card scroll">
-                    <h3>Transfer Bank</h3>
-                    <div class="donasi-box">BANK</div>
-                    <p id="rek" class="rek">123456789</p>
-                    <button onclick="copyRek()" class="btn-copy">Salin</button>
-                    <ol style="text-align:left;">
-                        <li>Transfer</li>
-                        <li>Masukkan rekening</li>
-                        <li>Konfirmasi</li>
-                    </ol>
+                <!-- CARD BERGABUNG -->
+                <div class="support-card">
+
+                    <div class="card-header">
+                        <span>• • •</span>
+                        <h3>Bergabunglah dengan Kami</h3>
+                        <span>• • •</span>
+                    </div>
+
+                    <div class="join-banner">
+
+                        <div class="join-content">
+                            <h4>Bergabunglah dengan Kami</h4>
+
+                            <p>
+                                Kami mengundang Anda untuk menjadi bagian dari
+                                keluarga besar GBI Tambunan. Datang dan rasakan
+                                kasih Tuhan bersama kami.
+                            </p>
+                        </div>
+
+                        <div class="join-icon">
+                            ⛪
+                        </div>
+
+                    </div>
+
+                    <div class="join-buttons">
+
+                        <a href="{{ route('user.jemaat') }}" class="btn-primary">
+                            📍 Jadi Jemaat
+                        </a>
+
+                        <a href="{{ route('user.kontak') }}" class="btn-secondary">
+                            👥 Hubungi Kami
+                        </a>
+
+                    </div>
+
+                    <div class="join-features">
+
+                        <div class="feature">
+                            <div class="feature-icon">👥</div>
+                            <p>Daftar menjadi jemaat</p>
+                        </div>
+
+                        <div class="feature">
+                            <div class="feature-icon">🤝</div>
+                            <p>Hubungi tim pelayanan</p>
+                        </div>
+
+                        <div class="feature">
+                            <div class="feature-icon">❤️</div>
+                            <p>Bertumbuh bersama</p>
+                        </div>
+
+                    </div>
+
                 </div>
 
             </div>

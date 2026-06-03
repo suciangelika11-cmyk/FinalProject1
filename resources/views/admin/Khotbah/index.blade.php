@@ -608,15 +608,6 @@
       </div>
     </div>
 
-    <div class="toolbar">
-      <div class="toolbar-left">
-        <form method="GET" action="{{ route('khotbah.index') }}" class="search-wrap">
-          <input type="text" name="q" value="{{ request('q') }}" placeholder="Cari judul khotbah...">
-          <button type="submit">🔍</button>
-        </form>
-      </div>
-    </div>
-
     @if($khotbah->count())
       <div class="khotbah-grid">
         @foreach($khotbah as $item)

@@ -415,7 +415,7 @@
 
       <a href="{{ route('khotbah.index') }}" style="text-decoration:none">
         <div class="card white">
-          <div class="card-icon-wrap"><span class="ico"><i class="ri-volume-up-line"></i></span></div>
+          <div class="card-icon-wrap"><span class="ico"><i class="ri-book-line"></i></span></div>
           <div class="card-title">Khotbah</div>
           <div class="card-desc">Kelola rekaman dan ringkasan khotbah yang bisa diakses jemaat kapan saja.</div>
           <div class="card-arrow">→</div>

@@ -2,422 +2,589 @@
 
 @section('content')
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-<style>
-:root{
-    --b950:#020810;--b900:#050f1f;--b800:#071830;--b700:#0d2448;
-    --b600:#163562;--b500:#1e4a8e;--b400:#2d65bf;--b300:#5592e0;
-    --b200:#93bef5;--b100:#d0e6ff;
-    --white:#fff;--dim:rgba(255,255,255,.55);
-    --r-pill:999px;--r-card:18px;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'DM Sans',sans-serif;background:var(--b900);color:var(--white);-webkit-font-smoothing:antialiased;}
+    <style>
+        :root {
+            --c1: #769FCD;
+            --c2: #B9D7EA;
+            --c3: #D6E6F2;
+            --c4: #F7FBFC;
 
-/* HERO */
-.kh-hero{position:relative;padding:110px 0 120px;text-align:center;overflow:hidden;background:var(--b950);}
-.kh-hero-ring{position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:640px;height:640px;border-radius:50%;border:1px solid rgba(45,101,191,.07);pointer-events:none;}
-.kh-hero-ring2{position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:420px;height:420px;border-radius:50%;border:1px solid rgba(45,101,191,.05);pointer-events:none;}
-.kh-hero-glow{position:absolute;top:0;left:50%;transform:translateX(-50%);width:560px;height:300px;background:radial-gradient(ellipse at top,rgba(30,74,142,.12) 0%,transparent 70%);pointer-events:none;}
+            --text: #4B6584;
+            --text-soft: #6E7E91;
 
-.kh-eyebrow{
-    display:inline-flex;align-items:center;gap:8px;
-    background:rgba(45,101,191,.12);border:1px solid rgba(45,101,191,.28);
-    border-radius:var(--r-pill);padding:6px 20px;
-    font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--b200);margin-bottom:28px;
-}
-.kh-dot{width:5px;height:5px;border-radius:50%;background:var(--b300);display:inline-block;}
+            --radius: 22px;
+        }
 
-.kh-hero h1{font-family:'Playfair Display',serif;font-size:clamp(34px,6vw,58px);font-weight:700;line-height:1.12;color:var(--white);margin-bottom:18px;}
-.kh-hero h1 em{font-style:italic;color:var(--b200);}
-.kh-hero p{font-size:15px;font-weight:300;color:rgba(255,255,255,.75);max-width:500px;margin:0 auto;line-height:1.75;}
-.kh-hero .wrap{position:relative;z-index:1;}
+        /* ==========================
+       HERO
+    ========================== */
 
-/* WAVE */
-.kh-wave{display:block;width:100%;overflow:hidden;line-height:0;}
-.kh-wave svg{display:block;width:100%;height:60px;}
+.pg-hero{
+    position:relative;
+    padding:110px 0 90px;
+    text-align:center;
+    overflow:hidden;
 
-/* SECTION */
-.kh-section{background:var(--b800);padding:0 0 90px;}
-.kh-section-head{text-align:center;padding:60px 0 44px;}
-.kh-label{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--b300);display:block;margin-bottom:12px;}
-.kh-title{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,38px);font-weight:700;color:var(--white);margin-bottom:18px;}
-.kh-rule{width:40px;height:2px;background:linear-gradient(90deg,var(--b500),var(--b300));border-radius:99px;margin:0 auto;}
+    background:linear-gradient(
+        135deg,
+        #F7FBFC 0%,
+        #D6E6F2 55%,
+        #B9D7EA 100%
+    );
 
-.tentang-container{max-width:1180px;margin:0 auto;padding:0 28px;}
-
-/* STATS SECTION */
-.stats-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 24px;
-    margin-bottom: 80px;
+    border-bottom:1px solid rgba(118,159,205,.15);
 }
 
-.stat-card {
-    background:rgba(13,36,72,.5);
-    border:1px solid rgba(45,101,191,.1);
-    border-radius:var(--r-card);
-    padding: 40px 20px;
-    text-align: center;
-    transition: transform .3s ease,border-color .3s ease;
-    backdrop-filter:blur(4px);
+.pg-hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+
+    background-image:
+        linear-gradient(rgba(118,159,205,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(118,159,205,.08) 1px, transparent 1px);
+
+    background-size:60px 60px;
+
+    mask-image:radial-gradient(
+        ellipse 80% 70% at 50% 50%,
+        black 0%,
+        transparent 100%
+    );
 }
 
-.stat-card:hover {
-    transform: translateY(-7px);
-    border-color: rgba(85,146,224,.28);
+.pg-hero::after{
+    content:'';
+    position:absolute;
+    top:-120px;
+    left:50%;
+    transform:translateX(-50%);
+    width:550px;
+    height:550px;
+    border-radius:50%;
+
+    background:radial-gradient(
+        circle,
+        rgba(118,159,205,.22),
+        transparent 70%
+    );
 }
 
-.stat-number {
-    font-family: 'Playfair Display', serif;
-    font-size: 48px;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--b300), var(--b200));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 12px;
+.pg-hero .wrap{
+    position:relative;
+    z-index:2;
 }
 
-.stat-label {
-    font-size: 13px;
-    color: rgba(255,255,255,.65);
-    letter-spacing: .04em;
+.pg-hero h1{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(34px,6vw,58px);
+    font-weight:800;
+    color:#4B6584;
+    margin-bottom:14px;
 }
 
-/* ABOUT CARD */
-.about-card {
-    background:rgba(13,36,72,.5);
-    border:1px solid rgba(45,101,191,.1);
-    border-radius:var(--r-card);
-    padding: 50px 40px;
-    margin-bottom: 80px;
-    line-height: 1.9;
-    font-size: 15px;
-    color: rgba(255,255,255,.8);
-    backdrop-filter:blur(4px);
-    transition: border-color .3s ease;
+.pg-hero h1 span{
+    background:linear-gradient(
+        135deg,
+        #769FCD,
+        #5E87B8,
+        #769FCD
+    );
+
+    background-size:200% auto;
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
-.about-card:hover {
-    border-color: rgba(85,146,224,.28);
+.pg-hero p{
+    font-size:16px;
+    color:#5F738B;
+    max-width:520px;
+    margin:auto;
+    line-height:1.8;
 }
 
-/* VISI MISI GRID */
-.visi-misi-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-bottom: 80px;
-}
+        /* ==========================
+       SECTION
+    ========================== */
 
-.visi-card, .misi-card {
-    background:rgba(13,36,72,.5);
-    border:1px solid rgba(45,101,191,.1);
-    border-radius:var(--r-card);
-    padding: 40px 32px;
-    transition: transform .3s ease,border-color .3s ease;
-    backdrop-filter:blur(4px);
-}
+        .kh-section {
+            background: #F7FBFC;
+            padding: 80px 0 100px;
+        }
 
-.visi-card:hover, .misi-card:hover {
-    transform: translateY(-7px);
-    border-color: rgba(85,146,224,.28);
-}
+        .tentang-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 24px;
+        }
 
-.visi-card h3, .misi-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    background: linear-gradient(135deg, var(--b300), var(--b200));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
+        .kh-section-head {
+            text-align: center;
+            margin-bottom: 60px;
+        }
 
-.visi-card p, .misi-card p {
-    font-size: 14px;
-    color: rgba(255,255,255,.75);
-    line-height: 1.8;
-}
+        .kh-label {
+            display: block;
 
-/* GEMBALA SECTION */
-.gembala-section {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 50px;
-    align-items: center;
-    margin-bottom: 80px;
-}
+            color: var(--c1);
 
-.gembala-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+            font-size: 11px;
 
-.gembala-image img {
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid rgba(85,146,224,.4);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    transition: transform .3s ease, border-color .3s ease;
-}
+            letter-spacing: 3px;
 
-.gembala-image img:hover {
-    transform: scale(1.02);
-    border-color: rgba(85,146,224,.8);
-}
+            text-transform: uppercase;
 
-.avatar {
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--b700), var(--b500));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 90px;
-    border: 3px solid rgba(85,146,224,.4);
-}
+            margin-bottom: 10px;
 
-.gembala-info h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: var(--white);
-}
+            font-weight: 700;
+        }
 
-.gembala-position {
-    display: inline-block;
-    background: rgba(45,101,191,.15);
-    border: 1px solid rgba(45,101,191,.25);
-    border-radius: var(--r-pill);
-    padding: 4px 16px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--b300);
-    margin-bottom: 20px;
-}
+        .kh-title {
+            font-family: 'Playfair Display', serif;
 
-.gembala-deskripsi {
-    font-size: 14px;
-    color: rgba(255,255,255,.75);
-    line-height: 1.8;
-    margin-bottom: 24px;
-}
+            color: var(--text);
 
-.gembala-details {
-    background: rgba(13,36,72,.3);
-    border-left: 3px solid var(--b300);
-    padding: 18px 22px;
-    border-radius: 12px;
-}
+            font-size: clamp(28px, 4vw, 42px);
 
-.gembala-details p {
-    font-size: 13px;
-    color: rgba(255,255,255,.7);
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+            margin-bottom: 14px;
+        }
 
-.gembala-details p:last-child {
-    margin-bottom: 0;
-}
+        .kh-rule {
+            width: 70px;
+            height: 3px;
 
-.gembala-details i {
-    width: 20px;
-    color: var(--b300);
-}
+            border-radius: 999px;
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .kh-hero {
-        padding: 80px 0;
-    }
-    
-    .stats-section {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-    
-    .visi-misi-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .gembala-section {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        text-align: center;
-    }
-    
-    .gembala-image img, .avatar {
-        width: 200px;
-        height: 200px;
-        font-size: 70px;
-    }
-    
-    .about-card {
-        padding: 30px 24px;
-    }
-    
-    .visi-card, .misi-card {
-        padding: 30px 24px;
-    }
-    
-    .gembala-details p {
-        text-align: left;
-    }
-}
-</style>
+            background:
+                linear-gradient(90deg,
+                    #769FCD,
+                    #B9D7EA);
 
-@if($data)
+            margin: auto;
+        }
 
-<section class="kh-hero">
-    <div class="kh-hero-ring"></div>
-    <div class="kh-hero-ring2"></div>
-    <div class="kh-hero-glow"></div>
-    <div class="wrap tentang-container">
-        <div class="kh-eyebrow"><span class="kh-dot"></span>Tentang Kami<span class="kh-dot"></span></div>
-<h1>Tentang GBI Tambunan</h1>
+        /* ==========================
+       STATS
+    ========================== */
 
-<p>
-    Gereja Bethel Indonesia Tambunan hadir untuk melayani jemaat,
-    membangun iman, dan menjadi berkat bagi masyarakat.
-</p>
-    </div>
-</section>
+        .stats-section {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
 
-<div class="kh-wave">
-    <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z" fill="#071830"/>
-    </svg>
-</div>
+            gap: 24px;
 
-<section class="kh-section">
-    <div class="container">
+            margin-bottom: 70px;
+        }
 
-        <!-- STATISTICS SECTION -->
-        <div class="stats-section">
-            <div class="stat-card">
-                <div class="stat-number">1978</div>
-                <div class="stat-label">Sejak Berdiri</div>
+        .stat-card {
+            background: white;
+
+            border: 1px solid #D6E6F2;
+
+            border-radius: var(--radius);
+
+            padding: 35px 20px;
+
+            text-align: center;
+
+            transition: .35s;
+
+            box-shadow:
+                0 10px 30px rgba(118, 159, 205, .08);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+
+            border-color: #769FCD;
+
+            box-shadow:
+                0 20px 40px rgba(118, 159, 205, .18);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+
+            font-size: 48px;
+
+            color: #4B6584;
+
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #6E7E91;
+        }
+
+        /* ==========================
+       ABOUT
+    ========================== */
+
+        .about-card {
+            background: white;
+
+            border: 1px solid #D6E6F2;
+
+            border-radius: 24px;
+
+            padding: 45px;
+
+            color: #6E7E91;
+
+            line-height: 2;
+
+            margin-bottom: 70px;
+
+            box-shadow:
+                0 10px 30px rgba(118, 159, 205, .08);
+        }
+
+        /* ==========================
+       VISI MISI
+    ========================== */
+
+        .visi-misi-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(320px, 1fr));
+
+            gap: 24px;
+
+            margin-bottom: 80px;
+        }
+
+        .visi-card,
+        .misi-card {
+            background: white;
+
+            border: 1px solid #D6E6F2;
+
+            border-radius: 24px;
+
+            padding: 35px;
+
+            transition: .35s;
+
+            box-shadow:
+                0 10px 30px rgba(118, 159, 205, .08);
+        }
+
+        .visi-card:hover,
+        .misi-card:hover {
+            transform: translateY(-8px);
+
+            border-color: #769FCD;
+        }
+
+        .visi-card h3,
+        .misi-card h3 {
+            font-family: 'Playfair Display', serif;
+
+            color: #4B6584;
+
+            font-size: 28px;
+
+            margin-bottom: 18px;
+        }
+
+        .visi-card p,
+        .misi-card p {
+            color: #6E7E91;
+            line-height: 1.8;
+        }
+
+        /* ==========================
+       GEMBALA
+    ========================== */
+
+        .gembala-section {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+
+            gap: 40px;
+            align-items: center;
+        }
+
+        .gembala-image {
+            text-align: center;
+        }
+
+        .gembala-image img,
+        .avatar {
+            width: 280px;
+            height: 280px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            margin: auto;
+
+            border: 6px solid white;
+
+            box-shadow:
+                0 20px 50px rgba(118, 159, 205, .25);
+        }
+
+        .avatar {
+            background:
+                linear-gradient(135deg,
+                    #769FCD,
+                    #B9D7EA);
+
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 80px;
+        }
+
+        .gembala-info {
+            background: white;
+
+            border: 1px solid #D6E6F2;
+
+            border-radius: 24px;
+
+            padding: 40px;
+
+            box-shadow:
+                0 10px 30px rgba(118, 159, 205, .08);
+        }
+
+        .gembala-info h3 {
+            font-family: 'Playfair Display', serif;
+
+            font-size: 34px;
+
+            color: #4B6584;
+
+            margin-bottom: 10px;
+        }
+
+        .gembala-position {
+            display: inline-block;
+
+            padding: 6px 14px;
+
+            border-radius: 999px;
+
+            background: #D6E6F2;
+
+            color: #5D87B7;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+        }
+
+        .gembala-deskripsi {
+            color: #6E7E91;
+
+            line-height: 1.9;
+
+            margin-bottom: 25px;
+        }
+
+        .gembala-details {
+            background: #F7FBFC;
+
+            border-left: 4px solid #769FCD;
+
+            border-radius: 12px;
+
+            padding: 20px;
+        }
+
+        .gembala-details p {
+            color: #6E7E91;
+
+            margin-bottom: 10px;
+        }
+
+        .gembala-details p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ==========================
+       RESPONSIVE
+    ========================== */
+
+        @media(max-width:900px) {
+
+            .gembala-section {
+                grid-template-columns: 1fr;
+            }
+
+            .gembala-info {
+                text-align: center;
+            }
+        }
+
+        @media(max-width:768px) {
+
+            .about-card {
+                padding: 28px;
+            }
+
+            .visi-card,
+            .misi-card {
+                padding: 28px;
+            }
+
+            .gembala-image img,
+            .avatar {
+                width: 220px;
+                height: 220px;
+            }
+        }
+    </style>
+
+    @if($data)
+
+        <section class="pg-hero">
+            <div class="container wrap"></div>
+            <div class="kh-hero-ring2"></div>
+            <div class="kh-hero-glow"></div>
+            <div class="wrap tentang-container">
+                <div class="kh-eyebrow"><span class="kh-dot"></span>Tentang Kami<span class="kh-dot"></span></div>
+                <h1>Tentang GBI Tambunan</h1>
+
+                <p>
+                    Gereja Bethel Indonesia Tambunan hadir untuk melayani jemaat,
+                    membangun iman, dan menjadi berkat bagi masyarakat.
+                </p>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">2.4K+</div>
-                <div class="stat-label">Jemaat Aktif</div>
+        </section>
+
+        <section class="kh-section">
+            <div class="container">
+
+                <!-- STATISTICS SECTION -->
+                <div class="stats-section">
+                    <div class="stat-card">
+                        <div class="stat-number">1978</div>
+                        <div class="stat-label">Sejak Berdiri</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2.4K+</div>
+                        <div class="stat-label">Jemaat Aktif</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Pelayanan</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">40+</div>
+                        <div class="stat-label">Tahun Pelayanan</div>
+                    </div>
+                </div>
+
+                <!-- SEJARAH / PERJALANAN IMAN KAMI -->
+                <div class="kh-section-head">
+                    <span class="kh-label">Perjalanan Iman</span>
+                    <h2 class="kh-title">Sejarah Gereja Kami</h2>
+                    <div class="kh-rule"></div>
+                </div>
+
+                <div class="about-card">
+                    {{ $data->sejarah }}
+                </div>
+
+                <!-- VISI & MISI -->
+                <div class="kh-section-head">
+                    <span class="kh-label">Arah Pelayanan</span>
+                    <h2 class="kh-title">Visi & Misi</h2>
+                    <div class="kh-rule"></div>
+                </div>
+
+                <div class="visi-misi-grid">
+                    <div class="visi-card">
+                        <h3>Visi Kami</h3>
+                        <p>{{ $data->visi }}</p>
+                    </div>
+                    <div class="misi-card">
+                        <h3>Misi Kami</h3>
+                        <p>{{ $data->misi }}</p>
+                    </div>
+                </div>
+
+                <!-- GEMBALA SIDANG -->
+                <div class="kh-section-head">
+                    <span class="kh-label">Pemimpin Gereja</span>
+                    <h2 class="kh-title">Gembala Sidang</h2>
+                    <div class="kh-rule"></div>
+                </div>
+
+                <div class="gembala-section">
+                    <div class="gembala-image">
+                        @if($data->gembala_foto)
+                            <img src="{{ asset('storage/' . $data->gembala_foto) }}" alt="{{ $data->gembala_nama }}">
+                        @else
+                            <div class="avatar">👤</div>
+                        @endif
+                    </div>
+                    <div class="gembala-info">
+                        <h3>{{ $data->gembala_nama }}</h3>
+                        <div class="gembala-position">{{ $data->gembala_jabatan }}</div>
+                        <div class="gembala-deskripsi">{{ $data->gembala_deskripsi }}</div>
+                        <div class="gembala-details">
+                            <p><i class="bi bi-geo-alt"></i> Jalan Gembala Sidang</p>
+                            <p><i class="bi bi-envelope"></i> info@gbi.id</p>
+                            <p><i class="bi bi-telephone"></i> +62-XXX-XXX-XXXX</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <div class="stat-card">
-                <div class="stat-number">12</div>
-                <div class="stat-label">Pelayanan</div>
+        </section>
+
+    @else
+
+        <section class="kh-hero">
+            <div class="kh-hero-ring"></div>
+            <div class="kh-hero-ring2"></div>
+            <div class="kh-hero-glow"></div>
+            <div class="wrap container">
+                <div class="kh-eyebrow"><span class="kh-dot"></span>Tentang Kami<span class="kh-dot"></span></div>
+                <h1>Tentang Gereja Kami</h1>
+                <p>Data sedang dalam proses pengisian</p>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">40+</div>
-                <div class="stat-label">Tahun Pelayanan</div>
-            </div>
+        </section>
+
+        <div class="kh-wave">
+            <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z" fill="#071830" />
+            </svg>
         </div>
 
-        <!-- SEJARAH / PERJALANAN IMAN KAMI -->
-        <div class="kh-section-head">
-            <span class="kh-label">Perjalanan Iman</span>
-            <h2 class="kh-title">Sejarah Gereja Kami</h2>
-            <div class="kh-rule"></div>
-        </div>
-
-        <div class="about-card">
-            {{ $data->sejarah }}
-        </div>
-
-        <!-- VISI & MISI -->
-        <div class="kh-section-head">
-            <span class="kh-label">Arah Pelayanan</span>
-            <h2 class="kh-title">Visi & Misi</h2>
-            <div class="kh-rule"></div>
-        </div>
-
-        <div class="visi-misi-grid">
-            <div class="visi-card">
-                <h3>Visi Kami</h3>
-                <p>{{ $data->visi }}</p>
-            </div>
-            <div class="misi-card">
-                <h3>Misi Kami</h3>
-                <p>{{ $data->misi }}</p>
-            </div>
-        </div>
-
-        <!-- GEMBALA SIDANG -->
-        <div class="kh-section-head">
-            <span class="kh-label">Pemimpin Gereja</span>
-            <h2 class="kh-title">Gembala Sidang</h2>
-            <div class="kh-rule"></div>
-        </div>
-
-        <div class="gembala-section">
-            <div class="gembala-image">
-                @if($data->gembala_foto)
-                    <img src="{{ asset('storage/'.$data->gembala_foto) }}" alt="{{ $data->gembala_nama }}">
-                @else
-                    <div class="avatar">👤</div>
-                @endif
-            </div>
-            <div class="gembala-info">
-                <h3>{{ $data->gembala_nama }}</h3>
-                <div class="gembala-position">{{ $data->gembala_jabatan }}</div>
-                <div class="gembala-deskripsi">{{ $data->gembala_deskripsi }}</div>
-                <div class="gembala-details">
-                    <p><i class="bi bi-geo-alt"></i> Jalan Gembala Sidang</p>
-                    <p><i class="bi bi-envelope"></i> info@gbi.id</p>
-                    <p><i class="bi bi-telephone"></i> +62-XXX-XXX-XXXX</p>
+        <section class="kh-section">
+            <div class="container">
+                <div class="kh-empty" style="padding: 100px 20px;">
+                    <div class="kh-empty-icon"><i class="bi bi-building"></i></div>
+                    <h4>Informasi Gereja</h4>
+                    <p>Data tentang gereja akan segera ditampilkan di sini.</p>
                 </div>
             </div>
-        </div>
+        </section>
 
-    </div>
-</section>
-
-@else
-
-<section class="kh-hero">
-    <div class="kh-hero-ring"></div>
-    <div class="kh-hero-ring2"></div>
-    <div class="kh-hero-glow"></div>
-    <div class="wrap container">
-        <div class="kh-eyebrow"><span class="kh-dot"></span>Tentang Kami<span class="kh-dot"></span></div>
-        <h1>Tentang Gereja Kami</h1>
-        <p>Data sedang dalam proses pengisian</p>
-    </div>
-</section>
-
-<div class="kh-wave">
-    <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z" fill="#071830"/>
-    </svg>
-</div>
-
-<section class="kh-section">
-    <div class="container">
-        <div class="kh-empty" style="padding: 100px 20px;">
-            <div class="kh-empty-icon"><i class="bi bi-building"></i></div>
-            <h4>Informasi Gereja</h4>
-            <p>Data tentang gereja akan segera ditampilkan di sini.</p>
-        </div>
-    </div>
-</section>
-
-@endif
+    @endif
 
 @endsection

@@ -2,44 +2,55 @@
 
 @section('content')
     <style>
+        /* ==================================
+       WRAPPER
+    ================================== */
         .jm-outer {
             min-height: 100vh;
-            padding: 64px 20px 96px;
-            background: linear-gradient(160deg, #0f2444 0%, #102a52 40%, #0d1e3a 100%);
+            padding: 80px 20px 100px;
+            background:
+                radial-gradient(circle at top,
+                    rgba(118, 159, 205, .15),
+                    transparent 40%),
+                #F7FBFC;
         }
 
         .jm-wrap {
-            max-width: 720px;
+            max-width: 760px;
             margin: auto;
         }
 
-        /* HEADER */
+        /* ==================================
+       HEADER
+    ================================== */
         .jm-head {
             text-align: center;
-            margin-bottom: 44px;
+            margin-bottom: 50px;
         }
 
         .jm-head h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(30px, 5vw, 42px);
+            font-size: clamp(34px, 5vw, 48px);
             font-weight: 700;
-            color: #fff;
-            line-height: 1.18;
-            margin-bottom: 12px;
-            animation: fadeUp 0.8s ease 0.25s both;
+            color: #2C3E50;
+            margin-bottom: 14px;
+            animation: fadeUp .8s ease .25s both;
         }
 
         .jm-head p {
-            color: rgba(255, 255, 255, 0.68);
+            color: #6B7C93;
             font-size: 15px;
-            font-weight: 300;
-            line-height: 1.7;
-            animation: fadeUp 0.8s ease 0.4s both;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: auto;
+            animation: fadeUp .8s ease .4s both;
         }
 
-        /* ALERTS */
+        /* ==================================
+       ALERT
+    ================================== */
         .jm-alert {
-            border-radius: 12px;
+            border-radius: 14px;
             padding: 14px 20px;
             margin-bottom: 20px;
             font-size: 14px;
@@ -47,33 +58,42 @@
         }
 
         .jm-alert-ok {
-            background: rgba(26, 158, 96, 0.15);
-            border: 1px solid rgba(26, 158, 96, 0.3);
-            color: #7ee8b6;
+            background: #e8faf1;
+            border: 1px solid #b7ebd2;
+            color: #228b5a;
         }
 
         .jm-alert-err {
-            background: rgba(220, 53, 69, 0.15);
-            border: 1px solid rgba(220, 53, 69, 0.28);
-            color: #f8a4ad;
+            background: #fff0f1;
+            border: 1px solid #f3c8ce;
+            color: #c0394b;
         }
 
-        /* CARD */
+        /* ==================================
+       CARD
+    ================================== */
         .jm-card {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(93, 146, 232, 0.16);
-            border-radius: 22px;
-            padding: 38px 34px;
-            backdrop-filter: blur(10px);
-            animation: fadeUp 0.8s ease 0.3s both;
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 40px;
+            border: 1px solid rgba(118, 159, 205, .15);
+
+            box-shadow:
+                0 20px 45px rgba(118, 159, 205, .08);
+
+            animation: fadeUp .8s ease .3s both;
         }
 
+        /* ==================================
+       SECTION TITLE
+    ================================== */
         .jm-section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 17px;
-            font-weight: 600;
-            color: #93bef8;
-            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #769FCD;
+            margin-bottom: 22px;
+
             display: flex;
             align-items: center;
             gap: 10px;
@@ -81,82 +101,104 @@
 
         .jm-section-title::before {
             content: '';
-            width: 3px;
-            height: 18px;
-            background: linear-gradient(to bottom, #2d65c8, #93bef8);
-            border-radius: 2px;
-            flex-shrink: 0;
+            width: 4px;
+            height: 20px;
+            border-radius: 999px;
+            background: linear-gradient(to bottom,
+                    #769FCD,
+                    #B9D7EA);
         }
 
+        /* ==================================
+       FORM
+    ================================== */
         .jm-group {
-            margin-bottom: 18px;
+            margin-bottom: 20px;
         }
 
         .jm-label {
             display: block;
-            margin-bottom: 7px;
-            font-size: 13.5px;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.78);
+            margin-bottom: 8px;
+
+            font-size: 14px;
+            font-weight: 600;
+            color: #44556B;
         }
 
         .jm-input,
         .jm-textarea,
         .jm-select {
             width: 100%;
-            padding: 11px 15px;
-            border-radius: 10px;
-            border: 1px solid rgba(93, 146, 232, 0.2);
-            background: rgba(255, 255, 255, 0.06);
-            color: #fff;
-            font-family: 'DM Sans', sans-serif;
+            padding: 13px 16px;
+
+            border-radius: 12px;
+
+            border: 1px solid #D6E6F2;
+            background: #F7FBFC;
+
+            color: #2C3E50;
+
             font-size: 14px;
-            outline: none;
-            transition: border-color 0.25s, background 0.25s;
+            font-family: 'DM Sans', sans-serif;
+
+            transition: .25s ease;
         }
 
         .jm-input:focus,
         .jm-textarea:focus,
         .jm-select:focus {
-            border-color: #5592e8;
-            background: rgba(255, 255, 255, 0.09);
+            border-color: #769FCD;
+            background: #fff;
+
+            outline: none;
+
+            box-shadow:
+                0 0 0 4px rgba(118, 159, 205, .12);
         }
 
         .jm-input::placeholder,
         .jm-textarea::placeholder {
-            color: rgba(255, 255, 255, 0.3);
-            font-weight: 300;
+            color: #9BAFC4;
         }
 
         .jm-select option {
-            background: #0f2040;
-            color: #fff;
+            background: #fff;
+            color: #2C3E50;
         }
 
         .jm-textarea {
-            min-height: 88px;
+            min-height: 100px;
             resize: vertical;
         }
 
+        /* ==================================
+       ERROR
+    ================================== */
         .jm-invalid {
-            border-color: #f87171 !important;
+            border-color: #dc3545 !important;
         }
 
         .jm-feedback {
-            margin-top: 5px;
-            color: #fca5a5;
-            font-size: 12.5px;
+            margin-top: 6px;
+            font-size: 12px;
+            color: #dc3545;
         }
 
+        /* ==================================
+       GRID
+    ================================== */
         .jm-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 18px;
         }
 
+        /* ==================================
+       RADIO
+    ================================== */
         .jm-radio-group {
             display: flex;
-            gap: 18px;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
@@ -164,45 +206,84 @@
             display: flex;
             align-items: center;
             gap: 8px;
+
+            color: #5E7187;
             font-size: 14px;
-            color: rgba(255, 255, 255, 0.78);
             cursor: pointer;
         }
 
         .jm-radio-label input[type="radio"] {
-            accent-color: #5592e8;
+            accent-color: #769FCD;
             width: 16px;
             height: 16px;
         }
 
+        /* ==================================
+       DIVIDER
+    ================================== */
         .jm-divider {
-            margin: 28px 0;
+            margin: 32px 0;
+
             height: 1px;
-            background: rgba(93, 146, 232, 0.12);
+
+            background: linear-gradient(to right,
+                    transparent,
+                    #D6E6F2,
+                    transparent);
         }
 
+        /* ==================================
+       BUTTON
+    ================================== */
         .jm-submit {
             width: 100%;
-            padding: 14px;
+
+            padding: 15px;
+
             border: none;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #1a4a9e, #2d65c8);
-            color: #fff;
-            font-family: 'DM Sans', sans-serif;
+            border-radius: 14px;
+
+            background: linear-gradient(135deg,
+                    #769FCD,
+                    #5F89B8);
+
+            color: white;
+
             font-size: 15px;
             font-weight: 600;
+
             cursor: pointer;
-            box-shadow: 0 8px 24px rgba(26, 74, 158, 0.38);
-            transition: opacity 0.25s, transform 0.2s, box-shadow 0.2s;
+
+            transition: .3s ease;
         }
 
         .jm-submit:hover {
-            opacity: 0.92;
-            transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(26, 74, 158, 0.48);
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 30px rgba(118, 159, 205, .25);
         }
 
+        /* ==================================
+       ANIMATION
+    ================================== */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==================================
+       MOBILE
+    ================================== */
         @media (max-width: 560px) {
+
             .jm-row {
                 grid-template-columns: 1fr;
             }

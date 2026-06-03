@@ -237,6 +237,140 @@
             margin-bottom: 8px;
         }
 
+        .page-hero {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--cyan-dk), var(--cyan), #29c4f0);
+            padding: 40px 45px;
+            box-shadow: 0 12px 40px rgba(29, 168, 224, .2), inset 0 1px 0 rgba(255, 255, 255, .2);
+            animation: slideUp .6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 50% 80% at 95% 50%, rgba(255, 255, 255, .12) 0%, transparent 65%), radial-gradient(ellipse 35% 60% at 5% 90%, rgba(200, 155, 60, .18) 0%, transparent 55%);
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, .15);
+            border: 1px solid rgba(255, 255, 255, .4);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            animation: fadeIn .6s ease-out .2s both;
+            backdrop-filter: blur(4px);
+        }
+
+        .page-hero h2 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+            animation: slideInLeft .6s ease-out .3s both;
+            letter-spacing: -0.5px;
+        }
+
+        .page-hero p {
+            color: rgba(255, 255, 255, .9);
+            font-size: 14.5px;
+            max-width: 580px;
+            line-height: 1.7;
+            animation: fadeIn .6s ease-out .4s both;
+        }
+
+        .hero-actions {
+            margin-top: 20px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            animation: fadeUp .6s ease-out .5s both;
+        }
+
+        .btn-hero-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            background: #fff;
+            color: var(--cyan);
+            border: none;
+            text-decoration: none;
+            font-family: 'Nunito', sans-serif;
+            font-size: 13.5px;
+            font-weight: 700;
+            padding: 11px 24px;
+            border-radius: 9px;
+            cursor: pointer;
+            transition: all .3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, .12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-hero-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(13, 133, 181, .1), transparent);
+            opacity: 0;
+            transition: opacity .3s;
+        }
+
+        .btn-hero-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+            color: var(--cyan-dk);
+        }
+
+        .btn-hero-primary:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-hero-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(255, 255, 255, .1);
+            color: #fff;
+            border: 1.5px solid rgba(255, 255, 255, .4);
+            font-family: 'Nunito', sans-serif;
+            font-size: 13.5px;
+            font-weight: 700;
+            padding: 10px 24px;
+            border-radius: 9px;
+            cursor: pointer;
+            transition: all .3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            backdrop-filter: blur(4px);
+        }
+
+        .btn-hero-outline:hover {
+            background: rgba(255, 255, 255, .2);
+            border-color: rgba(255, 255, 255, .6);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+        }
+
         @media (max-width: 768px) {
             .pengumuman-page {
                 padding: 18px 14px 40px;
@@ -248,93 +382,90 @@
         }
     </style>
 
-    <div class="pengumuman-page">
-        <div class="pengumuman-header">
-            <div>
-                <h1>Data Pengumuman</h1>
-            </div>
+    <div class="page-hero">
+        <div class="hero-tag"><i class="ri-notification-2-line"></i> Pengumuman</div>
+        <h2>Pengumuman</h2>
+        <p> Kelola pengumuman penting untuk jemaat GBI Tambunan.</p>
+        <div class="hero-actions">
+            <a href="{{ route('pengumuman.create') }}" class="btn-hero-primary">＋ Tambah Pengumuman</a>
+        </div>
+    </div>
 
-            <a href="{{ route('pengumuman.create') }}" class="btn-add">
-                + Tambah Pengumuman
-            </a>
+    @if(session('success'))
+        <div class="alert-success-custom">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <div class="pengumuman-card">
+        <div class="pengumuman-card-top">
+            <h2>Daftar Pengumuman</h2>
+            <span>Total: {{ $pengumuman->count() }} data</span>
         </div>
 
-        @if(session('success'))
-            <div class="alert-success-custom">
-                {{ session('success') }}
-            </div>
-        @endif
-
-        <div class="pengumuman-card">
-            <div class="pengumuman-card-top">
-                <h2>Daftar Pengumuman</h2>
-                <span>Total: {{ $pengumuman->count() }} data</span>
-            </div>
-
-            <div class="table-wrap">
-                <table class="pengumuman-table">
-                    <thead>
+        <div class="table-wrap">
+            <table class="pengumuman-table">
+                <thead>
+                    <tr>
+                        <th>Judul</th>
+                        <th>Tanggal Publish</th>
+                        <th>Status</th>
+                        <th width="180">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse($pengumuman as $item)
                         <tr>
-                            <th>Judul</th>
-                            <th>Tanggal Publish</th>
-                            <th>Status</th>
-                            <th width="180">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse($pengumuman as $item)
-                            <tr>
-                                <td>
-                                    <div class="title-wrap">
-                                        @if($item->image)
-                                            <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}"
-                                                class="thumb">
-                                        @else
-                                            <div class="thumb-placeholder">📢</div>
-                                        @endif
+                            <td>
+                                <div class="title-wrap">
+                                    @if($item->image)
+                                        <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" class="thumb">
+                                    @else
+                                        <div class="thumb-placeholder">📢</div>
+                                    @endif
 
-                                        <div>
-                                            <div class="title-main">{{ $item->title }}</div>
-                                            <div class="title-sub">
-                                                {{ \Illuminate\Support\Str::limit($item->content, 60) }}
-                                            </div>
+                                    <div>
+                                        <div class="title-main">{{ $item->title }}</div>
+                                        <div class="title-sub">
+                                            {{ \Illuminate\Support\Str::limit($item->content, 60) }}
                                         </div>
                                     </div>
-                                </td>
-                                <td>{{ $item->publish_date ?: '-' }}</td>
-                                <td>
-                                    <span class="badge-status {{ $item->is_active ? 'active' : 'inactive' }}">
-                                        {{ $item->is_active ? 'Aktif' : 'Nonaktif' }}
-                                    </span>
-                                </td>
-                                <td>
-                                    <div class="action-group">
-                                        <a href="{{ route('pengumuman.edit', $item->id) }}" class="btn-edit">
-                                            Edit
-                                        </a>
+                                </div>
+                            </td>
+                            <td>{{ $item->publish_date ?: '-' }}</td>
+                            <td>
+                                <span class="badge-status {{ $item->is_active ? 'active' : 'inactive' }}">
+                                    {{ $item->is_active ? 'Aktif' : 'Nonaktif' }}
+                                </span>
+                            </td>
+                            <td>
+                                <div class="action-group">
+                                    <a href="{{ route('pengumuman.edit', $item->id) }}" class="btn-edit">
+                                        Edit
+                                    </a>
 
-                                        <form action="{{ route('pengumuman.destroy', $item->id) }}" method="POST"
-                                            onsubmit="return confirm('Hapus pengumuman ini?')">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn-delete">Hapus</button>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="4">
-                                    <div class="empty-state">
-                                        <h3>Belum ada pengumuman</h3>
-                                        <p>Tambahkan pengumuman baru agar informasi gereja bisa tampil di halaman user.</p>
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-            </div>
+                                    <form action="{{ route('pengumuman.destroy', $item->id) }}" method="POST"
+                                        onsubmit="return confirm('Hapus pengumuman ini?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn-delete">Hapus</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="4">
+                                <div class="empty-state">
+                                    <h3>Belum ada pengumuman</h3>
+                                    <p>Tambahkan pengumuman baru agar informasi gereja bisa tampil di halaman user.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
         </div>
+    </div>
     </div>
 @endsection

@@ -887,12 +887,11 @@
   <div class="content">
 
     <div class="page-hero">
-      <div class="hero-tag">🖼 Dokumentasi</div>
+      <div class="hero-tag"><i class="ri-image-line"></i> Dokumentasi</div>
       <h2>Galeri & Dokumentasi Kegiatan</h2>
       <p>Abadikan setiap momen pelayanan, ibadah, dan kebersamaan jemaat GBI Tambunan.</p>
       <div class="hero-actions">
         <a href="{{ route('galeri.create') }}" class="btn-hero-primary">＋ Upload Foto</a>
-        <button class="btn-hero-outline" type="button">📤 Bagikan Galeri</button>
       </div>
     </div>
 
@@ -927,15 +926,6 @@
           <div class="stat-val vp">{{ $galeri->take(5)->count() }}</div>
           <div class="stat-lbl">Data Terbaru</div>
         </div>
-      </div>
-    </div>
-
-    <div class="toolbar">
-      <div class="toolbar-left">
-        <form method="GET" action="{{ route('galeri.index') }}" class="search-wrap">
-          <input type="text" name="q" value="{{ request('q') }}" placeholder="Cari Galeri...">
-          <button type="submit">🔍</button>
-        </form>
       </div>
     </div>
 
@@ -980,22 +970,7 @@
       </div>
     @endif
 
-
   </div>
-
-          <div class="pcard-body">
-            <div class="pcard-title">{{ $item->title }}</div>
-            <div class="pcard-desc">{{ $item->description ?: '-' }}</div>
-          </div>
-        </div>
-      @endforeach
-    </div>
-  @else
-    <div class="empty-state">
-      <p>Tidak ada foto ditemukan. Coba upload foto baru.</p>
-    </div>
-  @endif
-
 
   @push('scripts')
     <script>

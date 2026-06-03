@@ -2,37 +2,58 @@
 
 @section('content')
     <style>
+        :root {
+            --c1: #769FCD;
+            --c2: #B9D7EA;
+            --c3: #D6E6F2;
+            --c4: #F7FBFC;
+        }
+
         /* HERO */
         .pl-hero {
             position: relative;
-            padding: clamp(70px, 10vw, 110px) 16px clamp(60px, 8vw, 90px);
+            padding: clamp(90px, 10vw, 130px) 16px;
             text-align: center;
             overflow: hidden;
-            background: linear-gradient(160deg, #0f2444 0%, #102a52 50%, #0d1e3a 100%);
+
+            background:
+                linear-gradient(135deg,
+                    #F7FBFC 0%,
+                    #D6E6F2 55%,
+                    #B9D7EA 100%);
         }
 
         .pl-hero::before {
             content: '';
             position: absolute;
-            top: -100px;
-            right: -80px;
-            width: 380px;
-            height: 380px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(93, 146, 232, 0.14) 0%, transparent 70%);
-            pointer-events: none;
+            inset: 0;
+
+            background-image:
+                linear-gradient(rgba(118, 159, 205, .10) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(118, 159, 205, .10) 1px, transparent 1px);
+
+            background-size: 75px 75px;
+
+            mask-image:
+                radial-gradient(ellipse 80% 70% at center,
+                    black,
+                    transparent);
         }
 
         .pl-hero::after {
             content: '';
             position: absolute;
-            bottom: -80px;
-            left: -60px;
-            width: 300px;
-            height: 300px;
+            width: 500px;
+            height: 500px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(45, 101, 200, 0.1) 0%, transparent 70%);
-            pointer-events: none;
+
+            background:
+                radial-gradient(circle,
+                    rgba(118, 159, 205, .18),
+                    transparent 70%);
+
+            top: -180px;
+            right: -100px;
         }
 
         .pl-hero .wrap {
@@ -42,33 +63,39 @@
 
         .pl-hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(28px, 6vw, 52px);
-            font-weight: 700;
-            color: #fff;
-            line-height: 1.15;
-            margin-bottom: 18px;
-            animation: fadeUp 0.8s ease 0.25s both;
+            font-size: clamp(36px, 7vw, 64px);
+            font-weight: 800;
+            line-height: 1.1;
+
+            color: #4B6584;
+
+            margin-bottom: 20px;
         }
 
         .pl-hero h1 .accent {
-            color: #93bef8;
+            background:
+                linear-gradient(135deg,
+                    #769FCD,
+                    #5E87B8,
+                    #769FCD);
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .pl-hero p {
-            color: rgba(255, 255, 255, 0.68);
-            font-size: clamp(14px, 2vw, 16px);
-            line-height: 1.78;
-            max-width: 520px;
-            margin: 0 auto;
-            animation: fadeUp 0.8s ease 0.4s both;
+            color: #5F738B;
+            font-size: 16px;
+            line-height: 1.9;
+            max-width: 600px;
+            margin: auto;
         }
 
-        /* STATS BAR */
+        /* STATS */
         .pl-stats {
-            background: rgba(10, 22, 40, 0.7);
-            border-bottom: 1px solid rgba(93, 146, 232, 0.1);
-            padding: clamp(20px, 4vw, 34px) 16px;
-            backdrop-filter: blur(8px);
+            background: #F7FBFC;
+            border-top: 1px solid rgba(118, 159, 205, .15);
+            border-bottom: 1px solid rgba(118, 159, 205, .15);
         }
 
         .pl-stats-inner {
@@ -87,51 +114,42 @@
         .pl-stat-num {
             font-size: clamp(22px, 4vw, 30px);
             font-weight: 700;
-            color: #93bef8;
-            line-height: 1;
+            color: #769FCD;
             margin-bottom: 4px;
         }
 
         .pl-stat-label {
             font-size: 12px;
-            color: rgba(255, 255, 255, 0.48);
-            font-weight: 500;
-            letter-spacing: .03em;
+            color: #6E7E91;
         }
 
-        /* SECTIONS */
+        /* SECTION */
         .pl-sec {
             padding: clamp(48px, 8vw, 80px) 0;
+            background: #F7FBFC;
         }
 
         .pl-sec.alt {
-            background: #0f2040;
+            background: #F7FBFC;
         }
 
         .pl-sec-label {
-            font-size: 10.5px;
-            font-weight: 600;
-            letter-spacing: .13em;
-            text-transform: uppercase;
-            color: #5592e8;
-            margin-bottom: 7px;
+            color: #769FCD;
+            font-weight: 700;
+            letter-spacing: 3px;
         }
 
         .pl-sec-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(20px, 3vw, 27px);
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 8px;
+            color: #4B6584;
+            font-size: clamp(28px, 5vw, 40px);
         }
 
         .pl-sec-sub {
-            font-size: 14.5px;
-            color: rgba(255, 255, 255, 0.48);
-            margin-bottom: 36px;
+            color: #6E7E91;
         }
 
-        /* LEADER GRID */
+        /* LEADER */
         .pl-leader-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -141,54 +159,37 @@
         }
 
         .pl-leader-card {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(93, 146, 232, 0.12);
+            background: #fff;
+            border: 1px solid #D6E6F2;
             border-radius: 18px;
             padding: clamp(22px, 4vw, 34px) 20px;
             text-align: center;
-            transition: border-color 0.25s, background 0.25s, transform 0.3s;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(6px);
-        }
 
-        .pl-leader-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 56%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #2d65c8, transparent);
-            opacity: 0;
-            transition: opacity 0.25s;
+            box-shadow:
+                0 10px 30px rgba(118, 159, 205, .10);
         }
 
         .pl-leader-card:hover {
-            border-color: rgba(93, 146, 232, 0.3);
-            background: rgba(255, 255, 255, 0.09);
-            transform: translateY(-5px);
-        }
-
-        .pl-leader-card:hover::before {
-            opacity: 1;
+            border-color: #769FCD;
+            box-shadow:
+                0 25px 50px rgba(118, 159, 205, .20);
+            transform: translateY(-8px);
         }
 
         .pl-avatar {
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #0d2448, #1a4a9e);
-            border: 2px solid rgba(93, 146, 232, 0.25);
+            background: linear-gradient(135deg,
+                    #769FCD,
+                    #B9D7EA);
+            border: 3px solid #F7FBFC;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            color: #fff;
             font-weight: 600;
-            color: #93bef8;
             margin: 0 auto 16px;
-            position: relative;
             overflow: hidden;
         }
 
@@ -196,28 +197,25 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            position: absolute;
-            inset: 0;
         }
 
         .pl-lc-name {
             font-size: 14px;
             font-weight: 600;
-            color: rgba(255, 255, 255, 0.88);
+            color: #4B6584;
             margin-bottom: 8px;
         }
 
         .pl-lc-role {
-            font-size: 11.5px;
-            color: #93bef8;
-            background: rgba(93, 146, 232, 0.12);
+            font-size: 11px;
+            background: #D6E6F2;
+            color: #769FCD;
             display: inline-block;
-            padding: 3px 12px;
+            padding: 4px 12px;
             border-radius: 20px;
-            font-weight: 500;
         }
 
-        /* TEAM GRID */
+        /* TEAM */
         .pl-team-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -225,79 +223,65 @@
         }
 
         .pl-team-card {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(93, 146, 232, 0.1);
-            border-radius: 18px;
-            padding: clamp(20px, 3vw, 28px) clamp(16px, 3vw, 24px);
-            transition: border-color 0.25s, transform 0.3s;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            backdrop-filter: blur(6px);
+            background: #fff;
+            border: 1px solid #D6E6F2;
+            border-radius: 20px;
+            box-shadow:
+                0 10px 30px rgba(118, 159, 205, .08);
+            padding: 24px;
+            transition: .3s;
+        }
+
+        .pl-team-card:hover {
+            transform: translateY(-8px);
+            border-color: #769FCD;
+            box-shadow:
+                0 25px 50px rgba(118, 159, 205, .18);
         }
 
         .pl-team-card::after {
             content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            display: block;
             height: 3px;
-            background: linear-gradient(90deg, #0d2448, #2d65c8, #93bef8);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .pl-team-card:hover {
-            border-color: rgba(93, 146, 232, 0.24);
-            transform: translateY(-6px);
-        }
-
-        .pl-team-card:hover::after {
-            opacity: 1;
+            margin-top: 18px;
+            border-radius: 999px;
+            background: linear-gradient(90deg,
+                    #769FCD,
+                    #B9D7EA,
+                    #D6E6F2);
         }
 
         .pl-tc-icon {
             width: 48px;
             height: 48px;
             border-radius: 12px;
-            background: rgba(26, 74, 158, 0.16);
-            border: 1px solid rgba(93, 146, 232, 0.18);
+            background: #D6E6F2;
+            color: #769FCD;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 19px;
-            color: #93bef8;
+            font-size: 18px;
             margin-bottom: 15px;
-            transition: background 0.25s, border-color 0.25s;
-            flex-shrink: 0;
-        }
-
-        .pl-team-card:hover .pl-tc-icon {
-            background: rgba(26, 74, 158, 0.28);
-            border-color: rgba(93, 146, 232, 0.32);
         }
 
         .pl-tc-title {
             font-family: 'Playfair Display', serif;
             font-size: 15px;
             font-weight: 600;
-            color: #fff;
+            color: #4B6584;
             margin-bottom: 8px;
         }
 
         .pl-tc-desc {
             font-size: 13px;
-            color: rgba(255, 255, 255, 0.55);
-            line-height: 1.72;
+            color: #6E7E91;
+            line-height: 1.7;
             margin-bottom: 14px;
-            flex-grow: 1;
         }
 
         .pl-divider {
             height: 1px;
-            background: rgba(93, 146, 232, 0.1);
+            background: rgba(118, 159, 205, .2);
             margin: 12px 0;
         }
 
@@ -312,9 +296,8 @@
             justify-content: space-between;
             align-items: center;
             gap: 8px;
-            padding: 5px 0;
-            border-bottom: 1px solid rgba(93, 146, 232, 0.06);
-            flex-wrap: wrap;
+            padding: 6px 0;
+            border-bottom: 1px solid #EAF2F8;
         }
 
         .pl-member-item:last-child {
@@ -323,35 +306,32 @@
 
         .pl-mi-name {
             font-size: 12.5px;
-            color: rgba(255, 255, 255, 0.72);
-            font-weight: 500;
+            color: #4B6584;
         }
 
         .pl-mi-role {
             font-size: 11px;
-            color: #93bef8;
-            background: rgba(93, 146, 232, 0.1);
-            padding: 2px 9px;
-            border-radius: 10px;
-            white-space: nowrap;
-            font-weight: 500;
+            color: #769FCD;;
+            background: #D6E6F2;
+            padding: 3px 10px;
+            border-radius: 12px;
         }
 
         .pl-no-data {
             grid-column: 1/-1;
             text-align: center;
-            color: rgba(255, 255, 255, 0.32);
-            font-size: 14.5px;
+            color: #769FCD;
             padding: 44px 20px;
-            background: rgba(93, 146, 232, 0.04);
+            background: rgba(247, 251, 252, .6);
             border-radius: 14px;
-            border: 1px dashed rgba(93, 146, 232, 0.14);
+            border: 1px dashed rgba(118, 159, 205, .35);
         }
 
         /* CTA */
         .pl-cta {
-            background: #0a1628;
-            border-top: 1px solid rgba(93, 146, 232, 0.1);
+            background: linear-gradient(180deg,
+                    #F7FBFC,
+                    #D6E6F2);
             padding: clamp(52px, 8vw, 80px) 16px;
             text-align: center;
         }
@@ -359,14 +339,13 @@
         .pl-cta h2 {
             font-family: 'Playfair Display', serif;
             font-size: clamp(20px, 3vw, 27px);
-            font-weight: 700;
-            color: #fff;
+            color: #4B6584;
             margin-bottom: 11px;
         }
 
         .pl-cta p {
             font-size: 15px;
-            color: rgba(255, 255, 255, 0.52);
+            color: #6E7E91;
             max-width: 460px;
             margin: 0 auto 34px;
             line-height: 1.7;
@@ -376,35 +355,33 @@
             display: inline-flex;
             align-items: center;
             gap: 9px;
-            background: linear-gradient(135deg, #153565, #1a4a9e, #2d65c8);
+            background: linear-gradient(135deg,
+                    #769FCD,
+                    #B9D7EA,);
             color: #fff;
             font-size: 14.5px;
-            font-weight: 600;
+            font-weight: 700;
             padding: 13px 28px;
             border-radius: 11px;
             text-decoration: none;
             border: none;
             cursor: pointer;
-            box-shadow: 0 8px 28px rgba(26, 74, 158, 0.4);
-            transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 10px 30px rgba(118,159,205,.25);
         }
 
         .pl-join-btn:hover {
-            opacity: 0.9;
             transform: translateY(-2px);
-            box-shadow: 0 12px 38px rgba(26, 74, 158, 0.5);
-            color: #fff;
-            text-decoration: none;
+            0 20px 45px rgba(118,159,205,.35);
         }
 
         /* RESPONSIVE */
-        @media (max-width: 1024px) {
+        @media(max-width:1024px) {
             .pl-team-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        @media (max-width: 640px) {
+        @media(max-width:640px) {
             .pl-team-grid {
                 grid-template-columns: 1fr;
             }
@@ -414,20 +391,12 @@
                 gap: 12px;
             }
 
-            .pl-leader-card:hover {
-                transform: none;
-            }
-
-            .pl-team-card:hover {
-                transform: none;
-            }
-
             .pl-stat {
                 min-width: 80px;
             }
         }
 
-        @media (max-width: 380px) {
+        @media(max-width:380px) {
             .pl-leader-grid {
                 grid-template-columns: 1fr;
             }
@@ -469,7 +438,7 @@
         </div>
     </section>
 
-    <section class="pl-sec" style="background:#0d1e3a;">
+    <section class="pl-sec" style="background:#D6E6F2;">
         <div class="global-container">
             <div class="pl-sec-label">Tim Pelayanan</div>
             <div class="pl-sec-title">Tim Kami</div>
