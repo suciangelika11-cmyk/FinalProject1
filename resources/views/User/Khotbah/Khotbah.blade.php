@@ -217,13 +217,14 @@
                         ========================= */
         .kh-card {
             background: rgba(247, 251, 252, .85);
-            border: 1px solid rgba(118, 159, 205, .18);
-            border-radius: 22px;
+            border: 1px solid #e3ebf5;
+            border-radius: 24px;
             overflow: hidden;
             transition: .35s;
             display: flex;
             flex-direction: column;
             position: relative;
+            height:100%;
         }
 
         .kh-card::before {
@@ -250,7 +251,7 @@
         }
 
         .kh-thumb {
-            height: 210px;
+            height: 260px;
             overflow: hidden;
         }
 
@@ -266,7 +267,7 @@
         }
 
         .kh-body {
-            padding: 24px 22px 20px;
+            padding: 24px;
             display: flex;
             flex-direction: column;
             flex: 1;
@@ -283,19 +284,26 @@
 
         .kh-card-title {
             font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            line-height: 1.45;
+            font-size: 32px;
+            line-height: 1.5;
             margin-bottom: 12px;
             color: #4E719A;
+            display:-webkit-box;
+            -webkit-line-clamp:2;
+            -webkit-box-orient:vertical;
+            overflow:hidden;
         }
 
         .kh-desc {
+            display:-webkit-box;
             font-size: 14px;
             line-height: 1.8;
             color: #6485AC;
-            ;
             margin-bottom: 22px;
             flex: 1;
+            -webkit-line-clamp:2;
+            -webkit-box-orient:vertical;
+            overflow:hidden;
         }
 
         /* =========================
@@ -380,7 +388,9 @@
             }
 
             .kh-grid {
+                display:grid;
                 grid-template-columns: 1fr;
+                gap:30px;
             }
 
             .kh-hero h1 {

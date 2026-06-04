@@ -171,60 +171,6 @@
         }
 
         /* ==========================
-       STATS
-    ========================== */
-
-        .stats-section {
-            display: grid;
-            grid-template-columns:
-                repeat(auto-fit, minmax(220px, 1fr));
-
-            gap: 24px;
-
-            margin-bottom: 70px;
-        }
-
-        .stat-card {
-            background: white;
-
-            border: 1px solid #D6E6F2;
-
-            border-radius: var(--radius);
-
-            padding: 35px 20px;
-
-            text-align: center;
-
-            transition: .35s;
-
-            box-shadow:
-                0 10px 30px rgba(118, 159, 205, .08);
-        }
-
-        .stat-card:hover {
-            transform: translateY(-8px);
-
-            border-color: #769FCD;
-
-            box-shadow:
-                0 20px 40px rgba(118, 159, 205, .18);
-        }
-
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-
-            font-size: 48px;
-
-            color: #4B6584;
-
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            color: #6E7E91;
-        }
-
-        /* ==========================
        ABOUT
     ========================== */
 
@@ -476,26 +422,6 @@
 
         <section class="kh-section">
             <div class="container">
-
-                <!-- STATISTICS SECTION -->
-                <div class="stats-section">
-                    <div class="stat-card">
-                        <div class="stat-number">1978</div>
-                        <div class="stat-label">Sejak Berdiri</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">2.4K+</div>
-                        <div class="stat-label">Jemaat Aktif</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">12</div>
-                        <div class="stat-label">Pelayanan</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">40+</div>
-                        <div class="stat-label">Tahun Pelayanan</div>
-                    </div>
-                </div>
 
                 <!-- SEJARAH / PERJALANAN IMAN KAMI -->
                 <div class="kh-section-head">

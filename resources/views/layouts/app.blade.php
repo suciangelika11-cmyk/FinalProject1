@@ -266,16 +266,16 @@
         /* Mobile nav collapse */
         @media (max-width: 991.98px) {
             .navbar-collapse {
-                background: rgba(10, 22, 40, 0.97);
-                border-top: 1px solid rgba(93, 146, 232, 0.1);
+                background: #F7FBFC;
+                border-top: 1px solid #6e9bce;
                 padding: 16px 16px 20px;
                 margin-top: 8px;
                 border-radius: 0 0 16px 16px;
             }
 
             .navbar-scrolled .navbar-collapse {
-                background: rgba(255, 255, 255, 0.98);
-                border-top: 1px solid rgba(26, 74, 158, 0.1);
+                background: #F7FBFC;
+                border-top: 1px solid #6e9bce;
             }
 
             .navbar-nav .nav-link {
@@ -433,9 +433,10 @@
 
         /* Toggler */
         .navbar-toggler {
-            border: 1.5px solid rgba(255, 255, 255, 0.38) !important;
-            border-radius: var(--r-sm) !important;
-            padding: 5px 9px !important;
+            border: 2px solid #769FCD;
+            border-radius: 14px;
+            padding: 10px 14px;
+            box-shadow: 0 4px 12px rgba(118,159,205,.15);
             transition: border-color 0.4s !important;
         }
 
@@ -444,16 +445,43 @@
         }
 
         .navbar-toggler:focus {
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.18) !important;
+            box-shadow: none;
         }
 
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-        }
+        .navbar-toggler-icon{
+    background-image: none;
+    position: relative;
+    width: 24px;
+    height: 18px;
+}
 
         .navbar-scrolled .navbar-toggler-icon {
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%231a4a9e' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
         }
+
+        .navbar-toggler-icon::before,
+.navbar-toggler-icon::after,
+.navbar-toggler-icon span{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #769FCD;
+    border-radius: 3px;
+}
+
+.navbar-toggler-icon::before{
+    top: 0;
+}
+
+.navbar-toggler-icon span{
+    top: 7px;
+}
+
+.navbar-toggler-icon::after{
+    bottom: 0;
+}
 
         /* ════════════════════════════════════════
            SHARED UTILITIES
@@ -831,7 +859,7 @@
         .donasi-box {
             width: 100%;
             height: 500px;
-            background:#F7FBFC;
+            background: #F7FBFC;
 
             border: 2px dashed #B9D7EA;
             border-radius: 20px;
@@ -856,6 +884,27 @@
             font-weight: bold;
             word-break: break-all;
         }
+
+        /* GRID GALERI / KHOTBAH */
+        .kh-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        /* TABLET */
+        @media(max-width:992px) {
+            .kh-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* MOBILE */
+        @media(max-width:768px) {
+            .kh-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -875,10 +924,18 @@
                 </div>
             </a>
 
-            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menuNav"
-                aria-label="Toggle navigation" aria-expanded="false" aria-controls="menuNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <button class="navbar-toggler"
+        data-bs-toggle="collapse"
+        data-bs-target="#menuNav"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="menuNav">
+
+    <span class="navbar-toggler-icon">
+        <span></span>
+    </span>
+
+</button>
 
             <div class="collapse navbar-collapse" id="menuNav">
                 <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
@@ -1039,7 +1096,7 @@
                 <p class="footer-copyright">
                     © 2026 GBI Tambunan. All rights reserved. Made with <span class="heart">❤</span> for God's glory.
                 </p>
-                <p class="footer-built">Built with <strong>Team 05</strong></p>
+                <p class="footer-built">Built by <strong>Team 05 PA-IT Del</strong></p>
             </div>
         </div>
     </footer>
