@@ -11,31 +11,26 @@
 
     <style>
         :root {
-            --blue-light: #ADE1FB;
-            --blue-mid: #266CA9;
-            --blue-dark: #0F2573;
-            --navy: #041D56;
-            --navy-dark: #01082D;
+            /* Palet Warna Baru */
+            --primary: #769FCD;
+            --light: #B9D7EA;
+            --lighter: #D6E6F2;
+            --lightest: #F7FBFC;
 
-            --ink: #0A0E17;
-            --ink-mid: #0D1422;
-            --ink-card: rgba(12, 19, 34, 0.96);
+            /* Warna yang masih digunakan */
+            --text-primary: #769FCD;
+            --text-light: #B9D7EA;
+            --text-muted: rgba(118, 159, 205, 0.65);
 
-            --surface: rgba(255, 255, 255, 0.04);
+            --bg-dark: #F7FBFC;
+            --bg-light: #D6E6F2;
+            --bg-card: #F7FBFC;
+            --bg-surface: rgba(214, 230, 242, 0.3);
 
-            --text: #ADE1FB;
-            --text-muted: rgba(173, 225, 251, 0.72);
+            --border: rgba(118, 159, 205, 0.15);
+            --border-strong: rgba(118, 159, 205, 0.3);
 
-            --border: rgba(38, 108, 169, 0.2);
-            --border-strong: rgba(173, 225, 251, 0.35);
-
-            --radius: 22px;
-
-            --purple-dim: rgba(38, 108, 169, 0.12);
-            --purple: #266CA9;
-
-            --green-dim: rgba(15, 37, 115, 0.12);
-            --green: #0F2573;
+            --radius: 20px;
         }
 
         *,
@@ -53,12 +48,11 @@
 
         body {
             font-family: 'Outfit', sans-serif;
-            background: var(--navy-dark);
-            color: var(--blue-light);
+            background: var(--bg-dark);
+            color: var(--text-primary);
         }
 
         /* ================= HERO ================= */
-<<<<<<< HEAD
         .hero {
             position: relative;
             min-height: 420px;
@@ -68,10 +62,8 @@
             text-align: center;
             overflow: hidden;
             padding: 120px 24px 110px;
-            background: var(--navy);
+            background: linear-gradient(135deg, var(--lighter) 0%, var(--bg-dark) 100%);
         }
-=======
->>>>>>> 345e4aa07069f33de2acccec842637325bed1e18
 
         .hero::before {
             content: '';
@@ -80,7 +72,7 @@
             background:
                 radial-gradient(
                     ellipse 70% 100% at 50% 0%,
-                    rgba(173, 225, 251, 0.08),
+                    rgba(118, 159, 205, 0.1),
                     transparent 65%
                 );
         }
@@ -92,7 +84,7 @@
             left: 0;
             right: 0;
             height: 80px;
-            background: var(--navy-dark);
+            background: var(--bg-dark);
             clip-path: ellipse(55% 100% at 50% 100%);
         }
 
@@ -107,16 +99,22 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: rgba(38, 108, 169, 0.15);
-            border: 1px solid var(--border-strong);
+            background: rgba(118, 159, 205, 0.12);
+            border: 1.5px solid var(--border-strong);
             border-radius: 40px;
-            padding: 8px 20px;
-            font-size: 10px;
+            padding: 10px 22px;
+            font-size: 11px;
             font-weight: 500;
-            color: var(--blue-light);
-            letter-spacing: .22em;
+            color: var(--text-primary);
+            letter-spacing: .20em;
             text-transform: uppercase;
             margin-bottom: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .hero-eyebrow:hover {
+            background: rgba(118, 159, 205, 0.18);
+            border-color: var(--text-primary);
         }
 
         .hero h1 {
@@ -124,12 +122,14 @@
             font-size: clamp(38px, 6vw, 70px);
             line-height: 1.1;
             margin-bottom: 18px;
-            color: var(--blue-light);
+            color: var(--text-primary);
+            font-weight: 700;
         }
 
         .hero h1 em {
-            color: var(--blue-mid);
+            color: var(--light);
             font-style: italic;
+            font-weight: 400;
         }
 
         .hero-sub {
@@ -160,15 +160,15 @@
         .section-eyebrow::after {
             content: '';
             flex: 1;
-            height: 1px;
-            background: var(--border);
+            height: 1.5px;
+            background: var(--border-strong);
         }
 
         .section-eyebrow span {
-            color: var(--blue-mid);
-            font-size: 10px;
-            font-weight: 500;
-            letter-spacing: .22em;
+            color: var(--text-primary);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .18em;
             text-transform: uppercase;
             white-space: nowrap;
         }
@@ -176,25 +176,26 @@
         /* ================= CARD ================= */
         .kegiatan-card {
             display: grid;
-            grid-template-columns: 170px 1fr 340px;
-            background: var(--ink-card);
-            border: 1px solid var(--border);
+            grid-template-columns: 160px 1fr 340px;
+            background: var(--bg-card);
+            border: 1.5px solid var(--border);
             border-radius: var(--radius);
             overflow: hidden;
             margin-bottom: 28px;
-            transition: .35s ease;
+            transition: all 0.35s ease;
+            box-shadow: 0 2px 8px rgba(118, 159, 205, 0.08);
         }
 
         .kegiatan-card:hover {
             border-color: var(--border-strong);
-            transform: translateY(-4px);
-            box-shadow: 0 22px 55px rgba(0, 0, 0, .42);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(118, 159, 205, 0.15);
         }
 
         /* ================= DATE ================= */
         .card-date {
-            background: rgba(38, 108, 169, 0.08);
-            border-right: 1px solid var(--border);
+            background: linear-gradient(135deg, var(--lighter) 0%, var(--bg-light) 100%);
+            border-right: 1.5px solid var(--border);
 
             display: flex;
             flex-direction: column;
@@ -207,18 +208,19 @@
 
         .date-weekday {
             font-size: 10px;
-            font-weight: 500;
-            letter-spacing: .20em;
+            font-weight: 600;
+            letter-spacing: .18em;
             text-transform: uppercase;
-            color: var(--blue-mid);
+            color: var(--text-primary);
             margin-bottom: 10px;
         }
 
         .date-num {
             font-family: 'Libre Baskerville', serif;
-            font-size: 62px;
+            font-size: 56px;
             line-height: 1;
-            color: var(--blue-light);
+            font-weight: 700;
+            color: var(--text-primary);
             margin-bottom: 8px;
         }
 
@@ -227,6 +229,7 @@
             letter-spacing: .15em;
             text-transform: uppercase;
             color: var(--text-muted);
+            font-weight: 500;
         }
 
         /* ================= INFO ================= */
@@ -239,57 +242,68 @@
 
         .card-tag {
             font-size: 10px;
-            font-weight: 500;
-            letter-spacing: .22em;
+            font-weight: 600;
+            letter-spacing: .18em;
             text-transform: uppercase;
-            color: var(--blue-mid);
+            color: var(--text-primary);
             margin-bottom: 12px;
+            opacity: 0.8;
         }
 
         .card-preacher {
             font-family: 'Libre Baskerville', serif;
-            font-size: 34px;
+            font-size: 32px;
             line-height: 1.2;
-            color: var(--blue-light);
+            font-weight: 700;
+            color: var(--text-primary);
             margin-bottom: 18px;
             word-break: break-word;
         }
 
         .card-divider {
             width: 45px;
-            height: 2px;
-            background: var(--blue-mid);
-            opacity: .6;
+            height: 2.5px;
+            background: var(--primary);
+            opacity: 0.5;
             margin-bottom: 18px;
+            border-radius: 2px;
         }
 
         .card-tema {
             font-family: 'Libre Baskerville', serif;
             font-style: italic;
-            font-size: 16px;
+            font-size: 15px;
             color: var(--text-muted);
             line-height: 1.8;
             margin-bottom: 22px;
+            font-weight: 400;
         }
 
         .card-verse {
             display: inline-flex;
             align-items: center;
             gap: 9px;
-            background: rgba(38, 108, 169, 0.12);
+            background: rgba(118, 159, 205, 0.1);
             border: 1px solid var(--border-strong);
             border-radius: 40px;
             padding: 10px 18px;
             font-size: 12px;
-            color: var(--blue-light);
+            color: var(--text-primary);
             width: fit-content;
             flex-wrap: wrap;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .card-verse:hover {
+            background: rgba(118, 159, 205, 0.15);
+            border-color: var(--primary);
         }
 
         /* ================= TEAM ================= */
         .card-team {
-            background: rgba(255, 255, 255, 0.025);
-            border-left: 1px solid var(--border);
+            background: var(--bg-surface);
+            border-left: 1.5px solid var(--border);
 
             padding: 28px 24px;
 
@@ -300,18 +314,25 @@
 
         .team-heading {
             font-size: 10px;
-            font-weight: 500;
-            letter-spacing: .20em;
+            font-weight: 600;
+            letter-spacing: .18em;
             text-transform: uppercase;
-            color: var(--blue-mid);
+            color: var(--text-primary);
+            margin-bottom: 4px;
         }
 
         /* ================= SUB TEAM ================= */
         .sub-team {
-            background: rgba(255, 255, 255, 0.035);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(118, 159, 205, 0.2);
+            border-radius: 14px;
             padding: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .sub-team:hover {
+            background: rgba(255, 255, 255, 0.7);
+            border-color: rgba(118, 159, 205, 0.35);
         }
 
         .sub-team-head {
@@ -328,34 +349,36 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
+            font-size: 16px;
             flex-shrink: 0;
+            font-weight: 600;
         }
 
         .sub-team-icon.worship {
-            background: rgba(38, 108, 169, 0.15);
-            color: var(--blue-light);
+            background: rgba(118, 159, 205, 0.18);
+            color: var(--text-primary);
         }
 
         .sub-team-icon.media {
-            background: rgba(15, 37, 115, 0.15);
-            color: #7FB9FF;
+            background: rgba(185, 215, 234, 0.18);
+            color: #5B8AC5;
         }
 
         .sub-team-icon.liturgi {
-            background: rgba(173, 225, 251, 0.12);
-            color: var(--blue-mid);
+            background: rgba(214, 230, 242, 0.3);
+            color: #769FCD;
         }
 
         .sub-team-name {
             font-size: 13px;
             font-weight: 600;
-            color: var(--blue-light);
+            color: var(--text-primary);
         }
 
         .sub-team-desc {
             font-size: 11px;
             color: var(--text-muted);
+            font-weight: 400;
         }
 
         .member-row {
@@ -365,42 +388,50 @@
             gap: 10px;
 
             padding: 10px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(118, 159, 205, 0.12);
+        }
+
+        .member-row:first-of-type {
+            border-top: none;
+            padding-top: 0;
         }
 
         .member-name {
             font-size: 12px;
-            color: var(--blue-light);
+            color: var(--text-primary);
             word-break: break-word;
+            font-weight: 500;
         }
 
         .member-badge {
             font-size: 10px;
-            font-weight: 500;
+            font-weight: 600;
             border-radius: 40px;
-            padding: 4px 12px;
+            padding: 5px 14px;
             white-space: nowrap;
+            text-transform: capitalize;
+            letter-spacing: .05em;
         }
 
         .member-badge.worship {
-            background: rgba(38, 108, 169, 0.15);
-            color: var(--blue-light);
+            background: rgba(118, 159, 205, 0.15);
+            color: var(--text-primary);
         }
 
         .member-badge.media {
-            background: rgba(15, 37, 115, 0.15);
-            color: #7FB9FF;
+            background: rgba(185, 215, 234, 0.15);
+            color: #5B8AC5;
         }
 
         .member-badge.liturgi {
-            background: rgba(173, 225, 251, 0.12);
-            color: var(--blue-mid);
+            background: rgba(214, 230, 242, 0.25);
+            color: #769FCD;
         }
 
         /* ================= FOOTER ================= */
         .page-footer {
             margin-top: 80px;
-            border-top: 1px solid var(--border);
+            border-top: 1.5px solid var(--border);
             padding-top: 45px;
             text-align: center;
         }
@@ -409,7 +440,7 @@
             width: 56px;
             height: 56px;
             border-radius: 50%;
-            border: 1px solid var(--border-strong);
+            border: 2px solid var(--border-strong);
 
             display: flex;
             align-items: center;
@@ -417,8 +448,14 @@
 
             margin: 0 auto 18px;
 
-            font-size: 20px;
-            color: var(--blue-mid);
+            font-size: 22px;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .footer-icon:hover {
+            border-color: var(--text-primary);
+            transform: scale(1.1);
         }
 
         .footer-quote {
@@ -427,36 +464,39 @@
             font-size: 17px;
             color: var(--text-muted);
             line-height: 1.8;
+            font-weight: 400;
         }
 
         /* ================= RESPONSIVE ================= */
 
         @media(max-width:1200px) {
-
             .kegiatan-card {
-                grid-template-columns: 150px 1fr 320px;
+                grid-template-columns: 140px 1fr 300px;
             }
 
             .card-preacher {
-                font-size: 30px;
+                font-size: 28px;
+            }
+
+            .card-info {
+                padding: 32px;
             }
         }
 
         @media(max-width:992px) {
-
             .kegiatan-card {
                 grid-template-columns: 1fr;
             }
 
             .card-date {
                 border-right: none;
-                border-bottom: 1px solid var(--border);
+                border-bottom: 1.5px solid var(--border);
 
                 flex-direction: row;
                 justify-content: center;
-                gap: 18px;
+                gap: 20px;
 
-                padding: 26px;
+                padding: 28px;
             }
 
             .date-num {
@@ -466,12 +506,15 @@
 
             .card-team {
                 border-left: none;
-                border-top: 1px solid var(--border);
+                border-top: 1.5px solid var(--border);
+            }
+
+            .card-info {
+                padding: 32px;
             }
         }
 
         @media(max-width:768px) {
-
             .hero {
                 min-height: 360px;
                 padding: 100px 20px 90px;
@@ -504,7 +547,7 @@
             }
 
             .card-tema {
-                font-size: 15px;
+                font-size: 14px;
                 line-height: 1.7;
             }
 
@@ -518,15 +561,15 @@
         }
 
         @media(max-width:576px) {
-
             .hero {
                 min-height: 320px;
+                padding: 90px 20px 80px;
             }
 
             .hero-eyebrow {
                 font-size: 9px;
-                padding: 7px 14px;
-                letter-spacing: .18em;
+                padding: 8px 14px;
+                letter-spacing: .16em;
             }
 
             .hero-sub {
@@ -535,8 +578,8 @@
 
             .card-date {
                 flex-direction: column;
-                gap: 6px;
-                padding: 22px 18px;
+                gap: 8px;
+                padding: 24px 18px;
             }
 
             .date-weekday {
@@ -552,19 +595,24 @@
             }
 
             .card-info {
-                padding: 22px 18px;
+                padding: 20px;
             }
 
             .card-preacher {
-                font-size: 21px;
+                font-size: 20px;
             }
 
             .card-tema {
-                font-size: 14px;
+                font-size: 13px;
             }
 
             .card-team {
-                padding: 18px;
+                padding: 16px;
+                gap: 12px;
+            }
+
+            .sub-team {
+                padding: 12px;
             }
 
             .sub-team-head {
@@ -577,7 +625,9 @@
             }
 
             .member-badge {
-                margin-top: 4px;
+                margin-top: 6px;
+                padding: 4px 12px;
+                font-size: 9px;
             }
 
             .card-verse {
@@ -592,40 +642,33 @@
         }
     </style>
 
-    <!-- HERO -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
-
             <div class="hero-eyebrow">
-                <i class="fa-solid fa-hands-praying" style="font-size:10px;"></i>
+                <i class="fa-solid fa-hands-praying" style="font-size:11px;"></i>
                 Gereja Bethel Indonesia
             </div>
 
-            <h1>
-                Kegiatan <em>Pelayanan</em>
-            </h1>
+            <h1>Kegiatan <em>Pelayanan</em></h1>
 
             <p class="hero-sub">
                 Daftar kegiatan pelayanan gereja bersama seluruh tim dan jemaat
             </p>
-
         </div>
     </section>
 
-    <!-- CONTENT -->
+    <!-- CONTENT SECTION -->
     <div class="page-wrap">
-
         <div class="section-eyebrow">
             <span>Kegiatan Mendatang</span>
         </div>
 
         @foreach($kegiatans as $item)
-
             <article class="kegiatan-card">
 
-                <!-- DATE -->
+                <!-- DATE COLUMN -->
                 <div class="card-date">
-
                     <div class="date-weekday">
                         {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('l') }}
                     </div>
@@ -637,59 +680,38 @@
                     <div class="date-month">
                         {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('F Y') }}
                     </div>
-
                 </div>
 
-                <!-- INFO -->
+                <!-- INFO COLUMN -->
                 <div class="card-info">
+                    <div class="card-tag">Pengkhotbah</div>
 
-                    <div class="card-tag">
-                        Pengkhotbah
-                    </div>
-
-                    <h2 class="card-preacher">
-                        {{ $item->pengkhotbah }}
-                    </h2>
+                    <h2 class="card-preacher">{{ $item->pengkhotbah }}</h2>
 
                     <div class="card-divider"></div>
 
-                    <div class="card-tema">
-                        "{{ $item->tema }}"
-                    </div>
+                    <div class="card-tema">"{{ $item->tema }}"</div>
 
                     <div class="card-verse">
                         <i class="fa-solid fa-book-open"></i>
                         {{ $item->ayat }}
                     </div>
-
                 </div>
 
-                <!-- TEAM -->
+                <!-- TEAM COLUMN -->
                 <div class="card-team">
+                    <div class="team-heading">Tim yang Melayani</div>
 
-                    <div class="team-heading">
-                        Tim yang Melayani
-                    </div>
-
-                    <!-- WORSHIP -->
+                    <!-- WORSHIP TEAM -->
                     <div class="sub-team">
-
                         <div class="sub-team-head">
-
                             <div class="sub-team-icon worship">
                                 <i class="fa-solid fa-microphone-lines"></i>
                             </div>
-
                             <div>
-                                <div class="sub-team-name">
-                                    Worship Team
-                                </div>
-
-                                <div class="sub-team-desc">
-                                    Pujian & Penyembahan
-                                </div>
+                                <div class="sub-team-name">Worship Team</div>
+                                <div class="sub-team-desc">Pujian & Penyembahan</div>
                             </div>
-
                         </div>
 
                         @foreach(explode(',', $item->worship_team) as $m)
@@ -698,28 +720,18 @@
                                 <span class="member-badge worship">Worship</span>
                             </div>
                         @endforeach
-
                     </div>
 
-                    <!-- MULTIMEDIA -->
+                    <!-- MULTIMEDIA TEAM -->
                     <div class="sub-team">
-
                         <div class="sub-team-head">
-
                             <div class="sub-team-icon media">
                                 <i class="fa-solid fa-video"></i>
                             </div>
-
                             <div>
-                                <div class="sub-team-name">
-                                    Multimedia
-                                </div>
-
-                                <div class="sub-team-desc">
-                                    Media & Operator
-                                </div>
+                                <div class="sub-team-name">Multimedia</div>
+                                <div class="sub-team-desc">Media & Operator</div>
                             </div>
-
                         </div>
 
                         @foreach(explode(',', $item->multimedia_team) as $m)
@@ -728,28 +740,18 @@
                                 <span class="member-badge media">Multimedia</span>
                             </div>
                         @endforeach
-
                     </div>
 
-                    <!-- LITURGI -->
+                    <!-- LITURGI TEAM -->
                     <div class="sub-team">
-
                         <div class="sub-team-head">
-
                             <div class="sub-team-icon liturgi">
                                 <i class="fa-solid fa-scroll"></i>
                             </div>
-
                             <div>
-                                <div class="sub-team-name">
-                                    Liturgi
-                                </div>
-
-                                <div class="sub-team-desc">
-                                    Penyambutan & Liturgi
-                                </div>
+                                <div class="sub-team-name">Liturgi</div>
+                                <div class="sub-team-desc">Penyambutan & Liturgi</div>
                             </div>
-
                         </div>
 
                         @foreach(explode(',', $item->liturgi_team) as $m)
@@ -758,17 +760,14 @@
                                 <span class="member-badge liturgi">Liturgi</span>
                             </div>
                         @endforeach
-
                     </div>
-
                 </div>
 
             </article>
-
         @endforeach
 
+        <!-- FOOTER -->
         <div class="page-footer">
-
             <div class="footer-icon">
                 <i class="fa-solid fa-cross"></i>
             </div>
@@ -776,9 +775,7 @@
             <p class="footer-quote">
                 Mari melayani Tuhan dengan setia dan penuh sukacita.
             </p>
-
         </div>
-
     </div>
 
 @endsection

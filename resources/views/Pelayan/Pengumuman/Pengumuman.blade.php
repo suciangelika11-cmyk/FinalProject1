@@ -11,121 +11,128 @@
 
     <style>
         :root {
-            --gold: #7FCBF5;
-            --gold-pale: #E5F7FF;
-            --gold-dim: rgba(127, 203, 245, 0.14);
+            /* ── Palet Utama ── */
+            --blue-deep:   #769FCD;
+            --blue-mid:    #B9D7EA;
+            --blue-pale:   #D6E6F2;
+            --blue-ghost:  #F7FBFC;
 
-            --ink: #07111F;
-            --ink-mid: #0B1830;
-            --ink-card: rgba(10, 20, 40, 0.97);
+            /* ── Turunan Fungsional ── */
+            --accent:       var(--blue-deep);
+            --accent-dim:   rgba(118, 159, 205, 0.14);
 
-            --surface: rgba(255, 255, 255, 0.04);
+            --ink:          #1A2B3C;
+            --ink-mid:      #2E4A63;
+            --ink-muted:    #5C7A95;
 
-            /* FONT COLORS */
-            --text: #F2FBFF;
-            --text-muted: rgba(210, 240, 255, 0.78);
+            --surface:      #FFFFFF;
+            --surface-alt:  #EEF5FB;
 
-            --border: rgba(127, 203, 245, 0.14);
-            --border-strong: rgba(127, 203, 245, 0.32);
+            --border:       rgba(118, 159, 205, 0.22);
+            --border-strong: rgba(118, 159, 205, 0.45);
 
             --radius: 20px;
         }
 
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { box-sizing: border-box; }
 
         body {
             font-family: 'Outfit', sans-serif;
             overflow-x: hidden;
-            background: linear-gradient(180deg, #07111F 0%, #0B1D3A 100%);
-            color: var(--text);
+            background: var(--blue-ghost);
+            color: var(--ink);
         }
 
-<<<<<<< HEAD
-        /* ================= HERO ================= */
+        /* ============================================================
+           HERO
+        ============================================================ */
         .hero {
             position: relative;
-            min-height: 380px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-            padding: 100px 20px 80px;
-            background: var(--ink-mid);
+            padding: 90px 6% 80px;
+            background: linear-gradient(160deg, #DEEEF8 0%, #EEF5FB 60%, var(--blue-ghost) 100%);
             border-bottom: 1px solid var(--border);
+            overflow: hidden;
         }
-=======
-        /* HERO */
->>>>>>> 345e4aa07069f33de2acccec842637325bed1e18
 
         .hero::before {
             content: '';
             position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(ellipse 65% 90% at 50% 0%,
-                    rgba(127, 203, 245, 0.12),
-                    transparent 65%);
+            top: -80px; right: -80px;
+            width: 420px; height: 420px;
+            border-radius: 50%;
+            background: rgba(118, 159, 205, 0.10);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -60px; left: -60px;
+            width: 280px; height: 280px;
+            border-radius: 50%;
+            background: rgba(185, 215, 234, 0.14);
+            pointer-events: none;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 700px;
+            max-width: 680px;
         }
 
         .hero-eyebrow {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            background: var(--gold-dim);
+            gap: 9px;
+            background: rgba(118, 159, 205, 0.12);
             border: 1px solid var(--border-strong);
-            border-radius: 40px;
-            padding: 7px 20px;
+            border-radius: 999px;
+            padding: 7px 18px;
             font-size: 10px;
-            font-weight: 500;
-            color: var(--gold-pale);
-            letter-spacing: 0.2em;
+            font-weight: 600;
+            color: var(--blue-deep);
+            letter-spacing: 0.20em;
             text-transform: uppercase;
-            margin-bottom: 24px;
+            margin-bottom: 22px;
         }
 
         .hero h1 {
             font-family: 'Libre Baskerville', serif;
-            font-size: clamp(42px, 8vw, 72px);
-            line-height: 1.1;
-            margin-bottom: 18px;
-            color: #FFFFFF;
+            font-size: clamp(40px, 7.5vw, 68px);
+            line-height: 1.12;
+            margin: 0 0 16px;
+            color: var(--ink);
         }
 
         .hero h1 em {
-            color: #7FCBF5;
+            color: var(--blue-deep);
             font-style: italic;
         }
 
         .hero-sub {
-            color: #DDF4FF;
+            color: var(--ink-muted);
             font-size: 15px;
             line-height: 1.9;
             font-weight: 300;
+            max-width: 480px;
         }
 
-        /* ================= PAGE ================= */
+        /* ============================================================
+           PAGE WRAP
+        ============================================================ */
         .page-wrap {
             width: 92%;
             max-width: 1180px;
             margin: 0 auto;
-            padding: 70px 0 100px;
+            padding: 64px 0 100px;
         }
 
-        /* ================= SECTION ================= */
+        /* ============================================================
+           SECTION HEADER
+        ============================================================ */
         .section-header {
             text-align: center;
-            margin-bottom: 48px;
+            margin-bottom: 44px;
         }
 
         .section-label {
@@ -133,139 +140,92 @@
             font-weight: 600;
             letter-spacing: 0.22em;
             text-transform: uppercase;
-            color: #9DDAFF;
+            color: var(--blue-deep);
             display: block;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .section-title {
             font-family: 'Libre Baskerville', serif;
-            font-size: clamp(26px, 5vw, 40px);
-            color: #FFFFFF;
-            margin-bottom: 16px;
+            font-size: clamp(24px, 4.5vw, 38px);
+            color: var(--ink);
+            margin: 0 0 16px;
         }
 
         .section-rule {
-            width: 40px;
-            height: 2px;
-            background: #7FCBF5;
+            width: 36px;
+            height: 2.5px;
+            border-radius: 99px;
+            background: var(--blue-deep);
             margin: 0 auto;
-            opacity: .8;
+            opacity: .7;
         }
 
-        /* ================= SEARCH ================= */
-        .search-bar {
-            max-width: 520px;
-            margin: 0 auto 50px;
-            position: relative;
-        }
-
-        .search-bar i {
-            position: absolute;
-            left: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #7FCBF5;
-            font-size: 14px;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 15px 20px 15px 48px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            color: #FFFFFF;
-            font-size: 14px;
-            outline: none;
-            transition: .3s;
-        }
-
-        .search-input::placeholder {
-            color: rgba(220, 240, 255, 0.58);
-        }
-
-        .search-input:focus {
-            border-color: var(--border-strong);
-            box-shadow: 0 0 0 4px rgba(127, 203, 245, 0.08);
-        }
-
-        /* ================= GRID ================= */
-        .khotbah-grid {
+        /* ============================================================
+           GRID
+        ============================================================ */
+        .pengumuman-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 22px;
         }
 
-        /* ================= CARD ================= */
-        .khotbah-card {
-            background: var(--ink-card);
-            border: 1px solid var(--border);
+        /* ============================================================
+           CARD
+        ============================================================ */
+        .pengumuman-card {
+            background: var(--surface);
+            border: 1.5px solid var(--blue-pale);
             border-radius: var(--radius);
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            transition: .35s ease;
+            transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
             position: relative;
         }
 
-        .khotbah-card::after {
+        .pengumuman-card::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                #7FCBF5,
-                transparent
-            );
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--blue-deep);
             opacity: 0;
-            transition: .3s;
+            transition: opacity .3s;
         }
 
-        .khotbah-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--border-strong);
-            box-shadow: 0 22px 56px rgba(0, 0, 0, .45);
+        .pengumuman-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--blue-mid);
+            box-shadow: 0 18px 44px rgba(118, 159, 205, 0.18);
         }
 
-        .khotbah-card:hover::after {
-            opacity: 1;
-        }
+        .pengumuman-card:hover::after { opacity: 1; }
 
-        /* ================= THUMB ================= */
-        .card-thumb {
+        /* ============================================================
+           CARD IMAGE
+        ============================================================ */
+        .card-img {
             width: 100%;
             aspect-ratio: 16/9;
             overflow: hidden;
             position: relative;
-            background: var(--ink-mid);
+            background: var(--surface-alt);
         }
 
-        .card-thumb img {
+        .card-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: .5s ease;
-            filter: brightness(.92);
+            transition: transform .5s ease;
         }
 
-        .khotbah-card:hover .card-thumb img {
-            transform: scale(1.06);
-        }
+        .pengumuman-card:hover .card-img img { transform: scale(1.05); }
 
-        .thumb-placeholder {
+        .card-img-placeholder {
             width: 100%;
             height: 100%;
-            background: linear-gradient(
-                135deg,
-                rgba(127, 203, 245, 0.08),
-                rgba(127, 203, 245, 0.02)
-            );
-
+            background: linear-gradient(135deg, var(--blue-pale), var(--surface-alt));
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -273,76 +233,59 @@
             gap: 10px;
         }
 
-        .thumb-placeholder i {
-            font-size: 42px;
-            color: #7FCBF5;
-            opacity: .5;
+        .card-img-placeholder i {
+            font-size: 40px;
+            color: var(--blue-deep);
+            opacity: .40;
         }
 
-        .thumb-placeholder span {
+        .card-img-placeholder span {
             font-size: 10px;
             letter-spacing: .18em;
             text-transform: uppercase;
-            color: #CFEFFF;
+            color: var(--ink-muted);
         }
 
-        .video-pill {
-            position: absolute;
-            top: 14px;
-            right: 14px;
-            background: rgba(0, 0, 0, .58);
-            backdrop-filter: blur(6px);
-            color: var(--gold-pale);
-            font-size: 10px;
-            font-weight: 500;
-            padding: 6px 12px;
-            border-radius: 999px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            border: 1px solid rgba(255, 255, 255, .08);
-        }
-
-        /* ================= BODY ================= */
+        /* ============================================================
+           CARD BODY
+        ============================================================ */
         .card-body {
-            padding: 24px;
+            padding: 22px 24px;
             display: flex;
             flex-direction: column;
             flex: 1;
         }
 
-        .khotbah-date {
+        .card-date {
             font-size: 11px;
             font-weight: 600;
-            letter-spacing: .12em;
+            letter-spacing: .10em;
             text-transform: uppercase;
-            color: #9DDAFF;
-            margin-bottom: 12px;
+            color: var(--blue-deep);
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 7px;
         }
 
-        .khotbah-title {
+        .card-title {
             font-family: 'Libre Baskerville', serif;
-            font-size: 18px;
-            line-height: 1.5;
-            color: #FFFFFF;
-            margin-bottom: 12px;
-
+            font-size: 17px;
+            line-height: 1.55;
+            color: var(--ink);
+            margin: 0 0 10px;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
 
-        .khotbah-desc {
+        .card-excerpt {
             font-size: 13px;
-            color: #D6EEFF;
+            color: var(--ink-muted);
             line-height: 1.8;
             flex: 1;
-            margin-bottom: 22px;
-
+            margin-bottom: 20px;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
@@ -351,40 +294,34 @@
 
         .card-footer {
             padding-top: 16px;
-            border-top: 1px solid rgba(255, 255, 255, .05);
+            border-top: 1px solid var(--blue-pale);
         }
 
-        .btn-watch {
+        .btn-read {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--gold-dim);
-            border: 1px solid var(--border-strong);
-            color: #E7F8FF;
+            background: var(--accent-dim);
+            border: 1.5px solid var(--border-strong);
+            color: var(--blue-deep);
             border-radius: 999px;
-            padding: 11px 22px;
+            padding: 10px 20px;
             font-size: 12px;
-            font-weight: 500;
+            font-weight: 600;
             text-decoration: none;
-            transition: .3s;
+            transition: background .25s, color .25s, border-color .25s;
+            font-family: 'Outfit', sans-serif;
         }
 
-        .btn-watch:hover {
-            background: #7FCBF5;
-            border-color: #7FCBF5;
-            color: #07111F;
+        .btn-read:hover {
+            background: var(--blue-deep);
+            border-color: var(--blue-deep);
+            color: #FFFFFF;
         }
 
-        .btn-no-video {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #CDEBFF;
-            font-size: 12px;
-            padding: 10px 0;
-        }
-
-        /* ================= EMPTY ================= */
+        /* ============================================================
+           EMPTY STATE
+        ============================================================ */
         .empty-state {
             text-align: center;
             padding: 80px 20px;
@@ -392,42 +329,63 @@
         }
 
         .empty-icon {
-            width: 78px;
-            height: 78px;
+            width: 76px;
+            height: 76px;
             border-radius: 18px;
-            background: var(--gold-dim);
+            background: var(--surface-alt);
+            border: 1.5px solid var(--blue-pale);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
-            color: #7FCBF5;
-            margin: 0 auto 22px;
-            opacity: .8;
+            font-size: 28px;
+            color: var(--blue-deep);
+            margin: 0 auto 20px;
         }
 
-        /* ================= PAGINATION ================= */
+        .empty-state h4 {
+            margin: 0 0 8px;
+            font-size: 17px;
+            color: var(--ink);
+        }
+
+        .empty-state p {
+            color: var(--ink-muted);
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* ============================================================
+           PAGINATION
+        ============================================================ */
         .pagination-wrap {
             display: flex;
             justify-content: center;
-            margin-top: 55px;
+            margin-top: 52px;
             overflow-x: auto;
         }
     </style>
 
-    <!-- HERO -->
+    <!-- ── HERO ─────────────────────────────────────────────── -->
     <section class="hero">
         <div class="hero-content">
+
             <div class="hero-eyebrow">
                 <i class="fa-solid fa-bullhorn" style="font-size:10px;"></i>
                 Informasi Gereja
             </div>
+
             <h1>Pengumuman <em>Gereja</em></h1>
-            <p class="hero-sub">Informasi terbaru dan pengumuman resmi dari gereja untuk seluruh jemaat</p>
+
+            <p class="hero-sub">
+                Informasi terbaru dan pengumuman resmi dari gereja untuk seluruh jemaat.
+            </p>
+
         </div>
     </section>
 
-    <!-- CONTENT -->
+    <!-- ── CONTENT ───────────────────────────────────────────── -->
     <div class="page-wrap">
+
         <div class="section-header">
             <span class="section-label">Terkini</span>
             <h2 class="section-title">Berita &amp; Pengumuman</h2>
@@ -435,7 +393,9 @@
         </div>
 
         <div class="pengumuman-grid">
+
             @forelse($pengumuman as $item)
+
                 <div class="pengumuman-card">
 
                     <div class="card-img">
@@ -450,11 +410,12 @@
                     </div>
 
                     <div class="card-body">
+
                         <div class="card-date">
                             <i class="fa-regular fa-calendar"></i>
                             {{ $item->publish_date
-                ? \Carbon\Carbon::parse($item->publish_date)->translatedFormat('d F Y')
-                : '—' }}
+                                ? \Carbon\Carbon::parse($item->publish_date)->translatedFormat('d F Y')
+                                : '—' }}
                         </div>
 
                         <h3 class="card-title">{{ $item->title }}</h3>
@@ -469,18 +430,32 @@
                                 Baca Selengkapnya
                             </a>
                         </div>
+
                     </div>
+
                 </div>
 
             @empty
+
                 <div class="empty-state">
-                    <div class="empty-icon"><i class="fa-regular fa-newspaper"></i></div>
-                    <h4 style="margin-bottom:8px;font-size:18px;">Belum Ada Pengumuman</h4>
-                    <p style="color:var(--text-muted);font-size:14px;">Pengumuman akan segera ditampilkan di sini. Tetap update!
-                    </p>
+                    <div class="empty-icon">
+                        <i class="fa-regular fa-newspaper"></i>
+                    </div>
+                    <h4>Belum Ada Pengumuman</h4>
+                    <p>Pengumuman akan segera ditampilkan di sini. Tetap update!</p>
                 </div>
+
             @endforelse
+
         </div>
+
+        <!-- PAGINATION -->
+        @if(method_exists($pengumuman, 'links') && $pengumuman->hasPages())
+            <div class="pagination-wrap">
+                {{ $pengumuman->links() }}
+            </div>
+        @endif
+
     </div>
 
 @endsection
