@@ -24,10 +24,10 @@ class KhotbahController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'video' => 'nullable|string|max:255',
-            'description' => 'nullable|string',
-            'thumbnail' => 'nullable|image|max:2048',
-            'sermon_date' => 'nullable|date',
+            'video' => 'required|string|max:255',
+            'description' => 'required|string',
+            'thumbnail' => 'required|image|max:2048',
+            'sermon_date' => 'required|date',
         ]);
 
         $data = $request->only(['title', 'video', 'description', 'sermon_date']);
@@ -50,10 +50,10 @@ class KhotbahController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'video' => 'nullable|string|max:255',
-            'description' => 'nullable|string',
-            'thumbnail' => 'nullable|image|max:2048',
-            'sermon_date' => 'nullable|date',
+            'video' => 'required|string|max:255',
+            'description' => 'required|string',
+            'thumbnail' => 'required|image|max:2048',
+            'sermon_date' => 'required|date',
         ]);
 
         $data = $request->only(['title', 'video', 'description', 'sermon_date']);

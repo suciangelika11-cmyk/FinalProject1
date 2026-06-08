@@ -2,150 +2,9 @@
 
 @section('content')
 
-    <style>
-        .jemaat-page {
-            padding: 32px;
-            background: #f5f7fb;
-            min-height: 100vh;
-        }
+    @include('admin.layouts.LOAJemaat.JemaatIndex')
 
-        .jemaat-header {
-            margin-bottom: 28px;
-        }
-
-        .jemaat-label {
-            font-size: 13px;
-            font-weight: 800;
-            color: #1da8e0;
-            text-transform: uppercase;
-            letter-spacing: .18em;
-            margin-bottom: 8px;
-        }
-
-        .jemaat-title {
-            font-size: 30px;
-            font-weight: 800;
-            color: #172033;
-            margin: 0;
-        }
-
-        .jemaat-desc {
-            margin-top: 8px;
-            color: #64748b;
-            max-width: 720px;
-            line-height: 1.6;
-            font-size: 15px;
-        }
-
-        .alert-success {
-            margin-bottom: 20px;
-            padding: 14px 18px;
-            background: #e8f7ef;
-            border: 1px solid #c8e8d3;
-            color: #1f6238;
-            border-radius: 12px;
-            font-weight: 600;
-        }
-
-        .jemaat-card {
-            background: #fff;
-            border: 1px solid #e5eaf3;
-            border-radius: 18px;
-            box-shadow: 0 12px 35px rgba(15, 23, 42, .06);
-            overflow: hidden;
-        }
-
-        .table-scroll {
-            width: 100%;
-            overflow-x: auto;
-        }
-
-        .jemaat-table {
-            width: 100%;
-            min-width: 1800px;
-            border-collapse: collapse;
-        }
-
-        .jemaat-table th {
-            background: #f4f8fc;
-            padding: 14px 16px;
-            font-size: 13px;
-            color: #334155;
-            text-align: left;
-            white-space: nowrap;
-            border-bottom: 1px solid #e8edf5;
-        }
-
-        .jemaat-table td {
-            padding: 14px 16px;
-            border-top: 1px solid #eef2f7;
-            color: #475569;
-            font-size: 14px;
-            vertical-align: top;
-            white-space: nowrap;
-        }
-
-        .jemaat-table tbody tr:hover {
-            background: #f8fafc;
-        }
-
-        .text-long {
-            min-width: 260px;
-            max-width: 320px;
-            white-space: normal !important;
-            line-height: 1.6;
-        }
-
-        .badge-pending {
-            display: inline-block;
-            padding: 6px 12px;
-            border-radius: 999px;
-            background: #fff4e6;
-            color: #c4710d;
-            font-size: 12px;
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        .badge-ok {
-            display: inline-block;
-            padding: 6px 12px;
-            border-radius: 999px;
-            background: #e8f7ef;
-            color: #1f6238;
-            font-size: 12px;
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        .btn-confirm {
-            border: none;
-            background: #1da8e0;
-            color: #fff;
-            padding: 8px 14px;
-            border-radius: 10px;
-            font-weight: 700;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: .2s;
-        }
-
-        .btn-confirm:hover {
-            background: #1289bb;
-        }
-
-        .no-action {
-            color: #64748b;
-            font-size: 13px;
-            white-space: nowrap;
-        }
-
-        .empty {
-            padding: 36px 16px;
-            color: #64748b;
-            text-align: center;
-        }
-    </style>
+    <script src="{{ asset('js/Admin/JemaatIndex.js') }}"></script>
 
     <div class="jemaat-page">
 
@@ -176,15 +35,6 @@
                             <th>No KK</th>
                             <th>Nama Keluarga</th>
                             <th>Alamat Domisili</th>
-                            <th>Alamat KTP</th>
-                            <th>Nama Lengkap</th>
-                            <th>NIK</th>
-                            <th>Tempat Lahir</th>
-                            <th>Tanggal Lahir</th>
-                            <th>Jenis Kelamin</th>
-                            <th>Handphone / WA</th>
-                            <th>Pekerjaan</th>
-                            <th>Status Pernikahan</th>
                             <th>Status</th>
                             <th>Aksi</th>
                         </tr>
@@ -193,19 +43,16 @@
                     <tbody>
                         @forelse($jemaats as $jemaat)
                             <tr>
+
                                 <td>{{ $loop->iteration }}</td>
+
                                 <td>{{ $jemaat->no_kk }}</td>
+
                                 <td>{{ $jemaat->nama_keluarga }}</td>
-                                <td class="text-long">{{ $jemaat->alamat_domisili }}</td>
-                                <td class="text-long">{{ $jemaat->alamat_ktp }}</td>
-                                <td>{{ $jemaat->nama_lengkap }}</td>
-                                <td>{{ $jemaat->nik }}</td>
-                                <td>{{ $jemaat->tempat_lahir }}</td>
-                                <td>{{ $jemaat->tanggal_lahir }}</td>
-                                <td>{{ $jemaat->jenis_kelamin }}</td>
-                                <td>{{ $jemaat->handphone }}</td>
-                                <td>{{ $jemaat->pekerjaan }}</td>
-                                <td>{{ $jemaat->status_pernikahan }}</td>
+
+                                <td class="text-long">
+                                    {{ $jemaat->alamat_domisili }}
+                                </td>
 
                                 <td>
                                     @if($jemaat->status === 'pending')
@@ -220,28 +67,121 @@
                                 </td>
 
                                 <td>
-                                    @if($jemaat->status === 'pending')
-                                        <form action="{{ route('jemaat.confirm', $jemaat->id) }}" method="POST">
-                                            @csrf
-                                            @method('PUT')
 
-                                            <button type="submit" class="btn-confirm">
-                                                Konfirmasi
+                                    <div class="action-buttons">
+
+                                        <button type="button" class="btn-detail" onclick="openModal({{ $jemaat->id }})">
+                                            Detail
+                                        </button>
+
+                                        @if($jemaat->status == 'pending')
+                                            <form action="{{ route('jemaat.confirm', $jemaat->id) }}" method="POST">
+                                                @csrf
+                                                @method('PUT')
+
+                                                <button type="submit" class="btn-confirm">
+                                                    Konfirmasi
+                                                </button>
+                                            </form>
+                                        @endif
+
+                                        <form action="{{ route('jemaat.destroy', $jemaat->id) }}" method="POST"
+                                            style="display:inline-block;"
+                                            onsubmit="return confirm('Yakin ingin menghapus data jemaat ini?')">
+
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                🗑 Hapus
                                             </button>
                                         </form>
-                                    @else
-                                        <span class="no-action">
-                                            Tidak ada aksi
-                                        </span>
-                                    @endif
+
+                                    </div>
+
                                 </td>
+
                             </tr>
+
+                            <!-- MODAL DETAIL -->
+                            <div class="detail-modal" id="modal-{{ $jemaat->id }}">
+
+                                <div class="detail-content">
+
+                                    <div class="detail-header">
+                                        <h3>Detail Jemaat</h3>
+
+                                        <button onclick="closeModal({{ $jemaat->id }})">
+                                            ×
+                                        </button>
+                                    </div>
+
+                                    <div class="detail-grid">
+
+                                        <div>
+                                            <label>Nama Lengkap</label>
+                                            <p>{{ $jemaat->nama_lengkap }}</p>
+                                        </div>
+
+                                        <div>
+                                            <label>NIK</label>
+                                            <p>{{ $jemaat->nik }}</p>
+                                        </div>
+
+                                        <div>
+                                            <label>Alamat KTP</label>
+                                            <p>{{ $jemaat->alamat_ktp }}</p>
+                                        </div>
+
+                                        <div>
+                                            <label>Tempat Lahir</label>
+                                            <p>{{ $jemaat->tempat_lahir }}</p>
+                                        </div>
+
+                                        <div>
+                                            <label>Tanggal Lahir</label>
+                                            <p>{{ $jemaat->tanggal_lahir }}</p>
+                                        </div>
+
+                                        <div>
+                                            <label>Jenis Kelamin</label>
+                                            <p>{{ $jemaat->jenis_kelamin }}</p>
+                                        </div>
+
+                                        <div>
+                                            <label>Handphone</label>
+                                            <p>{{ $jemaat->handphone }}</p>
+                                        </div>
+
+                                        <div>
+                                            <label>Email</label>
+                                            <p>{{ $jemaat->email }}</p>
+                                        </div>
+
+                                        <div>
+                                            <label>Pekerjaan</label>
+                                            <p>{{ $jemaat->pekerjaan }}</p>
+                                        </div>
+
+                                        <div>
+                                            <label>Status Pernikahan</label>
+                                            <p>{{ $jemaat->status_pernikahan }}</p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
                         @empty
+
                             <tr>
-                                <td colspan="16" class="empty">
+                                <td colspan="6" class="empty">
                                     Belum ada pendaftaran jemaat.
                                 </td>
                             </tr>
+
                         @endforelse
                     </tbody>
                 </table>

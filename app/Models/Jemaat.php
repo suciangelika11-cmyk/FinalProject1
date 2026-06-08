@@ -20,6 +20,7 @@ class Jemaat extends Model
         'tanggal_lahir',
         'jenis_kelamin',
         'handphone',
+        'email',
         'pekerjaan',
         'status_pernikahan',
         'status',

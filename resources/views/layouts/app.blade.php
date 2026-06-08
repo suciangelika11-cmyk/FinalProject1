@@ -21,8 +21,8 @@
             right: 0;
             z-index: 1000;
             padding: 12px 0;
-            background: rgba(10, 22, 40, 0.92);
-            border-bottom: 1px solid rgba(93, 146, 232, 0.1);
+            background: rgba(247, 251, 252, .85);
+            border-bottom: 1px solid rgba(118, 159, 205, .15);
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
             transition: background 0.4s ease, border-color 0.4s ease,
@@ -50,33 +50,29 @@
            DESIGN TOKENS
         ════════════════════════════════════════ */
         :root {
-            --navy: #0a1628;
-            --navy-mid: #102040;
-            --blue-deep: #153565;
-            --blue-main: #1a4a9e;
-            --blue-mid: #2d65c8;
-            --blue-light: #5592e8;
-            --blue-pale: #93bef8;
-            --blue-mist: #c8e0fd;
-            --blue-ghost: #e8f2ff;
+
+            /* PRIMARY PALETTE */
+            --primary: #769FCD;
+            --secondary: #B9D7EA;
+            --accent: #D6E6F2;
+            --background: #F7FBFC;
+
+            /* TEXT */
+            --text-dark: #2E4A62;
+            --text-soft: #6B7E91;
+
+            /* NAVBAR */
+            --nav-bg: rgba(247, 251, 252, 0.85);
+            --nav-border: rgba(118, 159, 205, 0.15);
+
+            /* CARDS */
+            --bg-card: rgba(255, 255, 255, 0.75);
+            --bg-card-hover: rgba(255, 255, 255, 0.92);
+
+            --border-card: rgba(118, 159, 205, 0.15);
+            --border-hover: rgba(118, 159, 205, 0.35);
 
             --white: #ffffff;
-            --dim-1: rgba(255, 255, 255, 0.90);
-            --dim-2: rgba(255, 255, 255, 0.70);
-            --dim-3: rgba(255, 255, 255, 0.50);
-            --dim-4: rgba(255, 255, 255, 0.25);
-
-            --gold: #d4a844;
-            --gold-lt: #f0d070;
-
-            --bg-hero: #0d1f40;
-            --bg-section: #102444;
-            --bg-alt: #0f1e3a;
-            --bg-card: rgba(255, 255, 255, 0.07);
-            --bg-card-hov: rgba(255, 255, 255, 0.11);
-
-            --border-card: rgba(93, 146, 232, 0.18);
-            --border-hover: rgba(93, 146, 232, 0.45);
 
             --font-display: 'Playfair Display', serif;
             --font-body: 'DM Sans', sans-serif;
@@ -108,11 +104,36 @@
 
         body {
             font-family: var(--font-body);
-            background: var(--bg-hero);
-            color: var(--white);
+            background:
+                linear-gradient(180deg,
+                    #F7FBFC 0%,
+                    #D6E6F2 100%);
+            color: var(--text-dark);
             padding-top: 70px;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            background:
+                radial-gradient(circle at top left,
+                    rgba(118, 159, 205, .15),
+                    transparent 40%),
+
+                radial-gradient(circle at bottom right,
+                    rgba(185, 215, 234, .25),
+                    transparent 45%);
+
+            pointer-events: none;
+
+            z-index: -1;
         }
 
         img {
@@ -158,7 +179,7 @@
             font-weight: 700;
             font-size: 15px;
             line-height: 1.2;
-            color: var(--white);
+            color: var(--text-dark);
             display: block;
             transition: color 0.4s;
         }
@@ -172,7 +193,7 @@
             font-weight: 400;
             letter-spacing: 1.2px;
             text-transform: uppercase;
-            color: var(--dim-3);
+            color: var(--text-soft);
             display: block;
             transition: color 0.4s;
         }
@@ -186,7 +207,7 @@
             font-family: var(--font-body);
             font-weight: 500;
             font-size: 13.5px;
-            color: var(--dim-1) !important;
+            color: #506479 !important;
             position: relative;
             padding: 6px 10px !important;
             margin: 0 1px;
@@ -215,7 +236,7 @@
         }
 
         .navbar-nav .nav-link:hover {
-            color: var(--white) !important;
+            color: #769FCD !important;
         }
 
         .navbar-nav .nav-link:hover::after {
@@ -227,7 +248,7 @@
         }
 
         .navbar-nav .nav-link.active {
-            color: var(--white) !important;
+            color: #769FCD !important;
         }
 
         .navbar-nav .nav-link.active::after {
@@ -245,16 +266,16 @@
         /* Mobile nav collapse */
         @media (max-width: 991.98px) {
             .navbar-collapse {
-                background: rgba(10, 22, 40, 0.97);
-                border-top: 1px solid rgba(93, 146, 232, 0.1);
+                background: #F7FBFC;
+                border-top: 1px solid #6e9bce;
                 padding: 16px 16px 20px;
                 margin-top: 8px;
                 border-radius: 0 0 16px 16px;
             }
 
             .navbar-scrolled .navbar-collapse {
-                background: rgba(255, 255, 255, 0.98);
-                border-top: 1px solid rgba(26, 74, 158, 0.1);
+                background: #F7FBFC;
+                border-top: 1px solid #6e9bce;
             }
 
             .navbar-nav .nav-link {
@@ -277,9 +298,20 @@
             }
 
             .btn-nav-cta {
-                margin-top: 8px;
-                width: 100% !important;
-                justify-content: center !important;
+
+                background:
+                    linear-gradient(135deg,
+                        #769FCD,
+                        #B9D7EA) !important;
+
+                color: #2E4A62 !important;
+
+                border: none !important;
+
+                font-weight: 700 !important;
+
+                box-shadow:
+                    0 8px 25px rgba(118, 159, 205, .25);
             }
 
             .user-pill {
@@ -315,7 +347,9 @@
         }
 
         .btn-nav-cta:hover {
-            background: rgba(255, 255, 255, 0.15) !important;
+            transform: translateY(-2px);
+            box-shadow:
+                0 15px 35px rgba(118, 159, 205, .35);
         }
 
         .navbar-scrolled .btn-nav-cta:hover {
@@ -334,13 +368,14 @@
             gap: 8px;
             font-size: 13px;
             font-weight: 500;
-            color: var(--white) !important;
+            color: #2E4A62 !important;
             padding: 5px 13px 5px 5px !important;
             border-radius: var(--r-pill);
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(118, 159, 205, 0.12);
+            border: 1px solid rgba(118, 159, 205, 0.25);
             text-decoration: none;
             transition: background 0.3s, color 0.4s, border-color 0.4s;
+            border-radius: 999px;
         }
 
         .navbar-scrolled .user-pill {
@@ -365,13 +400,13 @@
             width: 26px;
             height: 26px;
             border-radius: 50%;
-            background: var(--blue-main);
+            background: #769FCD;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 11px;
             font-weight: 700;
-            color: var(--white);
+            color: white;
             flex-shrink: 0;
         }
 
@@ -399,9 +434,10 @@
 
         /* Toggler */
         .navbar-toggler {
-            border: 1.5px solid rgba(255, 255, 255, 0.38) !important;
-            border-radius: var(--r-sm) !important;
-            padding: 5px 9px !important;
+            border: 2px solid #769FCD;
+            border-radius: 14px;
+            padding: 10px 14px;
+            box-shadow: 0 4px 12px rgba(118, 159, 205, .15);
             transition: border-color 0.4s !important;
         }
 
@@ -410,15 +446,42 @@
         }
 
         .navbar-toggler:focus {
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.18) !important;
+            box-shadow: none;
         }
 
         .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+            background-image: none;
+            position: relative;
+            width: 24px;
+            height: 18px;
         }
 
         .navbar-scrolled .navbar-toggler-icon {
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%231a4a9e' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+        }
+
+        .navbar-toggler-icon::before,
+        .navbar-toggler-icon::after,
+        .navbar-toggler-icon span {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #769FCD;
+            border-radius: 3px;
+        }
+
+        .navbar-toggler-icon::before {
+            top: 0;
+        }
+
+        .navbar-toggler-icon span {
+            top: 7px;
+        }
+
+        .navbar-toggler-icon::after {
+            bottom: 0;
         }
 
         /* ════════════════════════════════════════
@@ -438,7 +501,7 @@
             font-family: var(--font-display);
             font-size: clamp(24px, 4vw, 40px);
             font-weight: 700;
-            color: var(--white);
+            color: #2E4A62;
             margin-bottom: 16px;
             line-height: 1.2;
         }
@@ -460,15 +523,15 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(93, 146, 232, 0.14);
-            border: 1px solid rgba(93, 146, 232, 0.3);
+            background: rgba(118, 159, 205, .15);
+            border: 1px solid rgba(118, 159, 205, .25);
             border-radius: var(--r-pill);
             padding: 6px 16px;
             font-size: 11px;
             font-weight: 600;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: var(--blue-mist);
+            color: #5D7B97;
             margin-bottom: 22px;
         }
 
@@ -482,18 +545,19 @@
         }
 
         .card-base {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
+            background: rgba(255, 255, 255, .8);
+            border: 1px solid rgba(118, 159, 205, .15);
             border-radius: var(--r-lg);
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(18px);
             transition: transform 0.35s cubic-bezier(.34, 1.56, .64, 1),
                 box-shadow 0.35s ease,
                 border-color 0.3s ease;
+            box-shadow: 0 15px 40px rgba(118, 159, 205, .12);
         }
 
         .card-base:hover {
             transform: translateY(-8px);
-            box-shadow: 0 28px 56px rgba(10, 22, 40, 0.45);
+            box-shadow: 0 25px 60px rgba(118, 159, 205, .20);
             border-color: var(--border-hover);
         }
 
@@ -530,17 +594,17 @@
            FOOTER
         ════════════════════════════════════════ */
         .site-footer {
-            background: var(--navy);
+            background: linear-gradient(135deg, #5D7B97, #769FCD);
             color: var(--white);
             padding: clamp(48px, 8vw, 72px) 0 0;
             border-top: 1px solid rgba(93, 146, 232, 0.12);
         }
 
         .footer-brand-logo {
-            width: 48px;
-            height: 48px;
+            width: 50px;
+            height: 50px;
             background: rgba(255, 255, 255, 0.08);
-            border-radius: var(--r-md);
+            border-radius: 50%;
             border: 1.5px solid rgba(255, 255, 255, 0.15);
             display: flex;
             align-items: center;
@@ -550,6 +614,13 @@
             font-size: 14px;
             color: var(--white);
             flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .footer-brand-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .footer-brand-name {
@@ -571,7 +642,7 @@
 
         .footer-desc {
             font-size: 13.5px;
-            color: var(--dim-3);
+            color: rgba(255, 255, 255, .85);
             line-height: 1.75;
             font-weight: 300;
             margin: 18px 0 22px;
@@ -587,8 +658,8 @@
             width: 36px;
             height: 36px;
             border-radius: 10px;
-            background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, .15);
+            border: none;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -599,8 +670,8 @@
         }
 
         .footer-socials a:hover {
-            background: rgba(93, 146, 232, 0.2);
-            color: var(--blue-mist);
+            background: #ffffff;
+            color: #769FCD;
             transform: translateY(-3px);
         }
 
@@ -625,7 +696,8 @@
         }
 
         .footer-nav li a {
-            color: var(--dim-3);
+            color: rgba(255, 255, 255, .85);
+            ;
             text-decoration: none;
             font-size: 13.5px;
             font-weight: 300;
@@ -679,13 +751,13 @@
 
         .footer-contact-text {
             font-size: 13px;
-            color: var(--dim-3);
+            color: rgba(255, 255, 255, .85);
             font-weight: 300;
             line-height: 1.65;
         }
 
         .footer-contact-text a {
-            color: var(--dim-3);
+            color: rgba(255, 255, 255, .85);
             text-decoration: none;
             transition: color 0.2s;
         }
@@ -747,193 +819,314 @@
                 padding: 5px 12px;
             }
         }
+
+        /* DONASI */
+        .donasi-section {
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(180deg,
+                    #F7FBFC 0%,
+                    #D6E6F2 100%);
+
+            color: #2E4A62;
+        }
+
+        .donasi-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+
+            background:
+                radial-gradient(circle at top left,
+                    rgba(118, 159, 205, .18),
+                    transparent 40%),
+
+                radial-gradient(circle at bottom right,
+                    rgba(185, 215, 234, .25),
+                    transparent 45%);
+
+            pointer-events: none;
+        }
+
+        .donasi-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            color: #2E4A62;
+            margin-bottom: 12px;
+        }
+
+        .donasi-sub {
+            color: #5D7B97;
+            margin-bottom: 40px;
+            opacity: 1;
+        }
+
+        /* BOX */
+        .donasi-box {
+            width: 100%;
+            height: 500px;
+            background: #F7FBFC;
+
+            border: 2px dashed #B9D7EA;
+            border-radius: 20px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .qris-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* REKENING */
+        .rek {
+            font-size: 1.4rem;
+            font-weight: bold;
+            word-break: break-all;
+        }
+
+        /* GRID GALERI / KHOTBAH */
+        .kh-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        /* TABLET */
+        @media(max-width:992px) {
+            .kh-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* MOBILE */
+        @media(max-width:768px) {
+            .kh-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
 <body>
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg" id="mainNavbar">
-        <div class="container">
+    @if(!isset($hideNavbar))
+        <nav class="navbar navbar-expand-lg" id="mainNavbar">
+            <div class="container">
 
-            <a class="navbar-brand" href="{{ route('home') }}">
-                <div class="brand-logo-wrap">
-                    <img src="/gambar/gbi.jpeg" alt="GBI Tambunan">
-                </div>
-                <div>
-                    <span class="brand-title">GBI Tambunan</span>
-                    <span class="brand-sub">Gereja Bethel Indonesia</span>
-                </div>
-            </a>
+                <a class="navbar-brand" href="{{ route('home') }}">
+                    <div class="brand-logo-wrap">
+                        <img src="/gambar/gbi.jpeg" alt="GBI Tambunan">
+                    </div>
+                    <div>
+                        <span class="brand-title">GBI Tambunan</span>
+                        <span class="brand-sub">Gereja Bethel Indonesia</span>
+                    </div>
+                </a>
 
-            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menuNav"
-                aria-label="Toggle navigation" aria-expanded="false" aria-controls="menuNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menuNav"
+                    aria-label="Toggle navigation" aria-expanded="false" aria-controls="menuNav">
 
-            <div class="collapse navbar-collapse" id="menuNav">
-                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}"
-                            href="{{ route('home') }}">Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('user.pengumuman') ? 'active' : '' }}"
-                            href="{{ route('user.pengumuman') }}">Pengumuman</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('user.jadwal') ? 'active' : '' }}"
-                            href="{{ route('user.jadwal') }}">Jadwal</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('user.galeri') ? 'active' : '' }}"
-                            href="{{ route('user.galeri') }}">Galeri</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('user.khotbah') ? 'active' : '' }}"
-                            href="{{ route('user.khotbah') }}">Khotbah</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('user.pelayanan') ? 'active' : '' }}"
-                            href="{{ route('user.pelayanan') }}">Pelayanan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('user.kontak') ? 'active' : '' }}"
-                            href="{{ route('user.kontak') }}">Kontak</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('user.tentang') ? 'active' : '' }}"
-                            href="{{ route('user.tentang') }}">Tentang Kami</a>
-                    </li>
+                    <span class="navbar-toggler-icon">
+                        <span></span>
+                    </span>
 
-                    @auth
-                        <li class="nav-item dropdown ms-lg-2">
-                            <a class="user-pill dropdown-toggle" href="#" id="userMenu" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <div class="user-avatar">
-                                    {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
-                                </div>
-                                <span>{{ Auth::user()->name }}</span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
-                                <li>
-                                    <form method="POST" action="{{ route('logout') }}" class="m-0">
-                                        @csrf
-                                        <button type="submit" class="dropdown-item">
-                                            <i class="bi bi-box-arrow-right me-2"></i>Logout
-                                        </button>
-                                    </form>
-                                </li>
-                            </ul>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menuNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}"
+                                href="{{ route('home') }}">Beranda</a>
                         </li>
-                    @endauth
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('user.pengumuman') ? 'active' : '' }}"
+                                href="{{ route('user.pengumuman') }}">Pengumuman</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('user.jadwal') ? 'active' : '' }}"
+                                href="{{ route('user.jadwal') }}">Jadwal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('user.galeri') ? 'active' : '' }}"
+                                href="{{ route('user.galeri') }}">Galeri</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('user.khotbah') ? 'active' : '' }}"
+                                href="{{ route('user.khotbah') }}">Khotbah</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('user.pelayanan') ? 'active' : '' }}"
+                                href="{{ route('user.pelayanan') }}">Pelayanan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('user.kontak') ? 'active' : '' }}"
+                                href="{{ route('user.kontak') }}">Kontak</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('user.tentang') ? 'active' : '' }}"
+                                href="{{ route('user.tentang') }}">Tentang Kami</a>
+                        </li>
 
-                    <li class="nav-item ms-lg-2">
-                        <a class="nav-link btn-nav-cta" href="{{ route('user.jemaat') }}">
-                            Jadi Jemaat
-                        </a>
-                    </li>
-                </ul>
+                        @auth
+                            <li class="nav-item dropdown ms-lg-2">
+                                <a class="user-pill dropdown-toggle" href="#" id="userMenu" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="user-avatar">
+                                        {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
+                                    </div>
+                                    <span>{{ Auth::user()->name }}</span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                                        @if(Auth::check() && Auth::user()->role == 'admin')
+                                            <li>
+                                                <a href="{{ route('admin.dashboard') }}" class="dropdown-item">
+                                                <i class="bi bi-speedometer2 me-2"></i>
+                                                    Dashboard Admin
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                        @endif
+                                    <li>
+                                        <form method="POST" action="{{ route('logout') }}" class="m-0">
+                                            @csrf
+                                            <button type="submit" class="dropdown-item">
+                                                <i class="bi bi-box-arrow-right me-2"></i>Logout
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endauth
+
+                        <li class="nav-item ms-lg-2">
+                            <a class="nav-link btn-nav-cta" href="{{ route('user.jemaat') }}">
+                                Jadi Jemaat
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    @endif
 
     @yield('content')
 
     <!-- FOOTER -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="row g-4 g-lg-5">
+    @if(!isset($hideFooter))
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row g-4 g-lg-5">
 
-                <div class="col-lg-4 col-md-12">
-                    <div class="d-flex align-items-center gap-3 mb-1">
-                        <div class="footer-brand-logo">GBI</div>
-                        <div>
-                            <p class="footer-brand-name">GBI Tambunan</p>
-                            <span class="footer-brand-sub">Gereja Bethel Indonesia</span>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="d-flex align-items-center gap-3 mb-1">
+                            <div class="footer-brand-logo">
+                                <img src="/gambar/logo-gbi-official.png" alt="GBI Tambunan">
+                            </div>
+                            <div>
+                                <p class="footer-brand-name">GBI Tambunan</p>
+                                <span class="footer-brand-sub">Gereja Bethel Indonesia</span>
+                            </div>
+                        </div>
+                        <p class="footer-desc">
+                            Bersama membangun tubuh Kristus dalam kesatuan, kasih, dan pelayanan.
+                            Bergabunglah dengan keluarga rohani kami.
+                        </p>
+                        <div class="footer-socials">
+                            <a href="https://web.facebook.com/GBITAMBUNANN" target="_blank" rel="noopener"
+                                aria-label="Facebook">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="https://www.instagram.com/gbitambunan_/" target="_blank" rel="noopener"
+                                aria-label="Instagram">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@gbitambunan2080" target="_blank" rel="noopener"
+                                aria-label="YouTube">
+                                <i class="bi bi-youtube"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@gbi.tambunan" target="_blank" rel="noopener"
+                                aria-label="TikTok">
+                                <i class="bi bi-tiktok"></i>
+                            </a>
                         </div>
                     </div>
-                    <p class="footer-desc">
-                        Bersama membangun tubuh Kristus dalam kesatuan, kasih, dan pelayanan.
-                        Bergabunglah dengan keluarga rohani kami.
+
+                    <div class="col-6 col-lg-2 col-md-3">
+                        <h6 class="footer-heading">Menu</h6>
+                        <ul class="footer-nav">
+                            <li><a href="{{ route('home') }}">Beranda</a></li>
+                            <li><a href="{{ route('user.tentang') }}">Tentang Kami</a></li>
+                            <li><a href="{{ route('user.jadwal') }}">Jadwal</a></li>
+                            <li><a href="{{ route('user.galeri') }}">Galeri</a></li>
+                            <li><a href="{{ route('user.khotbah') }}">Khotbah</a></li>
+                            <li><a href="{{ route('user.pelayanan') }}">Pelayanan</a></li>
+                            <li><a href="{{ route('login') }}">Login</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-6 col-lg-2 col-md-3">
+                        <h6 class="footer-heading">Info</h6>
+                        <ul class="footer-nav">
+                            <li><a href="{{ route('user.kontak') }}">Kontak</a></li>
+                            <li><a href="{{ route('user.pengumuman') }}">Pengumuman</a></li>
+                            <li><a href="{{ route('user.jemaat') }}">Jadi Jemaat</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <h6 class="footer-heading">Kontak Kami</h6>
+
+                        <div class="footer-contact-item">
+                            <div class="footer-contact-icon"><i class="bi bi-geo-alt"></i></div>
+                            <div class="footer-contact-text">
+                                Jl. Pasar Tambunan Desa No.4<br>
+                                Lumban Pea, Kec. Balige<br>
+                                Toba, Sumatera Utara
+                            </div>
+                        </div>
+
+                        <div class="footer-contact-item">
+                            <div class="footer-contact-icon"><i class="bi bi-telephone"></i></div>
+                            <div class="footer-contact-text">
+                                <a href="tel:+6285370385542">+62 853-7038-5542</a>
+                            </div>
+                        </div>
+
+                        <div class="footer-contact-item">
+                            <div class="footer-contact-icon"><i class="bi bi-envelope"></i></div>
+                            <div class="footer-contact-text">
+                                <a href="mailto:gbitambunan01@gmail.com">gbitambunan01@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <hr class="footer-divider">
+
+                <div class="footer-bottom">
+                    <p class="footer-copyright">
+                        © 2026 GBI Tambunan. All rights reserved. Made with <span class="heart">❤</span> for God's glory.
                     </p>
-                    <div class="footer-socials">
-                        <a href="https://web.facebook.com/GBITAMBUNANN" target="_blank" rel="noopener"
-                            aria-label="Facebook">
-                            <i class="bi bi-facebook"></i>
-                        </a>
-                        <a href="https://www.instagram.com/gbitambunan_/" target="_blank" rel="noopener"
-                            aria-label="Instagram">
-                            <i class="bi bi-instagram"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@gbitambunan2080" target="_blank" rel="noopener"
-                            aria-label="YouTube">
-                            <i class="bi bi-youtube"></i>
-                        </a>
-                    </div>
+                    <p class="footer-built">Built by <strong>Team 05 PA-IT Del</strong></p>
                 </div>
-
-                <div class="col-6 col-lg-2 col-md-3">
-                    <h6 class="footer-heading">Menu</h6>
-                    <ul class="footer-nav">
-                        <li><a href="{{ route('home') }}">Beranda</a></li>
-                        <li><a href="{{ route('user.tentang') }}">Tentang Kami</a></li>
-                        <li><a href="{{ route('user.jadwal') }}">Jadwal</a></li>
-                        <li><a href="{{ route('user.galeri') }}">Galeri</a></li>
-                        <li><a href="{{ route('user.khotbah') }}">Khotbah</a></li>
-                        <li><a href="{{ route('user.pelayanan') }}">Pelayanan</a></li>
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-6 col-lg-2 col-md-3">
-                    <h6 class="footer-heading">Info</h6>
-                    <ul class="footer-nav">
-                        <li><a href="{{ route('user.kontak') }}">Kontak</a></li>
-                        <li><a href="{{ route('user.pengumuman') }}">Pengumuman</a></li>
-                        <li><a href="{{ route('user.jemaat') }}">Jadi Jemaat</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <h6 class="footer-heading">Kontak Kami</h6>
-
-                    <div class="footer-contact-item">
-                        <div class="footer-contact-icon"><i class="bi bi-geo-alt"></i></div>
-                        <div class="footer-contact-text">
-                            Jl. Pasar Tambunan Desa No.4<br>
-                            Lumban Pea, Kec. Balige<br>
-                            Toba, Sumatera Utara
-                        </div>
-                    </div>
-
-                    <div class="footer-contact-item">
-                        <div class="footer-contact-icon"><i class="bi bi-telephone"></i></div>
-                        <div class="footer-contact-text">
-                            <a href="tel:+6285370385542">+62 853-7038-5542</a>
-                        </div>
-                    </div>
-
-                    <div class="footer-contact-item">
-                        <div class="footer-contact-icon"><i class="bi bi-envelope"></i></div>
-                        <div class="footer-contact-text">
-                            <a href="mailto:gbitambunan01@gmail.com">gbitambunan01@gmail.com</a>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-
-            <hr class="footer-divider">
-
-            <div class="footer-bottom">
-                <p class="footer-copyright">
-                    © 2026 GBI Tambunan. All rights reserved. Made with <span class="heart">❤</span> for God's glory.
-                </p>
-                <p class="footer-built">Built with <strong>Team 05</strong></p>
-            </div>
-        </div>
-    </footer>
+        </footer>
+    @endif
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 

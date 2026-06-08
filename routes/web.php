@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+use Illuminate\Support\Facades\Mail;
+
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\Admin\AccountController;
@@ -28,6 +31,7 @@ use App\Http\Controllers\Pelayan\AbsensiController as PelayanAbsensiController;
 use App\Http\Controllers\Pelayan\KhotbahController as PelayanKhotbahController;
 use App\Http\Controllers\Pelayan\PengumumanController as PelayanPengumumanController;
 use App\Http\Controllers\Pelayan\TentangController as PelayanTentangController;
+use App\Http\Controllers\IbadahController;
 
 
 Route::get('/login', [AdminLoginController::class, 'showLoginForm'])->name('login');
@@ -102,6 +106,7 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
 
     Route::get('/jemaat', [AdminJemaatController::class, 'index'])->name('jemaat.index');
     Route::put('/jemaat/{jemaat}/confirm', [AdminJemaatController::class, 'confirm'])->name('jemaat.confirm');
+    Route::delete('/admin/jemaat/{jemaat}', [AdminJemaatController::class, 'destroy'])->name('jemaat.destroy');
 
     Route::get('/profil', [ProfilController::class, 'index'])->name('profil.index');
     Route::get('/profil/create', [ProfilController::class, 'create'])->name('profil.create');
@@ -141,9 +146,7 @@ Route::prefix('admin')->middleware(['auth', 'role:super_admin,admin'])->group(fu
     Route::get('/tentang',[PelayanTentangController::class, 'index'])->name('pelayan.tentang');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-})->name("home");
+Route::get('/', [IbadahController::class, 'index'])->name("home");
     
     Route::get('/tentang', [UserTentangController::class, 'index'])->name('user.tentang');
     Route::get('/Jadwal', [UserJadwalController::class, 'index'])->name('user.jadwal');
@@ -158,4 +161,13 @@ Route::get('/', function () {
     Route::get('/pengumuman', [UserPengumumanController::class, 'index'])->name('user.pengumuman');
     Route::get('/pengumuman/{pengumuman}', [UserPengumumanController::class, 'show'])->name('user.pengumuman.show');
 
+    Route::get('/test-email', function () {
+
+    Mail::raw('Halo, email dari Laravel berhasil dikirim!', function ($message) {
+        $message->to('penting22banget@gmail.com')
+                ->subject('Test Email Laravel');
+    });
+
+    return 'Email berhasil dikirim';
+});
 ?>

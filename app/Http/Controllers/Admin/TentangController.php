@@ -46,9 +46,9 @@ class TentangController extends Controller
             'visi' => 'required|string',
             'misi' => 'required|string',
             'gembala_nama' => 'required|string|max:255',
-            'gembala_jabatan' => 'nullable|string|max:255',
-            'gembala_deskripsi' => 'nullable|string',
-            'gembala_foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'gembala_jabatan' => 'required|string|max:255',
+            'gembala_deskripsi' => 'required|string',
+            'gembala_foto' => 'required|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
         $data = $request->only([

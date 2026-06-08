@@ -20,15 +20,15 @@
     <style>
         :root {
             --navy: #0a1628;
-            --blue-main: #1a4a9e;
-            --blue-mid: #2d65c8;
-            --blue-light: #5592e8;
-            --blue-pale: #c8e0fd;
-            --blue-ghost: #e8f2ff;
+            --blue-main: #769FCD;
+            --blue-mid: #B9D7EA;
+            --blue-light: #D6E6F2;
+            --blue-pale: #F7FBFC;
+            --blue-ghost: #F7FBFC;
             --white: #ffffff;
 
-            --bg-card: rgba(255, 255, 255, 0.07);
-            --border-card: rgba(93, 146, 232, 0.18);
+            --bg-card: rgba(118, 159, 205, 0.08);
+            --border-card: rgba(118, 159, 205, 0.2);
 
             --font-display: 'Playfair Display', serif;
             --font-body: 'DM Sans', sans-serif;
@@ -45,8 +45,8 @@
 
         body {
             font-family: var(--font-body);
-            background: #0d1f40;
-            color: white;
+            background: #f5f7fa;
+            color: #0a1628;
             padding-top: 75px;
             overflow-x: hidden;
         }
@@ -59,15 +59,16 @@
             right: 0;
             z-index: 1000;
             padding: 14px 0;
-            background: rgba(10, 22, 40, 0.92);
-            border-bottom: 1px solid rgba(93, 146, 232, 0.1);
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(118, 159, 205, 0.15);
             backdrop-filter: blur(18px);
             transition: 0.4s;
+            box-shadow: 0 2px 12px rgba(118, 159, 205, 0.08);
         }
 
         #mainNavbar.scrolled {
             background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 4px 32px rgba(10, 22, 40, 0.12);
+            box-shadow: 0 4px 32px rgba(118, 159, 205, 0.12);
             padding: 10px 0;
         }
 
@@ -83,7 +84,7 @@
             height: 45px;
             border-radius: 50%;
             overflow: hidden;
-            border: 2px solid rgba(255, 255, 255, 0.45);
+            border: 2px solid rgba(118, 159, 205, 0.3);
         }
 
         .brand-logo-wrap img {
@@ -96,27 +97,27 @@
             font-family: var(--font-display);
             font-size: 18px;
             font-weight: 700;
-            color: white;
+            color: #769FCD;
             transition: 0.4s;
         }
 
         #mainNavbar.scrolled .brand-title {
-            color: #0a1628;
+            color: #769FCD;
         }
 
         .brand-sub {
             font-size: 10px;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.6);
+            color: #B9D7EA;
         }
 
         #mainNavbar.scrolled .brand-sub {
-            color: var(--blue-main);
+            color: #B9D7EA;
         }
 
         .navbar-nav .nav-link {
-            color: rgba(255, 255, 255, 0.88) !important;
+            color: #0a1628 !important;
             font-size: 13.5px;
             font-weight: 500;
             padding: 6px 10px !important;
@@ -125,7 +126,7 @@
         }
 
         #mainNavbar.scrolled .nav-link {
-            color: #374151 !important;
+            color: #0a1628 !important;
         }
 
         .navbar-nav .nav-link::after {
@@ -135,7 +136,7 @@
             bottom: 0;
             width: 0;
             height: 2px;
-            background: var(--blue-light);
+            background: #769FCD;
             transform: translateX(-50%);
             transition: 0.3s;
         }
@@ -146,11 +147,11 @@
         }
 
         .navbar-nav .nav-link:hover {
-            color: white !important;
+            color: #769FCD !important;
         }
 
         #mainNavbar.scrolled .nav-link:hover {
-            color: var(--blue-main) !important;
+            color: #769FCD !important;
         }
 
         /* USER */
@@ -158,19 +159,19 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: #D6E6F2;
+            border: 1px solid #B9D7EA;
             border-radius: 999px;
             padding: 5px 14px 5px 5px !important;
-            color: white !important;
+            color: #0a1628 !important;
             text-decoration: none;
             font-size: 13px;
         }
 
         #mainNavbar.scrolled .user-pill {
-            background: var(--blue-ghost);
+            background: #D6E6F2;
             color: #0a1628 !important;
-            border-color: rgba(26, 74, 158, 0.15);
+            border-color: #B9D7EA;
         }
 
         .user-pill::after {
@@ -181,7 +182,7 @@
             width: 28px;
             height: 28px;
             border-radius: 50%;
-            background: var(--blue-main);
+            background: #769FCD;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -192,7 +193,7 @@
 
         /* TOGGLER */
         .navbar-toggler {
-            border: 1.5px solid rgba(255, 255, 255, 0.35) !important;
+            border: 1.5px solid #769FCD !important;
             padding: 5px 9px !important;
         }
 
@@ -201,11 +202,11 @@
         }
 
         .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23769FCD' stroke-linecap='round' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
 
         #mainNavbar.scrolled .navbar-toggler-icon {
-            background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%231a4a9e' stroke-linecap='round' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e\");
+            background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23769FCD' stroke-linecap='round' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e\");
         }
 
         .qris-img {
@@ -219,18 +220,20 @@
             border: none;
             border-radius: 14px;
             padding: 8px;
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+            background: #ffffff;
+            box-shadow: 0 12px 32px rgba(118, 159, 205, 0.15);
         }
 
         .dropdown-item {
             border-radius: 10px;
             font-size: 13px;
             padding: 9px 14px;
+            color: #0a1628;
         }
 
         .dropdown-item:hover {
-            background: var(--blue-ghost);
-            color: var(--blue-main);
+            background: #D6E6F2;
+            color: #769FCD;
         }
 
         /* CONTENT */
@@ -240,21 +243,23 @@
 
         /* ═════════ FOOTER ═════════ */
         .site-footer {
-            background: #071426;
+            background: #6B8DAE;
             padding: 70px 0 0;
             margin-top: 80px;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-brand-logo {
             width: 52px;
             height: 52px;
             border-radius: 14px;
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
+            color: white;
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
         }
 
         .footer-brand-name {
@@ -262,15 +267,18 @@
             font-size: 18px;
             font-weight: 700;
             margin: 0;
+            color: white;
         }
 
         .footer-brand-sub {
             font-size: 11px;
-            color: var(--blue-pale);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.8);
         }
 
         .footer-desc {
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.9);
             line-height: 1.8;
             font-size: 13px;
             margin: 18px 0;
@@ -284,8 +292,9 @@
         .footer-socials a {
             width: 38px;
             height: 38px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -295,7 +304,8 @@
         }
 
         .footer-socials a:hover {
-            background: var(--blue-main);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: white;
             transform: translateY(-3px);
         }
 
@@ -303,6 +313,7 @@
             font-size: 15px;
             font-weight: 700;
             margin-bottom: 18px;
+            color: white;
         }
 
         .footer-nav {
@@ -315,7 +326,7 @@
         }
 
         .footer-nav a {
-            color: rgba(255, 255, 255, 0.65);
+            color: rgba(255, 255, 255, 0.85);
             text-decoration: none;
             transition: 0.3s;
         }
@@ -333,27 +344,33 @@
         .footer-contact-icon {
             width: 36px;
             height: 36px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--blue-pale);
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .footer-contact-text {
             font-size: 13px;
-            color: rgba(255, 255, 255, 0.65);
+            color: rgba(255, 255, 255, 0.9);
             line-height: 1.7;
         }
 
         .footer-contact-text a {
-            color: inherit;
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-contact-text a:hover {
+            color: white;
+            text-decoration: underline;
         }
 
         .footer-divider {
-            border-color: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.1);
             margin-top: 45px;
         }
 
@@ -368,7 +385,7 @@
         .footer-copyright,
         .footer-built {
             font-size: 12px;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .heart {
@@ -391,7 +408,7 @@
 
             .navbar-collapse {
                 margin-top: 16px;
-                background: rgba(10, 22, 40, 0.98);
+                background: rgba(255, 255, 255, 0.98);
                 padding: 20px;
                 border-radius: 20px;
             }
@@ -511,7 +528,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('pelayan.jadwal_ibadah') ? 'active' : '' }}"
+                        <a class="nav-link {{ request()->routeIs('pelayan.tentang') ? 'active' : '' }}"
                             href="{{ route('pelayan.tentang') }}">
                             Tentang Kami
                         </a>
@@ -608,6 +625,9 @@
                         <a href="https://www.youtube.com/@gbitambunan2080" target="_blank">
                             <i class="bi bi-youtube"></i>
                         </a>
+                        <a href="https://www.tiktok.com/@gbi.tambunan" target="_blank">
+                            <i class="bi bi-tiktok"></i>
+                        </a>
 
                     </div>
 
@@ -615,61 +635,61 @@
 
                 <div class="col-lg-2">
 
-                   <h6 class="footer-heading">
-    Menu
-</h6>
+                    <h6 class="footer-heading">
+                        Menu
+                    </h6>
 
-<ul class="footer-nav">
+                    <ul class="footer-nav">
 
-    <li>
-        <a href="{{ route('pelayan.home') }}">
-            Beranda
-        </a>
-    </li>
+                        <li>
+                            <a href="{{ route('pelayan.home') }}">
+                                Beranda
+                            </a>
+                        </li>
 
-    <li>
-        <a href="{{ route('pelayan.jadwal_ibadah') }}">
-            Jadwal
-        </a>
-    </li>
+                        <li>
+                            <a href="{{ route('pelayan.jadwal_ibadah') }}">
+                                Jadwal
+                            </a>
+                        </li>
 
-    <li>
-        <a href="{{ route('pelayan.kegiatan_pelayan') }}">
-            Kegiatan
-        </a>
-    </li>
+                        <li>
+                            <a href="{{ route('pelayan.kegiatan_pelayan') }}">
+                                Kegiatan
+                            </a>
+                        </li>
 
-    <li>
-        <a href="{{ route('pelayan.absensi') }}">
-            Absensi
-        </a>
-    </li>
+                        <li>
+                            <a href="{{ route('pelayan.absensi') }}">
+                                Absensi
+                            </a>
+                        </li>
 
-</ul>
+                    </ul>
 
-</div>
+                </div>
 
-<div class="col-lg-2">
+                <div class="col-lg-2">
 
-    <h6 class="footer-heading">
-        Info
-    </h6>
+                    <h6 class="footer-heading">
+                        Info
+                    </h6>
 
-    <ul class="footer-nav">
+                    <ul class="footer-nav">
 
-        <li>
-            <a href="{{ route('pelayan.pengumuman') }}">
-                Pengumuman
-            </a>
-        </li>
+                        <li>
+                            <a href="{{ route('pelayan.pengumuman') }}">
+                                Pengumuman
+                            </a>
+                        </li>
 
-        <li>
-            <a href="{{ route('pelayan.tentang') }}">
-                Tentang Kami
-            </a>
-        </li>
+                        <li>
+                            <a href="{{ route('pelayan.tentang') }}">
+                                Tentang Kami
+                            </a>
+                        </li>
 
-    </ul>
+                    </ul>
 
                 </div>
 
@@ -734,7 +754,7 @@
                 </p>
 
                 <p class="footer-built">
-                    Built with <strong>Team 05</strong>
+                    Built by <strong>Team 05 PA-IT Del</strong>
                 </p>
 
             </div>
