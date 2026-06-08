@@ -609,7 +609,6 @@
               <div class="jcard-desc">{{ $item->description ?: '-' }}</div>
 
               <div class="jcard-footer">
-                <span class="btn-detail">Detail</span>
 
                 <div class="jcard-actions">
                   <a href="{{ route('jadwal.edit', $item->id) }}" class="act-btn btn-edit">✏</a>

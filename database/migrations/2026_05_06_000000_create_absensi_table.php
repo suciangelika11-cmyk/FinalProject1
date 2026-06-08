@@ -14,7 +14,6 @@ return new class extends Migration {
             $table->date('date');
             $table->string('session');
             $table->string('pengkhotbah');
-            $table->string('pelayan');
             $table->unsignedInteger('jumlah');
             $table->timestamps();
         });

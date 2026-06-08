@@ -232,25 +232,6 @@
                     <textarea name="description" rows="3">{{ old('description', $Jadwal->description) }}</textarea>
                 </div>
 
-                <div class="fg">
-                    <label>Icon</label>
-                    <input type="text" name="icon" value="{{ old('icon', $Jadwal->icon) }}" placeholder="Contoh: 📅">
-                </div>
-
-                <div class="fg">
-                    <label>Tim Pelayanan</label>
-
-                    <select name="pelayanan_id">
-                        <option value="">-- Pilih Tim Pelayanan --</option>
-
-                        @foreach($pelayanans as $team)
-                            <option value="{{ $team->id }}" {{ old('pelayanan_id', $Jadwal->pelayanan_id) == $team->id ? 'selected' : '' }}>
-                                {{ $team->title }}{{ $team->leader ? ' - ' . $team->leader : '' }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-
                 <div class="btn-row">
                     <a href="{{ route('jadwal.index') }}" class="btn-back">← Batal</a>
                     <button type="submit" class="btn-submit">✅ Update Jadwal</button>

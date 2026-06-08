@@ -238,20 +238,6 @@
                         placeholder="Masukkan deskripsi kegiatan">{{ old('description') }}</textarea>
                 </div>
 
-                <div class="fg">
-                    <label>Tim Pelayanan</label>
-
-                    <select name="pelayanan_id">
-                        <option value="">-- Pilih Tim Pelayanan --</option>
-
-                        @foreach($pelayanans as $team)
-                            <option value="{{ $team->id }}" {{ old('pelayanan_id') == $team->id ? 'selected' : '' }}>
-                                {{ $team->title }}{{ $team->leader ? ' - ' . $team->leader : '' }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-
                 <div class="btn-row">
                     <a href="{{ route('jadwal.index') }}" class="btn-back">← Batal</a>
                     <button type="submit" class="btn-submit">💾 Simpan Jadwal</button>

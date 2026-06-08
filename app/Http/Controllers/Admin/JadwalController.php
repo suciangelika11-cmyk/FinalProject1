@@ -31,7 +31,6 @@ class JadwalController extends Controller
             'location' => 'nullable',
             'description' => 'nullable',
             'category' => 'required',
-            'icon' => 'nullable',
             'pelayanan_id' => 'nullable|exists:pelayanan,id'
         ]);
 
@@ -62,7 +61,6 @@ class JadwalController extends Controller
             'location' => 'nullable',
             'description' => 'nullable',
             'category' => 'required',
-            'icon' => 'nullable',
             'pelayanan_id' => 'nullable|exists:pelayanan,id'
         ]);
 

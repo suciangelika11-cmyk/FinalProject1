@@ -810,7 +810,6 @@
       <p>Abadikan setiap momen pelayanan, ibadah, dan kebersamaan jemaat GBI Tambunan.</p>
       <div class="hero-actions">
         <a href="{{ route('galeri.create') }}" class="btn-hero-primary">＋ Upload Foto</a>
-        <button class="btn-hero-outline" type="button">📤 Bagikan Galeri</button>
       </div>
     </div>
 
@@ -879,7 +878,7 @@
                   onsubmit="return confirm('Hapus foto ini?')">
                   @csrf
                   @method('DELETE')
-                  <button type="submit" class="a-btn a-del">🗑 Hapus</button>
+                  <button type="submit" class="a-btn a-del">Hapus</button>
                 </form>
               </div>
             </div>
