@@ -2,9 +2,9 @@
 
 @section('content')
 
-@include('admin.layouts.LOAJemaat.JemaatIndex')
+    @include('admin.layouts.LOAJemaat.JemaatIndex')
 
-<script src="{{ asset('js/Admin/JemaatIndex.js') }}"></script>
+    <script src="{{ asset('js/Admin/JemaatIndex.js') }}"></script>
 
     <div class="jemaat-page">
 
@@ -85,6 +85,18 @@
                                             </form>
                                         @endif
 
+                                        <form action="{{ route('jemaat.destroy', $jemaat->id) }}" method="POST"
+                                            style="display:inline-block;"
+                                            onsubmit="return confirm('Yakin ingin menghapus data jemaat ini?')">
+
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                🗑 Hapus
+                                            </button>
+                                        </form>
+
                                     </div>
 
                                 </td>
@@ -139,6 +151,11 @@
                                         <div>
                                             <label>Handphone</label>
                                             <p>{{ $jemaat->handphone }}</p>
+                                        </div>
+
+                                        <div>
+                                            <label>Email</label>
+                                            <p>{{ $jemaat->email }}</p>
                                         </div>
 
                                         <div>

@@ -2,7 +2,9 @@
 
 @section('content')
 
-@include('layouts.LOLogin')
+    @include('layouts.LOLogin')
+
+    <script src="{{ asset('js/Admin/Login.js') }}"></script>
 
     <a href="{{ route('home') }}" class="back-btn">
         <i class="bi bi-arrow-left"></i>
@@ -68,8 +70,13 @@
                         Password
                     </label>
 
-                    <input type="password" name="password" id="password" placeholder="Masukkan password"
-                        class="form-control @error('password') is-invalid @enderror" required>
+                    <div class="password-wrapper">
+                        <input type="password" name="password" id="password" placeholder="Masukkan password"
+                            class="form-control @error('password') is-invalid @enderror" required>
+                        <button type="button" id="togglePassword" class="password-toggle">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
 
                 </div>
 

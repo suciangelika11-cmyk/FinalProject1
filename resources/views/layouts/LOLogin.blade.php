@@ -271,4 +271,29 @@
             height: 85px;
         }
     }
+
+    .password-wrapper {
+        position: relative;
+    }
+
+    .password-wrapper .form-control {
+        padding-right: 50px;
+    }
+
+    .password-toggle {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        color: #bfc8d8;
+        font-size: 1.2rem;
+        padding: 0;
+    }
+
+    .password-toggle:hover {
+        color: #ffffff;
+    }
 </style>

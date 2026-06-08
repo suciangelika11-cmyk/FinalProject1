@@ -2,7 +2,9 @@
 
 @section('content')
 
-@include('admin.layouts.LOAAccount.AkunCreate')
+    @include('admin.layouts.LOAAccount.AkunCreate')
+
+    <script src="{{ asset('js/Admin/AkunCreate.js') }}"></script>
 
     <div class="account-page">
         <div class="account-header">
@@ -60,15 +62,30 @@
                     <div class="form-grid">
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" name="password" class="form-control-custom"
-                                placeholder="Minimal 8 karakter" required>
+
+                            <div class="password-wrapper">
+                                <input type="password" name="password" id="password" class="form-control-custom"
+                                    placeholder="Minimal 8 karakter" required>
+
+                                <button type="button" class="password-toggle" data-target="password">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+
                             <div class="form-help">Gunakan password yang cukup kuat.</div>
                         </div>
 
                         <div class="form-group">
                             <label>Konfirmasi Password</label>
-                            <input type="password" name="password_confirmation" class="form-control-custom"
-                                placeholder="Ulangi password" required>
+
+                            <div class="password-wrapper">
+                                <input type="password" name="password_confirmation" id="password_confirmation"
+                                    class="form-control-custom" placeholder="Ulangi password" required>
+
+                                <button type="button" class="password-toggle" data-target="password_confirmation">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
 

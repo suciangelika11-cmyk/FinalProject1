@@ -2,7 +2,9 @@
 
 @section('content')
 
-@include('admin.layouts.LOAAccount.AkunEdit')
+    @include('admin.layouts.LOAAccount.AkunEdit')
+
+    <script src="{{ asset('js/Admin/AkunEdit.js') }}"></script>
 
     <div class="account-page">
         <div class="account-header">
@@ -61,15 +63,31 @@
                     <div class="form-grid">
                         <div class="form-group">
                             <label>Password Baru</label>
-                            <input type="password" name="password" class="form-control-custom"
-                                placeholder="Kosongkan jika tidak diubah">
+
+                            <div class="password-wrapper">
+                                <input type="password" name="password" id="password" class="form-control-custom"
+                                    placeholder="Kosongkan jika tidak diubah">
+
+                                <button type="button" class="password-toggle" onclick="togglePassword('password', this)">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+
                             <div class="form-help">Isi hanya jika ingin mengganti password.</div>
                         </div>
 
                         <div class="form-group">
                             <label>Konfirmasi Password Baru</label>
-                            <input type="password" name="password_confirmation" class="form-control-custom"
-                                placeholder="Ulangi password baru">
+
+                            <div class="password-wrapper">
+                                <input type="password" name="password_confirmation" id="password_confirmation"
+                                    class="form-control-custom" placeholder="Ulangi password baru">
+
+                                <button type="button" class="password-toggle"
+                                    onclick="togglePassword('password_confirmation', this)">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
 

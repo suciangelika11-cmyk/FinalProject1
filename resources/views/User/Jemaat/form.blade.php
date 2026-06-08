@@ -118,6 +118,12 @@
                             @error('handphone')<div class="jm-feedback">{{ $message }}</div>@enderror
                         </div>
                         <div class="jm-group">
+                            <label class="jm-label">Email</label>
+                            <input type="email" name="email" maxlength="100" value="{{ old('email') }}"
+                                class="jm-input @error('email') jm-invalid @enderror" placeholder="Email">
+                            @error('email')<div class="jm-feedback">{{ $message }}</div>@enderror
+                        </div>
+                        <div class="jm-group">
                             <label class="jm-label">Pekerjaan</label>
                             <input type="text" name="pekerjaan" maxlength="50" value="{{ old('pekerjaan') }}"
                                 class="jm-input @error('pekerjaan') jm-invalid @enderror" placeholder="Jenis pekerjaan">

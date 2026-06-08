@@ -29,6 +29,7 @@ class JemaatController extends Controller
             'tanggal_lahir' => 'required|date',
             'jenis_kelamin' => 'required',
             'handphone' => 'required|numeric|digits_between:10,15',
+            'email' => 'required|email|max:255',
             'pekerjaan' => 'required|string|max:50',
             'status_pernikahan' => 'required',
         ]);
@@ -44,6 +45,7 @@ class JemaatController extends Controller
             'tanggal_lahir' => $request->tanggal_lahir,
             'jenis_kelamin' => $request->jenis_kelamin,
             'handphone' => $request->handphone,
+            'email' => $request->email,
             'pekerjaan' => $request->pekerjaan,
             'status_pernikahan' => $request->status_pernikahan,
             'status' => 'pending',

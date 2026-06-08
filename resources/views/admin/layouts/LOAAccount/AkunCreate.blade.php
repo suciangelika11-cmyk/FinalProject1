@@ -218,4 +218,30 @@
             text-align: center;
         }
     }
+
+    .password-wrapper {
+        position: relative;
+    }
+
+    .password-wrapper input {
+        width: 100%;
+        padding-right: 50px;
+    }
+
+    .password-toggle {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        color: #6b7280;
+        font-size: 18px;
+        z-index: 10;
+    }
+
+    .password-toggle:hover {
+        color: #2563eb;
+    }
 </style>
