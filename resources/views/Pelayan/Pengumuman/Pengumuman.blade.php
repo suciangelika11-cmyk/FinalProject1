@@ -12,29 +12,33 @@
     <style>
         :root {
             /* ── Palet Utama ── */
-            --blue-deep:   #769FCD;
-            --blue-mid:    #B9D7EA;
-            --blue-pale:   #D6E6F2;
-            --blue-ghost:  #F7FBFC;
+            --blue-deep: #769FCD;
+            --blue-mid: #B9D7EA;
+            --blue-pale: #D6E6F2;
+            --blue-ghost: #F7FBFC;
 
             /* ── Turunan Fungsional ── */
-            --accent:       var(--blue-deep);
-            --accent-dim:   rgba(118, 159, 205, 0.14);
+            --accent: var(--blue-deep);
+            --accent-dim: rgba(118, 159, 205, 0.14);
 
-            --ink:          #1A2B3C;
-            --ink-mid:      #2E4A63;
-            --ink-muted:    #5C7A95;
+            --ink: #1A2B3C;
+            --ink-mid: #2E4A63;
+            --ink-muted: #5C7A95;
 
-            --surface:      #FFFFFF;
-            --surface-alt:  #EEF5FB;
+            --surface: #FFFFFF;
+            --surface-alt: #EEF5FB;
 
-            --border:       rgba(118, 159, 205, 0.22);
+            --border: rgba(118, 159, 205, 0.22);
             --border-strong: rgba(118, 159, 205, 0.45);
 
             --radius: 20px;
         }
 
-        *, *::before, *::after { box-sizing: border-box; }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
 
         body {
             font-family: 'Outfit', sans-serif;
@@ -44,8 +48,8 @@
         }
 
         /* ============================================================
-           HERO
-        ============================================================ */
+                   HERO
+                ============================================================ */
         .hero {
             position: relative;
             padding: 90px 6% 80px;
@@ -57,8 +61,10 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -80px; right: -80px;
-            width: 420px; height: 420px;
+            top: -80px;
+            right: -80px;
+            width: 420px;
+            height: 420px;
             border-radius: 50%;
             background: rgba(118, 159, 205, 0.10);
             pointer-events: none;
@@ -67,8 +73,10 @@
         .hero::after {
             content: '';
             position: absolute;
-            bottom: -60px; left: -60px;
-            width: 280px; height: 280px;
+            bottom: -60px;
+            left: -60px;
+            width: 280px;
+            height: 280px;
             border-radius: 50%;
             background: rgba(185, 215, 234, 0.14);
             pointer-events: none;
@@ -98,7 +106,7 @@
 
         .hero h1 {
             font-family: 'Libre Baskerville', serif;
-            font-size: clamp(40px, 7.5vw, 68px);
+            font-size: clamp(45px, 7.5vw, 68px);
             line-height: 1.12;
             margin: 0 0 16px;
             color: var(--ink);
@@ -118,8 +126,8 @@
         }
 
         /* ============================================================
-           PAGE WRAP
-        ============================================================ */
+                   PAGE WRAP
+                ============================================================ */
         .page-wrap {
             width: 92%;
             max-width: 1180px;
@@ -128,8 +136,8 @@
         }
 
         /* ============================================================
-           SECTION HEADER
-        ============================================================ */
+                   SECTION HEADER
+                ============================================================ */
         .section-header {
             text-align: center;
             margin-bottom: 44px;
@@ -162,17 +170,18 @@
         }
 
         /* ============================================================
-           GRID
-        ============================================================ */
+                   GRID
+                ============================================================ */
         .pengumuman-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
             gap: 22px;
+            justify-content: center;
         }
 
         /* ============================================================
-           CARD
-        ============================================================ */
+                   CARD
+                ============================================================ */
         .pengumuman-card {
             background: var(--surface);
             border: 1.5px solid var(--blue-pale);
@@ -182,12 +191,16 @@
             flex-direction: column;
             transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
             position: relative;
+            max-width: 320px;
+            margin: 0 auto;
         }
 
         .pengumuman-card::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 3px;
             background: var(--blue-deep);
             opacity: 0;
@@ -200,14 +213,16 @@
             box-shadow: 0 18px 44px rgba(118, 159, 205, 0.18);
         }
 
-        .pengumuman-card:hover::after { opacity: 1; }
+        .pengumuman-card:hover::after {
+            opacity: 1;
+        }
 
         /* ============================================================
-           CARD IMAGE
-        ============================================================ */
+                   CARD IMAGE
+                ============================================================ */
         .card-img {
             width: 100%;
-            aspect-ratio: 16/9;
+            aspect-ratio: 4/3;
             overflow: hidden;
             position: relative;
             background: var(--surface-alt);
@@ -220,7 +235,9 @@
             transition: transform .5s ease;
         }
 
-        .pengumuman-card:hover .card-img img { transform: scale(1.05); }
+        .pengumuman-card:hover .card-img img {
+            transform: scale(1.05);
+        }
 
         .card-img-placeholder {
             width: 100%;
@@ -247,8 +264,8 @@
         }
 
         /* ============================================================
-           CARD BODY
-        ============================================================ */
+                   CARD BODY
+                ============================================================ */
         .card-body {
             padding: 22px 24px;
             display: flex;
@@ -257,7 +274,7 @@
         }
 
         .card-date {
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 600;
             letter-spacing: .10em;
             text-transform: uppercase;
@@ -270,7 +287,7 @@
 
         .card-title {
             font-family: 'Libre Baskerville', serif;
-            font-size: 17px;
+            font-size: 15px;
             line-height: 1.55;
             color: var(--ink);
             margin: 0 0 10px;
@@ -281,7 +298,7 @@
         }
 
         .card-excerpt {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--ink-muted);
             line-height: 1.8;
             flex: 1;
@@ -320,8 +337,8 @@
         }
 
         /* ============================================================
-           EMPTY STATE
-        ============================================================ */
+                   EMPTY STATE
+                ============================================================ */
         .empty-state {
             text-align: center;
             padding: 80px 20px;
@@ -355,13 +372,45 @@
         }
 
         /* ============================================================
-           PAGINATION
-        ============================================================ */
+                   PAGINATION
+                ============================================================ */
         .pagination-wrap {
             display: flex;
             justify-content: center;
             margin-top: 52px;
             overflow-x: auto;
+        }
+
+        @media(max-width:576px) {
+
+            .pengumuman-card {
+                margin: 0 auto;
+            }
+
+            .card-img {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .card-img img {
+                width: auto;
+                max-width: 100%;
+                margin: 0 auto;
+                display: block;
+            }
+
+            .pengumuman-grid {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .pengumuman-card {
+                width: 100%;
+                max-width: 320px;
+            }
+
         }
     </style>
 
@@ -414,8 +463,8 @@
                         <div class="card-date">
                             <i class="fa-regular fa-calendar"></i>
                             {{ $item->publish_date
-                                ? \Carbon\Carbon::parse($item->publish_date)->translatedFormat('d F Y')
-                                : '—' }}
+                ? \Carbon\Carbon::parse($item->publish_date)->translatedFormat('d F Y')
+                : '—' }}
                         </div>
 
                         <h3 class="card-title">{{ $item->title }}</h3>

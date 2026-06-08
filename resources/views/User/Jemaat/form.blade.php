@@ -3,8 +3,8 @@
 @section('content')
     <style>
         /* ==================================
-       WRAPPER
-    ================================== */
+               WRAPPER
+            ================================== */
         .jm-outer {
             min-height: 100vh;
             padding: 80px 20px 100px;
@@ -21,8 +21,8 @@
         }
 
         /* ==================================
-       HEADER
-    ================================== */
+               HEADER
+            ================================== */
         .jm-head {
             text-align: center;
             margin-bottom: 50px;
@@ -47,8 +47,8 @@
         }
 
         /* ==================================
-       ALERT
-    ================================== */
+               ALERT
+            ================================== */
         .jm-alert {
             border-radius: 14px;
             padding: 14px 20px;
@@ -70,8 +70,8 @@
         }
 
         /* ==================================
-       CARD
-    ================================== */
+               CARD
+            ================================== */
         .jm-card {
             background: #ffffff;
             border-radius: 28px;
@@ -85,8 +85,8 @@
         }
 
         /* ==================================
-       SECTION TITLE
-    ================================== */
+               SECTION TITLE
+            ================================== */
         .jm-section-title {
             font-family: 'Playfair Display', serif;
             font-size: 20px;
@@ -110,8 +110,8 @@
         }
 
         /* ==================================
-       FORM
-    ================================== */
+               FORM
+            ================================== */
         .jm-group {
             margin-bottom: 20px;
         }
@@ -172,8 +172,8 @@
         }
 
         /* ==================================
-       ERROR
-    ================================== */
+               ERROR
+            ================================== */
         .jm-invalid {
             border-color: #dc3545 !important;
         }
@@ -185,8 +185,8 @@
         }
 
         /* ==================================
-       GRID
-    ================================== */
+               GRID
+            ================================== */
         .jm-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -194,8 +194,8 @@
         }
 
         /* ==================================
-       RADIO
-    ================================== */
+               RADIO
+            ================================== */
         .jm-radio-group {
             display: flex;
             gap: 20px;
@@ -219,8 +219,8 @@
         }
 
         /* ==================================
-       DIVIDER
-    ================================== */
+               DIVIDER
+            ================================== */
         .jm-divider {
             margin: 32px 0;
 
@@ -233,8 +233,8 @@
         }
 
         /* ==================================
-       BUTTON
-    ================================== */
+               BUTTON
+            ================================== */
         .jm-submit {
             width: 100%;
 
@@ -265,8 +265,8 @@
         }
 
         /* ==================================
-       ANIMATION
-    ================================== */
+               ANIMATION
+            ================================== */
         @keyframes fadeUp {
             from {
                 opacity: 0;
@@ -280,8 +280,8 @@
         }
 
         /* ==================================
-       MOBILE
-    ================================== */
+               MOBILE
+            ================================== */
         @media (max-width: 560px) {
 
             .jm-row {
@@ -322,13 +322,14 @@
                     <div class="jm-row">
                         <div class="jm-group">
                             <label class="jm-label">No KK</label>
-                            <input type="text" name="no_kk" value="{{ old('no_kk') }}"
-                                class="jm-input @error('no_kk') jm-invalid @enderror" placeholder="No. Kartu Keluarga">
+                            <input type="text" name="no_kk" maxlength="16" value="{{ old('no_kk') }}"
+                                class="jm-input @error('no_kk') jm-invalid @enderror" placeholder="No. Kartu Keluarga"
+                                inputmode="numeric" pattern="[0-9]+" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
                             @error('no_kk')<div class="jm-feedback">{{ $message }}</div>@enderror
                         </div>
                         <div class="jm-group">
                             <label class="jm-label">Nama Keluarga</label>
-                            <input type="text" name="nama_keluarga" value="{{ old('nama_keluarga') }}"
+                            <input type="text" name="nama_keluarga" maxlength="50" value="{{ old('nama_keluarga') }}"
                                 class="jm-input @error('nama_keluarga') jm-invalid @enderror" placeholder="Nama keluarga">
                             @error('nama_keluarga')<div class="jm-feedback">{{ $message }}</div>@enderror
                         </div>
@@ -336,14 +337,16 @@
 
                     <div class="jm-group">
                         <label class="jm-label">Alamat Domisili</label>
-                        <textarea name="alamat_domisili" class="jm-textarea @error('alamat_domisili') jm-invalid @enderror"
+                        <textarea name="alamat_domisili" maxlength="100"
+                            class="jm-textarea @error('alamat_domisili') jm-invalid @enderror"
                             placeholder="Alamat tinggal sekarang">{{ old('alamat_domisili') }}</textarea>
                         @error('alamat_domisili')<div class="jm-feedback">{{ $message }}</div>@enderror
                     </div>
 
                     <div class="jm-group">
                         <label class="jm-label">Alamat KTP</label>
-                        <textarea name="alamat_ktp" class="jm-textarea @error('alamat_ktp') jm-invalid @enderror"
+                        <textarea name="alamat_ktp" maxlength="100"
+                            class="jm-textarea @error('alamat_ktp') jm-invalid @enderror"
                             placeholder="Alamat sesuai KTP">{{ old('alamat_ktp') }}</textarea>
                         @error('alamat_ktp')<div class="jm-feedback">{{ $message }}</div>@enderror
                     </div>
@@ -354,14 +357,15 @@
                     <div class="jm-row">
                         <div class="jm-group">
                             <label class="jm-label">Nama Lengkap</label>
-                            <input type="text" name="nama_lengkap" value="{{ old('nama_lengkap') }}"
+                            <input type="text" name="nama_lengkap" maxlength="50" value="{{ old('nama_lengkap') }}"
                                 class="jm-input @error('nama_lengkap') jm-invalid @enderror" placeholder="Nama sesuai KTP">
                             @error('nama_lengkap')<div class="jm-feedback">{{ $message }}</div>@enderror
                         </div>
                         <div class="jm-group">
                             <label class="jm-label">NIK</label>
-                            <input type="text" name="nik" value="{{ old('nik') }}"
-                                class="jm-input @error('nik') jm-invalid @enderror" placeholder="16 digit NIK">
+                            <input type="text" name="nik" maxlength="16" value="{{ old('nik') }}"
+                                class="jm-input @error('nik') jm-invalid @enderror" placeholder="16 digit NIK"
+                                inputmode="numeric" pattern="[0-9]+" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
                             @error('nik')<div class="jm-feedback">{{ $message }}</div>@enderror
                         </div>
                     </div>
@@ -369,7 +373,7 @@
                     <div class="jm-row">
                         <div class="jm-group">
                             <label class="jm-label">Tempat Lahir</label>
-                            <input type="text" name="tempat_lahir" value="{{ old('tempat_lahir') }}"
+                            <input type="text" name="tempat_lahir" maxlength="100" value="{{ old('tempat_lahir') }}"
                                 class="jm-input @error('tempat_lahir') jm-invalid @enderror" placeholder="Kota kelahiran">
                             @error('tempat_lahir')<div class="jm-feedback">{{ $message }}</div>@enderror
                         </div>
@@ -398,13 +402,14 @@
                     <div class="jm-row">
                         <div class="jm-group">
                             <label class="jm-label">Handphone / WA</label>
-                            <input type="text" name="handphone" value="{{ old('handphone') }}"
-                                class="jm-input @error('handphone') jm-invalid @enderror" placeholder="+62 xxx-xxxx-xxxx">
+                            <input type="text" name="handphone" maxlength="15" value="{{ old('handphone') }}"
+                                class="jm-input @error('handphone') jm-invalid @enderror" placeholder="08xxxxxxxxxx"
+                                inputmode="numeric" pattern="[0-9]+" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
                             @error('handphone')<div class="jm-feedback">{{ $message }}</div>@enderror
                         </div>
                         <div class="jm-group">
                             <label class="jm-label">Pekerjaan</label>
-                            <input type="text" name="pekerjaan" value="{{ old('pekerjaan') }}"
+                            <input type="text" name="pekerjaan" maxlength="50" value="{{ old('pekerjaan') }}"
                                 class="jm-input @error('pekerjaan') jm-invalid @enderror" placeholder="Jenis pekerjaan">
                             @error('pekerjaan')<div class="jm-feedback">{{ $message }}</div>@enderror
                         </div>

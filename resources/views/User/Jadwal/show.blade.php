@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@php
+    $hideNavbar = true;
+    $hideFooter = true;
+@endphp
+
 @section('content')
 
     <style>
@@ -9,8 +14,8 @@
         }
 
         /* ===============================
-       DETAIL PAGE
-    ================================= */
+           DETAIL PAGE
+        ================================= */
         .jd-detail {
             min-height: 100vh;
             padding: 100px 0;
@@ -137,6 +142,39 @@
                 justify-content: center;
             }
         }
+
+        .jd-info-card {
+            background: white;
+            border: 1px solid rgba(118, 159, 205, .15);
+            border-radius: 24px;
+            padding: 35px;
+            margin-top: 30px;
+
+            box-shadow:
+                0 15px 40px rgba(118, 159, 205, .08);
+        }
+
+        .jd-info-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 18px;
+            color: #4a5f75;
+        }
+
+        .jd-info-label {
+            min-width: 90px;
+            font-weight: 700;
+            color: #769FCD;
+        }
+
+        .jd-info-desc {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(118, 159, 205, .15);
+
+            color: #4a5f75;
+            line-height: 1.9;
+        }
     </style>
 
     <div class="jd-detail">
@@ -147,23 +185,33 @@
                 {{ $jadwal->title }}
             </h1>
 
-            <div class="jd-detail-meta">
-                {{ $jadwal->day }}
-            </div>
+            <div class="jd-info-card">
 
-            <div class="jd-detail-meta">
-                {{ $jadwal->start_time }}
-                -
-                {{ $jadwal->end_time }}
-                WIB
-            </div>
+                <div class="jd-info-item">
+                    <div class="jd-info-label">Hari</div>
+                    <div>{{ $jadwal->day }}</div>
+                </div>
 
-            <div class="jd-detail-meta">
-                {{ $jadwal->location }}
-            </div>
+                <div class="jd-info-item">
+                    <div class="jd-info-label">Waktu</div>
+                    <div>
+                        {{ $jadwal->start_time }}
+                        -
+                        {{ $jadwal->end_time }}
+                        WIB
+                    </div>
+                </div>
 
-            <div class="jd-detail-desc">
-                {!! nl2br(e($jadwal->description)) !!}
+                <div class="jd-info-item">
+                    <div class="jd-info-label">Lokasi</div>
+                    <div>{{ $jadwal->location }}</div>
+                </div>
+
+                <div class="jd-info-desc">
+                    <strong>Deskripsi</strong><br><br>
+                    {!! nl2br(e($jadwal->description)) !!}
+                </div>
+
             </div>
 
             <a href="{{ route('user.jadwal') }}" class="jd-back">

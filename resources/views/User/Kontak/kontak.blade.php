@@ -20,26 +20,26 @@
             padding: 0;
         }
 
-:root {
-    --primary: #769FCD;
-    --secondary: #B9D7EA;
-    --accent: #D6E6F2;
-    --light: #F7FBFC;
+        :root {
+            --primary: #769FCD;
+            --secondary: #B9D7EA;
+            --accent: #D6E6F2;
+            --light: #F7FBFC;
 
-    --bg-main: #F7FBFC;
-    --bg-soft: #D6E6F2;
+            --bg-main: #F7FBFC;
+            --bg-soft: #D6E6F2;
 
-    --text-dark: #4B6584;
-    --text: #5F738B;
-    --text-light: #769FCD;
+            --text-dark: #4B6584;
+            --text: #5F738B;
+            --text-light: #769FCD;
 
-    --card-bg: rgba(255,255,255,.75);
-    --card-border: rgba(118,159,205,.18);
+            --card-bg: rgba(255, 255, 255, .75);
+            --card-border: rgba(118, 159, 205, .18);
 
-    --green: #22c55e;
-    --orange: #f59e0b;
-    --purple: #a855f7;
-}
+            --green: #22c55e;
+            --orange: #f59e0b;
+            --purple: #a855f7;
+        }
 
         html {
             scroll-behavior: smooth;
@@ -165,8 +165,8 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background: radial-gradient(circle at top,rgba(214,230,242,.35),transparent 55%),
-            linear-gradient(135deg, #F7FBFC 0%, #D6E6F2 55%, #B9D7EA 100%);
+            background: radial-gradient(circle at top, rgba(214, 230, 242, .35), transparent 55%),
+                linear-gradient(135deg, #F7FBFC 0%, #D6E6F2 55%, #B9D7EA 100%);
             text-align: center;
             padding: 110px 24px 90px;
         }
@@ -175,8 +175,8 @@
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(rgba(118,159,205,.10) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(118,159,205,.10) 1px, transparent 1px);
+                linear-gradient(rgba(118, 159, 205, .10) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(118, 159, 205, .10) 1px, transparent 1px);
             background-size: 60px 60px;
             mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 0%, transparent 100%);
             pointer-events: none;
@@ -193,7 +193,7 @@
         .hero-orb-1 {
             width: 460px;
             height: 460px;
-            background: radial-gradient(circle, rgba(118,159,205,.35), transparent 70%);
+            background: radial-gradient(circle, rgba(118, 159, 205, .35), transparent 70%);
             top: -100px;
             left: -80px;
             animation-delay: 0s;
@@ -202,7 +202,7 @@
         .hero-orb-2 {
             width: 360px;
             height: 360px;
-            background: radial-gradient(circle, rgba(185,215,234,.55), transparent 70%);
+            background: radial-gradient(circle, rgba(185, 215, 234, .55), transparent 70%);
             bottom: -60px;
             right: -40px;
             animation-delay: 3.5s;
@@ -212,8 +212,8 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255,255,255,.55);
-            border: 1px solid rgba(118,159,205,.18);
+            background: rgba(255, 255, 255, .55);
+            border: 1px solid rgba(118, 159, 205, .18);
             color: #769FCD;
             font-size: 11px;
             font-weight: 600;
@@ -238,7 +238,7 @@
 
         .hero-title {
             font-family: 'Playfair Display', Georgia, serif;
-            font-size: clamp(40px, 6vw, 64px);
+            font-size: clamp(50px, 7vw, 74px);
             font-weight: 800;
             color: #4B6584;
             line-height: 1.1;
@@ -287,8 +287,8 @@
         .verse-card {
             max-width: 900px;
             margin: 0 auto;
-            background: rgba(255,255,255,.75);
-            border: 1px solid rgba(118,159,205,.15);
+            background: rgba(255, 255, 255, .75);
+            border: 1px solid rgba(118, 159, 205, .15);
             backdrop-filter: blur(10px);
             border-radius: 28px;
             padding: 50px 70px;
@@ -305,7 +305,7 @@
             left: 20px;
             font-family: 'Playfair Display', serif;
             font-size: 140px;
-            color: rgba(118,159,205,.08);
+            color: rgba(118, 159, 205, .08);
             line-height: 1;
             pointer-events: none;
         }
@@ -313,8 +313,8 @@
         .verse-icon {
             width: 48px;
             height: 48px;
-            background: rgba(118,159,205,.10);
-            border: 1px solid rgba(118,159,205,.15);
+            background: rgba(118, 159, 205, .10);
+            border: 1px solid rgba(118, 159, 205, .15);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -358,7 +358,7 @@
             content: '';
             display: block;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(118,159,205,.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(118, 159, 205, .3), transparent);
             margin-bottom: 70px;
         }
 
@@ -413,8 +413,8 @@
         /* ── INFO COLUMN ── */
         .info-col {
             animation: slideLeft 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s both;
-            background: rgba(255,255,255,.85);
-            border: 1px solid rgba(118,159,205,.15);
+            background: rgba(255, 255, 255, .85);
+            border: 1px solid rgba(118, 159, 205, .15);
             backdrop-filter: blur(14px);
             border-radius: 20px;
             padding: 32px;
@@ -458,7 +458,8 @@
         }
 
         .info-card.ic-green::before {
-            background: #22c55e;;
+            background: #22c55e;
+            ;
         }
 
         .info-card.ic-orange::before {
@@ -466,7 +467,8 @@
         }
 
         .info-card.ic-purple::before {
-            background: #a855f7;;
+            background: #a855f7;
+            ;
         }
 
         .info-card:hover {
@@ -499,7 +501,7 @@
         }
 
         .ic-blue .info-icon {
-            background: rgba(59,130,246,.12);
+            background: rgba(59, 130, 246, .12);
         }
 
         .ic-blue .info-icon svg {
@@ -507,7 +509,7 @@
         }
 
         .ic-green .info-icon {
-            background: rgba(34,197,94,.12);
+            background: rgba(34, 197, 94, .12);
         }
 
         .ic-green .info-icon svg {
@@ -523,7 +525,7 @@
         }
 
         .ic-purple .info-icon {
-            background: rgba(168,85,247,.12);
+            background: rgba(168, 85, 247, .12);
         }
 
         .ic-purple .info-icon svg {
@@ -568,8 +570,8 @@
         }
 
         .form-card {
-            background: rgba(255,255,255,.85);
-            border: 1px solid rgba(118,159,205,.15);
+            background: rgba(255, 255, 255, .85);
+            border: 1px solid rgba(118, 159, 205, .15);
             backdrop-filter: blur(14px);
             border-radius: 20px;
             padding: 36px;
@@ -647,7 +649,7 @@
         .form-group input:focus,
         .form-group textarea:focus {
             border-color: #769FCD;
-            box-shadow: 0 0 0 4px rgba(118,159,205,.15);
+            box-shadow: 0 0 0 4px rgba(118, 159, 205, .15);
         }
 
         .form-group textarea {
@@ -665,7 +667,7 @@
             border-radius: 14px;
             border: none;
             cursor: pointer;
-            background: linear-gradient(135deg, #769FCD, #B9D7EA);
+            background: linear-gradient(135deg, #769FCD);
             color: white;
             font-family: 'DM Sans', sans-serif;
             font-size: 15px;
@@ -688,7 +690,7 @@
 
         .btn-wa:hover {
             transform: translateY(-3px);
-            box-shadow: 0 18px 40px rgba(118,159,205,.35);
+            box-shadow: 0 18px 40px rgba(118, 159, 205, .35);
         }
 
         .btn-wa:hover::before {
@@ -727,8 +729,8 @@
         }
 
         .map-card {
-            background: rgba(255,255,255,.85);
-            border: 1px solid rgba(118,159,205,.15);
+            background: rgba(255, 255, 255, .85);
+            border: 1px solid rgba(118, 159, 205, .15);
             backdrop-filter: blur(14px);
             border-radius: 20px;
             padding: 16px;

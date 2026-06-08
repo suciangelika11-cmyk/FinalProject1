@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ibadah;
+use App\Models\Jadwal;
 use Illuminate\Http\Request;
 
 class IbadahController extends Controller
@@ -12,7 +12,10 @@ class IbadahController extends Controller
      */
     public function index()
     {
-        $ibadahs = Ibadah::all();
+        $ibadahs = Jadwal::where('day', 'Minggu')
+            ->orderBy('start_time')
+            ->take(3)
+            ->get();
 
         return view('welcome', compact('ibadahs'));
     }
@@ -29,38 +32,6 @@ class IbadahController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Ibadah $ibadah)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Ibadah $ibadah)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Ibadah $ibadah)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Ibadah $ibadah)
     {
         //
     }

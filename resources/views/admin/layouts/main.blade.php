@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin – GBI Tambunan</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
 
   @php
@@ -129,10 +131,11 @@
     }
 
     .brand-logo {
-      width: 38px;
-      height: 38px;
+      width: 42px;
+      height: 42px;
       background: linear-gradient(135deg, var(--cyan), var(--gold));
       border-radius: 10px;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -141,6 +144,12 @@
       font-size: 14px;
       color: #fff;
       flex-shrink: 0;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .brand-name {
@@ -573,7 +582,9 @@
       <button class="hamburger" type="button" aria-label="Toggle sidebar">☰</button>
 
       <a class="brand" href="{{ route('admin.dashboard') }}">
-        <div class="brand-logo">GBI</div>
+        <div class="brand-logo">
+          <img src="{{ asset('gambar/gbi.jpeg') }}" alt="GBI Tambunan">
+        </div>
         <span class="brand-name">GBI <span>Tambunan</span></span>
       </a>
     </div>

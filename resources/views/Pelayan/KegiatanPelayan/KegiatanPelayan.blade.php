@@ -70,11 +70,9 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(
-                    ellipse 70% 100% at 50% 0%,
+                radial-gradient(ellipse 70% 100% at 50% 0%,
                     rgba(118, 159, 205, 0.1),
-                    transparent 65%
-                );
+                    transparent 65%);
         }
 
         .hero::after {
@@ -119,7 +117,7 @@
 
         .hero h1 {
             font-family: 'Libre Baskerville', serif;
-            font-size: clamp(38px, 6vw, 70px);
+            font-size: clamp(45px, 7vw, 75px);
             line-height: 1.1;
             margin-bottom: 18px;
             color: var(--text-primary);

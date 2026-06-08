@@ -321,7 +321,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .card-header h3 {
@@ -453,6 +453,79 @@
             font-size: .95rem;
         }
 
+        .ibadah-section {
+            padding: 80px 0;
+        }
+
+        .ibadah-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #2e4a62;
+            margin-bottom: 50px;
+        }
+
+        .ibadah-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            flex-direction: row;
+            justify-content: center;
+            gap: 30px;
+            margin: 0 auto;
+        }
+
+
+        .ibadah-card {
+            background: white;
+            text-align: center;
+            padding: 35px 25px;
+            border-radius: 24px;
+            border: 1px solid rgba(118, 159, 205, .15);
+            box-shadow:
+                0 10px 30px rgba(118, 159, 205, .10);
+            transition: .3s;
+            width: 100%;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ibadah-card h3 {
+            margin-bottom: 18px;
+            color: #2e4a62;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            text-align: center;
+        }
+
+        .ibadah-card:hover {
+            transform: translateY(-8px);
+            box-shadow:
+                0 20px 40px rgba(118, 159, 205, .18);
+        }
+
+        .jam-ibadah {
+            font-size: 1.1rem;
+            color: #769FCD;
+            font-weight: 600;
+        }
+
+        .ibadah-time {
+            display: inline-block;
+
+            padding: 10px 20px;
+            border-radius: 999px;
+
+            background: #eef6fd;
+            color: #4c7aa8;
+
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
         @media(max-width:992px) {
 
             .support-grid {
@@ -521,83 +594,145 @@
 
         @media (max-width: 768px) {
 
-    .support-section {
-        padding: 50px 0;
-    }
+            .support-section {
+                padding: 50px 0;
+            }
 
-    .support-title {
-        font-size: 2.5rem;
-        line-height: 1.1;
-    }
+            .support-title {
+                font-size: 2.5rem;
+                line-height: 1.1;
+            }
 
-    .support-subtitle {
-        font-size: 1rem;
-        margin-bottom: 30px;
-    }
+            .support-subtitle {
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
 
-    .support-card {
-        padding: 18px;
-        border-radius: 20px;
-    }
+            .support-card {
+                padding: 18px;
+                border-radius: 20px;
+            }
 
-    .card-header h3 {
-        font-size: 1.6rem;
-        text-align: center;
-    }
+            .card-header h3 {
+                font-size: 1.6rem;
+                text-align: center;
+            }
 
-    /* Banner biru */
-    .join-banner {
-        flex-direction: column;
-        text-align: center;
-        padding: 25px 20px;
-        min-height: auto;
-        gap: 15px;
-    }
+            /* Banner biru */
+            .join-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px 20px;
+                min-height: auto;
+                gap: 15px;
+            }
 
-    .join-content h4 {
-        font-size: 2rem;
-        line-height: 1.2;
-    }
+            .join-content h4 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
 
-    .join-content p {
-        font-size: .95rem;
-        line-height: 1.7;
-    }
+            .join-content p {
+                font-size: .95rem;
+                line-height: 1.7;
+            }
 
-    .join-icon {
-        font-size: 4rem;
-    }
+            .join-icon {
+                font-size: 4rem;
+            }
 
-    /* Tombol */
-    .join-buttons {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
+            /* Tombol */
+            .join-buttons {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
 
-    .btn-primary,
-    .btn-secondary {
-        width: 100%;
-        display: block;
-    }
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                display: block;
+            }
 
-    /* Feature */
-    .join-features {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
+            /* Feature */
+            .join-features {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
 
-    /* QRIS */
-    .qris-wrapper {
-        max-width: 100%;
-        padding: 10px;
-    }
+            /* QRIS */
+            .qris-wrapper {
+                max-width: 100%;
+                padding: 10px;
+            }
 
-    .qris-wrapper img {
-        width: 100%;
-        height: auto;
-        max-height: none;
-    }
-}
+            .qris-wrapper img {
+                width: 100%;
+                height: auto;
+                max-height: none;
+            }
+        }
+
+        /* TABLET */
+        @media (max-width: 992px) {
+
+            .ibadah-title {
+                font-size: 2.5rem;
+            }
+
+            .ibadah-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            .ibadah-section {
+                padding: 60px 0;
+            }
+
+            .ibadah-title {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+
+            .ibadah-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .ibadah-card {
+                padding: 24px 20px;
+                min-height: 140px;
+            }
+
+            .ibadah-card h3 {
+                font-size: 1.5rem;
+                margin-bottom: 14px;
+            }
+
+            .ibadah-time {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+        }
+
+        /* HP KECIL */
+        @media (max-width: 480px) {
+
+            .ibadah-title {
+                font-size: 1.8rem;
+            }
+
+            .ibadah-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .ibadah-time {
+                width: 100%;
+                text-align: center;
+            }
+        }
     </style>
 
     <!-- HERO -->
@@ -637,16 +772,24 @@
     </section>
 
     <!-- SESI -->
-    <section>
-        <div class="container text-center">
-            <h2 class="scroll">Ibadah Minggu</h2>
-
-            <div class="grid-3" style="margin: 32px 0 24px;">
+    <section class="ibadah-section">
+        <div class="container ">
+            <h2 class="ibadah-title">Ibadah Minggu</h2>
+            <div class="ibadah-grid">
                 @foreach($ibadahs as $ibadah)
-                    <div class="card scroll">
-                        <h3>{{ $ibadah->nama_sesi }}</h3>
-                        <p>{{ \Carbon\Carbon::parse($ibadah->jam_ibadah)->format('H:i') }} WIB</p>
+
+                    <div class=" ibadah-card">
+
+                        <h3>
+                            {{ $ibadah->title }}
+                        </h3>
+
+                        <div class="ibadah-time">
+                            {{ \Carbon\Carbon::parse($ibadah->start_time)->format('H:i') }} WIB
+                        </div>
+
                     </div>
+
                 @endforeach
             </div>
         </div>

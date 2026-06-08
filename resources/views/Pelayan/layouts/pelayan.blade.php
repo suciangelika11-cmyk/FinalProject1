@@ -625,6 +625,9 @@
                         <a href="https://www.youtube.com/@gbitambunan2080" target="_blank">
                             <i class="bi bi-youtube"></i>
                         </a>
+                        <a href="https://www.tiktok.com/@gbi.tambunan" target="_blank">
+                            <i class="bi bi-tiktok"></i>
+                        </a>
 
                     </div>
 
@@ -632,61 +635,61 @@
 
                 <div class="col-lg-2">
 
-                   <h6 class="footer-heading">
-    Menu
-</h6>
+                    <h6 class="footer-heading">
+                        Menu
+                    </h6>
 
-<ul class="footer-nav">
+                    <ul class="footer-nav">
 
-    <li>
-        <a href="{{ route('pelayan.home') }}">
-            Beranda
-        </a>
-    </li>
+                        <li>
+                            <a href="{{ route('pelayan.home') }}">
+                                Beranda
+                            </a>
+                        </li>
 
-    <li>
-        <a href="{{ route('pelayan.jadwal_ibadah') }}">
-            Jadwal
-        </a>
-    </li>
+                        <li>
+                            <a href="{{ route('pelayan.jadwal_ibadah') }}">
+                                Jadwal
+                            </a>
+                        </li>
 
-    <li>
-        <a href="{{ route('pelayan.kegiatan_pelayan') }}">
-            Kegiatan
-        </a>
-    </li>
+                        <li>
+                            <a href="{{ route('pelayan.kegiatan_pelayan') }}">
+                                Kegiatan
+                            </a>
+                        </li>
 
-    <li>
-        <a href="{{ route('pelayan.absensi') }}">
-            Absensi
-        </a>
-    </li>
+                        <li>
+                            <a href="{{ route('pelayan.absensi') }}">
+                                Absensi
+                            </a>
+                        </li>
 
-</ul>
+                    </ul>
 
-</div>
+                </div>
 
-<div class="col-lg-2">
+                <div class="col-lg-2">
 
-    <h6 class="footer-heading">
-        Info
-    </h6>
+                    <h6 class="footer-heading">
+                        Info
+                    </h6>
 
-    <ul class="footer-nav">
+                    <ul class="footer-nav">
 
-        <li>
-            <a href="{{ route('pelayan.pengumuman') }}">
-                Pengumuman
-            </a>
-        </li>
+                        <li>
+                            <a href="{{ route('pelayan.pengumuman') }}">
+                                Pengumuman
+                            </a>
+                        </li>
 
-        <li>
-            <a href="{{ route('pelayan.tentang') }}">
-                Tentang Kami
-            </a>
-        </li>
+                        <li>
+                            <a href="{{ route('pelayan.tentang') }}">
+                                Tentang Kami
+                            </a>
+                        </li>
 
-    </ul>
+                    </ul>
 
                 </div>
 
@@ -751,7 +754,7 @@
                 </p>
 
                 <p class="footer-built">
-                    Built with <strong>Team 05</strong>
+                    Built by <strong>Team 05 PA-IT Del</strong>
                 </p>
 
             </div>
@@ -782,4 +785,4 @@
 
 </body>
 
-</html>     
+</html>

@@ -3,8 +3,8 @@
 @section('content')
     <style>
         /* =====================================
-       HERO
-    ===================================== */
+           HERO
+        ===================================== */
 
         .g-hero {
             position: relative;
@@ -98,7 +98,7 @@
 
         .g-hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(34px, 7vw, 62px);
+            font-size: clamp(45px, 8vw, 72px);
             font-weight: 800;
             color: #4B6584;
             line-height: 1.1;
@@ -138,8 +138,8 @@
         }
 
         /* =====================================
-       SECTION
-    ===================================== */
+           SECTION
+        ===================================== */
 
         .g-section {
             background: #F7FBFC;
@@ -202,8 +202,8 @@
         }
 
         /* =====================================
-       GRID
-    ===================================== */
+           GRID
+        ===================================== */
 
         .g-grid {
             display: grid;
@@ -212,8 +212,8 @@
         }
 
         /* =====================================
-       CARD
-    ===================================== */
+           CARD
+        ===================================== */
 
         .g-card {
             background: #FFFFFF;
@@ -327,8 +327,8 @@
         }
 
         /* =====================================
-       PAGINATION
-    ===================================== */
+           PAGINATION
+        ===================================== */
 
         .g-pagi {
             margin-top: 50px;
@@ -368,8 +368,8 @@
         }
 
         /* =====================================
-       EMPTY
-    ===================================== */
+           EMPTY
+        ===================================== */
 
         .g-empty {
             text-align: center;
@@ -411,15 +411,15 @@
         }
 
         /* =====================================
-       LIGHTBOX
-    ===================================== */
+           LIGHTBOX
+        ===================================== */
 
         .g-lightbox {
             display: none;
             position: fixed;
             inset: 0;
 
-            background: rgba(118, 159, 205, .88);
+            background: rgba(30, 40, 60, .85);
 
             z-index: 9999;
 
@@ -434,10 +434,23 @@
             display: flex;
         }
 
+        .g-lb-inner {
+            max-width: 900px;
+            width: 100%;
+
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+
+            box-shadow:
+                0 25px 80px rgba(0, 0, 0, .35);
+        }
+
         .g-lb-inner img {
             width: 100%;
-            max-height: 75vh;
+            max-height: 80vh;
             object-fit: contain;
+            display: block;
 
             border-radius: 20px;
             background: white;
@@ -461,8 +474,8 @@
         }
 
         /* =====================================
-       FOOTER
-    ===================================== */
+           FOOTER
+        ===================================== */
 
         .g-footer-strip {
             background: #D6E6F2;
@@ -478,8 +491,8 @@
         }
 
         /* =====================================
-       ANIMATION
-    ===================================== */
+           ANIMATION
+        ===================================== */
 
         @keyframes fadeUp {
             from {
@@ -494,8 +507,8 @@
         }
 
         /* =====================================
-       MOBILE
-    ===================================== */
+           MOBILE
+        ===================================== */
 
         @media(max-width:480px) {
 
@@ -519,6 +532,54 @@
             .g-card-desc {
                 font-size: 12px;
             }
+        }
+
+        .g-lb-caption {
+            background: white;
+            padding: 20px 24px;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .lb-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2E4A62;
+            margin-bottom: 8px;
+        }
+
+        .lb-desc {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #5F738B;
+        }
+
+        .g-back-btn {
+            margin-top: 20px;
+
+            padding: 12px 24px;
+
+            border: none;
+            border-radius: 12px;
+
+            background: linear-gradient(135deg,
+                    #6b7280,
+                    #374151);
+
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        .g-back-btn:hover {
+            transform: translateY(-2px);
+
+            background: linear-gradient(135deg,
+                    #374151,
+                    #111827);
         }
     </style>
 
@@ -563,10 +624,10 @@
                     @foreach($galeris as $item)
 
                         <div class="g-card" onclick="gLightbox(
-                                         '{{ $item->image ? asset('storage/' . $item->image) : '' }}',
-                                         '{{ addslashes($item->title ?? '') }}',
-                                         '{{ addslashes($item->description ?? '') }}'
-                                         )">
+                                                     '{{ $item->image ? asset('storage/' . $item->image) : '' }}',
+                                                     '{{ addslashes($item->title ?? '') }}',
+                                                     '{{ addslashes($item->description ?? '') }}'
+                                                     )">
 
                             @if($item->image)
 
@@ -694,6 +755,10 @@
             <div class="g-lb-caption">
                 <div class="lb-title" id="gLbTitle"></div>
                 <div class="lb-desc" id="gLbDesc"></div>
+
+                <button class="g-back-btn" onclick="gClose()">
+                    ← Kembali ke Galeri
+                </button>
             </div>
 
         </div>

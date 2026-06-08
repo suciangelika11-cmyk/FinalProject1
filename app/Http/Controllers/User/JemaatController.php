@@ -19,17 +19,17 @@ class JemaatController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'no_kk' => 'required',
-            'nama_keluarga' => 'required',
-            'alamat_domisili' => 'required',
-            'alamat_ktp' => 'required',
-            'nama_lengkap' => 'required',
-            'nik' => 'required',
-            'tempat_lahir' => 'required',
+            'no_kk' => 'required|numeric|digits:16',
+            'nama_keluarga' => 'required|string|max:50',
+            'alamat_domisili' => 'required|string|max:100',
+            'alamat_ktp' => 'required|string|max:100',
+            'nama_lengkap' => 'required|string|max:50',
+            'nik' => 'required|numeric|digits:16',
+            'tempat_lahir' => 'required|string|max:100',
             'tanggal_lahir' => 'required|date',
             'jenis_kelamin' => 'required',
-            'handphone' => 'required',
-            'pekerjaan' => 'required',
+            'handphone' => 'required|numeric|digits_between:10,15',
+            'pekerjaan' => 'required|string|max:50',
             'status_pernikahan' => 'required',
         ]);
 

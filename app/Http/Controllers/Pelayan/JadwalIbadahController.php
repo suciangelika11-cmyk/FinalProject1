@@ -23,4 +23,6 @@ class JadwalIbadahController extends Controller
             compact('jadwalMingguan', 'acaraKhusus')
         );
     }
+
+    
 }

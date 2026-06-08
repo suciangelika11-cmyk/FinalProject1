@@ -436,7 +436,7 @@
             border: 2px solid #769FCD;
             border-radius: 14px;
             padding: 10px 14px;
-            box-shadow: 0 4px 12px rgba(118,159,205,.15);
+            box-shadow: 0 4px 12px rgba(118, 159, 205, .15);
             transition: border-color 0.4s !important;
         }
 
@@ -448,40 +448,40 @@
             box-shadow: none;
         }
 
-        .navbar-toggler-icon{
-    background-image: none;
-    position: relative;
-    width: 24px;
-    height: 18px;
-}
+        .navbar-toggler-icon {
+            background-image: none;
+            position: relative;
+            width: 24px;
+            height: 18px;
+        }
 
         .navbar-scrolled .navbar-toggler-icon {
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%231a4a9e' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
         }
 
         .navbar-toggler-icon::before,
-.navbar-toggler-icon::after,
-.navbar-toggler-icon span{
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: #769FCD;
-    border-radius: 3px;
-}
+        .navbar-toggler-icon::after,
+        .navbar-toggler-icon span {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #769FCD;
+            border-radius: 3px;
+        }
 
-.navbar-toggler-icon::before{
-    top: 0;
-}
+        .navbar-toggler-icon::before {
+            top: 0;
+        }
 
-.navbar-toggler-icon span{
-    top: 7px;
-}
+        .navbar-toggler-icon span {
+            top: 7px;
+        }
 
-.navbar-toggler-icon::after{
-    bottom: 0;
-}
+        .navbar-toggler-icon::after {
+            bottom: 0;
+        }
 
         /* ════════════════════════════════════════
            SHARED UTILITIES
@@ -600,10 +600,10 @@
         }
 
         .footer-brand-logo {
-            width: 48px;
-            height: 48px;
+            width: 50px;
+            height: 50px;
             background: rgba(255, 255, 255, 0.08);
-            border-radius: var(--r-md);
+            border-radius: 50%;
             border: 1.5px solid rgba(255, 255, 255, 0.15);
             display: flex;
             align-items: center;
@@ -613,6 +613,13 @@
             font-size: 14px;
             color: var(--white);
             flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .footer-brand-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .footer-brand-name {
@@ -634,7 +641,7 @@
 
         .footer-desc {
             font-size: 13.5px;
-            color: var(--dim-3);
+            color: rgba(255, 255, 255, .85);
             line-height: 1.75;
             font-weight: 300;
             margin: 18px 0 22px;
@@ -688,7 +695,8 @@
         }
 
         .footer-nav li a {
-            color: var(--dim-3);
+            color: rgba(255, 255, 255, .85);
+            ;
             text-decoration: none;
             font-size: 13.5px;
             font-weight: 300;
@@ -742,13 +750,13 @@
 
         .footer-contact-text {
             font-size: 13px;
-            color: var(--dim-3);
+            color: rgba(255, 255, 255, .85);
             font-weight: 300;
             line-height: 1.65;
         }
 
         .footer-contact-text a {
-            color: var(--dim-3);
+            color: rgba(255, 255, 255, .85);
             text-decoration: none;
             transition: color 0.2s;
         }
@@ -911,195 +919,201 @@
 <body>
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg" id="mainNavbar">
-        <div class="container">
+    @if(!isset($hideNavbar))
+        <nav class="navbar navbar-expand-lg" id="mainNavbar">
+            <div class="container">
 
-            <a class="navbar-brand" href="{{ route('home') }}">
-                <div class="brand-logo-wrap">
-                    <img src="/gambar/gbi.jpeg" alt="GBI Tambunan">
-                </div>
-                <div>
-                    <span class="brand-title">GBI Tambunan</span>
-                    <span class="brand-sub">Gereja Bethel Indonesia</span>
-                </div>
-            </a>
+                <a class="navbar-brand" href="{{ route('home') }}">
+                    <div class="brand-logo-wrap">
+                        <img src="/gambar/gbi.jpeg" alt="GBI Tambunan">
+                    </div>
+                    <div>
+                        <span class="brand-title">GBI Tambunan</span>
+                        <span class="brand-sub">Gereja Bethel Indonesia</span>
+                    </div>
+                </a>
 
-            <button class="navbar-toggler"
-        data-bs-toggle="collapse"
-        data-bs-target="#menuNav"
-        aria-label="Toggle navigation"
-        aria-expanded="false"
-        aria-controls="menuNav">
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menuNav"
+                    aria-label="Toggle navigation" aria-expanded="false" aria-controls="menuNav">
 
-    <span class="navbar-toggler-icon">
-        <span></span>
-    </span>
+                    <span class="navbar-toggler-icon">
+                        <span></span>
+                    </span>
 
-</button>
+                </button>
 
-            <div class="collapse navbar-collapse" id="menuNav">
-                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}"
-                            href="{{ route('home') }}">Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('user.pengumuman') ? 'active' : '' }}"
-                            href="{{ route('user.pengumuman') }}">Pengumuman</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('user.jadwal') ? 'active' : '' }}"
-                            href="{{ route('user.jadwal') }}">Jadwal</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('user.galeri') ? 'active' : '' }}"
-                            href="{{ route('user.galeri') }}">Galeri</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('user.khotbah') ? 'active' : '' }}"
-                            href="{{ route('user.khotbah') }}">Khotbah</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('user.pelayanan') ? 'active' : '' }}"
-                            href="{{ route('user.pelayanan') }}">Pelayanan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('user.kontak') ? 'active' : '' }}"
-                            href="{{ route('user.kontak') }}">Kontak</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('user.tentang') ? 'active' : '' }}"
-                            href="{{ route('user.tentang') }}">Tentang Kami</a>
-                    </li>
-
-                    @auth
-                        <li class="nav-item dropdown ms-lg-2">
-                            <a class="user-pill dropdown-toggle" href="#" id="userMenu" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <div class="user-avatar">
-                                    {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
-                                </div>
-                                <span>{{ Auth::user()->name }}</span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
-                                <li>
-                                    <form method="POST" action="{{ route('logout') }}" class="m-0">
-                                        @csrf
-                                        <button type="submit" class="dropdown-item">
-                                            <i class="bi bi-box-arrow-right me-2"></i>Logout
-                                        </button>
-                                    </form>
-                                </li>
-                            </ul>
+                <div class="collapse navbar-collapse" id="menuNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}"
+                                href="{{ route('home') }}">Beranda</a>
                         </li>
-                    @endauth
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('user.pengumuman') ? 'active' : '' }}"
+                                href="{{ route('user.pengumuman') }}">Pengumuman</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('user.jadwal') ? 'active' : '' }}"
+                                href="{{ route('user.jadwal') }}">Jadwal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('user.galeri') ? 'active' : '' }}"
+                                href="{{ route('user.galeri') }}">Galeri</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('user.khotbah') ? 'active' : '' }}"
+                                href="{{ route('user.khotbah') }}">Khotbah</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('user.pelayanan') ? 'active' : '' }}"
+                                href="{{ route('user.pelayanan') }}">Pelayanan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('user.kontak') ? 'active' : '' }}"
+                                href="{{ route('user.kontak') }}">Kontak</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('user.tentang') ? 'active' : '' }}"
+                                href="{{ route('user.tentang') }}">Tentang Kami</a>
+                        </li>
 
-                    <li class="nav-item ms-lg-2">
-                        <a class="nav-link btn-nav-cta" href="{{ route('user.jemaat') }}">
-                            Jadi Jemaat
-                        </a>
-                    </li>
-                </ul>
+                        @auth
+                            <li class="nav-item dropdown ms-lg-2">
+                                <a class="user-pill dropdown-toggle" href="#" id="userMenu" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="user-avatar">
+                                        {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
+                                    </div>
+                                    <span>{{ Auth::user()->name }}</span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                                    <li>
+                                        <form method="POST" action="{{ route('logout') }}" class="m-0">
+                                            @csrf
+                                            <button type="submit" class="dropdown-item">
+                                                <i class="bi bi-box-arrow-right me-2"></i>Logout
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endauth
+
+                        <li class="nav-item ms-lg-2">
+                            <a class="nav-link btn-nav-cta" href="{{ route('user.jemaat') }}">
+                                Jadi Jemaat
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    @endif
 
     @yield('content')
 
     <!-- FOOTER -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="row g-4 g-lg-5">
+    @if(!isset($hideFooter))
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row g-4 g-lg-5">
 
-                <div class="col-lg-4 col-md-12">
-                    <div class="d-flex align-items-center gap-3 mb-1">
-                        <div class="footer-brand-logo">GBI</div>
-                        <div>
-                            <p class="footer-brand-name">GBI Tambunan</p>
-                            <span class="footer-brand-sub">Gereja Bethel Indonesia</span>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="d-flex align-items-center gap-3 mb-1">
+                            <div class="footer-brand-logo">
+                                <img src="/gambar/logo-gbi-official.png" alt="GBI Tambunan">
+                            </div>
+                            <div>
+                                <p class="footer-brand-name">GBI Tambunan</p>
+                                <span class="footer-brand-sub">Gereja Bethel Indonesia</span>
+                            </div>
+                        </div>
+                        <p class="footer-desc">
+                            Bersama membangun tubuh Kristus dalam kesatuan, kasih, dan pelayanan.
+                            Bergabunglah dengan keluarga rohani kami.
+                        </p>
+                        <div class="footer-socials">
+                            <a href="https://web.facebook.com/GBITAMBUNANN" target="_blank" rel="noopener"
+                                aria-label="Facebook">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="https://www.instagram.com/gbitambunan_/" target="_blank" rel="noopener"
+                                aria-label="Instagram">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@gbitambunan2080" target="_blank" rel="noopener"
+                                aria-label="YouTube">
+                                <i class="bi bi-youtube"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@gbi.tambunan" target="_blank" rel="noopener"
+                                aria-label="TikTok">
+                                <i class="bi bi-tiktok"></i>
+                            </a>
                         </div>
                     </div>
-                    <p class="footer-desc">
-                        Bersama membangun tubuh Kristus dalam kesatuan, kasih, dan pelayanan.
-                        Bergabunglah dengan keluarga rohani kami.
+
+                    <div class="col-6 col-lg-2 col-md-3">
+                        <h6 class="footer-heading">Menu</h6>
+                        <ul class="footer-nav">
+                            <li><a href="{{ route('home') }}">Beranda</a></li>
+                            <li><a href="{{ route('user.tentang') }}">Tentang Kami</a></li>
+                            <li><a href="{{ route('user.jadwal') }}">Jadwal</a></li>
+                            <li><a href="{{ route('user.galeri') }}">Galeri</a></li>
+                            <li><a href="{{ route('user.khotbah') }}">Khotbah</a></li>
+                            <li><a href="{{ route('user.pelayanan') }}">Pelayanan</a></li>
+                            <li><a href="{{ route('login') }}">Login</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-6 col-lg-2 col-md-3">
+                        <h6 class="footer-heading">Info</h6>
+                        <ul class="footer-nav">
+                            <li><a href="{{ route('user.kontak') }}">Kontak</a></li>
+                            <li><a href="{{ route('user.pengumuman') }}">Pengumuman</a></li>
+                            <li><a href="{{ route('user.jemaat') }}">Jadi Jemaat</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <h6 class="footer-heading">Kontak Kami</h6>
+
+                        <div class="footer-contact-item">
+                            <div class="footer-contact-icon"><i class="bi bi-geo-alt"></i></div>
+                            <div class="footer-contact-text">
+                                Jl. Pasar Tambunan Desa No.4<br>
+                                Lumban Pea, Kec. Balige<br>
+                                Toba, Sumatera Utara
+                            </div>
+                        </div>
+
+                        <div class="footer-contact-item">
+                            <div class="footer-contact-icon"><i class="bi bi-telephone"></i></div>
+                            <div class="footer-contact-text">
+                                <a href="tel:+6285370385542">+62 853-7038-5542</a>
+                            </div>
+                        </div>
+
+                        <div class="footer-contact-item">
+                            <div class="footer-contact-icon"><i class="bi bi-envelope"></i></div>
+                            <div class="footer-contact-text">
+                                <a href="mailto:gbitambunan01@gmail.com">gbitambunan01@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <hr class="footer-divider">
+
+                <div class="footer-bottom">
+                    <p class="footer-copyright">
+                        © 2026 GBI Tambunan. All rights reserved. Made with <span class="heart">❤</span> for God's glory.
                     </p>
-                    <div class="footer-socials">
-                        <a href="https://web.facebook.com/GBITAMBUNANN" target="_blank" rel="noopener"
-                            aria-label="Facebook">
-                            <i class="bi bi-facebook"></i>
-                        </a>
-                        <a href="https://www.instagram.com/gbitambunan_/" target="_blank" rel="noopener"
-                            aria-label="Instagram">
-                            <i class="bi bi-instagram"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@gbitambunan2080" target="_blank" rel="noopener"
-                            aria-label="YouTube">
-                            <i class="bi bi-youtube"></i>
-                        </a>
-                    </div>
+                    <p class="footer-built">Built by <strong>Team 05 PA-IT Del</strong></p>
                 </div>
-
-                <div class="col-6 col-lg-2 col-md-3">
-                    <h6 class="footer-heading">Menu</h6>
-                    <ul class="footer-nav">
-                        <li><a href="{{ route('home') }}">Beranda</a></li>
-                        <li><a href="{{ route('user.tentang') }}">Tentang Kami</a></li>
-                        <li><a href="{{ route('user.jadwal') }}">Jadwal</a></li>
-                        <li><a href="{{ route('user.galeri') }}">Galeri</a></li>
-                        <li><a href="{{ route('user.khotbah') }}">Khotbah</a></li>
-                        <li><a href="{{ route('user.pelayanan') }}">Pelayanan</a></li>
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-6 col-lg-2 col-md-3">
-                    <h6 class="footer-heading">Info</h6>
-                    <ul class="footer-nav">
-                        <li><a href="{{ route('user.kontak') }}">Kontak</a></li>
-                        <li><a href="{{ route('user.pengumuman') }}">Pengumuman</a></li>
-                        <li><a href="{{ route('user.jemaat') }}">Jadi Jemaat</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <h6 class="footer-heading">Kontak Kami</h6>
-
-                    <div class="footer-contact-item">
-                        <div class="footer-contact-icon"><i class="bi bi-geo-alt"></i></div>
-                        <div class="footer-contact-text">
-                            Jl. Pasar Tambunan Desa No.4<br>
-                            Lumban Pea, Kec. Balige<br>
-                            Toba, Sumatera Utara
-                        </div>
-                    </div>
-
-                    <div class="footer-contact-item">
-                        <div class="footer-contact-icon"><i class="bi bi-telephone"></i></div>
-                        <div class="footer-contact-text">
-                            <a href="tel:+6285370385542">+62 853-7038-5542</a>
-                        </div>
-                    </div>
-
-                    <div class="footer-contact-item">
-                        <div class="footer-contact-icon"><i class="bi bi-envelope"></i></div>
-                        <div class="footer-contact-text">
-                            <a href="mailto:gbitambunan01@gmail.com">gbitambunan01@gmail.com</a>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-
-            <hr class="footer-divider">
-
-            <div class="footer-bottom">
-                <p class="footer-copyright">
-                    © 2026 GBI Tambunan. All rights reserved. Made with <span class="heart">❤</span> for God's glory.
-                </p>
-                <p class="footer-built">Built by <strong>Team 05 PA-IT Del</strong></p>
-            </div>
-        </div>
-    </footer>
+        </footer>
+    @endif
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 

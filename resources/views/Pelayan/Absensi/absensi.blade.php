@@ -1,781 +1,412 @@
 @extends('Pelayan.layouts.pelayan')
 
+@section('page_title', 'Absensi')
+
 @section('content')
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
     <style>
-        :root {
-            /* Palet Warna Baru */
-            --primary: #769FCD;
-            --light: #B9D7EA;
-            --lighter: #D6E6F2;
-            --lightest: #F7FBFC;
-
-            /* Warna yang masih digunakan */
-            --text-primary: #769FCD;
-            --text-light: #B9D7EA;
-            --text-muted: rgba(118, 159, 205, 0.65);
-
-            --bg-dark: #F7FBFC;
-            --bg-light: #D6E6F2;
-            --bg-card: #F7FBFC;
-            --bg-surface: rgba(214, 230, 242, 0.3);
-
-            --border: rgba(118, 159, 205, 0.15);
-            --border-strong: rgba(118, 159, 205, 0.3);
-
-            --radius: 20px;
-        }
-
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
+        * {
             margin: 0;
             padding: 0;
-        }
-
-        html,
-        body {
-            overflow-x: hidden;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-primary);
+            font-family: 'Poppins', sans-serif;
+            background: #fff;
         }
 
-        /* ================= HERO ================= */
-        .hero {
+        /* HERO */
+
+        .hero-absensi {
             position: relative;
-            min-height: 420px;
+            min-height: 650px;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             text-align: center;
             overflow: hidden;
-            padding: 120px 24px 110px;
-            background: linear-gradient(135deg, var(--lighter) 0%, var(--bg-dark) 100%);
+
+            background: linear-gradient(180deg,
+                    #eef5fb 0%,
+                    #f8fbff 100%);
         }
 
-        .hero::before {
+        .hero-absensi::before {
             content: '';
             position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(
-                    ellipse 70% 100% at 50% 0%,
-                    rgba(118, 159, 205, 0.1),
-                    transparent 65%
-                );
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: #d8e8f9;
+            top: -250px;
+            left: -180px;
+            opacity: .6;
         }
 
-        .hero::after {
+        .hero-absensi::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 80px;
-            background: var(--bg-dark);
-            clip-path: ellipse(55% 100% at 50% 100%);
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: #e8f2fc;
+            right: -250px;
+            bottom: -320px;
         }
 
         .hero-content {
             position: relative;
-            z-index: 2;
-            max-width: 720px;
+            z-index: 10;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            padding: 12px 28px;
+
+            border: 1px solid #bfd4ea;
+            border-radius: 999px;
+
+            color: #6f97c6;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+
+            margin-bottom: 30px;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(60px, 8vw, 110px);
+            line-height: 1;
+            color: #6f96c7;
+            margin-bottom: 20px;
+        }
+
+        .hero-title span {
+            color: #bdd8ef;
+            font-style: italic;
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            color: #8ca8c5;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .hero-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
             width: 100%;
         }
 
-        .hero-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(118, 159, 205, 0.12);
-            border: 1.5px solid var(--border-strong);
-            border-radius: 40px;
-            padding: 10px 22px;
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--text-primary);
-            letter-spacing: .20em;
-            text-transform: uppercase;
-            margin-bottom: 24px;
-            transition: all 0.3s ease;
+        .hero-wave svg {
+            display: block;
+            width: 100%;
+            height: 160px;
         }
 
-        .hero-eyebrow:hover {
-            background: rgba(118, 159, 205, 0.18);
-            border-color: var(--text-primary);
+        /* CONTENT */
+
+        .absensi-section {
+            padding: 90px 0;
+            background: #fff;
         }
 
-        .hero h1 {
-            font-family: 'Libre Baskerville', serif;
-            font-size: clamp(38px, 6vw, 70px);
-            line-height: 1.1;
-            margin-bottom: 18px;
-            color: var(--text-primary);
-            font-weight: 700;
-        }
-
-        .hero h1 em {
-            color: var(--light);
-            font-style: italic;
-            font-weight: 400;
-        }
-
-        .hero-sub {
-            color: var(--text-muted);
-            font-size: 15px;
-            line-height: 1.9;
-            font-weight: 300;
-            max-width: 620px;
+        .container-absensi {
+            width: 90%;
+            max-width: 1400px;
             margin: auto;
         }
 
-        /* ================= PAGE ================= */
-        .page-wrap {
-            width: min(92%, 1180px);
-            margin: auto;
-            padding: 70px 0 100px;
-        }
-
-        /* ================= SECTION ================= */
-        .section-eyebrow {
+        .section-divider {
             display: flex;
             align-items: center;
-            gap: 16px;
-            margin-bottom: 50px;
+            gap: 20px;
+            margin-bottom: 70px;
         }
 
-        .section-eyebrow::before,
-        .section-eyebrow::after {
+        .section-divider::before,
+        .section-divider::after {
             content: '';
             flex: 1;
-            height: 1.5px;
-            background: var(--border-strong);
+            height: 1px;
+            background: #d6e4f3;
         }
 
-        .section-eyebrow span {
-            color: var(--text-primary);
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: .18em;
+        .section-divider span {
+            color: #7fa5cf;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .2em;
             text-transform: uppercase;
-            white-space: nowrap;
         }
 
-        /* ================= CARD ================= */
-        .kegiatan-card {
+        /* GRID */
+
+        .absensi-grid {
             display: grid;
-            grid-template-columns: 160px 1fr 340px;
-            background: var(--bg-card);
-            border: 1.5px solid var(--border);
-            border-radius: var(--radius);
+            grid-template-columns:
+                repeat(auto-fit, minmax(360px, 1fr));
+            gap: 30px;
+        }
+
+        /* CARD */
+
+        .absensi-card {
+            position: relative;
+
+            background: #fff;
+
+            border-radius: 30px;
+
+            padding: 35px;
+
+            border: 1px solid #e7eef7;
+
+            transition: .4s ease;
+
             overflow: hidden;
-            margin-bottom: 28px;
-            transition: all 0.35s ease;
-            box-shadow: 0 2px 8px rgba(118, 159, 205, 0.08);
         }
 
-        .kegiatan-card:hover {
-            border-color: var(--border-strong);
-            transform: translateY(-6px);
-            box-shadow: 0 16px 32px rgba(118, 159, 205, 0.15);
+        .absensi-card::before {
+            content: '';
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 6px;
+
+            background: linear-gradient(90deg,
+                    #7ea9dd,
+                    #b7d5f1);
         }
 
-        /* ================= DATE ================= */
+        .absensi-card:hover {
+            transform: translateY(-10px);
+
+            box-shadow:
+                0 20px 50px rgba(93, 134, 189, .12);
+        }
+
         .card-date {
-            background: linear-gradient(135deg, var(--lighter) 0%, var(--bg-light) 100%);
-            border-right: 1.5px solid var(--border);
+            color: #8aa7c7;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .card-session {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            color: #5f84b7;
+            margin-bottom: 25px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .info-icon {
+            width: 42px;
+            height: 42px;
+
+            border-radius: 12px;
+
+            background: #eef5fd;
 
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
 
-            text-align: center;
-            padding: 40px 20px;
+            color: #7ea8da;
+
+            flex-shrink: 0;
         }
 
-        .date-weekday {
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: .18em;
-            text-transform: uppercase;
-            color: var(--text-primary);
-            margin-bottom: 10px;
-        }
-
-        .date-num {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 56px;
-            line-height: 1;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-        }
-
-        .date-month {
-            font-size: 11px;
-            letter-spacing: .15em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        /* ================= INFO ================= */
-        .card-info {
-            padding: 38px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .card-tag {
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: .18em;
-            text-transform: uppercase;
-            color: var(--text-primary);
-            margin-bottom: 12px;
-            opacity: 0.8;
-        }
-
-        .card-preacher {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 32px;
-            line-height: 1.2;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 18px;
-            word-break: break-word;
-        }
-
-        .card-divider {
-            width: 45px;
-            height: 2.5px;
-            background: var(--primary);
-            opacity: 0.5;
-            margin-bottom: 18px;
-            border-radius: 2px;
-        }
-
-        .card-tema {
-            font-family: 'Libre Baskerville', serif;
-            font-style: italic;
-            font-size: 15px;
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 22px;
-            font-weight: 400;
-        }
-
-        .card-verse {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            background: rgba(118, 159, 205, 0.1);
-            border: 1px solid var(--border-strong);
-            border-radius: 40px;
-            padding: 10px 18px;
+        .info-content h5 {
             font-size: 12px;
-            color: var(--text-primary);
-            width: fit-content;
-            flex-wrap: wrap;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .card-verse:hover {
-            background: rgba(118, 159, 205, 0.15);
-            border-color: var(--primary);
-        }
-
-        /* ================= TEAM ================= */
-        .card-team {
-            background: var(--bg-surface);
-            border-left: 1.5px solid var(--border);
-
-            padding: 28px 24px;
-
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .team-heading {
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: .18em;
             text-transform: uppercase;
-            color: var(--text-primary);
+            letter-spacing: .1em;
+            color: #9bb3cd;
             margin-bottom: 4px;
         }
 
-        /* ================= SUB TEAM ================= */
-        .sub-team {
-            background: rgba(255, 255, 255, 0.5);
-            border: 1px solid rgba(118, 159, 205, 0.2);
-            border-radius: 14px;
-            padding: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .sub-team:hover {
-            background: rgba(255, 255, 255, 0.7);
-            border-color: rgba(118, 159, 205, 0.35);
-        }
-
-        .sub-team-head {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-
-        .sub-team-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            flex-shrink: 0;
-            font-weight: 600;
-        }
-
-        .sub-team-icon.worship {
-            background: rgba(118, 159, 205, 0.18);
-            color: var(--text-primary);
-        }
-
-        .sub-team-icon.media {
-            background: rgba(185, 215, 234, 0.18);
-            color: #5B8AC5;
-        }
-
-        .sub-team-icon.liturgi {
-            background: rgba(214, 230, 242, 0.3);
-            color: #769FCD;
-        }
-
-        .sub-team-name {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .sub-team-desc {
-            font-size: 11px;
-            color: var(--text-muted);
-            font-weight: 400;
-        }
-
-        .member-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-
-            padding: 10px 0;
-            border-top: 1px solid rgba(118, 159, 205, 0.12);
-        }
-
-        .member-row:first-of-type {
-            border-top: none;
-            padding-top: 0;
-        }
-
-        .member-name {
-            font-size: 12px;
-            color: var(--text-primary);
-            word-break: break-word;
+        .info-content p {
+            color: #4b5563;
+            font-size: 15px;
             font-weight: 500;
         }
 
-        .member-badge {
-            font-size: 10px;
-            font-weight: 600;
-            border-radius: 40px;
-            padding: 5px 14px;
-            white-space: nowrap;
-            text-transform: capitalize;
-            letter-spacing: .05em;
+        .card-footer {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #eef3f9;
         }
 
-        .member-badge.worship {
-            background: rgba(118, 159, 205, 0.15);
-            color: var(--text-primary);
-        }
-
-        .member-badge.media {
-            background: rgba(185, 215, 234, 0.15);
-            color: #5B8AC5;
-        }
-
-        .member-badge.liturgi {
-            background: rgba(214, 230, 242, 0.25);
-            color: #769FCD;
-        }
-
-        /* ================= FOOTER ================= */
-        .page-footer {
-            margin-top: 80px;
-            border-top: 1.5px solid var(--border);
-            padding-top: 45px;
-            text-align: center;
-        }
-
-        .footer-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            border: 2px solid var(--border-strong);
-
-            display: flex;
+        .saved-badge {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
+            gap: 10px;
 
-            margin: 0 auto 18px;
+            background: #effcf4;
 
-            font-size: 22px;
-            color: var(--text-primary);
-            transition: all 0.3s ease;
+            color: #22a35a;
+
+            padding: 10px 18px;
+
+            border-radius: 999px;
+
+            font-size: 13px;
+            font-weight: 700;
         }
 
-        .footer-icon:hover {
-            border-color: var(--text-primary);
-            transform: scale(1.1);
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            color: #94a3b8;
         }
 
-        .footer-quote {
-            font-family: 'Libre Baskerville', serif;
-            font-style: italic;
-            font-size: 17px;
-            color: var(--text-muted);
-            line-height: 1.8;
-            font-weight: 400;
-        }
-
-        /* ================= RESPONSIVE ================= */
-
-        @media(max-width:1200px) {
-            .kegiatan-card {
-                grid-template-columns: 140px 1fr 300px;
-            }
-
-            .card-preacher {
-                font-size: 28px;
-            }
-
-            .card-info {
-                padding: 32px;
-            }
-        }
-
-        @media(max-width:992px) {
-            .kegiatan-card {
-                grid-template-columns: 1fr;
-            }
-
-            .card-date {
-                border-right: none;
-                border-bottom: 1.5px solid var(--border);
-
-                flex-direction: row;
-                justify-content: center;
-                gap: 20px;
-
-                padding: 28px;
-            }
-
-            .date-num {
-                font-size: 48px;
-                margin-bottom: 0;
-            }
-
-            .card-team {
-                border-left: none;
-                border-top: 1.5px solid var(--border);
-            }
-
-            .card-info {
-                padding: 32px;
-            }
+        .empty-state h3 {
+            margin-bottom: 10px;
+            color: #6b7280;
         }
 
         @media(max-width:768px) {
-            .hero {
-                min-height: 360px;
-                padding: 100px 20px 90px;
+
+            .hero-absensi {
+                min-height: 500px;
             }
 
-            .hero h1 {
-                font-size: clamp(30px, 10vw, 48px);
+            .hero-title {
+                font-size: 55px;
             }
 
-            .hero-sub {
-                font-size: 14px;
-                line-height: 1.8;
-            }
-
-            .page-wrap {
-                width: 94%;
-                padding: 55px 0 80px;
-            }
-
-            .section-eyebrow {
-                margin-bottom: 36px;
-            }
-
-            .card-info {
-                padding: 24px 20px;
-            }
-
-            .card-preacher {
-                font-size: 24px;
-            }
-
-            .card-tema {
-                font-size: 14px;
-                line-height: 1.7;
-            }
-
-            .card-team {
-                padding: 20px;
-            }
-
-            .sub-team {
-                padding: 14px;
-            }
-        }
-
-        @media(max-width:576px) {
-            .hero {
-                min-height: 320px;
-                padding: 90px 20px 80px;
-            }
-
-            .hero-eyebrow {
-                font-size: 9px;
-                padding: 8px 14px;
-                letter-spacing: .16em;
-            }
-
-            .hero-sub {
-                font-size: 13px;
-            }
-
-            .card-date {
-                flex-direction: column;
-                gap: 8px;
-                padding: 24px 18px;
-            }
-
-            .date-weekday {
-                font-size: 9px;
-            }
-
-            .date-num {
-                font-size: 42px;
-            }
-
-            .date-month {
-                font-size: 10px;
-            }
-
-            .card-info {
-                padding: 20px;
-            }
-
-            .card-preacher {
-                font-size: 20px;
-            }
-
-            .card-tema {
-                font-size: 13px;
-            }
-
-            .card-team {
-                padding: 16px;
-                gap: 12px;
-            }
-
-            .sub-team {
-                padding: 12px;
-            }
-
-            .sub-team-head {
-                align-items: flex-start;
-            }
-
-            .member-row {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .member-badge {
-                margin-top: 6px;
-                padding: 4px 12px;
-                font-size: 9px;
-            }
-
-            .card-verse {
-                width: 100%;
-                justify-content: center;
-                text-align: center;
-            }
-
-            .footer-quote {
+            .hero-desc {
                 font-size: 15px;
+                padding: 0 20px;
+            }
+
+            .absensi-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
+    <!-- HERO -->
+
+    <section class="hero-absensi">
+
         <div class="hero-content">
-            <div class="hero-eyebrow">
-                <i class="fa-solid fa-hands-praying" style="font-size:11px;"></i>
-                Gereja Bethel Indonesia
+
+            <div class="hero-badge">
+                📖 DAFTAR KEHADIRAN
             </div>
 
-            <h1>Kegiatan <em>Pelayanan</em></h1>
+            <h1 class="hero-title">
+                Absensi <span>Ibadah</span>
+            </h1>
 
-            <p class="hero-sub">
-                Daftar kegiatan pelayanan gereja bersama seluruh tim dan jemaat
+            <p class="hero-desc">
+                Riwayat kehadiran ibadah dan pelayanan gereja yang telah dicatat dan dikelola oleh administrator.
             </p>
+
         </div>
+
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 160" preserveAspectRatio="none">
+                <path fill="#ffffff" d="M0,96L120,80C240,64,480,32,720,32C960,32,1200,64,1320,80L1440,96L1440,160L0,160Z">
+                </path>
+            </svg>
+        </div>
+
     </section>
 
-    <!-- CONTENT SECTION -->
-    <div class="page-wrap">
-        <div class="section-eyebrow">
-            <span>Kegiatan Mendatang</span>
-        </div>
+    <!-- DATA ABSENSI -->
 
-        @foreach($kegiatans as $item)
-            <article class="kegiatan-card">
+    <section class="absensi-section">
 
-                <!-- DATE COLUMN -->
-                <div class="card-date">
-                    <div class="date-weekday">
-                        {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('l') }}
-                    </div>
+        <div class="container-absensi">
 
-                    <div class="date-num">
-                        {{ \Carbon\Carbon::parse($item->tanggal)->format('d') }}
-                    </div>
-
-                    <div class="date-month">
-                        {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('F Y') }}
-                    </div>
-                </div>
-
-                <!-- INFO COLUMN -->
-                <div class="card-info">
-                    <div class="card-tag">Pengkhotbah</div>
-
-                    <h2 class="card-preacher">{{ $item->pengkhotbah }}</h2>
-
-                    <div class="card-divider"></div>
-
-                    <div class="card-tema">"{{ $item->tema }}"</div>
-
-                    <div class="card-verse">
-                        <i class="fa-solid fa-book-open"></i>
-                        {{ $item->ayat }}
-                    </div>
-                </div>
-
-                <!-- TEAM COLUMN -->
-                <div class="card-team">
-                    <div class="team-heading">Tim yang Melayani</div>
-
-                    <!-- WORSHIP TEAM -->
-                    <div class="sub-team">
-                        <div class="sub-team-head">
-                            <div class="sub-team-icon worship">
-                                <i class="fa-solid fa-microphone-lines"></i>
-                            </div>
-                            <div>
-                                <div class="sub-team-name">Worship Team</div>
-                                <div class="sub-team-desc">Pujian & Penyembahan</div>
-                            </div>
-                        </div>
-
-                        @foreach(explode(',', $item->worship_team) as $m)
-                            <div class="member-row">
-                                <span class="member-name">{{ trim($m) }}</span>
-                                <span class="member-badge worship">Worship</span>
-                            </div>
-                        @endforeach
-                    </div>
-
-                    <!-- MULTIMEDIA TEAM -->
-                    <div class="sub-team">
-                        <div class="sub-team-head">
-                            <div class="sub-team-icon media">
-                                <i class="fa-solid fa-video"></i>
-                            </div>
-                            <div>
-                                <div class="sub-team-name">Multimedia</div>
-                                <div class="sub-team-desc">Media & Operator</div>
-                            </div>
-                        </div>
-
-                        @foreach(explode(',', $item->multimedia_team) as $m)
-                            <div class="member-row">
-                                <span class="member-name">{{ trim($m) }}</span>
-                                <span class="member-badge media">Multimedia</span>
-                            </div>
-                        @endforeach
-                    </div>
-
-                    <!-- LITURGI TEAM -->
-                    <div class="sub-team">
-                        <div class="sub-team-head">
-                            <div class="sub-team-icon liturgi">
-                                <i class="fa-solid fa-scroll"></i>
-                            </div>
-                            <div>
-                                <div class="sub-team-name">Liturgi</div>
-                                <div class="sub-team-desc">Penyambutan & Liturgi</div>
-                            </div>
-                        </div>
-
-                        @foreach(explode(',', $item->liturgi_team) as $m)
-                            <div class="member-row">
-                                <span class="member-name">{{ trim($m) }}</span>
-                                <span class="member-badge liturgi">Liturgi</span>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-
-            </article>
-        @endforeach
-
-        <!-- FOOTER -->
-        <div class="page-footer">
-            <div class="footer-icon">
-                <i class="fa-solid fa-cross"></i>
+            <div class="section-divider">
+                <span>Data Kehadiran</span>
             </div>
 
-            <p class="footer-quote">
-                Mari melayani Tuhan dengan setia dan penuh sukacita.
-            </p>
+            @if($absensi->count())
+
+                <div class="absensi-grid">
+
+                    @foreach($absensi as $item)
+
+                        <div class="absensi-card">
+
+                            <div class="card-date">
+                                {{ \Carbon\Carbon::parse($item->date)->translatedFormat('l, d F Y') }}
+                            </div>
+
+                            <div class="card-session">
+                                {{ $item->session }}
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-icon">🎤</div>
+
+                                <div class="info-content">
+                                    <h5>Pengkhotbah</h5>
+                                    <p>{{ $item->pengkhotbah }}</p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-icon">🙏</div>
+
+                                <div class="info-content">
+                                    <h5>Pelayan</h5>
+                                    <p>{{ $item->pelayan }}</p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-icon">👥</div>
+
+                                <div class="info-content">
+                                    <h5>Jumlah Hadir</h5>
+                                    <p>{{ $item->jumlah }} Jemaat</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    @endforeach
+
+                </div>
+
+            @else
+
+                <div class="empty-state">
+                    <h3>Belum Ada Data Absensi</h3>
+                    <p>Data akan muncul setelah ditambahkan oleh administrator.</p>
+                </div>
+
+            @endif
+
         </div>
-    </div>
+
+    </section>
 
 @endsection

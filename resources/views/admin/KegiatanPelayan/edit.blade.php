@@ -32,10 +32,15 @@
     }
 
     .content {
-      padding: 20px 28px 60px;
+      padding: 30px 28px 60px;
+      display: flex;
+      justify-content: center;
     }
 
     .card {
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
       background: #fff;
       border: 1px solid #e2e8f0;
       border-radius: 20px;
@@ -47,11 +52,13 @@
       margin: 0 0 8px;
       font-size: 20px;
       color: #111827;
+      text-align: center;
     }
 
     .card p {
       margin: 0 0 24px;
       color: #4b5563;
+      text-align: center;
     }
 
     .form-group {
@@ -132,6 +139,8 @@
   <div class="content-header">
     <div>
       <h1>Edit Kegiatan Pelayanan</h1>
+    </div>
+  </div>
 
   <div class="content">
     <div class="card">

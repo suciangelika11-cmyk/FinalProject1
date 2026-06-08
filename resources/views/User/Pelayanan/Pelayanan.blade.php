@@ -63,7 +63,7 @@
 
         .pl-hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(36px, 7vw, 64px);
+            font-size: clamp(45px, 8vw, 75px);
             font-weight: 800;
             line-height: 1.1;
 
@@ -152,44 +152,47 @@
         /* LEADER */
         .pl-leader-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 18px;
-            max-width: 880px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 40px auto 0;
         }
 
         .pl-leader-card {
             background: #fff;
             border: 1px solid #D6E6F2;
-            border-radius: 18px;
-            padding: clamp(22px, 4vw, 34px) 20px;
+            border-radius: 28px;
+            min-height: 360px;
+            padding: 50px 40px;
             text-align: center;
-
-            box-shadow:
-                0 10px 30px rgba(118, 159, 205, .10);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(118, 159, 205, .10);
         }
 
         .pl-leader-card:hover {
             border-color: #769FCD;
             box-shadow:
                 0 25px 50px rgba(118, 159, 205, .20);
-            transform: translateY(-8px);
+            transform: none;
         }
 
         .pl-avatar {
-            width: 80px;
-            height: 80px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             background: linear-gradient(135deg,
                     #769FCD,
                     #B9D7EA);
-            border: 3px solid #F7FBFC;
+            border: 5px solid #F7FBFC;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #fff;
-            font-weight: 600;
-            margin: 0 auto 16px;
+            font-weight: 700;
+            margin: 0 auto 28px;
             overflow: hidden;
         }
 
@@ -200,19 +203,20 @@
         }
 
         .pl-lc-name {
-            font-size: 14px;
+            font-size: 30px;
             font-weight: 600;
             color: #4B6584;
-            margin-bottom: 8px;
+            margin-bottom: 15px;
         }
 
         .pl-lc-role {
-            font-size: 11px;
+            font-size: 17px;
             background: #D6E6F2;
             color: #769FCD;
             display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
+            padding: 10px 24px;
+            border-radius: 999px;
+            font-weight: 500;
         }
 
         /* TEAM */
@@ -311,7 +315,8 @@
 
         .pl-mi-role {
             font-size: 11px;
-            color: #769FCD;;
+            color: #769FCD;
+            ;
             background: #D6E6F2;
             padding: 3px 10px;
             border-radius: 12px;
@@ -357,7 +362,7 @@
             gap: 9px;
             background: linear-gradient(135deg,
                     #769FCD,
-                    #B9D7EA,);
+                    #B9D7EA, );
             color: #fff;
             font-size: 14.5px;
             font-weight: 700;
@@ -366,12 +371,12 @@
             text-decoration: none;
             border: none;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(118,159,205,.25);
+            box-shadow: 0 10px 30px rgba(118, 159, 205, .25);
         }
 
         .pl-join-btn:hover {
             transform: translateY(-2px);
-            0 20px 45px rgba(118,159,205,.35);
+            0 20px 45px rgba(118, 159, 205, .35);
         }
 
         /* RESPONSIVE */
@@ -381,24 +386,44 @@
             }
         }
 
-        @media(max-width:640px) {
+        @media(max-width:768px) {
             .pl-team-grid {
                 grid-template-columns: 1fr;
             }
 
             .pl-leader-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
+                gap: 20px;
             }
 
             .pl-stat {
                 min-width: 80px;
             }
+
+            .pl-leader-card {
+                min-height: auto;
+                padding: 30px 20px;
+            }
+
+            .pl-avatar {
+                width: 110px;
+                height: 110px;
+                margin-bottom: 18px;
+            }
+
+            .pl-lc-name {
+                font-size: 22px;
+            }
+
+            .pl-lc-role {
+                font-size: 14px;
+                padding: 8px 18px;
+            }
         }
 
         @media(max-width:380px) {
             .pl-leader-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>

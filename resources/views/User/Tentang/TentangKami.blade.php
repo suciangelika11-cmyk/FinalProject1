@@ -21,98 +21,90 @@
         }
 
         /* ==========================
-       HERO
-    ========================== */
+           HERO
+        ========================== */
 
-.pg-hero{
-    position:relative;
-    padding:110px 0 90px;
-    text-align:center;
-    overflow:hidden;
+        .pg-hero {
+            position: relative;
+            padding: 110px 0 90px;
+            text-align: center;
+            overflow: hidden;
 
-    background:linear-gradient(
-        135deg,
-        #F7FBFC 0%,
-        #D6E6F2 55%,
-        #B9D7EA 100%
-    );
+            background: linear-gradient(135deg,
+                    #F7FBFC 0%,
+                    #D6E6F2 55%,
+                    #B9D7EA 100%);
 
-    border-bottom:1px solid rgba(118,159,205,.15);
-}
+            border-bottom: 1px solid rgba(118, 159, 205, .15);
+        }
 
-.pg-hero::before{
-    content:'';
-    position:absolute;
-    inset:0;
+        .pg-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
 
-    background-image:
-        linear-gradient(rgba(118,159,205,.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(118,159,205,.08) 1px, transparent 1px);
+            background-image:
+                linear-gradient(rgba(118, 159, 205, .08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(118, 159, 205, .08) 1px, transparent 1px);
 
-    background-size:60px 60px;
+            background-size: 60px 60px;
 
-    mask-image:radial-gradient(
-        ellipse 80% 70% at 50% 50%,
-        black 0%,
-        transparent 100%
-    );
-}
+            mask-image: radial-gradient(ellipse 80% 70% at 50% 50%,
+                    black 0%,
+                    transparent 100%);
+        }
 
-.pg-hero::after{
-    content:'';
-    position:absolute;
-    top:-120px;
-    left:50%;
-    transform:translateX(-50%);
-    width:550px;
-    height:550px;
-    border-radius:50%;
+        .pg-hero::after {
+            content: '';
+            position: absolute;
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 550px;
+            height: 550px;
+            border-radius: 50%;
 
-    background:radial-gradient(
-        circle,
-        rgba(118,159,205,.22),
-        transparent 70%
-    );
-}
+            background: radial-gradient(circle,
+                    rgba(118, 159, 205, .22),
+                    transparent 70%);
+        }
 
-.pg-hero .wrap{
-    position:relative;
-    z-index:2;
-}
+        .pg-hero .wrap {
+            position: relative;
+            z-index: 2;
+        }
 
-.pg-hero h1{
-    font-family:'Playfair Display',serif;
-    font-size:clamp(34px,6vw,58px);
-    font-weight:800;
-    color:#4B6584;
-    margin-bottom:14px;
-}
+        .pg-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(45px, 7vw, 65px);
+            font-weight: 800;
+            color: #4B6584;
+            margin-bottom: 14px;
+        }
 
-.pg-hero h1 span{
-    background:linear-gradient(
-        135deg,
-        #769FCD,
-        #5E87B8,
-        #769FCD
-    );
+        .pg-hero h1 span {
+            background: linear-gradient(135deg,
+                    #769FCD,
+                    #5E87B8,
+                    #769FCD);
 
-    background-size:200% auto;
+            background-size: 200% auto;
 
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-.pg-hero p{
-    font-size:16px;
-    color:#5F738B;
-    max-width:520px;
-    margin:auto;
-    line-height:1.8;
-}
+        .pg-hero p {
+            font-size: 16px;
+            color: #5F738B;
+            max-width: 520px;
+            margin: auto;
+            line-height: 1.8;
+        }
 
         /* ==========================
-       SECTION
-    ========================== */
+           SECTION
+        ========================== */
 
         .kh-section {
             background: #F7FBFC;
@@ -171,8 +163,8 @@
         }
 
         /* ==========================
-       ABOUT
-    ========================== */
+           ABOUT
+        ========================== */
 
         .about-card {
             background: white;
@@ -194,8 +186,8 @@
         }
 
         /* ==========================
-       VISI MISI
-    ========================== */
+           VISI MISI
+        ========================== */
 
         .visi-misi-grid {
             display: grid;
@@ -249,8 +241,8 @@
         }
 
         /* ==========================
-       GEMBALA
-    ========================== */
+           GEMBALA
+        ========================== */
 
         .gembala-section {
             display: grid;
@@ -369,9 +361,31 @@
             margin-bottom: 0;
         }
 
+        .kh-eyebrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+
+            color: #769FCD;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+        }
+
+        .kh-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #769FCD;
+        }
+
         /* ==========================
-       RESPONSIVE
-    ========================== */
+           RESPONSIVE
+        ========================== */
 
         @media(max-width:900px) {
 
@@ -472,9 +486,8 @@
                         <div class="gembala-position">{{ $data->gembala_jabatan }}</div>
                         <div class="gembala-deskripsi">{{ $data->gembala_deskripsi }}</div>
                         <div class="gembala-details">
-                            <p><i class="bi bi-geo-alt"></i> Jalan Gembala Sidang</p>
                             <p><i class="bi bi-envelope"></i> info@gbi.id</p>
-                            <p><i class="bi bi-telephone"></i> +62-XXX-XXX-XXXX</p>
+                            <p><i class="bi bi-telephone"></i> +62-813-8487-1163</p>
                         </div>
                     </div>
                 </div>

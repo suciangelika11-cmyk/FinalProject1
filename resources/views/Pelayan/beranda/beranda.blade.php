@@ -6,7 +6,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
     <style>
@@ -16,28 +18,28 @@
             --primary-dark: #1e3a8a;
             --accent: #f59e0b;
             --accent-light: #fbbf24;
-            
+
             --background: #ffffff;
             --surface-light: #f9fafb;
             --surface-mid: #f3f4f6;
             --surface-dark: #e5e7eb;
-            
+
             --text-primary: #111827;
             --text-secondary: #6b7280;
             --text-muted: #9ca3af;
-            
+
             --border-light: #e5e7eb;
             --border-mid: #d1d5db;
-            
+
             --success: #10b981;
             --warning: #f59e0b;
             --error: #ef4444;
-            
+
             --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
             --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
             --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
             --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
-            
+
             --radius: 16px;
             --radius-lg: 24px;
             --radius-xl: 32px;
@@ -69,7 +71,7 @@
             position: fixed;
             inset: 0;
             background: radial-gradient(circle at 20% 50%, rgba(30, 64, 175, 0.03) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.02) 0%, transparent 50%);
+                radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.02) 0%, transparent 50%);
             pointer-events: none;
             z-index: 0;
         }
@@ -77,12 +79,13 @@
         /* HERO SECTION */
         .hero {
             position: relative;
-            min-height: 100vh;
+            width: 100%;
+            height: 100vh;
+            min-height: 500px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background: radial-gradient(circle at top center, #0c1630 0%, #07101f 55%, #02070f 100%);
         }
 
         .hero::before {
@@ -115,16 +118,14 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.18) saturate(0.6) contrast(1.1);
-            z-index: 1;
-            opacity: 0.65;
+            filter: brightness(.7);
         }
 
         .hero-vignette {
             position: absolute;
             inset: 0;
-            background: 
-                radial-gradient(ellipse 85% 75% at 50% 50%, rgba(3, 7, 16, 0.6) 0%, rgba(3, 7, 16, 0.95) 100%),
+            background:
+                radial-gradient(ellipse 85% 75% at 50% 50%, rgba(3, 7, 16, 0.9) 0%, rgba(3, 7, 16, 0.75) 100%),
                 linear-gradient(180deg, rgba(3, 7, 16, 0.2) 0%, rgba(3, 7, 16, 0.7) 100%);
             z-index: 2;
         }
@@ -695,6 +696,7 @@
                 opacity: 0;
                 transform: translateY(40px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -702,27 +704,36 @@
         }
 
         @keyframes slideDown {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0);
             }
+
             50% {
                 transform: translateY(8px);
             }
         }
 
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateX(-50%) translateY(0);
             }
+
             50% {
                 transform: translateX(-50%) translateY(12px);
             }
         }
 
         @keyframes pulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 opacity: 1;
             }
+
             50% {
                 opacity: 0.5;
             }
@@ -731,8 +742,8 @@
         .reveal {
             opacity: 0;
             transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                        transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+                transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .reveal.visible {
@@ -742,6 +753,7 @@
 
         /* RESPONSIVE */
         @media(max-width: 1024px) {
+
             .sessions-grid,
             .about-inner {
                 grid-template-columns: 1fr;
@@ -753,6 +765,7 @@
         }
 
         @media(max-width: 768px) {
+
             .sessions-section,
             .donasi-section {
                 padding: 80px 0;
@@ -825,6 +838,83 @@
                 flex: 0 1 30%;
             }
         }
+
+        .qris-section {
+            padding: 100px 20px;
+            background: #ffffff;
+        }
+
+        .qris-container {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .qris-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .qris-header span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #9bb8dd;
+            box-shadow:
+                20px 0 #9bb8dd,
+                -20px 0 #9bb8dd;
+        }
+
+        .qris-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 500;
+            color: #2b4567;
+            margin: 0;
+        }
+
+        .qris-card {
+            max-width: 420px;
+            margin: 0 auto 40px;
+        }
+
+        .qris-card img {
+            width: 100%;
+            border-radius: 18px;
+            border: 1px solid #d8e2ef;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .05);
+        }
+
+        .qris-info p {
+            font-size: 20px;
+            color: #5e7aa0;
+            margin-bottom: 18px;
+            line-height: 1.8;
+        }
+
+        .qris-info h4 {
+            margin-top: 30px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c6bed;
+        }
+
+        @media (max-width: 768px) {
+            .qris-header h2 {
+                font-size: 34px;
+            }
+
+            .qris-info p {
+                font-size: 16px;
+            }
+
+            .qris-info h4 {
+                font-size: 18px;
+            }
+        }
     </style>
 
     <!-- HERO -->
@@ -895,7 +985,9 @@
                 <div class="reveal">
                     <div class="about-label">Tentang Kami</div>
                     <h2 class="about-heading">Gereja yang Fokus Pada Pertumbuhan Rohani</h2>
-                    <p class="about-text">GBI Tambunan adalah gereja yang berkomitmen untuk membangun jemaat yang kuat dalam iman, aktif dalam pelayanan, dan penuh kasih dalam persekutuan. Kami percaya bahwa setiap orang memiliki panggilan mulia dari Tuhan untuk berkembang dan melayani.</p>
+                    <p class="about-text">GBI Tambunan adalah gereja yang berkomitmen untuk membangun jemaat yang kuat dalam
+                        iman, aktif dalam pelayanan, dan penuh kasih dalam persekutuan. Kami percaya bahwa setiap orang
+                        memiliki panggilan mulia dari Tuhan untuk berkembang dan melayani.</p>
 
                     <div class="about-stat-grid">
                         <div class="about-stat reveal">
@@ -914,7 +1006,8 @@
                         <div class="about-cross">
                             <i class="fa-solid fa-cross"></i>
                         </div>
-                        <p class="about-quote">"Karena begitu besar kasih Allah akan dunia ini, sehingga Ia telah mengaruniakan Anak-Nya yang tunggal."</p>
+                        <p class="about-quote">"Karena begitu besar kasih Allah akan dunia ini, sehingga Ia telah
+                            mengaruniakan Anak-Nya yang tunggal."</p>
                         <div class="about-quote-ref">— Yohanes 3:16</div>
                     </div>
                 </div>
@@ -923,36 +1016,36 @@
     </section>
 
     <!-- DONASI -->
-    <section class="donasi-section">
-        <div class="beranda-container">
-            <div class="section-eyebrow reveal"><span>Persembahan & Donasi</span></div>
-            <h2 class="section-title reveal">Dukung Pelayanan Gereja</h2>
+    <!-- DONASI -->
+    <section class="qris-section">
+        <div class="qris-container">
 
-            <div class="donasi-grid">
-                <div class="donasi-card reveal">
-                    <div class="donasi-card-icon"><i class="fa-solid fa-qrcode"></i></div>
-                    <h3>Bayar via QRIS</h3>
-                    <p class="donasi-card-sub">Scan QR Code menggunakan aplikasi dompet digitalmu untuk memberikan persembahan dengan mudah dan aman.</p>
-
-                    <div class="donasi-placeholder">
-                        <img src="{{ asset('gambar/qris.jpeg') }}" class="qris-img" alt="QRIS Code">
-                    </div>
-
-                    <ol class="steps">
-                        <li>Buka aplikasi pembayaran digital favorit Anda</li>
-                        <li>Pilih fitur scan atau pindai QR Code</li>
-                        <li>Arahkan ke QR Code di atas dan scan</li>
-                        <li>Masukkan nominal donasi sesuai keinginan</li>
-                        <li>Konfirmasi dan selesaikan pembayaran</li>
-                    </ol>
-                </div>
+            <div class="qris-header">
+                <span></span>
+                <h2>QRIS</h2>
+                <span></span>
             </div>
+
+            <div class="qris-card">
+                <img src="{{ asset('gambar/qris.jpeg') }}" alt="QRIS GBI Tambunan">
+            </div>
+
+            <div class="qris-info">
+                <p>Scan QR menggunakan aplikasi e-wallet / mobile banking</p>
+                <p>Masukkan nominal dan konfirmasi pembayaran.</p>
+
+                <h4>
+                    ❤️ Terima kasih untuk setiap dukungan Anda ❤️
+                </h4>
+            </div>
+
         </div>
     </section>
 
     <div class="page-end">
         <div class="page-end-icon"><i class="fa-solid fa-dove"></i></div>
-        <p class="page-end-text">Tuhan memberkati setiap langkah pelayananmu. Terima kasih telah menjadi bagian dari GBI Tambunan.</p>
+        <p class="page-end-text">Tuhan memberkati setiap langkah pelayananmu. Terima kasih telah menjadi bagian dari GBI
+            Tambunan.</p>
     </div>
 
     <script>

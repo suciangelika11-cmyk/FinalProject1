@@ -12,30 +12,41 @@
     <style>
         :root {
             /* ── Palet Utama ── */
-            --blue-deep:    #769FCD;   /* aksen primer */
-            --blue-mid:     #B9D7EA;   /* aksen sekunder / border tegas */
-            --blue-pale:    #D6E6F2;   /* latar kartu / border halus */
-            --blue-ghost:   #F7FBFC;   /* latar halaman */
+            --blue-deep: #769FCD;
+            /* aksen primer */
+            --blue-mid: #B9D7EA;
+            /* aksen sekunder / border tegas */
+            --blue-pale: #D6E6F2;
+            /* latar kartu / border halus */
+            --blue-ghost: #F7FBFC;
+            /* latar halaman */
 
             /* ── Turunan Fungsional ── */
-            --accent:       var(--blue-deep);
-            --accent-dim:   rgba(118, 159, 205, 0.14);
-            --accent-glow:  rgba(118, 159, 205, 0.22);
+            --accent: var(--blue-deep);
+            --accent-dim: rgba(118, 159, 205, 0.14);
+            --accent-glow: rgba(118, 159, 205, 0.22);
 
-            --ink:          #1A2B3C;   /* teks utama */
-            --ink-mid:      #2E4A63;   /* teks sekunder */
-            --ink-muted:    #5C7A95;   /* teks halus */
+            --ink: #1A2B3C;
+            /* teks utama */
+            --ink-mid: #2E4A63;
+            /* teks sekunder */
+            --ink-muted: #5C7A95;
+            /* teks halus */
 
-            --surface:      #FFFFFF;
-            --surface-alt:  #EEF5FB;
+            --surface: #FFFFFF;
+            --surface-alt: #EEF5FB;
 
-            --border:       rgba(118, 159, 205, 0.22);
+            --border: rgba(118, 159, 205, 0.22);
             --border-strong: rgba(118, 159, 205, 0.45);
 
-            --radius:       20px;
+            --radius: 20px;
         }
 
-        *, *::before, *::after { box-sizing: border-box; }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
 
         body {
             font-family: 'Outfit', sans-serif;
@@ -45,8 +56,8 @@
         }
 
         /* ============================================================
-           HERO
-        ============================================================ */
+               HERO
+            ============================================================ */
         .hero {
             position: relative;
             padding: 90px 6% 80px;
@@ -58,8 +69,10 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -80px; right: -80px;
-            width: 420px; height: 420px;
+            top: -80px;
+            right: -80px;
+            width: 420px;
+            height: 420px;
             border-radius: 50%;
             background: rgba(118, 159, 205, 0.10);
             pointer-events: none;
@@ -68,8 +81,10 @@
         .hero::after {
             content: '';
             position: absolute;
-            bottom: -60px; left: -60px;
-            width: 280px; height: 280px;
+            bottom: -60px;
+            left: -60px;
+            width: 280px;
+            height: 280px;
             border-radius: 50%;
             background: rgba(185, 215, 234, 0.14);
             pointer-events: none;
@@ -99,7 +114,7 @@
 
         .hero h1 {
             font-family: 'Libre Baskerville', serif;
-            font-size: clamp(40px, 7.5vw, 68px);
+            font-size: clamp(47px, 7.5vw, 70px);
             line-height: 1.12;
             margin: 0 0 16px;
             color: var(--ink);
@@ -119,8 +134,8 @@
         }
 
         /* ============================================================
-           PAGE WRAP
-        ============================================================ */
+               PAGE WRAP
+            ============================================================ */
         .page-wrap {
             width: 92%;
             max-width: 1180px;
@@ -129,8 +144,8 @@
         }
 
         /* ============================================================
-           SECTION HEADER
-        ============================================================ */
+               SECTION HEADER
+            ============================================================ */
         .section-header {
             text-align: center;
             margin-bottom: 44px;
@@ -163,8 +178,8 @@
         }
 
         /* ============================================================
-           SEARCH BAR
-        ============================================================ */
+               SEARCH BAR
+            ============================================================ */
         .search-bar {
             max-width: 500px;
             margin: 0 auto 46px;
@@ -194,7 +209,9 @@
             font-family: 'Outfit', sans-serif;
         }
 
-        .search-input::placeholder { color: var(--ink-muted); }
+        .search-input::placeholder {
+            color: var(--ink-muted);
+        }
 
         .search-input:focus {
             border-color: var(--blue-deep);
@@ -202,8 +219,8 @@
         }
 
         /* ============================================================
-           GRID
-        ============================================================ */
+               GRID
+            ============================================================ */
         .khotbah-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
@@ -211,8 +228,8 @@
         }
 
         /* ============================================================
-           CARD
-        ============================================================ */
+               CARD
+            ============================================================ */
         .khotbah-card {
             background: var(--surface);
             border: 1.5px solid var(--blue-pale);
@@ -227,7 +244,9 @@
         .khotbah-card::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 3px;
             background: var(--blue-deep);
             opacity: 0;
@@ -240,11 +259,13 @@
             box-shadow: 0 18px 44px rgba(118, 159, 205, 0.18);
         }
 
-        .khotbah-card:hover::after { opacity: 1; }
+        .khotbah-card:hover::after {
+            opacity: 1;
+        }
 
         /* ============================================================
-           THUMBNAIL
-        ============================================================ */
+               THUMBNAIL
+            ============================================================ */
         .card-thumb {
             width: 100%;
             aspect-ratio: 16/9;
@@ -260,7 +281,9 @@
             transition: transform .5s ease;
         }
 
-        .khotbah-card:hover .card-thumb img { transform: scale(1.05); }
+        .khotbah-card:hover .card-thumb img {
+            transform: scale(1.05);
+        }
 
         .thumb-placeholder {
             width: 100%;
@@ -288,7 +311,8 @@
 
         .video-pill {
             position: absolute;
-            top: 12px; right: 12px;
+            top: 12px;
+            right: 12px;
             background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(6px);
             color: var(--blue-deep);
@@ -303,8 +327,8 @@
         }
 
         /* ============================================================
-           CARD BODY
-        ============================================================ */
+               CARD BODY
+            ============================================================ */
         .card-body {
             padding: 22px 24px;
             display: flex;
@@ -385,8 +409,8 @@
         }
 
         /* ============================================================
-           EMPTY STATE
-        ============================================================ */
+               EMPTY STATE
+            ============================================================ */
         .empty-state {
             text-align: center;
             padding: 80px 20px;
@@ -420,8 +444,8 @@
         }
 
         /* ============================================================
-           PAGINATION
-        ============================================================ */
+               PAGINATION
+            ============================================================ */
         .pagination-wrap {
             display: flex;
             justify-content: center;
@@ -498,8 +522,8 @@
                         <div class="khotbah-date">
                             <i class="fa-regular fa-calendar"></i>
                             {{ $item->sermon_date
-                                ? \Carbon\Carbon::parse($item->sermon_date)->translatedFormat('d F Y')
-                                : '—' }}
+                ? \Carbon\Carbon::parse($item->sermon_date)->translatedFormat('d F Y')
+                : '—' }}
                         </div>
 
                         <div class="khotbah-title">{{ $item->title }}</div>

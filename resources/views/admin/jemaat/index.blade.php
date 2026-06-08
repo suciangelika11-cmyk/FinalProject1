@@ -50,26 +50,58 @@
         .jemaat-card {
             background: #fff;
             border: 1px solid #e5eaf3;
-            border-radius: 18px;
-            box-shadow: 0 12px 35px rgba(15, 23, 42, .06);
+            border-radius: 20px;
+            box-shadow: 0 10px 350px rgba(15, 23, 42, .06);
             overflow: hidden;
         }
 
         .table-scroll {
             width: 100%;
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .jemaat-table {
             width: 100%;
-            min-width: 1800px;
+            min-width: 950px;
             border-collapse: collapse;
+        }
+
+        .jemaat-table th:nth-child(1),
+        .jemaat-table td:nth-child(1) {
+            width: 60px;
+        }
+
+        .jemaat-table th:nth-child(2),
+        .jemaat-table td:nth-child(2) {
+            width: 180px;
+        }
+
+        .jemaat-table th:nth-child(3),
+        .jemaat-table td:nth-child(3) {
+            width: 220px;
+        }
+
+        .jemaat-table th:nth-child(4),
+        .jemaat-table td:nth-child(4) {
+            width: auto;
+        }
+
+        .jemaat-table th:nth-child(5),
+        .jemaat-table td:nth-child(5) {
+            width: 130px;
+        }
+
+        .jemaat-table th:nth-child(6),
+        .jemaat-table td:nth-child(6) {
+            width: 160px;
         }
 
         .jemaat-table th {
             background: #f4f8fc;
-            padding: 14px 16px;
-            font-size: 13px;
+            padding: 18px 20px;
+            font-size: 14px;
+            font-weight: 700;
             color: #334155;
             text-align: left;
             white-space: nowrap;
@@ -77,12 +109,13 @@
         }
 
         .jemaat-table td {
-            padding: 14px 16px;
+            padding: 18px 20px;
             border-top: 1px solid #eef2f7;
             color: #475569;
             font-size: 14px;
-            vertical-align: top;
-            white-space: nowrap;
+            vertical-align: middle;
+            white-space: normal;
+            word-wrap: break-word;
         }
 
         .jemaat-table tbody tr:hover {
@@ -98,33 +131,37 @@
 
         .badge-pending {
             display: inline-block;
-            padding: 6px 12px;
+            padding: 8px 14px;
             border-radius: 999px;
             background: #fff4e6;
             color: #c4710d;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 700;
             white-space: nowrap;
+            align-items: center;
+            min-width: 120px;
         }
 
         .badge-ok {
             display: inline-block;
-            padding: 6px 12px;
+            padding: 8px 14px;
             border-radius: 999px;
             background: #e8f7ef;
             color: #1f6238;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 700;
             white-space: nowrap;
+            align-items: center;
+            min-width: 120px;
         }
 
         .btn-confirm {
             border: none;
             background: #1da8e0;
             color: #fff;
-            padding: 8px 14px;
+            padding: 9px 16px;
             border-radius: 10px;
-            font-weight: 700;
+            font-weight: 600;
             cursor: pointer;
             white-space: nowrap;
             transition: .2s;
@@ -144,6 +181,141 @@
             padding: 36px 16px;
             color: #64748b;
             text-align: center;
+        }
+
+        .btn-detail {
+            border: none;
+            background: #64748b;
+            color: white;
+            padding: 9px 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-right: 6px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .btn-detail:hover {
+            background: #475569;
+        }
+
+        .detail-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .45);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .detail-content {
+            width: 90%;
+            max-width: 850px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .detail-header {
+            padding: 20px 24px;
+            background: #1da8e0;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .detail-header h3 {
+            margin: 0;
+        }
+
+        .detail-header button {
+            border: none;
+            background: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .detail-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .detail-grid {
+            padding: 24px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .detail-grid label {
+            display: block;
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .detail-grid p {
+            margin: 0;
+            color: #172033;
+            font-weight: 600;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+
+            .jemaat-page {
+                padding: 16px;
+            }
+
+            .table-scroll {
+                overflow-x: auto;
+            }
+
+            .jemaat-table {
+                min-width: 950px;
+            }
+
+            .jemaat-table th,
+            .jemaat-table td {
+                padding: 12px;
+                font-size: 13px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn-detail,
+            .btn-confirm {
+                width: 100%;
+                text-align: center;
+                margin-right: 0;
+            }
+
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-content {
+                width: 95%;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
         }
     </style>
 
@@ -176,15 +348,6 @@
                             <th>No KK</th>
                             <th>Nama Keluarga</th>
                             <th>Alamat Domisili</th>
-                            <th>Alamat KTP</th>
-                            <th>Nama Lengkap</th>
-                            <th>NIK</th>
-                            <th>Tempat Lahir</th>
-                            <th>Tanggal Lahir</th>
-                            <th>Jenis Kelamin</th>
-                            <th>Handphone / WA</th>
-                            <th>Pekerjaan</th>
-                            <th>Status Pernikahan</th>
                             <th>Status</th>
                             <th>Aksi</th>
                         </tr>
@@ -193,19 +356,16 @@
                     <tbody>
                         @forelse($jemaats as $jemaat)
                             <tr>
+
                                 <td>{{ $loop->iteration }}</td>
+
                                 <td>{{ $jemaat->no_kk }}</td>
+
                                 <td>{{ $jemaat->nama_keluarga }}</td>
-                                <td class="text-long">{{ $jemaat->alamat_domisili }}</td>
-                                <td class="text-long">{{ $jemaat->alamat_ktp }}</td>
-                                <td>{{ $jemaat->nama_lengkap }}</td>
-                                <td>{{ $jemaat->nik }}</td>
-                                <td>{{ $jemaat->tempat_lahir }}</td>
-                                <td>{{ $jemaat->tanggal_lahir }}</td>
-                                <td>{{ $jemaat->jenis_kelamin }}</td>
-                                <td>{{ $jemaat->handphone }}</td>
-                                <td>{{ $jemaat->pekerjaan }}</td>
-                                <td>{{ $jemaat->status_pernikahan }}</td>
+
+                                <td class="text-long">
+                                    {{ $jemaat->alamat_domisili }}
+                                </td>
 
                                 <td>
                                     @if($jemaat->status === 'pending')
@@ -220,28 +380,104 @@
                                 </td>
 
                                 <td>
-                                    @if($jemaat->status === 'pending')
-                                        <form action="{{ route('jemaat.confirm', $jemaat->id) }}" method="POST">
-                                            @csrf
-                                            @method('PUT')
 
-                                            <button type="submit" class="btn-confirm">
-                                                Konfirmasi
-                                            </button>
-                                        </form>
-                                    @else
-                                        <span class="no-action">
-                                            Tidak ada aksi
-                                        </span>
-                                    @endif
+                                    <div class="action-buttons">
+
+                                        <button type="button" class="btn-detail" onclick="openModal({{ $jemaat->id }})">
+                                            Detail
+                                        </button>
+
+                                        @if($jemaat->status == 'pending')
+                                            <form action="{{ route('jemaat.confirm', $jemaat->id) }}" method="POST">
+                                                @csrf
+                                                @method('PUT')
+
+                                                <button type="submit" class="btn-confirm">
+                                                    Konfirmasi
+                                                </button>
+                                            </form>
+                                        @endif
+
+                                    </div>
+
                                 </td>
+
                             </tr>
+
+                            <!-- MODAL DETAIL -->
+                            <div class="detail-modal" id="modal-{{ $jemaat->id }}">
+
+                                <div class="detail-content">
+
+                                    <div class="detail-header">
+                                        <h3>Detail Jemaat</h3>
+
+                                        <button onclick="closeModal({{ $jemaat->id }})">
+                                            ×
+                                        </button>
+                                    </div>
+
+                                    <div class="detail-grid">
+
+                                        <div>
+                                            <label>Nama Lengkap</label>
+                                            <p>{{ $jemaat->nama_lengkap }}</p>
+                                        </div>
+
+                                        <div>
+                                            <label>NIK</label>
+                                            <p>{{ $jemaat->nik }}</p>
+                                        </div>
+
+                                        <div>
+                                            <label>Alamat KTP</label>
+                                            <p>{{ $jemaat->alamat_ktp }}</p>
+                                        </div>
+
+                                        <div>
+                                            <label>Tempat Lahir</label>
+                                            <p>{{ $jemaat->tempat_lahir }}</p>
+                                        </div>
+
+                                        <div>
+                                            <label>Tanggal Lahir</label>
+                                            <p>{{ $jemaat->tanggal_lahir }}</p>
+                                        </div>
+
+                                        <div>
+                                            <label>Jenis Kelamin</label>
+                                            <p>{{ $jemaat->jenis_kelamin }}</p>
+                                        </div>
+
+                                        <div>
+                                            <label>Handphone</label>
+                                            <p>{{ $jemaat->handphone }}</p>
+                                        </div>
+
+                                        <div>
+                                            <label>Pekerjaan</label>
+                                            <p>{{ $jemaat->pekerjaan }}</p>
+                                        </div>
+
+                                        <div>
+                                            <label>Status Pernikahan</label>
+                                            <p>{{ $jemaat->status_pernikahan }}</p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
                         @empty
+
                             <tr>
-                                <td colspan="16" class="empty">
+                                <td colspan="6" class="empty">
                                     Belum ada pendaftaran jemaat.
                                 </td>
                             </tr>
+
                         @endforelse
                     </tbody>
                 </table>
@@ -249,5 +485,27 @@
         </div>
 
     </div>
+
+    <script>
+        function openModal(id) {
+            document.getElementById('modal-' + id).style.display = 'flex';
+        }
+
+        function closeModal(id) {
+            document.getElementById('modal-' + id).style.display = 'none';
+        }
+
+        window.onclick = function (event) {
+
+            document.querySelectorAll('.detail-modal')
+                .forEach(modal => {
+
+                    if (event.target === modal) {
+                        modal.style.display = 'none';
+                    }
+
+                });
+        }
+    </script>
 
 @endsection

@@ -343,7 +343,6 @@
 
               <td>
                 <div class="actions">
-                  <a href="{{ route('kegiatan.show', $item->id) }}" class="action-btn btn-view">Lihat</a>
                   <a href="{{ route('kegiatan.edit', $item->id) }}" class="action-btn btn-edit">Edit</a>
 
                   <form action="{{ route('kegiatan.destroy', $item->id) }}" method="POST"

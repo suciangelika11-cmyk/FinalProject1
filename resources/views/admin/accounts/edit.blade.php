@@ -229,6 +229,7 @@
                 <h1>Edit Akun</h1>
                 <p>Perbarui data akun admin atau pelayan sesuai kebutuhan aksesnya.</p>
             </div>
+        </div>
 
         <div class="account-card">
             <div class="account-card-top">

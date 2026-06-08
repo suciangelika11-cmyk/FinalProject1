@@ -6,9 +6,9 @@
         body {
             margin: 0;
             padding: 0;
-            min-height: 100vh;
+            height: 100vh;
             font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
+            overflow: hidden;
             background:
                 radial-gradient(circle at top left, rgba(91, 47, 211, .35), transparent 28%),
                 radial-gradient(circle at bottom right, rgba(0, 191, 255, .25), transparent 28%),
@@ -17,35 +17,29 @@
 
         /* WRAPPER */
         .login-wrapper {
-            min-height: 100vh;
+            height: calc(100vh - 40px);
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 100px 15px 60px;
+            padding: 20px;
+            margin-top: 40px;
+            box-sizing: border-box;
         }
 
         /* CARD */
         .login-card {
             width: 100%;
             max-width: 460px;
-
             padding: 38px 34px;
-
             border-radius: 28px;
-
             background: rgba(255, 255, 255, .08);
-
             border: 1px solid rgba(255, 255, 255, .12);
-
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
-
             box-shadow:
                 0 20px 45px rgba(0, 0, 0, .35),
                 0 0 25px rgba(91, 47, 211, .18);
-
             color: #fff;
-
             position: relative;
             overflow: hidden;
         }
@@ -232,30 +226,21 @@
         /* BACK BUTTON */
         .back-btn {
             position: fixed;
-            top: 24px;
-            left: 24px;
-
+            top: 20px;
+            left: 20px;
             padding: 12px 18px;
-
             border-radius: 14px;
-
             background: rgba(255, 255, 255, .10);
             border: 1px solid rgba(255, 255, 255, .18);
-
             color: #fff;
             text-decoration: none;
-
             display: flex;
             align-items: center;
             gap: 10px;
-
             font-size: .95rem;
             font-weight: 600;
-
             backdrop-filter: blur(12px);
-
             z-index: 9999;
-
             transition: .25s ease;
         }
 

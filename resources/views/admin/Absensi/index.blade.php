@@ -138,21 +138,63 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
         }
+
+        .breadcrumb-bar {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--muted);
+            animation: fadeIn .5s ease-out .1s both;
+        }
+
+        .breadcrumb-bar a {
+            color: var(--cyan);
+            text-decoration: none;
+            transition: all .2s;
+            position: relative;
+        }
+
+        .breadcrumb-bar a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--cyan);
+            transition: width .3s;
+        }
+
+        .breadcrumb-bar a:hover::after {
+            width: 100%;
+        }
+
+        .content-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 28px 0;
+        }
+
+        .content-header h1 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text);
+            animation: slideInLeft .5s ease-out;
+            letter-spacing: -0.5px;
+        }
     </style>
 
     <div class="content-header">
         <h1>Kelola Absensi</h1>
+        <div class="breadcrumb-bar">
+            <a href="{{ route('admin.dashboard') }}">Home</a> / <span>Absensi</span>
+        </div>
     </div>
-
-    
-    
-
     <div class="content">
 
-        <div class="breadcrumb-bar">
-      <a href="{{ route('admin.dashboard') }}">Home</a> / <span>Pelayanan</span>
-    </div>
-  </div>
 
         <div class="page-hero">
             <div class="hero-tag">

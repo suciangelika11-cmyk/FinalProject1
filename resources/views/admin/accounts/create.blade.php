@@ -229,6 +229,7 @@
                 <h1>Pelayan</h1>
                 <p>Buat akun baru untuk pelayan yang akan mengakses dashboard.</p>
             </div>
+        </div>
 
         <div class="account-card">
             <div class="account-card-top">

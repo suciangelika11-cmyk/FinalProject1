@@ -28,6 +28,7 @@
         opacity: 0;
         transform: translateY(20px)
       }
+
       to {
         opacity: 1;
         transform: translateY(0)
@@ -38,6 +39,7 @@
       from {
         opacity: 0
       }
+
       to {
         opacity: 1
       }
@@ -48,6 +50,7 @@
         opacity: 0;
         transform: translateX(-30px)
       }
+
       to {
         opacity: 1;
         transform: translateX(0)
@@ -59,6 +62,7 @@
         opacity: 0;
         transform: translateX(30px)
       }
+
       to {
         opacity: 1;
         transform: translateX(0)
@@ -70,6 +74,7 @@
         opacity: 0;
         transform: translateY(30px)
       }
+
       to {
         opacity: 1;
         transform: translateY(0)
@@ -77,27 +82,36 @@
     }
 
     @keyframes pulse {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: scale(1)
       }
+
       50% {
         transform: scale(1.05)
       }
     }
 
     @keyframes glow {
-      0%, 100% {
+
+      0%,
+      100% {
         box-shadow: 0 0 20px rgba(29, 168, 224, .3)
       }
+
       50% {
         box-shadow: 0 0 30px rgba(29, 168, 224, .5)
       }
     }
 
     @keyframes float {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0px)
       }
+
       50% {
         transform: translateY(-8px)
       }
@@ -107,6 +121,7 @@
       0% {
         background-position: 0% 50%
       }
+
       100% {
         background-position: 100% 50%
       }
@@ -331,10 +346,21 @@
       transition: opacity .3s;
     }
 
-    .stat-card:nth-child(1) { animation-delay: .08s }
-    .stat-card:nth-child(2) { animation-delay: .12s }
-    .stat-card:nth-child(3) { animation-delay: .16s }
-    .stat-card:nth-child(4) { animation-delay: .20s }
+    .stat-card:nth-child(1) {
+      animation-delay: .08s
+    }
+
+    .stat-card:nth-child(2) {
+      animation-delay: .12s
+    }
+
+    .stat-card:nth-child(3) {
+      animation-delay: .16s
+    }
+
+    .stat-card:nth-child(4) {
+      animation-delay: .20s
+    }
 
     .stat-card:hover {
       transform: translateY(-6px);
@@ -376,17 +402,37 @@
       opacity: 1;
     }
 
-    .ic { background: linear-gradient(135deg, var(--cyan-lt), #e0f2ff) }
-    .ic::before { background: radial-gradient(circle, rgba(29, 168, 224, .2), transparent); }
+    .ic {
+      background: linear-gradient(135deg, var(--cyan-lt), #e0f2ff)
+    }
 
-    .ig { background: linear-gradient(135deg, var(--gold-lt), #fff8e1) }
-    .ig::before { background: radial-gradient(circle, rgba(200, 155, 60, .2), transparent); }
+    .ic::before {
+      background: radial-gradient(circle, rgba(29, 168, 224, .2), transparent);
+    }
 
-    .is { background: linear-gradient(135deg, var(--success-lt), #e8fef1) }
-    .is::before { background: radial-gradient(circle, rgba(46, 168, 106, .2), transparent); }
+    .ig {
+      background: linear-gradient(135deg, var(--gold-lt), #fff8e1)
+    }
 
-    .ip { background: linear-gradient(135deg, var(--purple-lt), #f5f0ff) }
-    .ip::before { background: radial-gradient(circle, rgba(139, 92, 246, .2), transparent); }
+    .ig::before {
+      background: radial-gradient(circle, rgba(200, 155, 60, .2), transparent);
+    }
+
+    .is {
+      background: linear-gradient(135deg, var(--success-lt), #e8fef1)
+    }
+
+    .is::before {
+      background: radial-gradient(circle, rgba(46, 168, 106, .2), transparent);
+    }
+
+    .ip {
+      background: linear-gradient(135deg, var(--purple-lt), #f5f0ff)
+    }
+
+    .ip::before {
+      background: radial-gradient(circle, rgba(139, 92, 246, .2), transparent);
+    }
 
     .stat-val {
       font-family: 'Rajdhani', sans-serif;
@@ -396,10 +442,21 @@
       transition: all .3s;
     }
 
-    .vc { color: var(--cyan) }
-    .vg { color: var(--gold) }
-    .vs { color: var(--success) }
-    .vp { color: var(--purple) }
+    .vc {
+      color: var(--cyan)
+    }
+
+    .vg {
+      color: var(--gold)
+    }
+
+    .vs {
+      color: var(--success)
+    }
+
+    .vp {
+      color: var(--purple)
+    }
 
     .stat-lbl {
       font-size: 12px;
@@ -535,12 +592,29 @@
       animation: fadeUp .5s ease-out both;
     }
 
-    .pcard:nth-child(1) { animation-delay: .1s }
-    .pcard:nth-child(2) { animation-delay: .15s }
-    .pcard:nth-child(3) { animation-delay: .2s }
-    .pcard:nth-child(4) { animation-delay: .25s }
-    .pcard:nth-child(5) { animation-delay: .3s }
-    .pcard:nth-child(6) { animation-delay: .35s }
+    .pcard:nth-child(1) {
+      animation-delay: .1s
+    }
+
+    .pcard:nth-child(2) {
+      animation-delay: .15s
+    }
+
+    .pcard:nth-child(3) {
+      animation-delay: .2s
+    }
+
+    .pcard:nth-child(4) {
+      animation-delay: .25s
+    }
+
+    .pcard:nth-child(5) {
+      animation-delay: .3s
+    }
+
+    .pcard:nth-child(6) {
+      animation-delay: .35s
+    }
 
     .pcard:hover {
       transform: translateY(-8px);
@@ -761,6 +835,7 @@
       .masonry {
         columns: 2;
       }
+
       .stats-row {
         grid-template-columns: 1fr 1fr;
       }
@@ -770,24 +845,31 @@
       .masonry {
         columns: 1;
       }
+
       .stats-row {
         grid-template-columns: 1fr 1fr;
       }
+
       .content {
         padding: 14px 14px 60px;
       }
+
       .content-header {
         padding: 12px 14px 0;
       }
+
       .content-header h1 {
         font-size: 24px;
       }
+
       .page-hero {
         padding: 28px 24px;
       }
+
       .page-hero h2 {
         font-size: 24px;
       }
+
       .page-hero p {
         font-size: 13px;
       }
@@ -1065,17 +1147,17 @@
       // ===== RIPPLE EFFECT ANIMATION =====
       const style = document.createElement('style');
       style.textContent = `
-      @keyframes ripple-effect {
-        0% {
-          box-shadow: 0 0 0 0 rgba(255,255,255,.5);
-          opacity: 1;
-        }
-        100% {
-          box-shadow: 0 0 0 20px rgba(255,255,255,0);
-          opacity: 0;
-        }
-      }
-    `;
+          @keyframes ripple-effect {
+            0% {
+              box-shadow: 0 0 0 0 rgba(255,255,255,.5);
+              opacity: 1;
+            }
+            100% {
+              box-shadow: 0 0 0 20px rgba(255,255,255,0);
+              opacity: 0;
+            }
+          }
+        `;
       document.head.appendChild(style);
     </script>
   @endpush

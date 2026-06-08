@@ -41,97 +41,89 @@
         }
 
         /* =========================
-                           HERO
-                        ========================= */
-.pg-hero{
-    position:relative;
-    padding:110px 0 90px;
-    text-align:center;
-    overflow:hidden;
+                               HERO
+                            ========================= */
+        .pg-hero {
+            position: relative;
+            padding: 110px 0 90px;
+            text-align: center;
+            overflow: hidden;
 
-    background:linear-gradient(
-        135deg,
-        #F7FBFC 0%,
-        #D6E6F2 55%,
-        #B9D7EA 100%
-    );
+            background: linear-gradient(135deg,
+                    #F7FBFC 0%,
+                    #D6E6F2 55%,
+                    #B9D7EA 100%);
 
-    border-bottom:1px solid rgba(118,159,205,.15);
-}
+            border-bottom: 1px solid rgba(118, 159, 205, .15);
+        }
 
-.pg-hero::before{
-    content:'';
-    position:absolute;
-    inset:0;
+        .pg-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
 
-    background-image:
-        linear-gradient(rgba(118,159,205,.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(118,159,205,.08) 1px, transparent 1px);
+            background-image:
+                linear-gradient(rgba(118, 159, 205, .08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(118, 159, 205, .08) 1px, transparent 1px);
 
-    background-size:60px 60px;
+            background-size: 60px 60px;
 
-    mask-image:radial-gradient(
-        ellipse 80% 70% at 50% 50%,
-        black 0%,
-        transparent 100%
-    );
-}
+            mask-image: radial-gradient(ellipse 80% 70% at 50% 50%,
+                    black 0%,
+                    transparent 100%);
+        }
 
-.pg-hero::after{
-    content:'';
-    position:absolute;
-    top:-120px;
-    left:50%;
-    transform:translateX(-50%);
-    width:550px;
-    height:550px;
-    border-radius:50%;
+        .pg-hero::after {
+            content: '';
+            position: absolute;
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 550px;
+            height: 550px;
+            border-radius: 50%;
 
-    background:radial-gradient(
-        circle,
-        rgba(118,159,205,.22),
-        transparent 70%
-    );
-}
+            background: radial-gradient(circle,
+                    rgba(118, 159, 205, .22),
+                    transparent 70%);
+        }
 
-.pg-hero .wrap{
-    position:relative;
-    z-index:2;
-}
+        .pg-hero .wrap {
+            position: relative;
+            z-index: 2;
+        }
 
-.pg-hero h1{
-    font-family:'Playfair Display',serif;
-    font-size:clamp(34px,6vw,58px);
-    font-weight:800;
-    color:#4B6584;
-    margin-bottom:14px;
-}
+        .pg-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(45px, 7vw, 67px);
+            font-weight: 800;
+            color: #4B6584;
+            margin-bottom: 14px;
+        }
 
-.pg-hero h1 span{
-    background:linear-gradient(
-        135deg,
-        #769FCD,
-        #5E87B8,
-        #769FCD
-    );
+        .pg-hero h1 span {
+            background: linear-gradient(135deg,
+                    #769FCD,
+                    #5E87B8,
+                    #769FCD);
 
-    background-size:200% auto;
+            background-size: 200% auto;
 
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-.pg-hero p{
-    font-size:16px;
-    color:#5F738B;
-    max-width:520px;
-    margin:auto;
-    line-height:1.8;
-}
+        .pg-hero p {
+            font-size: 16px;
+            color: #5F738B;
+            max-width: 520px;
+            margin: auto;
+            line-height: 1.8;
+        }
 
         /* =========================
-                           SECTION
-                        ========================= */
+                               SECTION
+                            ========================= */
         .kh-section {
             background: #F7FBFC;
             padding: 20px 0 100px;
@@ -176,8 +168,8 @@
         }
 
         /* =========================
-                           SEARCH
-                ========================= */
+                               SEARCH
+                    ========================= */
         .kh-search-wrap {
             max-width: 500px;
             margin: 0 auto 55px;
@@ -213,8 +205,8 @@
         }
 
         /* =========================
-                           CARD
-                        ========================= */
+                               CARD
+                            ========================= */
         .kh-card {
             background: rgba(247, 251, 252, .85);
             border: 1px solid #e3ebf5;
@@ -224,7 +216,7 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            height:100%;
+            height: 100%;
         }
 
         .kh-card::before {
@@ -288,27 +280,27 @@
             line-height: 1.5;
             margin-bottom: 12px;
             color: #4E719A;
-            display:-webkit-box;
-            -webkit-line-clamp:2;
-            -webkit-box-orient:vertical;
-            overflow:hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .kh-desc {
-            display:-webkit-box;
+            display: -webkit-box;
             font-size: 14px;
             line-height: 1.8;
             color: #6485AC;
             margin-bottom: 22px;
             flex: 1;
-            -webkit-line-clamp:2;
-            -webkit-box-orient:vertical;
-            overflow:hidden;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         /* =========================
-                           BUTTON
-                        ========================= */
+                               BUTTON
+                            ========================= */
         .kh-btn {
             display: inline-flex;
             align-items: center;
@@ -342,8 +334,8 @@
         }
 
         /* =========================
-                           EMPTY
-                        ========================= */
+                               EMPTY
+                            ========================= */
         .kh-empty h4 {
             color: var(--text);
         }
@@ -358,8 +350,8 @@
         }
 
         /* =========================
-                           PAGINATION
-                        ========================= */
+                               PAGINATION
+                            ========================= */
         .pagination .page-link {
             background: white;
             border: 1px solid rgba(118, 159, 205, .18) !important;
@@ -379,8 +371,8 @@
         }
 
         /* =========================
-                           MOBILE
-                        ========================= */
+                               MOBILE
+                            ========================= */
         @media(max-width:768px) {
 
             .kh-hero {
@@ -388,9 +380,9 @@
             }
 
             .kh-grid {
-                display:grid;
+                display: grid;
                 grid-template-columns: 1fr;
-                gap:30px;
+                gap: 30px;
             }
 
             .kh-hero h1 {
