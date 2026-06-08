@@ -368,13 +368,14 @@
             gap: 8px;
             font-size: 13px;
             font-weight: 500;
-            color: var(--white) !important;
+            color: #2E4A62 !important;
             padding: 5px 13px 5px 5px !important;
             border-radius: var(--r-pill);
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(118, 159, 205, 0.12);
+            border: 1px solid rgba(118, 159, 205, 0.25);
             text-decoration: none;
             transition: background 0.3s, color 0.4s, border-color 0.4s;
+            border-radius: 999px;
         }
 
         .navbar-scrolled .user-pill {
@@ -399,13 +400,13 @@
             width: 26px;
             height: 26px;
             border-radius: 50%;
-            background: var(--blue-main);
+            background: #769FCD;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 11px;
             font-weight: 700;
-            color: var(--white);
+            color: white;
             flex-shrink: 0;
         }
 
@@ -987,6 +988,18 @@
                                     <span>{{ Auth::user()->name }}</span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                                        @if(Auth::check() && Auth::user()->role == 'admin')
+                                            <li>
+                                                <a href="{{ route('admin.dashboard') }}" class="dropdown-item">
+                                                <i class="bi bi-speedometer2 me-2"></i>
+                                                    Dashboard Admin
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                        @endif
                                     <li>
                                         <form method="POST" action="{{ route('logout') }}" class="m-0">
                                             @csrf
