@@ -33,12 +33,6 @@ class JemaatController extends Controller
 
     public function destroy(Jemaat $jemaat)
     {
-        if ($jemaat->status === 'confirmed') {
-            return back()->with(
-                'error',
-                'Jemaat yang sudah dikonfirmasi tidak dapat dihapus.'
-            );
-        }
 
         $jemaat->delete();
 

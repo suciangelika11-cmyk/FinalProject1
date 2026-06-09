@@ -6,8 +6,6 @@
 
     @if($data)
 
-    <script src="{{ asset('js/Pelayan/Tentang.js') }}"></script>
-
         {{-- ── HERO ── --}}
         <section class="hero">
             <div class="hero-grid-overlay"></div>
@@ -127,5 +125,7 @@
         </div>
 
     @endif
+
+    <script src="{{ asset('js/Pelayan/Tentang.js') }}"></script>
 
 @endsection

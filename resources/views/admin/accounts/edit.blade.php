@@ -4,8 +4,6 @@
 
     @include('admin.layouts.LOAAccount.AkunEdit')
 
-    <script src="{{ asset('js/Admin/AkunEdit.js') }}"></script>
-
     <div class="account-page">
         <div class="account-header">
             <div>
@@ -123,4 +121,7 @@
             </div>
         </div>
     </div>
+
+    <script src="{{ asset('js/Admin/AkunEdit.js') }}"></script>
+
 @endsection

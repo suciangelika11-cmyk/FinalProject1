@@ -871,4 +871,77 @@
             font-size: 13px;
         }
     }
+
+    .gallery-list {
+        background: #fff;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, .05);
+    }
+
+    .gallery-row {
+        display: grid;
+        grid-template-columns: 1fr 180px 180px;
+        align-items: center;
+        gap: 20px;
+        padding: 18px 24px;
+        border-bottom: 1px solid #edf2f7;
+    }
+
+    .gallery-row:last-child {
+        border-bottom: none;
+    }
+
+    .gallery-info {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .gallery-thumb {
+        width: 70px;
+        height: 70px;
+        border-radius: 12px;
+        object-fit: cover;
+    }
+
+    .gallery-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 4px;
+    }
+
+    .gallery-desc {
+        font-size: 13px;
+        color: #64748b;
+    }
+
+    .gallery-date {
+        font-size: 14px;
+        color: #334155;
+    }
+
+    .gallery-action {
+        display: flex;
+        gap: 10px;
+    }
+
+    .btn-edit {
+        background: #e0f2fe;
+        color: #0284c7;
+        padding: 8px 14px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .btn-delete {
+        border: none;
+        background: #fee2e2;
+        color: #dc2626;
+        padding: 8px 14px;
+        border-radius: 8px;
+        font-weight: 600;
+    }
 </style>

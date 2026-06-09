@@ -1,3 +1,5 @@
+console.log(document.getElementById('pilih-kategori'));
+
 const pilihKategori = document.getElementById('pilih-kategori');
 const formKepemimpinan = document.getElementById('form-kepemimpinan');
 const formTim = document.getElementById('form-tim');
@@ -37,7 +39,7 @@ document.addEventListener('click', function (e) {
         item.innerHTML = `
                 <input type="text" name="anggota_nama[]" placeholder="Nama anggota">
                 <input type="text" name="anggota_bagian[]" placeholder="Bagian / jabatan">
-              `;
+            `;
 
         wrapper.appendChild(item);
     }

@@ -4,8 +4,6 @@
 
     @include('layouts.LOLogin')
 
-    <script src="{{ asset('js/Admin/Login.js') }}"></script>
-
     <a href="{{ route('home') }}" class="back-btn">
         <i class="bi bi-arrow-left"></i>
         <span>Kembali</span>
@@ -119,5 +117,7 @@
         </div>
 
     </div>
+
+    <script src="{{ asset('js/Admin/Login.js') }}"></script>
 
 @endsection

@@ -8,8 +8,6 @@
 
 @section('content')
 
-<script src="{{ asset('js/Admin/PelayananEdit.js') }}"></script>
-
   <div class="content-header">
 
     <h1>Edit Data Pelayanan</h1>
@@ -189,5 +187,7 @@
     </div>
 
   </div>
+
+  <script src="{{ asset('js/Admin/PelayananEdit.js') }}"></script>
 
 @endsection

@@ -4,8 +4,6 @@
 
 @include('admin.layouts.LOATentang.TentangEdit')
 
-<script src="{{ asset('js/Admin/TentangEdit.js') }}"></script>
-
   <div class="form-card">
     <div class="form-card-title">Edit Data Tentang Gereja</div>
 
@@ -74,5 +72,7 @@
       </div>
     </form>
   </div>
+
+  <script src="{{ asset('js/Admin/TentangEdit.js') }}"></script>
 
 @endsection

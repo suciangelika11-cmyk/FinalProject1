@@ -4,8 +4,6 @@
 
 @include('admin.layouts.LOATentang.TentangCreate')
 
-<script src="{{ asset('js/Admin/TentangCreate.js') }}"></script>
-
   <div class="form-card">
     <div class="form-card-title">Tambah Data Tentang Gereja</div>
 
@@ -68,5 +66,7 @@
       </div>
     </form>
   </div>
+
+  <script src="{{ asset('js/Admin/TentangCreate.js') }}"></script>
 
 @endsection
