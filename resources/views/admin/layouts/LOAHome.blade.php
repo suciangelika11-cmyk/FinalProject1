@@ -94,7 +94,7 @@
         width: 90px;
         height: 90px;
         border-radius: 50%;
-        background: rgba(255, 255, 255, .2);
+        background: rgba(255,255,255,.12);
         border: 2px solid rgba(255, 255, 255, .45);
         display: flex;
         align-items: center;
@@ -105,10 +105,11 @@
     }
 
     .hero-logo-circle img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+        width: 70%;
+        height: 70%;
+        object-fit: contain;
         border-radius: 50%;
+        background: transparent;
     }
 
     .hero-logo-name {
