@@ -4,8 +4,6 @@
 
     @include('admin.layouts.LOAAccount.AkunCreate')
 
-    <script src="{{ asset('js/Admin/AkunCreate.js') }}"></script>
-
     <div class="account-page">
         <div class="account-header">
             <div>
@@ -117,4 +115,7 @@
             </div>
         </div>
     </div>
-@endsection
+
+    <script src="{{ asset('js/Admin/AkunCreate.js') }}"></script>
+
+@endsection ` 

@@ -92,7 +92,7 @@ class GaleriController extends Controller
 
         $Galeri->delete();
 
-        return redirect()->route('admin.galeri.index')
+        return redirect()->route('galeri.index')
             ->with('success', 'Galeri berhasil dihapus');
     }
 }
