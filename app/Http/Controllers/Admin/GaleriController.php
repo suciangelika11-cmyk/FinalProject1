@@ -63,9 +63,9 @@ class GaleriController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'description' => 'nullable',
-            'image' => 'nullable|image',
-            'event_date' => 'nullable|date'
+            'description' => 'required',
+            'image' => 'required|image',
+            'event_date' => 'required|date'
         ]);
 
         $data = $request->all();
