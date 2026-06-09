@@ -38,12 +38,12 @@
                         <div class="form-group full">
                             <label>Judul Pengumuman</label>
                             <input type="text" name="title" class="form-control-custom"
-                                value="{{ old('title', $pengumuman->title) }}" required>
+                                value="{{ old('title', $pengumuman->title) }}" required maxlength="100">
                         </div>
 
                         <div class="form-group full">
                             <label>Isi Pengumuman</label>
-                            <textarea name="content" class="form-textarea-custom"
+                            <textarea name="content" class="form-textarea-custom" required maxlength="250"
                                 required>{{ old('content', $pengumuman->content) }}</textarea>
                         </div>
 

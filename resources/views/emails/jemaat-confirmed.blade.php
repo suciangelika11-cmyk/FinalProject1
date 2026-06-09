@@ -9,7 +9,7 @@
 
 ```
 <div style="text-align: center; margin-bottom: 30px;">
-    <img src="{{ asset('images/logo-gbi.png') }}" alt="GBI Tambunan" width="120">
+    <img src="{{ asset('gambar/gbi.jpeg') }}" alt="GBI Tambunan" width="120">
     <h2 style="color:#1e4f8a; margin-top:15px;">
         Pendaftaran Jemaat Berhasil Dikonfirmasi
     </h2>

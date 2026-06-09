@@ -9,7 +9,7 @@
     /* HERO */
     .pl-hero {
         position: relative;
-        padding: clamp(90px, 10vw, 130px) 16px;
+        padding: 70px 16px;
         text-align: center;
         overflow: hidden;
 
@@ -149,18 +149,18 @@
     /* LEADER */
     .pl-leader-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        gap: 30px;
-        max-width: 1200px;
-        margin: 40px auto 0;
+        grid-template-columns:repeat(2,1fr);
+        gap: 24px;
+        max-width: 900px;
+        margin: auto;
     }
 
     .pl-leader-card {
         background: #fff;
         border: 1px solid #D6E6F2;
         border-radius: 28px;
-        min-height: 360px;
-        padding: 50px 40px;
+        min-height: 280px;
+        padding: 35px 30px;
         text-align: center;
         display: flex;
         flex-direction: column;
@@ -177,8 +177,8 @@
     }
 
     .pl-avatar {
-        width: 140px;
-        height: 140px;
+        width: 120px;
+        height: 120px;
         border-radius: 50%;
         background: linear-gradient(135deg,
                 #769FCD,
@@ -200,10 +200,10 @@
     }
 
     .pl-lc-name {
-        font-size: 30px;
+        font-size: 22px;
         font-weight: 600;
         color: #4B6584;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
 
     .pl-lc-role {
@@ -234,7 +234,7 @@
     }
 
     .pl-team-card:hover {
-        transform: translateY(-8px);
+        transform: translateY(-6px);
         border-color: #769FCD;
         box-shadow:
             0 25px 50px rgba(118, 159, 205, .18);
@@ -250,6 +250,14 @@
                 #769FCD,
                 #B9D7EA,
                 #D6E6F2);
+    }
+
+    .pl-count {
+        font-size: 11px;
+        background: #D6E6F2;
+        color: #769FCD;
+        padding: 4px 10px;
+        border-radius: 999px;
     }
 
     .pl-tc-icon {

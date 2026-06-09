@@ -5,7 +5,7 @@
 
     .g-hero {
         position: relative;
-        padding: clamp(70px, 10vw, 110px) 16px clamp(60px, 8vw, 90px);
+        padding: 50px 16px;
         text-align: center;
         overflow: hidden;
 
@@ -204,8 +204,8 @@
 
     .g-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 24px;
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+        gap: 28px;
     }
 
     /* =====================================
@@ -236,7 +236,7 @@
 
     .g-card-img {
         position: relative;
-        height: 210px;
+        height: 240px;
         overflow: hidden;
         background: #D6E6F2;
     }
@@ -527,6 +527,24 @@
 
         .g-card-desc {
             font-size: 12px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .g-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .g-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 500px) {
+        .g-grid {
+            grid-template-columns: 1fr;
         }
     }
 

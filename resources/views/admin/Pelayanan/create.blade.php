@@ -8,8 +8,6 @@
 
 @section('content')
 
-<script src="{{ asset('js/Admin/PelayananCreate.js') }}"></script>
-
   <div class="content-header">
     <h1>Tambah Data Pelayanan</h1>
 
@@ -88,12 +86,12 @@
 
             <div class=" fg">
               <label>Nama Pelayanan</label>
-              <input type="text" name="title_kepemimpinan">
+              <input type="text" name="title_kepemimpinan" maxlength="100">
             </div>
 
             <div class="fg">
               <label>Pemimpin</label>
-              <input type="text" name="leader_kepemimpinan">
+              <input type="text" name="leader_kepemimpinan" maxlength="100">
             </div>
 
             <div class="fg">
@@ -111,12 +109,12 @@
 
             <div class="fg">
               <label>Nama Pelayanan</label>
-              <input type="text" name="title_tim">
+              <input type="text" name="title_tim" maxlength="100">
             </div>
 
             <div class="fg">
               <label>Deskripsi Pelayanan</label>
-              <textarea name="description_tim"></textarea>
+              <textarea name="description_tim" maxlength="250"></textarea>
             </div>
 
             <div class="fg">
@@ -127,9 +125,9 @@
 
                 <div class="form-row-2 anggota-item" style="margin-bottom:10px;">
 
-                  <input type="text" name="anggota_nama[]" placeholder="Nama anggota">
+                  <input type="text" name="anggota_nama[]" placeholder="Nama anggota" maxlength="100">
 
-                  <input type="text" name="anggota_bagian[]" placeholder="Bagian">
+                  <input type="text" name="anggota_bagian[]" placeholder="Bagian" maxlength="100">
 
                 </div>
 
@@ -148,12 +146,12 @@
 
             <div class="fg">
               <label>Nama Pelayanan</label>
-              <input type="text" name="title_aksi">
+              <input type="text" name="title_aksi" maxlength="100">
             </div>
 
             <div class="fg">
               <label>Deskripsi Pelayanan</label>
-              <textarea name="description_aksi"></textarea>
+              <textarea name="description_aksi" maxlength="250"></textarea>
             </div>
 
             <div class="fg">
@@ -177,5 +175,7 @@
       </div>
     </div>
   </div>
+
+  <script src="{{ asset('js/Admin/PelayananCreate.js') }}"></script>
 
 @endsection

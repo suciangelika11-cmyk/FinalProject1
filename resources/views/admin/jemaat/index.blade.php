@@ -4,8 +4,6 @@
 
     @include('admin.layouts.LOAJemaat.JemaatIndex')
 
-    <script src="{{ asset('js/Admin/JemaatIndex.js') }}"></script>
-
     <div class="jemaat-page">
 
         <div class="jemaat-header">
@@ -49,7 +47,7 @@
                                 <td>{{ $jemaat->no_kk }}</td>
 
                                 <td>{{ $jemaat->nama_keluarga }}</td>
-
+                                
                                 <td class="text-long">
                                     {{ $jemaat->alamat_domisili }}
                                 </td>
@@ -92,8 +90,9 @@
                                             @csrf
                                             @method('DELETE')
 
-                                            <button type="submit" class="btn btn-danger btn-sm">
-                                                🗑 Hapus
+                                            <button type="submit" class="btn-delete">
+                                                <i class="bi bi-trash3"></i>
+                                                Hapus
                                             </button>
                                         </form>
 
@@ -187,7 +186,8 @@
                 </table>
             </div>
         </div>
-
     </div>
+
+    <script src="{{ asset('js/Admin/JemaatIndex.js') }}"></script>
 
 @endsection

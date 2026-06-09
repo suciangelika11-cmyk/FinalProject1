@@ -6,8 +6,6 @@
 
 @include('Pelayan.layouts.LOPBeranda')
 
-<script src="{{ asset('js/Pelayan/Beranda.js') }}"></script>
-
     <!-- HERO -->
     <section class="hero">
         <video autoplay muted loop playsinline class="hero-video">
@@ -139,4 +137,6 @@
             Tambunan.</p>
     </div>
 
+    <script src="{{ asset('js/Pelayan/Beranda.js') }}"></script>
+    
 @endsection

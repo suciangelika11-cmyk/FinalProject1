@@ -51,6 +51,10 @@
         .page-wrapper {
             min-height: 100vh;
             width: 100%;
+            padding: 30px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>

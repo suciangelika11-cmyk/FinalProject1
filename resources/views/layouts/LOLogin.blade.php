@@ -2,7 +2,7 @@
     body {
         margin: 0;
         padding: 0;
-        height: 100vh;
+        min-height: 100vh;
         font-family: 'Poppins', sans-serif;
         overflow: hidden;
         background:
@@ -13,12 +13,11 @@
 
     /* WRAPPER */
     .login-wrapper {
-        height: calc(100vh - 40px);
+        min-height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 20px;
-        margin-top: 40px;
+        padding-top: 5px;
         box-sizing: border-box;
     }
 
@@ -26,7 +25,7 @@
     .login-card {
         width: 100%;
         max-width: 460px;
-        padding: 38px 34px;
+        padding: 30px;
         border-radius: 28px;
         background: rgba(255, 255, 255, .08);
         border: 1px solid rgba(255, 255, 255, .12);
@@ -57,22 +56,16 @@
 
     /* LOGO */
     .logo-wrapper {
-        width: 100px;
-        height: 100px;
-
+        width: 90px;
+        height: 90px;
         margin: 0 auto 22px;
-
         border-radius: 50%;
         overflow: hidden;
-
         border: 3px solid rgba(255, 255, 255, .2);
-
         background: rgba(255, 255, 255, .08);
-
         display: flex;
         justify-content: center;
         align-items: center;
-
         box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
     }
 
@@ -186,16 +179,11 @@
 
     /* VERSE */
     .verse-box {
-        margin-top: 22px;
-
-        padding: 18px;
-
+        margin-top: 15px;
+        padding: 14px;
         border-radius: 18px;
-
         background: rgba(255, 255, 255, .07);
-
         border: 1px solid rgba(255, 255, 255, .08);
-
         text-align: center;
     }
 

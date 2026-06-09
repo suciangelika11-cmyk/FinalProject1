@@ -39,19 +39,19 @@
                         <div class="form-group">
                             <label>Nama Lengkap</label>
                             <input type="text" name="name" class="form-control-custom" value="{{ old('name') }}"
-                                placeholder="Masukkan nama lengkap" required>
+                                placeholder="Masukkan nama lengkap" required maxlength="150">
                         </div>
 
                         <div class="form-group">
                             <label>Username</label>
                             <input type="text" name="username" class="form-control-custom" value="{{ old('username') }}"
-                                placeholder="Masukkan username" required>
+                                placeholder="Masukkan username" required maxlength="100">
                         </div>
 
                         <div class="form-group full">
                             <label>Email</label>
                             <input type="email" name="email" class="form-control-custom" value="{{ old('email') }}"
-                                placeholder="Masukkan email aktif" required>
+                                placeholder="Masukkan email aktif" required maxlength="100">
                         </div>
                     </div>
 
@@ -63,7 +63,7 @@
 
                             <div class="password-wrapper">
                                 <input type="password" name="password" id="password" class="form-control-custom"
-                                    placeholder="Minimal 8 karakter" required>
+                                    placeholder="Minimal 8 karakter" required maxlength="50">
 
                                 <button type="button" class="password-toggle" data-target="password">
                                     <i class="bi bi-eye"></i>
@@ -78,7 +78,7 @@
 
                             <div class="password-wrapper">
                                 <input type="password" name="password_confirmation" id="password_confirmation"
-                                    class="form-control-custom" placeholder="Ulangi password" required>
+                                    class="form-control-custom" placeholder="Ulangi password" required maxlength="50">
 
                                 <button type="button" class="password-toggle" data-target="password_confirmation">
                                     <i class="bi bi-eye"></i>
@@ -118,4 +118,5 @@
 
     <script src="{{ asset('js/Admin/AkunCreate.js') }}"></script>
 
-@endsection ` 
+@endsection 
+

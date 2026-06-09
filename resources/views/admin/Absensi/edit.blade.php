@@ -40,21 +40,27 @@
                 <div class="form-row-2">
                     <div class="fg">
                         <label>Sesi</label>
-                        <input type="text" name="session" value="{{ old('session', $absensi->session) }}" required>
+                        <input type="text" name="session" value="{{ old('session', $absensi->session) }}" required maxlength="50">
                     </div>
 
                     <div class="fg">
                         <label>Jumlah Jemaat</label>
-                        <input type="number" name="jumlah" value="{{ old('jumlah', $absensi->jumlah) }}"
-                            min="0" required>
+
+                        <input type="number" name="jumlah" value="{{ old('jumlah', $absensi->jumlah) }}" min="0" required maxlength="10">
+
                     </div>
                 </div>
 
                 <div class="form-row-2">
                     <div class="fg">
                         <label>Pengkhotbah</label>
-                        <input type="text" name="pengkhotbah"
-                            value="{{ old('pengkhotbah', $absensi->pengkhotbah) }}" required>
+                        <input type="text" name="pengkhotbah" value="{{ old('pengkhotbah', $absensi->pengkhotbah) }}"
+                            required maxlength="100">
+                    </div>
+
+                    <div class="fg">
+                        <label>Pelayan</label>
+                        <input type="text" name="pelayan" value="{{ old('pelayan', $absensi->pelayan) }}" required maxlength="100">
                     </div>
                 </div>
 

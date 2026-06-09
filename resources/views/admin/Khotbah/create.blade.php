@@ -26,12 +26,12 @@
                 <div class="fg">
                     <label>Judul Khotbah</label>
                     <input type="text" name="title" value="{{ old('title') }}" placeholder="Contoh: Iman dalam Cobaan"
-                        required>
+                        required maxlength="150">
                 </div>
 
                 <div class="fg">
                     <label>Link Video</label>
-                    <input type="text" name="video" value="{{ old('video') }}" placeholder="https://youtube.com/...">
+                    <input type="text" name="video" value="{{ old('video') }}" placeholder="https://youtube.com/">
                 </div>
 
                 <div class="fg">
@@ -41,7 +41,7 @@
 
                 <div class="fg">
                     <label>Deskripsi</label>
-                    <textarea name="description" rows="3"
+                    <textarea name="description" rows="3" maxlength="250"
                         placeholder="Masukkan ringkasan khotbah">{{ old('description') }}</textarea>
                 </div>
 

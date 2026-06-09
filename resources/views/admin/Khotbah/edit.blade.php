@@ -26,13 +26,13 @@
 
                 <div class="fg">
                     <label>Judul Khotbah</label>
-                    <input type="text" name="title" value="{{ old('title', $khotbah->title) }}" required>
+                    <input type="text" name="title" value="{{ old('title', $khotbah->title) }}" required maxlength="150">
                 </div>
 
                 <div class="fg">
                     <label>Link Video</label>
                     <input type="text" name="video" value="{{ old('video', $khotbah->video) }}"
-                        placeholder="https://youtube.com/...">
+                        placeholder="https://youtube.com/">
                 </div>
 
                 <div class="fg">
@@ -43,7 +43,7 @@
 
                 <div class="fg">
                     <label>Deskripsi</label>
-                    <textarea name="description" rows="3">{{ old('description', $khotbah->description) }}</textarea>
+                    <textarea name="description" rows="3" maxlength="250">{{ old('description', $khotbah->description) }}</textarea>
                 </div>
 
                 <div class="fg">

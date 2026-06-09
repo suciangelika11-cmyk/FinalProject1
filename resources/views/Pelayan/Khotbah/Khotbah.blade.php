@@ -4,8 +4,6 @@
 
 @include('Pelayan.Layouts.LOPKhotbah')
 
-<script src="{{ asset('js/Pelayan/Khotbah.js') }}"></script>
-
     <!-- ── HERO ─────────────────────────────────────────────── -->
     <section class="hero">
         <div class="hero-content">
@@ -126,5 +124,7 @@
         @endif
 
     </div>
+
+    <script src="{{ asset('js/Pelayan/Khotbah.js') }}"></script>
 
 @endsection

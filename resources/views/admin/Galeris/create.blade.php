@@ -25,7 +25,7 @@
 
                 <div class="fg">
                     <label>Judul Kegiatan</label>
-                    <input type="text" name="title" value="{{ old('title') }}" placeholder="Contoh: Ibadah Minggu" required>
+                    <input type="text" name="title" value="{{ old('title') }}" placeholder="Contoh: Ibadah Minggu" required maxlength="100">
                 </div>
 
                 <div class="fg">
@@ -35,7 +35,7 @@
 
                 <div class="fg">
                     <label>Deskripsi</label>
-                    <textarea name="description" rows="3"
+                    <textarea name="description" rows="3" required maxlength="200"
                         placeholder="Masukkan deskripsi kegiatan">{{ old('description') }}</textarea>
                 </div>
 

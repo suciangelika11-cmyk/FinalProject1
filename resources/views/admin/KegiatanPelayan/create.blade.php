@@ -46,35 +46,35 @@
 
           <div class="form-group">
             <label>Pengkhotbah</label>
-            <input type="text" name="pengkhotbah" class="form-control" value="{{ old('pengkhotbah') }}" required>
+            <input type="text" name="pengkhotbah" class="form-control" value="{{ old('pengkhotbah') }}" required maxlength="100">
           </div>
 
           <div class="form-group">
             <label>Tema</label>
-            <input type="text" name="tema" class="form-control" value="{{ old('tema') }}" required>
+            <input type="text" name="tema" class="form-control" value="{{ old('tema') }}" required maxlength="150">
           </div>
 
           <div class="form-group">
             <label>Ayat</label>
-            <input type="text" name="ayat" class="form-control" value="{{ old('ayat') }}" required>
+            <input type="text" name="ayat" class="form-control" value="{{ old('ayat') }}" required maxlength="100">
           </div>
 
           <div class="form-group">
             <label>Worship Team</label>
             <input type="text" name="worship_team" class="form-control" value="{{ old('worship_team') }}"
-              placeholder="Nama1, Nama2">
+              placeholder="Nama1, Nama2" required maxlength="250">
           </div>
 
           <div class="form-group">
             <label>Multimedia Team</label>
             <input type="text" name="multimedia_team" class="form-control" value="{{ old('multimedia_team') }}"
-              placeholder="Nama1, Nama2">
+              placeholder="Nama1, Nama2" required maxlength="250">
           </div>
 
           <div class="form-group">
             <label>Liturgi Team</label>
             <input type="text" name="liturgi_team" class="form-control" value="{{ old('liturgi_team') }}"
-              placeholder="Nama1, Nama2">
+              placeholder="Nama1, Nama2" required maxlength="250">
           </div>
 
           <div class="action-row">

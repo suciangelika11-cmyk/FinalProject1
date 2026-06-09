@@ -41,7 +41,7 @@
                             ========================= */
     .pg-hero {
         position: relative;
-        padding: 110px 0 90px;
+        padding: 80px 0 60px;
         text-align: center;
         overflow: hidden;
 
@@ -118,11 +118,11 @@
     }
 
     /* =========================
-                               SECTION
+                            SECTION
                             ========================= */
     .kh-section {
         background: #F7FBFC;
-        padding: 20px 0 100px;
+        padding: 50px 0 80px;
     }
 
     .kh-container {
@@ -207,12 +207,14 @@
         background: rgba(247, 251, 252, .85);
         border: 1px solid #e3ebf5;
         border-radius: 24px;
+        backdrop-filter: blur(8px);
         overflow: hidden;
         transition: .35s;
         display: flex;
         flex-direction: column;
         position: relative;
         height: 100%;
+        box-shadow: 0 6px 20px rgba(118,159,205,.08);
     }
 
     .kh-card::before {
@@ -239,7 +241,7 @@
     }
 
     .kh-thumb {
-        height: 260px;
+        height: 220px;
         overflow: hidden;
     }
 
@@ -262,19 +264,24 @@
     }
 
     .kh-date {
+        display: inline-block;
+    background: #D6E6F2;
         color: #769FCD;
+        padding: 6px 12px;
+        border-radius: 999px;
         font-size: 11px;
         letter-spacing: .12em;
         text-transform: uppercase;
         font-weight: 700;
-        margin-bottom: 12px;
+        margin-bottom: 15px;
     }
 
     .kh-card-title {
         font-family: 'Playfair Display', serif;
-        font-size: 32px;
-        line-height: 1.5;
-        margin-bottom: 12px;
+        font-size: 20px;
+        min-height: 60px;
+        line-height: 1.4;
+        margin-bottom: 10px;
         color: #4E719A;
         display: -webkit-box;
         -webkit-line-clamp: 2;
@@ -364,6 +371,12 @@
 
     .pagination .page-link:hover {
         background: #D6E6F2 !important;
+    }
+
+    .kh-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
     }
 
     /* =========================

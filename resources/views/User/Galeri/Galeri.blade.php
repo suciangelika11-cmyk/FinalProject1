@@ -4,8 +4,6 @@
 
     @include('layouts.LOGaleri')
 
-    <script src="{{ asset('js/User/Galeri.js') }}"></script>
-
     <section class="g-hero">
         <div class="g-hero-grid"></div>
         <div class="g-hero-orb g-hero-orb-1"></div>
@@ -187,5 +185,7 @@
 
         </div>
     </div>
+
+    <script src="{{ asset('js/User/Galeri.js') }}"></script>
 
 @endsection

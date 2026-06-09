@@ -65,7 +65,7 @@
     .hero {
         position: relative;
         background: linear-gradient(135deg, var(--c3) 0%, var(--c2) 50%, var(--c3) 100%);
-        padding: 100px 40px 120px;
+        padding: 70px 40px 80px;
         overflow: hidden;
     }
 
@@ -119,7 +119,7 @@
 
     .hero h1 {
         font-family: 'Libre Baskerville', serif;
-        font-size: clamp(38px, 6vw, 68px);
+        font-size: clamp(55px, 7vw, 90px);
         line-height: 1.1;
         margin-bottom: 18px;
         color: var(--ink-deep);
@@ -143,8 +143,8 @@
        LAYOUT
     ───────────────────────────────────────── */
     .page-wrap {
-        width: 90%;
-        max-width: 1060px;
+        width: 92%;
+        max-width: 1280px;
         margin: 0 auto;
         padding: 80px 0 110px;
     }
@@ -201,10 +201,12 @@
         background: var(--white);
         border: 1px solid var(--c1-border);
         border-radius: var(--radius);
+        max-width: 1000px;
         padding: 48px 52px;
         position: relative;
         overflow: hidden;
         box-shadow: var(--shadow-sm);
+        margin: auto;
     }
 
     .sejarah-card::before {
@@ -259,7 +261,7 @@
         background: var(--white);
         border: 1px solid var(--c1-border);
         border-radius: var(--radius);
-        padding: 40px 36px;
+        padding: 50px 40px;
         text-align: center;
         position: relative;
         overflow: hidden;
@@ -305,7 +307,7 @@
 
     .vm-title {
         font-family: 'Libre Baskerville', serif;
-        font-size: 22px;
+        font-size: 28px;
         color: var(--text);
         margin-bottom: 16px;
     }
@@ -320,7 +322,7 @@
        GEMBALA
     ───────────────────────────────────────── */
     .gembala-wrap {
-        max-width: 660px;
+        max-width: 700px;
         margin: 0 auto;
     }
 
@@ -328,7 +330,9 @@
         background: var(--white);
         border: 1px solid var(--c1-border);
         border-radius: var(--radius);
-        padding: 52px 44px;
+        max-width: 700px;
+        padding: 60px 50px;
+        margin: auto;
         text-align: center;
         position: relative;
         overflow: hidden;
@@ -354,8 +358,8 @@
     }
 
     .gembala-photo {
-        width: 130px;
-        height: 130px;
+        width: 170px;
+        height: 170px;
         border-radius: 50%;
         object-fit: cover;
         border: 3px solid var(--c1-strong);
@@ -381,7 +385,7 @@
 
     .gembala-name {
         font-family: 'Libre Baskerville', serif;
-        font-size: 26px;
+        font-size: 32px;
         color: var(--text);
         margin-bottom: 12px;
     }

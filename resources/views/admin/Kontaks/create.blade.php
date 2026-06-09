@@ -26,22 +26,22 @@
 
         <div class="fg">
           <label>Alamat</label>
-          <input type="text" name="address" value="{{ old('address') }}" placeholder="Masukkan alamat gereja" required>
+          <input type="text" name="address" value="{{ old('address') }}" placeholder="Masukkan alamat gereja" required maxlength="150">
         </div>
 
         <div class="fg">
           <label>Telepon</label>
-          <input type="text" name="phone" value="{{ old('phone') }}" placeholder="Masukkan nomor telepon" required>
+          <input type="text" name="phone" value="{{ old('phone') }}" placeholder="Masukkan nomor telepon" required maxlength="15">
         </div>
 
         <div class="fg">
           <label>Email</label>
-          <input type="email" name="email" value="{{ old('email') }}" placeholder="Masukkan email gereja" required>
+          <input type="email" name="email" value="{{ old('email') }}" placeholder="Masukkan email gereja" required maxlength="100">
         </div>
 
         <div class="fg">
           <label>Jam Sekretariat</label>
-          <textarea name="office_hours" rows="3"
+          <textarea name="office_hours" rows="3" maxlength="250"
             placeholder="Contoh: Senin - Jumat 09.00 - 17.00 WIB">{{ old('office_hours') }}</textarea>
         </div>
 

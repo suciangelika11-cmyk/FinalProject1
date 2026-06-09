@@ -4,8 +4,6 @@
 
     @include('layouts.LOKhotbah')
 
-    <script src="{{ asset('js/User/Khotbah.js') }}"></script>
-
     <!-- HERO -->
     <section class="pg-hero">
 
@@ -179,5 +177,7 @@
         </div>
 
     </section>
+
+    <script src="{{ asset('js/User/Khotbah.js') }}"></script>
 
 @endsection

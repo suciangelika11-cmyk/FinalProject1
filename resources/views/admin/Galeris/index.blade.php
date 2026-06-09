@@ -2,7 +2,7 @@
 
 @push('styles')
 
-@include('admin.layouts.LOAGaleri.GaleriIndex')
+  @include('admin.layouts.LOAGaleri.GaleriIndex')
 
 @endpush
 
@@ -59,39 +59,74 @@
     </div>
 
     @if($galeri->count())
-      <div class="masonry">
-        @foreach($galeri as $item)
-          <div class="pcard">
-            <div class="pcard-img">
-              @if($item->event_date)
-                <div class="b-date">{{ \Carbon\Carbon::parse($item->event_date)->format('d M Y') }}</div>
-              @endif
+      <div class="gallery-list">
 
-              @if($item->image)
-                <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}">
-              @else
-                <div class="pcard-placeholder" style="background:linear-gradient(135deg,#f3f4f6,#e5e7eb)">🖼</div>
-              @endif
+    @foreach($galeri as $item)
 
-              <div class="pcard-actions" onclick="event.stopPropagation()">
-                <a href="{{ route('galeri.edit', $item->id) }}" class="a-btn a-edit">✏ Edit</a>
+        <div class="gallery-row">
+
+            <div class="gallery-info">
+
+                <img src="{{ asset('storage/' . $item->image) }}"
+                     class="gallery-thumb">
+
+                <div>
+
+                    <div class="gallery-title">
+                        {{ $item->title }}
+                    </div>
+
+                    <div class="gallery-desc">
+                        {{ Str::limit($item->description, 80) }}
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="gallery-date">
+
+                {{ $item->event_date
+                    ? \Carbon\Carbon::parse($item->event_date)->format('Y-m-d')
+                    : '-' }}
+
+            </div>
+
+            <div class="gallery-action">
+
+                <a href="{{ route('galeri.edit',$item->id) }}"
+                   class="btn-edit">
+                    Edit
+                </a>
+
+                <form action="{{ route('galeri.destroy',$item->id) }}"
+                      method="POST"
+                      style="display:inline;"
+                      onsubmit="return confirm('Hapus foto ini?')">
+
+                    @csrf
+                    @method('DELETE')
+
+                    <button type="submit"
+                            class="btn-delete">
+                        Hapus
+                    </button>
 
                 <form action="{{ route('galeri.destroy', $item->id) }}" method="POST" style="display:inline;"
                   onsubmit="return confirm('Hapus foto ini?')">
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="a-btn a-del">Hapus</button>
+
                 </form>
-              </div>
+
             </div>
 
-            <div class="pcard-body">
-              <div class="pcard-title">{{ $item->title }}</div>
-              <div class="pcard-desc">{{ $item->description ?: '-' }}</div>
-            </div>
-          </div>
-        @endforeach
-      </div>
+        </div>
+
+    @endforeach
+
+</div>
     @else
       <div class="empty-state">
         <div class="ei">🖼</div>
@@ -102,6 +137,8 @@
   </div>
 
   @push('scripts')
-<script src="{{ asset('js/Admin/GaleriIndex.js') }}"></script>
+
+    <script src="{{ asset('js/Admin/GaleriIndex.js') }}"></script>
+    
   @endpush
 @endsection

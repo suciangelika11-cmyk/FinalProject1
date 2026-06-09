@@ -219,7 +219,7 @@
             ============================================================ */
     .khotbah-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 22px;
     }
 
@@ -281,6 +281,16 @@
         transform: scale(1.05);
     }
 
+    .card-thumb::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+            linear-gradient(to top,
+                rgba(0, 0, 0, .25),
+                transparent);
+    }
+
     .thumb-placeholder {
         width: 100%;
         height: 100%;
@@ -326,7 +336,7 @@
                CARD BODY
             ============================================================ */
     .card-body {
-        padding: 22px 24px;
+        padding: 18px 20px;
         display: flex;
         flex-direction: column;
         flex: 1;
@@ -359,11 +369,11 @@
     .khotbah-desc {
         font-size: 13px;
         color: var(--ink-muted);
-        line-height: 1.8;
+        line-height: 1.6;
         flex: 1;
         margin-bottom: 20px;
         display: -webkit-box;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }

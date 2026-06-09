@@ -26,7 +26,7 @@
 
                 <div class="fg">
                     <label>Judul Kegiatan</label>
-                    <input type="text" name="title" value="{{ old('title', $Galeri->title) }}" required>
+                    <input type="text" name="title" value="{{ old('title', $Galeri->title) }}" required maxlength="100">
                 </div>
 
                 <div class="fg">
@@ -37,7 +37,7 @@
 
                 <div class="fg">
                     <label>Deskripsi</label>
-                    <textarea name="description" rows="3">{{ old('description', $Galeri->description) }}</textarea>
+                    <textarea name="description" rows="3" required maxlength="200">{{ old('description', $Galeri->description) }}</textarea>
                 </div>
 
                 <div class="fg">

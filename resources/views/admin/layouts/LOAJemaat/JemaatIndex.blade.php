@@ -313,4 +313,45 @@
             overflow-y: auto;
         }
     }
+
+    .btn-delete {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+
+        padding: 12px 18px;
+
+        border: none;
+        border-radius: 12px;
+
+        background: linear-gradient(135deg,
+                #ef4444,
+                #dc2626);
+
+        color: white;
+        font-weight: 600;
+        font-size: 14px;
+
+        cursor: pointer;
+
+        transition: all .25s ease;
+    }
+
+    .btn-delete:hover {
+        transform: translateY(-2px);
+        background: linear-gradient(135deg,
+                #dc2626,
+                #b91c1c);
+
+        box-shadow:
+            0 8px 18px rgba(220, 38, 38, .25);
+    }
+
+    .btn-delete:active {
+        transform: translateY(0);
+    }
+
+    .btn-delete i {
+        font-size: 15px;
+    }
 </style>

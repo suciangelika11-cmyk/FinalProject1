@@ -149,7 +149,7 @@
     /* ── HERO ── */
     .hero {
         position: relative;
-        min-height: 480px;
+        min-height: 380px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -157,7 +157,7 @@
         background: radial-gradient(circle at top, rgba(214, 230, 242, .35), transparent 55%),
             linear-gradient(135deg, #F7FBFC 0%, #D6E6F2 55%, #B9D7EA 100%);
         text-align: center;
-        padding: 110px 24px 90px;
+        padding: 90px 24px 70px;
     }
 
     .hero-bg-grid {
@@ -269,7 +269,7 @@
 
     /* ── VERSE BANNER ── */
     .verse-section {
-        padding: 80px 20px;
+        padding: 50px 20px;
         position: relative;
     }
 
@@ -280,7 +280,7 @@
         border: 1px solid rgba(118, 159, 205, .15);
         backdrop-filter: blur(10px);
         border-radius: 28px;
-        padding: 50px 70px;
+        padding: 35px 45px;
         text-align: center;
         position: relative;
         overflow: hidden;
@@ -462,7 +462,7 @@
 
     .info-card:hover {
         transform: translateX(6px);
-        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(201, 168, 76, 0.2);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(201, 168, 76, 0.2);
         border-color: rgba(201, 168, 76, 0.3);
     }
 
@@ -690,7 +690,7 @@
         border-radius: 14px;
         border: none;
         cursor: pointer;
-        background: linear-gradient(135deg, #769FCD);
+        background: linear-gradient(135deg, #769FCD, #5E87B8);
         color: white;
         font-family: 'DM Sans', sans-serif;
         font-size: 15px;

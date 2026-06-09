@@ -10,27 +10,27 @@
 
                 <div class="fg">
                     <label>Nama</label>
-                    <input type="text" name="name">
+                    <input type="text" name="name" maxlength="100">
                 </div>
 
                 <div class="fg">
                     <label>Username</label>
-                    <input type="text" name="username">
+                    <input type="text" name="username" maxlength="50">
                 </div>
 
                 <div class="fg">
                     <label>Email</label>
-                    <input type="email" name="email">
+                    <input type="email" name="email" maxlength="100">
                 </div>
 
                 <div class="fg">
                     <label>Password</label>
-                    <input type="password" name="password">
+                    <input type="password" name="password" maxlength="20">
                 </div>
 
                 <div class="fg">
                     <label>Jabatan</label>
-                    <input type="text" name="jabatan">
+                    <input type="text" name="jabatan" maxlength="50">
                 </div>
 
                 <div class="fg">

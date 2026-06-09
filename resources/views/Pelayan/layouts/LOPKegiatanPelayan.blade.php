@@ -51,13 +51,13 @@
     /* ================= HERO ================= */
     .hero {
         position: relative;
-        min-height: 420px;
+        min-height: 280px;
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
         overflow: hidden;
-        padding: 120px 24px 110px;
+        padding: 80px 24px;
         background: linear-gradient(135deg, var(--lighter) 0%, var(--bg-dark) 100%);
     }
 
@@ -139,7 +139,7 @@
     .page-wrap {
         width: min(92%, 1180px);
         margin: auto;
-        padding: 70px 0 100px;
+        padding: 40px 0 80px;
     }
 
     /* ================= SECTION ================= */
@@ -246,7 +246,7 @@
 
     .card-preacher {
         font-family: 'Libre Baskerville', serif;
-        font-size: 32px;
+        font-size: 28px;
         line-height: 1.2;
         font-weight: 700;
         color: var(--text-primary);

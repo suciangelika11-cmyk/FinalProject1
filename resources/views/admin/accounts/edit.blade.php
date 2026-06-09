@@ -4,8 +4,6 @@
 
     @include('admin.layouts.LOAAccount.AkunEdit')
 
-    <script src="{{ asset('js/Admin/AkunEdit.js') }}"></script>
-
     <div class="account-page">
         <div class="account-header">
             <div>
@@ -42,19 +40,19 @@
                         <div class="form-group">
                             <label>Nama Lengkap</label>
                             <input type="text" name="name" class="form-control-custom"
-                                value="{{ old('name', $user->name) }}" required>
+                                value="{{ old('name', $user->name) }}" required maxlength="150">
                         </div>
 
                         <div class="form-group">
                             <label>Username</label>
                             <input type="text" name="username" class="form-control-custom"
-                                value="{{ old('username', $user->username) }}" required>
+                                value="{{ old('username', $user->username) }}" required maxlength="100">
                         </div>
 
                         <div class="form-group full">
                             <label>Email</label>
                             <input type="email" name="email" class="form-control-custom"
-                                value="{{ old('email', $user->email) }}" required>
+                                value="{{ old('email', $user->email) }}" required maxlength="100">
                         </div>
                     </div>
 
@@ -66,7 +64,7 @@
 
                             <div class="password-wrapper">
                                 <input type="password" name="password" id="password" class="form-control-custom"
-                                    placeholder="Kosongkan jika tidak diubah">
+                                    placeholder="Kosongkan jika tidak diubah" maxlength="50">
 
                                 <button type="button" class="password-toggle" onclick="togglePassword('password', this)">
                                     <i class="bi bi-eye"></i>
@@ -81,7 +79,7 @@
 
                             <div class="password-wrapper">
                                 <input type="password" name="password_confirmation" id="password_confirmation"
-                                    class="form-control-custom" placeholder="Ulangi password baru">
+                                    class="form-control-custom" placeholder="Ulangi password baru" maxlength="50">
 
                                 <button type="button" class="password-toggle"
                                     onclick="togglePassword('password_confirmation', this)">
@@ -123,4 +121,7 @@
             </div>
         </div>
     </div>
+
+    <script src="{{ asset('js/Admin/AkunEdit.js') }}"></script>
+
 @endsection

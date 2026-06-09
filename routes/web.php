@@ -106,7 +106,7 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
 
     Route::get('/jemaat', [AdminJemaatController::class, 'index'])->name('jemaat.index');
     Route::put('/jemaat/{jemaat}/confirm', [AdminJemaatController::class, 'confirm'])->name('jemaat.confirm');
-    Route::delete('/admin/jemaat/{jemaat}', [AdminJemaatController::class, 'destroy'])->name('jemaat.destroy');
+    Route::delete('/jemaat/{jemaat}', [AdminJemaatController::class, 'destroy'])->name('jemaat.destroy');
 
     Route::get('/profil', [ProfilController::class, 'index'])->name('profil.index');
     Route::get('/profil/create', [ProfilController::class, 'create'])->name('profil.create');

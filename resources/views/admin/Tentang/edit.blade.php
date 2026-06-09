@@ -4,8 +4,6 @@
 
 @include('admin.layouts.LOATentang.TentangEdit')
 
-<script src="{{ asset('js/Admin/TentangEdit.js') }}"></script>
-
   <div class="form-card">
     <div class="form-card-title">Edit Data Tentang Gereja</div>
 
@@ -27,34 +25,34 @@
 
       <div class="fg">
         <label>Sejarah Gereja</label>
-        <textarea name="sejarah" rows="5" required>{{ old('sejarah', $tentang->sejarah) }}</textarea>
+        <textarea name="sejarah" rows="5" required maxlength="250">{{ old('sejarah', $tentang->sejarah) }}</textarea>
       </div>
 
       <div class="form-row">
         <div class="fg">
           <label>Visi</label>
-          <textarea name="visi" rows="4" required>{{ old('visi', $tentang->visi) }}</textarea>
+          <textarea name="visi" rows="4" required maxlength="150">{{ old('visi', $tentang->visi) }}</textarea>
         </div>
         <div class="fg">
           <label>Misi</label>
-          <textarea name="misi" rows="4" required>{{ old('misi', $tentang->misi) }}</textarea>
+          <textarea name="misi" rows="4" required maxlength="150">{{ old('misi', $tentang->misi) }}</textarea>
         </div>
       </div>
 
       <div class="form-row">
         <div class="fg">
           <label>Nama Gembala</label>
-          <input type="text" name="gembala_nama" value="{{ old('gembala_nama', $tentang->gembala_nama) }}" required>
+          <input type="text" name="gembala_nama" value="{{ old('gembala_nama', $tentang->gembala_nama) }}" required maxlength="100">
         </div>
         <div class="fg">
           <label>Jabatan</label>
-          <input type="text" name="gembala_jabatan" value="{{ old('gembala_jabatan', $tentang->gembala_jabatan) }}">
+          <input type="text" name="gembala_jabatan" value="{{ old('gembala_jabatan', $tentang->gembala_jabatan) }}" required maxlength="100">
         </div>
       </div>
 
       <div class="fg">
         <label>Deskripsi Gembala</label>
-        <textarea name="gembala_deskripsi" rows="3">{{ old('gembala_deskripsi', $tentang->gembala_deskripsi) }}</textarea>
+        <textarea name="gembala_deskripsi" rows="3" maxlength="200">{{ old('gembala_deskripsi', $tentang->gembala_deskripsi) }}</textarea>
       </div>
 
       <div class="fg">
@@ -74,5 +72,7 @@
       </div>
     </form>
   </div>
+
+  <script src="{{ asset('js/Admin/TentangEdit.js') }}"></script>
 
 @endsection

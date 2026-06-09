@@ -4,8 +4,6 @@
 
     @include('layouts.LOWelcome')
 
-    <script src="{{ asset('js/User/Welcome.js') }}"></script>
-
     <!-- HERO -->
     <section class="hero-home">
         <video autoplay muted loop playsinline class="hero-video">
@@ -170,5 +168,7 @@
             </div>
         </div>
     </section>
+
+    <script src="{{ asset('js/User/Welcome.js') }}"></script>
 
 @endsection

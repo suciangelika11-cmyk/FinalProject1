@@ -55,7 +55,7 @@
 
     /* ================= WRAPPER CONTAINER ================= */
     .jadwal-container {
-        width: min(92%, 1200px);
+        width: min(95%, 1400px);
         margin: 0 auto;
         padding: 0;
     }
@@ -63,13 +63,13 @@
     /* ================= HERO SECTION ================= */
     .hero {
         position: relative;
-        min-height: 450px;
+        min-height: 320px;
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
         overflow: hidden;
-        padding: 120px 24px;
+        padding: 80px 24px;
         background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
         margin-bottom: 60px;
         border-radius: 0 0 30px 30px;
@@ -183,9 +183,10 @@
     }
 
     .day-name {
-        color: var(--accent);
+        font-family:'Libre Baskerville',serif;
+        color: #4B6584;
         font-weight: 700;
-        font-size: 18px;
+        font-size: 22px;
         letter-spacing: 0.05em;
         text-transform: capitalize;
     }
@@ -193,7 +194,7 @@
     /* ================= GRID & CARDS ================= */
     .schedule-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
         gap: 28px;
         margin-bottom: 40px;
     }
@@ -208,6 +209,8 @@
         flex-direction: column;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: 0 2px 8px rgba(118, 159, 205, 0.08);
+        position: relative;
+        overflow: hidden;
     }
 
     .schedule-card:hover,
@@ -215,6 +218,18 @@
         border-color: var(--accent);
         transform: translateY(-6px);
         box-shadow: 0 12px 28px rgba(118, 159, 205, 0.15);
+    }
+
+    .schedule-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg,
+                #769FCD,
+                #B9D7EA);
     }
 
     .card-icon {
@@ -233,7 +248,8 @@
 
     .card-title {
         font-family: 'Libre Baskerville', serif;
-        font-size: 22px;
+        font-size: 26px;
+        line-height:1.4;
         color: var(--text-primary);
         margin-bottom: 16px;
         font-weight: 700;
