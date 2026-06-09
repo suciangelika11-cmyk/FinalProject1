@@ -15,7 +15,7 @@
 
     .pg-hero {
         position: relative;
-        padding: 110px 0 90px;
+        padding: 80px 0 60px;
         text-align: center;
         overflow: hidden;
 
@@ -127,7 +127,7 @@
 
     .pg-section {
         background: #F7FBFC;
-        padding: 72px 0 96px;
+        padding: 40px 0 65px;
     }
 
     /* =========================

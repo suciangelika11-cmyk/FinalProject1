@@ -26,7 +26,7 @@
 
                 <div class="fg">
                     <label>Nama Kegiatan</label>
-                    <input type="text" name="title" value="{{ old('title') }}" placeholder="Contoh: Ibadah Sesi 1" required>
+                    <input type="text" name="title" value="{{ old('title') }}" placeholder="Contoh: Ibadah Sesi 1" required maxlength="100">
                 </div>
 
                 <div class="form-row-2">
@@ -72,12 +72,12 @@
 
                 <div class="fg">
                     <label>Lokasi</label>
-                    <input type="text" name="location" value="{{ old('location') }}" placeholder="Contoh: GBI Tambunan">
+                    <input type="text" name="location" value="{{ old('location') }}" placeholder="Contoh: GBI Tambunan" required maxlength="100">
                 </div>
 
                 <div class="fg">
                     <label>Deskripsi</label>
-                    <textarea name="description" rows="3"
+                    <textarea name="description" rows="3" required maxlength="200"
                         placeholder="Masukkan deskripsi kegiatan">{{ old('description') }}</textarea>
                 </div>
 

@@ -14,37 +14,37 @@
 
         <div class="fg">
           <label>Nama</label>
-          <input type="text" name="name" value="{{ old('name', $user->name) }}">
+          <input type="text" name="name" value="{{ old('name', $user->name) }}" maxlength="100">
           @error('name') <small class="text-danger">{{ $message }}</small> @enderror
         </div>
 
         <div class="fg">
           <label>Username</label>
-          <input type="text" name="username" value="{{ old('username', $user->username) }}">
+          <input type="text" name="username" value="{{ old('username', $user->username) }}" maxlength="50">
           @error('username') <small class="text-danger">{{ $message }}</small> @enderror
         </div>
 
         <div class="fg">
           <label>Email</label>
-          <input type="email" name="email" value="{{ old('email', $user->email) }}">
+          <input type="email" name="email" value="{{ old('email', $user->email) }}" maxlength="100">
           @error('email') <small class="text-danger">{{ $message }}</small> @enderror
         </div>
 
         <div class="fg">
           <label>Telepon</label>
-          <input type="text" name="phone" value="{{ old('phone', $user->phone) }}">
+          <input type="text" name="phone" value="{{ old('phone', $user->phone) }}" maxlength="20">
           @error('phone') <small class="text-danger">{{ $message }}</small> @enderror
         </div>
 
         <div class="fg">
           <label>Alamat</label>
-          <textarea name="alamat">{{ old('alamat', $user->alamat) }}</textarea>
+          <textarea name="alamat" maxlength="200">{{ old('alamat', $user->alamat) }}</textarea>
           @error('alamat') <small class="text-danger">{{ $message }}</small> @enderror
         </div>
 
         <div class="fg">
           <label>Jabatan</label>
-          <input type="text" name="jabatan" value="{{ old('jabatan', $user->jabatan) }}">
+          <input type="text" name="jabatan" value="{{ old('jabatan', $user->jabatan) }}" maxlength="50">
           @error('jabatan') <small class="text-danger">{{ $message }}</small> @enderror
         </div>
 

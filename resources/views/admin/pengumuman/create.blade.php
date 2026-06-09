@@ -35,12 +35,12 @@
                     <div class="form-grid">
                         <div class="form-group full">
                             <label>Judul Pengumuman</label>
-                            <input type="text" name="title" class="form-control-custom" value="{{ old('title') }}" required>
+                            <input type="text" name="title" class="form-control-custom" value="{{ old('title') }}" required maxlength="100">
                         </div>
 
                         <div class="form-group full">
                             <label>Isi Pengumuman</label>
-                            <textarea name="content" class="form-textarea-custom" required>{{ old('content') }}</textarea>
+                            <textarea name="content" class="form-textarea-custom" required maxlength="250">{{ old('content') }}</textarea>
                         </div>
 
                         <div class="form-group">

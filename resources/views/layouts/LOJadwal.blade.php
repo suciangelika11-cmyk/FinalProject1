@@ -5,7 +5,7 @@
 
     .jd-hero {
         position: relative;
-        padding: clamp(75px, 10vw, 120px) 16px clamp(65px, 8vw, 95px);
+        padding: 60px 16px 50px;
         overflow: hidden;
         text-align: center;
 
@@ -66,7 +66,7 @@
 
     .jd-hero h1 {
         font-family: 'Playfair Display', serif;
-        font-size: clamp(45px, 7vw, 70px);
+        font-size: clamp(50px, 8vw, 81px);
         font-weight: 700;
         line-height: 1.08;
 
@@ -103,7 +103,7 @@
 
     .jd-weekly,
     .jd-special {
-        padding: clamp(60px, 8vw, 95px) 0;
+        padding: 45px 0;
     }
 
     .jd-weekly {
@@ -117,9 +117,9 @@
 
     .global-container {
         width: 100%;
-        max-width: 1280px;
+        max-width: 1450px;
         margin: auto;
-        padding: 0 18px;
+        padding: 0 30px;
     }
 
     .section-head {
@@ -217,7 +217,8 @@
         background: #FFFFFF;
         border: 1px solid #D6E6F2;
 
-        padding: 24px;
+        padding: 30px;
+        min-height: 290px;
 
         transition:
             transform .35s ease,
@@ -283,7 +284,7 @@
 
     .jd-card-title {
         font-family: 'Playfair Display', serif;
-        font-size: 20px;
+        font-size: 24px;
         font-weight: 700;
 
         color: #4B6584;

@@ -88,12 +88,12 @@
             <div class="fg">
               <label>Nama Pelayanan</label>
               <input type="text" name="title_kepemimpinan"
-                value="{{ old('title_kepemimpinan', $pelayanan->category == 'kepemimpinan' ? $pelayanan->title : '') }}">
+                value="{{ old('title_kepemimpinan', $pelayanan->category == 'kepemimpinan' ? $pelayanan->title : '') }}" maxlength="100">
             </div>
 
             <div class="fg">
               <label>Pemimpin</label>
-              <input type="text" name="leader_kepemimpinan" value="{{ old('leader_kepemimpinan', $pelayanan->leader) }}">
+              <input type="text" name="leader_kepemimpinan" value="{{ old('leader_kepemimpinan', $pelayanan->leader) }}" maxlength="100">
             </div>
 
             <div class="fg">
@@ -111,13 +111,13 @@
             <div class="fg">
               <label>Nama Pelayanan</label>
               <input type="text" name="title_tim"
-                value="{{ old('title_tim', $pelayanan->category == 'tim' ? $pelayanan->title : '') }}">
+                value="{{ old('title_tim', $pelayanan->category == 'tim' ? $pelayanan->title : '') }}" maxlength="100">
             </div>
 
             <div class="fg">
               <label>Deskripsi Pelayanan</label>
               <textarea name="description_tim"
-                rows="3">{{ old('description_tim', $pelayanan->category == 'tim' ? $pelayanan->description : '') }}</textarea>
+                rows="3" maxlength="250">{{ old('description_tim', $pelayanan->category == 'tim' ? $pelayanan->description : '') }}</textarea>
             </div>
 
             <div class="fg">
@@ -126,14 +126,14 @@
               <div id="anggota-wrapper">
                 @forelse($pelayanan->anggotas as $anggota)
                   <div class="form-row-2 anggota-item" style="margin-bottom:10px;">
-                    <input type="text" name="anggota_nama[]" value="{{ $anggota->nama }}" placeholder="Nama anggota">
+                    <input type="text" name="anggota_nama[]" value="{{ $anggota->nama }}" placeholder="Nama anggota" maxlength="100">
                     <input type="text" name="anggota_bagian[]" value="{{ $anggota->bagian }}"
-                      placeholder="Bagian / jabatan">
+                      placeholder="Bagian / jabatan" maxlength="100">
                   </div>
                 @empty
                   <div class="form-row-2 anggota-item" style="margin-bottom:10px;">
-                    <input type="text" name="anggota_nama[]" placeholder="Nama anggota">
-                    <input type="text" name="anggota_bagian[]" placeholder="Bagian / jabatan">
+                    <input type="text" name="anggota_nama[]" placeholder="Nama anggota" maxlength="100">
+                    <input type="text" name="anggota_bagian[]" placeholder="Bagian / jabatan" maxlength="100">
                   </div>
                 @endforelse
               </div>
@@ -149,13 +149,13 @@
             <div class="fg">
               <label>Nama Pelayanan</label>
               <input type="text" name="title_aksi"
-                value="{{ old('title_aksi', $pelayanan->category == 'aksi' ? $pelayanan->title : '') }}">
+                value="{{ old('title_aksi', $pelayanan->category == 'aksi' ? $pelayanan->title : '') }}" maxlength="100">
             </div>
 
             <div class="fg">
               <label>Deskripsi Pelayanan</label>
               <textarea name="description_aksi"
-                rows="3">{{ old('description_aksi', $pelayanan->category == 'aksi' ? $pelayanan->description : '') }}</textarea>
+                rows="3" maxlength="250">{{ old('description_aksi', $pelayanan->category == 'aksi' ? $pelayanan->description : '') }}</textarea>
             </div>
 
             <div class="fg">

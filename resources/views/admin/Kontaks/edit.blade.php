@@ -27,22 +27,22 @@
 
         <div class="fg">
           <label>Alamat</label>
-          <input type="text" name="address" value="{{ old('address', $kontak->address) }}" required>
+          <input type="text" name="address" value="{{ old('address', $kontak->address) }}" required maxlength="150">
         </div>
 
         <div class="fg">
           <label>Telepon</label>
-          <input type="text" name="phone" value="{{ old('phone', $kontak->phone) }}" required>
+          <input type="text" name="phone" value="{{ old('phone', $kontak->phone) }}" required maxlength="15">
         </div>
 
         <div class="fg">
           <label>Email</label>
-          <input type="email" name="email" value="{{ old('email', $kontak->email) }}" required>
+          <input type="email" name="email" value="{{ old('email', $kontak->email) }}" required maxlength="100">
         </div>
 
         <div class="fg">
           <label>Jam Sekretariat</label>
-          <textarea name="office_hours" rows="3">{{ old('office_hours', $kontak->office_hours) }}</textarea>
+          <textarea name="office_hours" rows="3" maxlength="250">{{ old('office_hours', $kontak->office_hours) }}</textarea>
         </div>
 
         <div class="btn-row">

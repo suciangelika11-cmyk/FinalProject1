@@ -58,7 +58,7 @@
 
                     <input type="text" name="login" id="login" value="{{ old('login') }}"
                         placeholder="Masukkan email atau username" class="form-control @error('login') is-invalid @enderror"
-                        required>
+                        required maxlength="100">
 
                 </div>
 
@@ -70,7 +70,7 @@
 
                     <div class="password-wrapper">
                         <input type="password" name="password" id="password" placeholder="Masukkan password"
-                            class="form-control @error('password') is-invalid @enderror" required>
+                            class="form-control @error('password') is-invalid @enderror" required maxlength="50">
                         <button type="button" id="togglePassword" class="password-toggle">
                             <i class="bi bi-eye"></i>
                         </button>

@@ -47,7 +47,7 @@
                                 <td>{{ $jemaat->no_kk }}</td>
 
                                 <td>{{ $jemaat->nama_keluarga }}</td>
-
+                                
                                 <td class="text-long">
                                     {{ $jemaat->alamat_domisili }}
                                 </td>

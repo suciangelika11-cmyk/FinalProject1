@@ -8,8 +8,7 @@
            DETAIL PAGE
         ================================= */
     .jd-detail {
-        min-height: 100vh;
-        padding: 100px 0;
+        padding: 60px 0;
         background:
             radial-gradient(circle at top,
                 rgba(118, 159, 205, .18),
@@ -18,7 +17,7 @@
     }
 
     .jd-detail-container {
-        max-width: 920px;
+        max-width: 790px;
         margin: auto;
         padding: 0 20px;
     }
@@ -26,11 +25,11 @@
     /* TITLE */
     .jd-detail-title {
         font-family: 'Playfair Display', serif;
-        font-size: clamp(36px, 5vw, 60px);
+        font-size: clamp(32px, 4vw, 48px);
         font-weight: 700;
         color: #2c3e50;
         line-height: 1.15;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     /* META */
@@ -70,7 +69,7 @@
 
     /* BACK BUTTON */
     .jd-back {
-        margin-top: 40px;
+        margin-top: 25px;
 
         display: inline-flex;
         align-items: center;
@@ -99,23 +98,6 @@
             0 12px 25px rgba(118, 159, 205, .25);
     }
 
-    /* DECORATIVE LINE */
-    .jd-detail-container::after {
-        content: '';
-        display: block;
-
-        width: 90px;
-        height: 4px;
-
-        margin-top: 25px;
-
-        background: linear-gradient(90deg,
-                #769FCD,
-                #B9D7EA);
-
-        border-radius: 999px;
-    }
-
     /* RESPONSIVE */
     @media (max-width: 768px) {
 
@@ -140,16 +122,33 @@
         border-radius: 24px;
         padding: 35px;
         margin-top: 30px;
-
         box-shadow:
             0 15px 40px rgba(118, 159, 205, .08);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .jd-info-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 5px;
+
+        background: linear-gradient(90deg,
+                #769FCD,
+                #B9D7EA);
     }
 
     .jd-info-item {
-        display: flex;
+        display: grid;
         gap: 15px;
         margin-bottom: 18px;
+        grid-template-columns: 120px 1fr;
         color: #4a5f75;
+        padding: 12px 0;
     }
 
     .jd-info-label {
@@ -162,8 +161,9 @@
         margin-top: 25px;
         padding-top: 25px;
         border-top: 1px solid rgba(118, 159, 205, .15);
-
+        padding: 20px;
         color: #4a5f75;
         line-height: 1.9;
+        border-radius: 16px;
     }
 </style>

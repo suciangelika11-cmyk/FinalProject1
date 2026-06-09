@@ -262,6 +262,12 @@
             border: 1.5px solid rgba(255, 255, 255, 0.3);
         }
 
+        .footer-brand-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .footer-brand-name {
             font-family: var(--font-display);
             font-size: 18px;
@@ -592,7 +598,7 @@
                     <div class="d-flex align-items-center gap-3">
 
                         <div class="footer-brand-logo">
-                            GBI
+                            <img src="/gambar/logo-gbi-official.png" alt="GBI Tambunan">
                         </div>
 
                         <div>

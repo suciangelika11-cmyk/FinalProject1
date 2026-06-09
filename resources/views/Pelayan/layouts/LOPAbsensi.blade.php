@@ -18,7 +18,8 @@
 
     .hero-absensi {
         position: relative;
-        min-height: 650px;
+        min-height: 320px;
+        padding:80px 20px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -79,7 +80,7 @@
 
     .hero-title {
         font-family: 'Playfair Display', serif;
-        font-size: clamp(60px, 8vw, 110px);
+        font-size: clamp(60px, 8vw, 100px);
         line-height: 1;
         color: #6f96c7;
         margin-bottom: 20px;
@@ -113,7 +114,7 @@
     /* CONTENT */
 
     .absensi-section {
-        padding: 90px 0;
+        padding: 50px 0 80px;
         background: #fff;
     }
 
@@ -151,7 +152,7 @@
     .absensi-grid {
         display: grid;
         grid-template-columns:
-            repeat(auto-fit, minmax(360px, 1fr));
+            repeat(auto-fit,minmax(280px,1fr));
         gap: 30px;
     }
 
@@ -159,38 +160,30 @@
 
     .absensi-card {
         position: relative;
-
         background: #fff;
-
         border-radius: 30px;
-
-        padding: 35px;
-
+        padding: 24px;
         border: 1px solid #e7eef7;
-
         transition: .4s ease;
-
         overflow: hidden;
+        box-shadow:
+        0 4px 12px rgba(118,159,205,.08);
     }
 
     .absensi-card::before {
         content: '';
-
         position: absolute;
-
         top: 0;
         left: 0;
-
         width: 100%;
         height: 6px;
-
         background: linear-gradient(90deg,
                 #7ea9dd,
                 #b7d5f1);
     }
 
     .absensi-card:hover {
-        transform: translateY(-10px);
+        transform: translateY(-4px);
 
         box-shadow:
             0 20px 50px rgba(93, 134, 189, .12);
@@ -204,7 +197,7 @@
 
     .card-session {
         font-family: 'Playfair Display', serif;
-        font-size: 34px;
+        font-size: 32px;
         color: #5f84b7;
         margin-bottom: 25px;
     }

@@ -22,7 +22,7 @@
 
     .pg-hero {
         position: relative;
-        padding: 110px 0 90px;
+        padding: 80px 0 60px;
         text-align: center;
         overflow: hidden;
 
@@ -104,7 +104,7 @@
 
     .kh-section {
         background: #F7FBFC;
-        padding: 80px 0 100px;
+        padding: 60px 0 70px;
     }
 
     .tentang-container {
@@ -115,7 +115,7 @@
 
     .kh-section-head {
         text-align: center;
-        margin-bottom: 60px;
+        margin-bottom: 35px;
     }
 
     .kh-label {
@@ -164,21 +164,15 @@
 
     .about-card {
         background: white;
-
         border: 1px solid #D6E6F2;
-
         border-radius: 24px;
-
-        padding: 45px;
-
+        padding: 35px;
         color: #6E7E91;
-
         line-height: 2;
-
-        margin-bottom: 70px;
-
+        margin: 0 auto 50px;
         box-shadow:
             0 10px 30px rgba(118, 159, 205, .08);
+        max-width: 900px;
     }
 
     /* ==========================
@@ -193,7 +187,7 @@
 
         gap: 24px;
 
-        margin-bottom: 80px;
+        margin-bottom: 55px;
     }
 
     .visi-card,
@@ -242,8 +236,9 @@
 
     .gembala-section {
         display: grid;
-        grid-template-columns: 380px 1fr;
-
+        grid-template-columns: 320px 1fr;
+        max-width: 1050px;
+        margin: auto;
         gap: 40px;
         align-items: center;
     }
@@ -254,8 +249,8 @@
 
     .gembala-image img,
     .avatar {
-        width: 280px;
-        height: 280px;
+        width: 340px;
+        height: 340px;
 
         border-radius: 50%;
 

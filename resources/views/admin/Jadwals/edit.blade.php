@@ -27,7 +27,7 @@
 
                 <div class="fg">
                     <label>Nama Kegiatan</label>
-                    <input type="text" name="title" value="{{ old('title', $Jadwal->title) }}" required>
+                    <input type="text" name="title" value="{{ old('title', $Jadwal->title) }}" required maxlength="100">
                 </div>
 
                 <div class="form-row-2">
@@ -72,12 +72,12 @@
 
                 <div class="fg">
                     <label>Lokasi</label>
-                    <input type="text" name="location" value="{{ old('location', $Jadwal->location) }}">
+                    <input type="text" name="location" value="{{ old('location', $Jadwal->location) }}" required maxlength="100">
                 </div>
 
                 <div class="fg">
                     <label>Deskripsi</label>
-                    <textarea name="description" rows="3">{{ old('description', $Jadwal->description) }}</textarea>
+                    <textarea name="description" rows="3" required maxlength="200">{{ old('description', $Jadwal->description) }}</textarea>
                 </div>
 
                 <div class="btn-row">
