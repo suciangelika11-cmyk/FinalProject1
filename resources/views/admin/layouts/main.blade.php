@@ -134,7 +134,7 @@
     .brand-logo {
       width: 42px;
       height: 42px;
-      background: linear-gradient(135deg, var(--cyan), var(--gold));
+      background: #fff;
       border-radius: 10px;
       overflow: hidden;
       display: flex;
