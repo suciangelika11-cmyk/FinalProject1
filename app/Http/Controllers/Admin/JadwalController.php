@@ -26,8 +26,8 @@ class JadwalController extends Controller
         $request->validate([
             'title' => 'required',
             'day' => 'required',
-            'start_time' => 'required|date_format:H:i',
-            'end_time' => 'nullable|date_format:H:i|after:start_time',
+            'start_time' => 'required|date_format:H:i:s ',
+            'end_time' => 'nullable|date_format:H:i:s|after:start_time',
             'location' => 'required',
             'description' => 'required',
             'category' => 'required',
@@ -56,8 +56,8 @@ class JadwalController extends Controller
         $request->validate([
             'title' => 'required',
             'day' => 'required',
-            'start_time' => 'required|date_format:H:i',
-            'end_time' => 'nullable|date_format:H:i|after:start_time',
+            'start_time' => 'required|date_format:H:i:s',
+            'end_time' => 'nullable|date_format:H:i:s|after:start_time',
             'location' => 'required',
             'description' => 'required',
             'category' => 'required',

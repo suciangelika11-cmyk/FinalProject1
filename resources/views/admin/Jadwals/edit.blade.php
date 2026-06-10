@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('admin.layouts.LOAJadwal.JadwalEdit')
+    @include('admin.layouts.LOAJadwal.JadwalEdit')
 
     <div class="form-wrap">
         <div class="form-card">
@@ -31,10 +31,10 @@
                 </div>
 
                 <div class="form-row-2">
-                    <div class="fg">
+                    <div class="fg" id="hari-group">
                         <label>Hari</label>
 
-                        <select name="day" required>
+                        <select name="day">
                             <option value="Senin" {{ old('day', $Jadwal->day) == 'Senin' ? 'selected' : '' }}>Senin</option>
                             <option value="Selasa" {{ old('day', $Jadwal->day) == 'Selasa' ? 'selected' : '' }}>Selasa
                             </option>
@@ -50,7 +50,7 @@
                     <div class="fg">
                         <label>Kategori</label>
 
-                        <select name="category" required>
+                        <select name="category" id="category" required>
                             <option value="mingguan" {{ old('category', $Jadwal->category) == 'mingguan' ? 'selected' : '' }}>
                                 Jadwal Mingguan</option>
                             <option value="acara_khusus" {{ old('category', $Jadwal->category) == 'acara_khusus' ? 'selected' : '' }}>Acara Khusus</option>
@@ -58,10 +58,10 @@
                     </div>
                 </div>
 
-                <div class="form-row-2">
+                <div class="form-row-2" id="jam-group">
                     <div class="fg">
                         <label>Jam Mulai</label>
-                        <input type="time" name="start_time" value="{{ old('start_time', $Jadwal->start_time) }}" required>
+                        <input type="time" name="start_time" value="{{ old('start_time', $Jadwal->start_time) }}">
                     </div>
 
                     <div class="fg">
@@ -70,14 +70,23 @@
                     </div>
                 </div>
 
+                <div class="fg" id="jadwal-khusus-group" style="display:none;">
+                    <label>Jadwal Acara Khusus</label>
+
+                    <input type="text" name="jadwal_khusus" value="{{ old('jadwal_khusus', $Jadwal->jadwal_khusus) }}"
+                        placeholder="Contoh: Desember, Maret/April, Tahunan">
+                </div>
+
                 <div class="fg">
                     <label>Lokasi</label>
-                    <input type="text" name="location" value="{{ old('location', $Jadwal->location) }}" required maxlength="100">
+                    <input type="text" name="location" value="{{ old('location', $Jadwal->location) }}" required
+                        maxlength="100">
                 </div>
 
                 <div class="fg">
                     <label>Deskripsi</label>
-                    <textarea name="description" rows="3" required maxlength="200">{{ old('description', $Jadwal->description) }}</textarea>
+                    <textarea name="description" rows="3" required
+                        maxlength="200">{{ old('description', $Jadwal->description) }}</textarea>
                 </div>
 
                 <div class="btn-row">
@@ -87,5 +96,7 @@
             </form>
         </div>
     </div>
+
+    <script src="{{ asset('js/Admin/JadwalEdit.js') }}"></script>
 
 @endsection
