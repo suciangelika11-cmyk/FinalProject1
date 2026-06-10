@@ -169,15 +169,13 @@
 
     /* ================= CARD ================= */
     .kegiatan-card {
-        display: grid;
-        grid-template-columns: 160px 1fr 340px;
         background: var(--bg-card);
         border: 1.5px solid var(--border);
-        border-radius: var(--radius);
-        overflow: hidden;
+        border-radius: 24px;
         margin-bottom: 28px;
         transition: all 0.35s ease;
-        box-shadow: 0 2px 8px rgba(118, 159, 205, 0.08);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, .08);
+        padding: 28px;
     }
 
     .kegiatan-card:hover {
@@ -211,7 +209,7 @@
 
     .date-num {
         font-family: 'Libre Baskerville', serif;
-        font-size: 56px;
+        font-size: 42px;
         line-height: 1;
         font-weight: 700;
         color: var(--text-primary);
@@ -224,6 +222,14 @@
         text-transform: uppercase;
         color: var(--text-muted);
         font-weight: 500;
+    }
+
+    .date-box {
+        min-width: 140px;
+        text-align: center;
+        padding: 20px;
+        border-radius: 18px;
+        background: #f5f8fc;
     }
 
     /* ================= INFO ================= */
@@ -242,6 +248,10 @@
         color: var(--text-primary);
         margin-bottom: 12px;
         opacity: 0.8;
+    }
+
+    .info-box {
+        flex: 1;
     }
 
     .card-preacher {
@@ -314,6 +324,52 @@
         color: var(--text-primary);
         margin-bottom: 4px;
     }
+
+    .card-header {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+
+    .team-grid {
+        display: flex;
+        flex-direction:column;
+        gap: 15px;
+    }
+
+    .team-box {
+        background: #f8fafc;
+        align-items:center;
+        border: 1px solid #e6edf5;
+        justify-content:space-between;
+        border-radius: 16px;
+        padding: 16px 20px;
+    }
+
+    .team-box h4 {
+        margin-bottom: 10px;
+        font-size: 15px;
+    }
+
+    .team-box span {
+        display: block;
+        padding: 6px 0;
+    }
+
+    .team-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-weight:600;
+    color:var(--text-primary);
+}
+
+.team-members{
+    color:var(--text-muted);
+    font-size:14px;
+}
 
     /* ================= SUB TEAM ================= */
     .sub-team {

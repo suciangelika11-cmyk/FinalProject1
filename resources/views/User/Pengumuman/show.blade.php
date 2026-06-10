@@ -20,14 +20,18 @@
                 {{ $pengumuman->publish_date ?: '-' }}
             </div>
 
-            @if($pengumuman->image)
-                <div class="detail-image">
-                    <img src="{{ asset('storage/' . $pengumuman->image) }}" alt="{{ $pengumuman->title }}">
-                </div>
-            @endif
+            <div class="detail-body">
 
-            <div class="detail-content">
-                {!! nl2br(e($pengumuman->content)) !!}
+                @if($pengumuman->image)
+                    <div class="detail-image">
+                        <img src="{{ asset('storage/' . $pengumuman->image) }}" alt="{{ $pengumuman->title }}">
+                    </div>
+                @endif
+
+                <div class="detail-content">
+                    {!! nl2br(e($pengumuman->content)) !!}
+                </div>
+
             </div>
 
             <a href="{{ route('user.pengumuman') }}" class="back-btn">

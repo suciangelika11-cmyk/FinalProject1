@@ -2,7 +2,7 @@
 
 @push('styles')
 
-@include('admin.layouts.LOAKegiatanPelayan.KegiatanPelayananIndex')
+  @include('admin.layouts.LOAKegiatanPelayan.KegiatanPelayananIndex')
 
 @endpush
 
@@ -43,9 +43,25 @@
               <td>{{ $item->ayat }}</td>
 
               <td>
-                @if($item->worship_team) Worship: {{ $item->worship_team }}<br>@endif
-                @if($item->multimedia_team) Multimedia: {{ $item->multimedia_team }}<br>@endif
-                @if($item->liturgi_team) Liturgi: {{ $item->liturgi_team }}@endif
+                @if($item->singer_team)
+                  <strong>Singer:</strong> {{ $item->singer_team }}<br>
+                @endif
+
+                @if($item->worship_leader_team)
+                  <strong>WL:</strong> {{ $item->worship_leader_team }}<br>
+                @endif
+
+                @if($item->tamborin_team)
+                  <strong>Tamborin:</strong> {{ $item->tamborin_team }}<br>
+                @endif
+
+                @if($item->multimedia_team)
+                  <strong>Multimedia:</strong> {{ $item->multimedia_team }}<br>
+                @endif
+
+                @if($item->musik_team)
+                  <strong>Musik:</strong> {{ $item->musik_team }}
+                @endif
               </td>
 
               <td>

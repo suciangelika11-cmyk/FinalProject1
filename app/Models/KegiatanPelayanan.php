@@ -11,8 +11,10 @@ class KegiatanPelayanan extends Model
         'pengkhotbah',
         'tema',
         'ayat',
-        'worship_team',
+        'singer_team',
+        'worship_leader_team',
+        'tamborin_team',
         'multimedia_team',
-        'liturgi_team',
+        'musik_team',
     ];
 }

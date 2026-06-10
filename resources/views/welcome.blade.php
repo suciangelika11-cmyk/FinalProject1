@@ -46,9 +46,7 @@
             <h2 class="ibadah-title">Ibadah Minggu</h2>
             <div class="ibadah-grid">
                 @foreach($ibadahs as $ibadah)
-
                     <div class=" ibadah-card">
-
                         <h3>
                             {{ $ibadah->title }}
                         </h3>
@@ -56,9 +54,7 @@
                         <div class="ibadah-time">
                             {{ \Carbon\Carbon::parse($ibadah->start_time)->format('H:i') }} WIB
                         </div>
-
                     </div>
-
                 @endforeach
             </div>
         </div>
@@ -78,7 +74,6 @@
 
                 <!-- CARD QRIS -->
                 <div class="support-card">
-
                     <div class="card-header">
                         <span>• • •</span>
                         <h3>QRIS</h3>
@@ -102,7 +97,6 @@
                             ❤️ Terima kasih untuk setiap dukungan Anda ❤️
                         </div>
                     </div>
-
                 </div>
 
                 <!-- CARD BERGABUNG -->
@@ -115,10 +109,8 @@
                     </div>
 
                     <div class="join-banner">
-
                         <div class="join-content">
                             <h4>Bergabunglah dengan Kami</h4>
-
                             <p>
                                 Kami mengundang Anda untuk menjadi bagian dari
                                 keluarga besar GBI Tambunan. Datang dan rasakan
@@ -129,11 +121,9 @@
                         <div class="join-icon">
                             ⛪
                         </div>
-
                     </div>
 
                     <div class="join-buttons">
-
                         <a href="{{ route('user.jemaat') }}" class="btn-primary">
                             📍 Jadi Jemaat
                         </a>
@@ -141,7 +131,6 @@
                         <a href="{{ route('user.kontak') }}" class="btn-secondary">
                             👥 Hubungi Kami
                         </a>
-
                     </div>
 
                     <div class="join-features">
@@ -160,11 +149,8 @@
                             <div class="feature-icon">❤️</div>
                             <p>Bertumbuh bersama</p>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
         </div>
     </section>

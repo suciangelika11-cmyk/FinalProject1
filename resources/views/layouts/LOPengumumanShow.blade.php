@@ -145,22 +145,16 @@
     }
 
     /* =========================
-           IMAGE CARD
-        ========================= */
+        IMAGE CARD
+    ========================= */
 
     .detail-image {
-        width: 100%;
-        max-width: 450px;
-
+        flex: 0 0 420px;
+        max-width: 420px;
         border-radius: 22px;
         overflow: hidden;
-
-        margin-bottom: 40px;
-
         border: 1px solid #D6E6F2;
-
         background: #fff;
-
         box-shadow:
             0 15px 40px rgba(118, 159, 205, .15);
     }
@@ -171,28 +165,28 @@
         object-fit: cover;
     }
 
+    .detail-body {
+        display: flex;
+        gap: 32px;
+        align-items: flex-start;
+        margin-bottom: 40px;
+    }
+
     /* =========================
-           CONTENT CARD
-        ========================= */
+        CONTENT CARD
+    ========================= */
 
     .detail-content {
         background: rgba(255, 255, 255, .75);
-
         border: 1px solid #D6E6F2;
-
         border-radius: 24px;
-
         padding: 32px;
-
         color: #5F738B;
-
         font-size: 16px;
         line-height: 2;
-
-        margin-bottom: 40px;
-
+        margin-bottom: 0;
         backdrop-filter: blur(10px);
-
+        flex: 1;
         box-shadow:
             0 10px 30px rgba(118, 159, 205, .08);
     }
@@ -202,8 +196,8 @@
     }
 
     /* =========================
-           BUTTON
-        ========================= */
+        BUTTON
+    ========================= */
 
     .back-btn {
         display: inline-flex;
@@ -243,6 +237,24 @@
     /* =========================
            MOBILE
         ========================= */
+
+    @media(max-width:992px) {
+
+        .detail-body {
+            flex-direction: column;
+        }
+
+        .detail-image {
+            max-width: 100%;
+            width: 100%;
+            flex: auto;
+        }
+
+        .detail-content {
+            width: 100%;
+        }
+
+    }
 
     @media(max-width:768px) {
 

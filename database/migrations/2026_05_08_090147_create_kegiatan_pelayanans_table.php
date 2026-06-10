@@ -15,9 +15,11 @@ return new class extends Migration {
             $table->string('pengkhotbah');
             $table->string('tema');
             $table->string('ayat');
-            $table->text('worship_team');
-            $table->text('multimedia_team');
-            $table->text('liturgi_team');
+            $table->text('tim_singer');
+            $table->text('tim_worship_leader');
+            $table->text('tim_tamborin');
+            $table->text('tim_multimedia');
+            $table->text('tim_musik');
             $table->timestamps();
         });
     }

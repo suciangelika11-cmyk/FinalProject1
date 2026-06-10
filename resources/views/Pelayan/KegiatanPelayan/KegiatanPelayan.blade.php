@@ -29,100 +29,90 @@
         @foreach($kegiatans as $item)
             <article class="kegiatan-card">
 
-                <!-- DATE COLUMN -->
-                <div class="card-date">
-                    <div class="date-weekday">
-                        {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('l') }}
+                <div class="card-header">
+
+                    <div class="date-box">
+                        <div class="date-weekday">
+                            {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('l') }}
+                        </div>
+
+                        <div class="date-num">
+                            {{ \Carbon\Carbon::parse($item->tanggal)->format('d') }}
+                        </div>
+
+                        <div class="date-month">
+                            {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('F Y') }}
+                        </div>
                     </div>
 
-                    <div class="date-num">
-                        {{ \Carbon\Carbon::parse($item->tanggal)->format('d') }}
+                    <div class="info-box">
+                        <span class="card-tag">Pengkhotbah</span>
+
+                        <h2>{{ $item->pengkhotbah }}</h2>
+
+                        <div class="card-tema">
+                            "{{ $item->tema }}"
+                        </div>
+
+                        <div class="card-verse">
+                            {{ $item->ayat }}
+                        </div>
                     </div>
 
-                    <div class="date-month">
-                        {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('F Y') }}
-                    </div>
                 </div>
 
-                <!-- INFO COLUMN -->
-                <div class="card-info">
-                    <div class="card-tag">Pengkhotbah</div>
+                <div class="team-grid">
 
-                    <h2 class="card-preacher">{{ $item->pengkhotbah }}</h2>
-
-                    <div class="card-divider"></div>
-
-                    <div class="card-tema">"{{ $item->tema }}"</div>
-
-                    <div class="card-verse">
-                        <i class="fa-solid fa-book-open"></i>
-                        {{ $item->ayat }}
-                    </div>
-                </div>
-
-                <!-- TEAM COLUMN -->
-                <div class="card-team">
-                    <div class="team-heading">Tim yang Melayani</div>
-
-                    <!-- WORSHIP TEAM -->
-                    <div class="sub-team">
-                        <div class="sub-team-head">
-                            <div class="sub-team-icon worship">
-                                <i class="fa-solid fa-microphone-lines"></i>
-                            </div>
-                            <div>
-                                <div class="sub-team-name">Worship Team</div>
-                                <div class="sub-team-desc">Pujian & Penyembahan</div>
-                            </div>
-                        </div>
-
-                        @foreach(explode(',', $item->worship_team) as $m)
-                            <div class="member-row">
-                                <span class="member-name">{{ trim($m) }}</span>
-                                <span class="member-badge worship">Worship</span>
-                            </div>
+                    <!-- Singer -->
+                    <div class="team-box">
+                        <h4>🎤 Tim Singer</h4>
+                        @foreach(explode(',', $item->singer_team ?? '') as $m)
+                            @if(trim($m))
+                                <span>{{ trim($m) }}</span>
+                            @endif
                         @endforeach
                     </div>
 
-                    <!-- MULTIMEDIA TEAM -->
-                    <div class="sub-team">
-                        <div class="sub-team-head">
-                            <div class="sub-team-icon media">
-                                <i class="fa-solid fa-video"></i>
-                            </div>
-                            <div>
-                                <div class="sub-team-name">Multimedia</div>
-                                <div class="sub-team-desc">Media & Operator</div>
-                            </div>
-                        </div>
-
-                        @foreach(explode(',', $item->multimedia_team) as $m)
-                            <div class="member-row">
-                                <span class="member-name">{{ trim($m) }}</span>
-                                <span class="member-badge media">Multimedia</span>
-                            </div>
+                    <!-- WL -->
+                    <div class="team-box">
+                        <h4>🎙 Tim Worship Leader</h4>
+                        @foreach(explode(',', $item->worship_leader_team ?? '') as $m)
+                            @if(trim($m))
+                                <span>{{ trim($m) }}</span>
+                            @endif
                         @endforeach
                     </div>
 
-                    <!-- LITURGI TEAM -->
-                    <div class="sub-team">
-                        <div class="sub-team-head">
-                            <div class="sub-team-icon liturgi">
-                                <i class="fa-solid fa-scroll"></i>
-                            </div>
-                            <div>
-                                <div class="sub-team-name">Liturgi</div>
-                                <div class="sub-team-desc">Penyambutan & Liturgi</div>
-                            </div>
-                        </div>
-
-                        @foreach(explode(',', $item->liturgi_team) as $m)
-                            <div class="member-row">
-                                <span class="member-name">{{ trim($m) }}</span>
-                                <span class="member-badge liturgi">Liturgi</span>
-                            </div>
+                    <!-- Tamborin -->
+                    <div class="team-box">
+                        <h4>⭐ Tim Tamborin</h4>
+                        @foreach(explode(',', $item->tamborin_team ?? '') as $m)
+                            @if(trim($m))
+                                <span>{{ trim($m) }}</span>
+                            @endif
                         @endforeach
                     </div>
+
+                    <!-- Multimedia -->
+                    <div class="team-box">
+                        <h4>🎥 Tim Multimedia</h4>
+                        @foreach(explode(',', $item->multimedia_team ?? '') as $m)
+                            @if(trim($m))
+                                <span>{{ trim($m) }}</span>
+                            @endif
+                        @endforeach
+                    </div>
+
+                    <!-- Musik -->
+                    <div class="team-box">
+                        <h4>🎸 Tim Musik</h4>
+                        @foreach(explode(',', $item->musik_team ?? '') as $m)
+                            @if(trim($m))
+                                <span>{{ trim($m) }}</span>
+                            @endif
+                        @endforeach
+                    </div>
+
                 </div>
 
             </article>
