@@ -4,6 +4,7 @@
 
 @include('admin.layouts.LOAAbsen.AbsenIndex')
 
+
     <div class="content-header">
         <h1>Kelola Absensi</h1>
         <div class="breadcrumb-bar">
@@ -15,6 +16,7 @@
 
         <div class="page-hero">
             <div class="hero-tag">
+
                 <i class="ri-checkbox-circle-line"></i>Absensi Ibadah
             </div>
 
@@ -27,7 +29,8 @@
 
             <div class="hero-actions">
                 <a href="{{ route('absensi.create') }}" class="btn-hero-primary">
-                    ＋ Tambah Absensi
+                    <i class="fas fa-plus"></i>
+                    Tambah Absensi
                 </a>
             </div>
         </div>
@@ -35,7 +38,11 @@
         @if(session('success'))
             <div
                 style="background:#dcfce7; border:1px solid #86efac; border-radius:12px; padding:14px 16px; margin-bottom:20px; color:#166534; font-size:14px;">
-                <strong>✓ {{ session('success') }}</strong>
+
+                <strong>
+                    <i class="fas fa-circle-check"></i>
+                    {{ session('success') }}
+                </strong>
             </div>
         @endif
 
@@ -46,7 +53,6 @@
                         <th>Tanggal</th>
                         <th>Sesi</th>
                         <th>Pengkhotbah</th>
-                        <th>Pelayan</th>
                         <th>Jumlah Jemaat</th>
                         <th>Aksi</th>
                     </tr>
@@ -68,16 +74,13 @@
                             </td>
 
                             <td>
-                                {{ $item->pelayan }}
-                            </td>
-
-                            <td>
                                 <strong>{{ $item->jumlah }}</strong> orang
                             </td>
 
                             <td>
                                 <a href="{{ route('absensi.edit', $item) }}" class="btn btn-warning">
-                                    ✏ Edit
+                                    <i class="fas fa-pen"></i>
+                                    Edit
                                 </a>
 
                                 <form action="{{ route('absensi.destroy', $item) }}" method="POST"
@@ -87,7 +90,9 @@
 
                                     <button type="submit" class="btn btn-danger"
                                         onclick="return confirm('Yakin ingin menghapus data absensi ini?')">
-                                        🗑 Hapus
+
+                                        <i class="fas fa-trash"></i>
+                                        Hapus
                                     </button>
                                 </form>
                             </td>
@@ -95,9 +100,16 @@
                     @empty
                         <tr>
                             <td colspan="6" style="text-align:center; padding:28px; color:#9ca3af; font-size:14px;">
+
+                                <i class="fas fa-folder-open"></i>
                                 Belum ada data absensi.
 
-                                <a href="{{ route('absensi.create') }}" style="color:#1da8e0; text-decoration:none;">
+                                <br><br>
+
+                                <a href="{{ route('absensi.create') }}"
+                                    style="color:#1da8e0; text-decoration:none; font-weight:600;">
+
+                                    <i class="fas fa-plus-circle"></i>
                                     Buat yang pertama
                                 </a>
                             </td>

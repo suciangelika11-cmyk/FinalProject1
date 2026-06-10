@@ -112,6 +112,12 @@
                         Hapus
                     </button>
 
+                <form action="{{ route('galeri.destroy', $item->id) }}" method="POST" style="display:inline;"
+                  onsubmit="return confirm('Hapus foto ini?')">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="a-btn a-del">Hapus</button>
+
                 </form>
 
             </div>

@@ -25,7 +25,6 @@ class AbsensiController extends Controller
             'date' => 'required|date',
             'session' => 'required|string|max:100',
             'pengkhotbah' => 'required|string|max:255',
-            'pelayan' => 'required|string|max:255',
             'jumlah' => 'required|integer|min:0',
         ]);
 
@@ -47,7 +46,6 @@ class AbsensiController extends Controller
             'date' => 'required|date',
             'session' => 'required|string|max:100',
             'pengkhotbah' => 'required|string|max:255',
-            'pelayan' => 'required|string|max:255',
             'jumlah' => 'required|integer|min:0',
         ]);
 

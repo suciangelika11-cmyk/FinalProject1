@@ -15,7 +15,6 @@ class Absensi extends Model
         'date',
         'session',
         'pengkhotbah',
-        'pelayan',
         'jumlah',
         'created_by',
     ];
