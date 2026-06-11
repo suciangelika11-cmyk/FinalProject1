@@ -441,7 +441,6 @@
       padding-top: 66px;
       min-height: 100vh;
       transition: margin-left .25s ease;
-      width: calc(100% - 240px);
     }
 
     .wrapper.sidebar-closed {

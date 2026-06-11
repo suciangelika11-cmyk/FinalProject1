@@ -46,6 +46,11 @@ class User extends Authenticatable
         return $this->hasMany(Galeri::class);
     }
 
+    public function pelayanan()
+    {
+        return $this->hasMany(Galeri::class);
+    }
+
     protected $hidden = [
         'password',
         'remember_token',

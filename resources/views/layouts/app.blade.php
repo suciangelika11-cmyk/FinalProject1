@@ -11,6 +11,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=DM+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <style>
         /* Navbar premium styling */
@@ -988,18 +989,18 @@
                                     <span>{{ Auth::user()->name }}</span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
-                                        @if(Auth::check() && Auth::user()->role == 'admin')
-                                            <li>
-                                                <a href="{{ route('admin.dashboard') }}" class="dropdown-item">
+                                    @if(Auth::check() && Auth::user()->role == 'admin')
+                                        <li>
+                                            <a href="{{ route('admin.dashboard') }}" class="dropdown-item">
                                                 <i class="bi bi-speedometer2 me-2"></i>
-                                                    Dashboard Admin
-                                                </a>
-                                            </li>
+                                                Dashboard Admin
+                                            </a>
+                                        </li>
 
-                                            <li>
-                                                <hr class="dropdown-divider">
-                                            </li>
-                                        @endif
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                    @endif
                                     <li>
                                         <form method="POST" action="{{ route('logout') }}" class="m-0">
                                             @csrf

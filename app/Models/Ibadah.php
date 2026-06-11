@@ -10,4 +10,9 @@ class Ibadah extends Model
         'nama_sesi',
         'jam_ibadah'
     ];
+
+    public function jadwal()
+    {
+        return $this->belongsTo(Pelayanan::class);
+    }
 }

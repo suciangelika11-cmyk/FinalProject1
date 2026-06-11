@@ -28,10 +28,4 @@ class Jadwal extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-    // Relasi Jadwal BelongsTo Pelayanan
-    public function pelayanan()
-    {
-        return $this->belongsTo(Pelayanan::class);
-    }
 }

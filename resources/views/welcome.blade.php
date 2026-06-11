@@ -119,34 +119,40 @@
                         </div>
 
                         <div class="join-icon">
-                            ⛪
+                            <i class="fas fa-church"></i>
                         </div>
                     </div>
 
                     <div class="join-buttons">
                         <a href="{{ route('user.jemaat') }}" class="btn-primary">
-                            📍 Jadi Jemaat
+                            <i class="bi bi-person-plus-fill"></i> Jadi Jemaat
                         </a>
 
                         <a href="{{ route('user.kontak') }}" class="btn-secondary">
-                            👥 Hubungi Kami
+                            <i class="bi bi-telephone-fill"></i> Hubungi Kami
                         </a>
                     </div>
 
                     <div class="join-features">
 
                         <div class="feature">
-                            <div class="feature-icon">👥</div>
+                            <div class="feature-icon">
+                                <i class="bi bi-people-fill"></i>
+                            </div>
                             <p>Daftar menjadi jemaat</p>
                         </div>
 
                         <div class="feature">
-                            <div class="feature-icon">🤝</div>
+                            <div class="feature-icon">
+                                <i class="bi bi-person-heart"></i>
+                            </div>
                             <p>Hubungi tim pelayanan</p>
                         </div>
 
                         <div class="feature">
-                            <div class="feature-icon">❤️</div>
+                            <div class="feature-icon">
+                                <i class="bi bi-heart-fill"></i>
+                            </div>
                             <p>Bertumbuh bersama</p>
                         </div>
                     </div>

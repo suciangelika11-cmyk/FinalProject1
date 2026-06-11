@@ -12,7 +12,7 @@ class PelayananAnggota extends Model
         'bagian',
     ];
 
-    public function pelayanan()
+    public function kegiatan_pelayanans()
     {
         return $this->belongsTo(Pelayanan::class);
     }

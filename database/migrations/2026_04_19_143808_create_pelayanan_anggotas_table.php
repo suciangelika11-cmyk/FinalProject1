@@ -9,8 +9,8 @@ return new class extends Migration {
     {
         Schema::create('pelayanan_anggotas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pelayanan_id')
-                ->constrained('pelayanan')->onDelete('cascade');
+            $table->foreignId('kegiatan_pelayanan_id')
+                ->constrained('kegiatan_pelayanans')->onDelete('cascade');
             $table->string('nama');
             $table->string('bagian')->nullable();
             $table->timestamps();

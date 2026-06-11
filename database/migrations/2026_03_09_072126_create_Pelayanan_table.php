@@ -9,6 +9,8 @@ return new class extends Migration {
     {
         Schema::create('pelayanan', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()
+                ->constrained('users')->onDelete('set null');
             $table->string('title');
             $table->enum('category', ['kepemimpinan', 'tim', 'aksi']);
             $table->string('leader');
