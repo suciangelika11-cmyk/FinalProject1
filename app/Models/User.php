@@ -46,6 +46,12 @@ class User extends Authenticatable
         return $this->hasMany(Galeri::class);
     }
 
+    // Relasi User HasMany Ibadah
+    public function ibadahs()
+    {
+        return $this->hasMany(Ibadah::class);
+    }
+
     protected $hidden = [
         'password',
         'remember_token',
