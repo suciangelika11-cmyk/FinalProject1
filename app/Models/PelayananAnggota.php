@@ -9,6 +9,7 @@ class PelayananAnggota extends Model
     protected $fillable = [
         'user_id',
         'pelayanan_id',
+        'kegiatan_pelayanan_id',
         'nama',
         'bagian',
     ];
@@ -23,11 +24,8 @@ class PelayananAnggota extends Model
         return $this->belongsTo(Pelayanan::class);
     }
 
-    public function kegiatanPelayanans()
+    public function kegiatanPelayanan()
     {
-        return $this->belongsToMany(
-            KegiatanPelayanan::class,
-            'kegiatan_pelayanan_anggota'
-        )->withPivot('peran')->withTimestamps();
+        return $this->belongsTo(KegiatanPelayanan::class, 'kegiatan_pelayanan_id');
     }
 }

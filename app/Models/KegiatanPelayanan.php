@@ -18,9 +18,8 @@ class KegiatanPelayanan extends Model
         'tim_musik',
     ];
 
-    public function kegiatanPelayanans()
+    public function anggota()
     {
-        return $this->belongsToMany(KegiatanPelayanan::class,'kegiatan_pelayanan_anggota'
-        )->withPivot('peran')->withTimestamps();
+        return $this->hasMany(PelayananAnggota::class, 'kegiatan_pelayanan_id');
     }
 }
