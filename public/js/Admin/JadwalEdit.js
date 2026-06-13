@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             hariGroup.style.display = 'block';
             jamGroup.style.display = 'flex';
-            jadwalKhusus.style.display = 'block';
+            jadwalKhusus.style.display = 'none';
         }
     }
 

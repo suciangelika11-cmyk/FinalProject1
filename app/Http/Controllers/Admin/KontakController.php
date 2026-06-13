@@ -16,21 +16,29 @@ class KontakController extends Controller
 
     public function create()
     {
+        if (Kontak::count() > 0) {
+            return redirect()->route('kontak.index')
+                ->with('error', 'Data kontak gereja sudah tersedia.');
+        }
         return view('admin.kontaks.create');
     }
 
     public function store(Request $request)
     {
+        if (Kontak::count() > 0) {
+            return redirect()->route('kontak.index')
+                ->with('error', 'Hanya boleh ada satu data kontak gereja.');
+        }
         $request->validate([
             'address' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|regex:/^[0-9]+$/',
             'email' => 'required|email',
             'office_hours' => 'nullable',
-            'map_embed' => 'nullable'
+            'map_embed' => 'nullable',
+        ], [
+            'phone.regex' => 'Nomor telepon hanya boleh berisi angka.',
         ]);
-
         Kontak::create($request->all());
-
         return redirect()->route('kontak.index')
             ->with('success', 'Kontak berhasil ditambahkan.');
     }
@@ -44,14 +52,15 @@ class KontakController extends Controller
     {
         $request->validate([
             'address' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|regex:/^[0-9]+$/',
             'email' => 'required|email',
             'office_hours' => 'nullable',
-            'map_embed' => 'nullable'
+            'map_embed' => 'nullable',
+        ], [
+            'phone.regex' => 'Nomor telepon hanya boleh berisi angka.',
         ]);
-
         $kontak->update($request->all());
-
+            
         return redirect()->route('kontak.index')
             ->with('success', 'Kontak berhasil diperbarui.');
     }

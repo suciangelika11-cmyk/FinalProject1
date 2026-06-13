@@ -64,32 +64,32 @@
 
         <div class="form-group">
           <label>Tim Singer</label>
-          <input type="text" name="singer_team" class="form-control"
-            value="{{ old('singer_team', $kegiatan->singer_team) }}" placeholder="Nama1, Nama2" maxlength="250">
+          <input type="text" name="tim_singer" class="form-control"
+            value="{{ old('tim_singer', $kegiatan->tim_singer) }}" placeholder="Nama1, Nama2" maxlength="250">
         </div>
 
         <div class="form-group">
           <label>Tim Worship Leader</label>
-          <input type="text" name="worship_leader_team" class="form-control"
-            value="{{ old('worship_leader_team', $kegiatan->worship_leader_team) }}" placeholder="Nama1, Nama2"
+          <input type="text" name="tim_worship_leader" class="form-control"
+            value="{{ old('tim_worship_leader', $kegiatan->tim_worship_leader) }}" placeholder="Nama1, Nama2"
             maxlength="250">
         </div>
 
         <div class="form-group">
           <label>Tim Tamborin</label>
-          <input type="text" name="tamborin_team" class="form-control"
-            value="{{ old('tamborin_team', $kegiatan->tamborin_team) }}" placeholder="Nama1, Nama2" maxlength="250">
+          <input type="text" name="tim_tamborin" class="form-control"
+            value="{{ old('tim_tamborin', $kegiatan->tim_tamborin) }}" placeholder="Nama1, Nama2" maxlength="250">
         </div>
 
         <div class="form-group">
           <label>Tim Multimedia</label>
-          <input type="text" name="multimedia_team" class="form-control"
-            value="{{ old('multimedia_team', $kegiatan->multimedia_team) }}" placeholder="Nama1, Nama2" maxlength="250">
+          <input type="text" name="tim_multimedia" class="form-control"
+            value="{{ old('tim_multimedia', $kegiatan->tim_multimedia) }}" placeholder="Nama1, Nama2" maxlength="250">
         </div>
 
         <div class="form-group">
           <label>Tim Musik</label>
-          <input type="text" name="musik_team" class="form-control" value="{{ old('musik_team', $kegiatan->musik_team) }}"
+          <input type="text" name="tim_musik" class="form-control" value="{{ old('tim_musik', $kegiatan->tim_musik) }}"
             placeholder="Nama1, Nama2" maxlength="250">
         </div>
 

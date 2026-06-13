@@ -333,43 +333,45 @@
     }
 
     .team-grid {
-        display: flex;
-        flex-direction:column;
-        gap: 15px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 16px;
     }
 
     .team-box {
         background: #f8fafc;
-        align-items:center;
+        align-items: center;
         border: 1px solid #e6edf5;
-        justify-content:space-between;
+        justify-content: space-between;
         border-radius: 16px;
-        padding: 16px 20px;
+        padding: 14px 28px;
     }
 
     .team-box h4 {
-        margin-bottom: 10px;
+        margin-bottom: 12px;
         font-size: 15px;
+        font-weight:600;
     }
 
     .team-box span {
         display: block;
-        padding: 6px 0;
+        padding: 4px 0;
+        font-size:14px;
     }
 
-    .team-title{
-    display:flex;
-    align-items:center;
-    gap:10px;
+    .team-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
 
-    font-weight:600;
-    color:var(--text-primary);
-}
+        font-weight: 600;
+        color: var(--text-primary);
+    }
 
-.team-members{
-    color:var(--text-muted);
-    font-size:14px;
-}
+    .team-members {
+        color: var(--text-muted);
+        font-size: 14px;
+    }
 
     /* ================= SUB TEAM ================= */
     .sub-team {

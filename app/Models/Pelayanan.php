@@ -13,12 +13,19 @@ class Pelayanan extends Model
     protected $table = 'pelayanan';
 
     protected $fillable = [
+        'user_id',
         'title',
         'category',
         'leader',
         'description',
         'photo',
     ];
+
+    // Relasi Pelayanan HasMany PelayananAnggota
+    public function anggotas()
+    {
+        return $this->hasMany(PelayananAnggota::class);
+    }
 
     // Relasi Pelayanan HasMany Jadwal
     public function jadwals()
@@ -29,5 +36,11 @@ class Pelayanan extends Model
     public function getPhotoUrlAttribute()
     {
         return $this->photo ? Storage::url($this->photo) : null;
+    }
+
+    // Pelayanan.php
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

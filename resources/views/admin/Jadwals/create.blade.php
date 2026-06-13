@@ -87,7 +87,7 @@
 
                 <div class="fg">
                     <label>Deskripsi</label>
-                    <textarea name="description" rows="3" required maxlength="200"
+                    <textarea name="description" rows="3" required maxlength="250"
                         placeholder="Masukkan deskripsi kegiatan">{{ old('description') }}</textarea>
                 </div>
 

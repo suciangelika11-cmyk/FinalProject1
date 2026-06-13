@@ -24,7 +24,7 @@
 
       <div class="fg">
         <label>Sejarah Gereja</label>
-        <textarea name="sejarah" rows="5" required maxlength="250">{{ old('sejarah') }}</textarea>
+        <textarea name="sejarah" rows="5" required maxlength="450">{{ old('sejarah') }}</textarea>
       </div>
 
       <div class="form-row">
@@ -51,7 +51,7 @@
 
       <div class="fg">
         <label>Deskripsi Gembala</label>
-        <textarea name="gembala_deskripsi" rows="3" maxlength="200">{{ old('gembala_deskripsi') }}</textarea>
+        <textarea name="gembala_deskripsi" rows="3" maxlength="400">{{ old('gembala_deskripsi') }}</textarea>
       </div>
 
       <div class="fg">

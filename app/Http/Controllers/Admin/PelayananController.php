@@ -13,7 +13,7 @@ class PelayananController extends Controller
 {
     public function index()
     {
-        $pelayanan = Pelayanan::with('anggotas')->latest()->get();
+        $pelayanan = Pelayanan::with('user', 'anggotas')->latest()->get();
 
         return view('admin.pelayanan.index', compact('pelayanan'));
     }
@@ -76,6 +76,8 @@ class PelayananController extends Controller
             if ($request->category == 'aksi' && $request->hasFile('photo_aksi')) {
                 $data['photo'] = $request->file('photo_aksi')->store('pelayanan', 'public');
             }
+
+            $data['user_id'] = auth()->id();
 
             $pelayanan = Pelayanan::create($data);
 

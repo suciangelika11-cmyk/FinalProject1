@@ -25,9 +25,10 @@ class JadwalController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'day' => 'required',
-            'start_time' => 'required|date_format:H:i:s ',
-            'end_time' => 'nullable|date_format:H:i:s|after:start_time',
+            'day' => 'required_if:category,mingguan',
+            'jadwal_khusus' => 'required_if:category,acara_khusus',
+            'start_time' => 'required_if:category,mingguan|nullable',
+            'end_time' => 'nullable|date_format:H:i|after:start_time',
             'location' => 'required',
             'description' => 'required',
             'category' => 'required',
@@ -55,9 +56,10 @@ class JadwalController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'day' => 'required',
-            'start_time' => 'required|date_format:H:i:s',
-            'end_time' => 'nullable|date_format:H:i:s|after:start_time',
+            'day' => 'required_if:category,mingguan',
+            'jadwal_khusus' => 'required_if:category,acara_khusus',
+            'start_time' => 'required_if:category,mingguan|nullable',
+            'end_time' => 'nullable|date_format:H:i|after:start_time',
             'location' => 'required',
             'description' => 'required',
             'category' => 'required',

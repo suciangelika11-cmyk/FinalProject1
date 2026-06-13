@@ -66,7 +66,7 @@
                     <!-- Singer -->
                     <div class="team-box">
                         <h4>🎤 Tim Singer</h4>
-                        @foreach(explode(',', $item->singer_team ?? '') as $m)
+                        @foreach(explode(',', $item->tim_singer ?? '') as $m)
                             @if(trim($m))
                                 <span>{{ trim($m) }}</span>
                             @endif
@@ -76,7 +76,7 @@
                     <!-- WL -->
                     <div class="team-box">
                         <h4>🎙 Tim Worship Leader</h4>
-                        @foreach(explode(',', $item->worship_leader_team ?? '') as $m)
+                        @foreach(explode(',', $item->tim_worship_leader ?? '') as $m)
                             @if(trim($m))
                                 <span>{{ trim($m) }}</span>
                             @endif
@@ -86,7 +86,7 @@
                     <!-- Tamborin -->
                     <div class="team-box">
                         <h4>⭐ Tim Tamborin</h4>
-                        @foreach(explode(',', $item->tamborin_team ?? '') as $m)
+                        @foreach(explode(',', $item->tim_tamborin ?? '') as $m)
                             @if(trim($m))
                                 <span>{{ trim($m) }}</span>
                             @endif
@@ -96,7 +96,7 @@
                     <!-- Multimedia -->
                     <div class="team-box">
                         <h4>🎥 Tim Multimedia</h4>
-                        @foreach(explode(',', $item->multimedia_team ?? '') as $m)
+                        @foreach(explode(',', $item->tim_multimedia ?? '') as $m)
                             @if(trim($m))
                                 <span>{{ trim($m) }}</span>
                             @endif
@@ -106,7 +106,7 @@
                     <!-- Musik -->
                     <div class="team-box">
                         <h4>🎸 Tim Musik</h4>
-                        @foreach(explode(',', $item->musik_team ?? '') as $m)
+                        @foreach(explode(',', $item->tim_musik ?? '') as $m)
                             @if(trim($m))
                                 <span>{{ trim($m) }}</span>
                             @endif

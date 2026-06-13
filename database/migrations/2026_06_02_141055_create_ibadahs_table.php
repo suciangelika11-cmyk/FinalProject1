@@ -12,8 +12,6 @@ return new class extends Migration {
     {
         Schema::create('ibadahs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('jadwal_id')->nullable()
-                ->constrained('jadwal')->onDelete('set null');
             $table->string('nama_sesi');
             $table->time('jam_ibadah');
             $table->timestamps();

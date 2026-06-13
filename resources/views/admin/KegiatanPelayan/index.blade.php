@@ -43,24 +43,24 @@
               <td>{{ $item->ayat }}</td>
 
               <td>
-                @if($item->singer_team)
-                  <strong>Singer:</strong> {{ $item->singer_team }}<br>
+                @if($item->tim_singer)
+                  <strong>Singer:</strong> {{ $item->tim_singer }}<br>
                 @endif
 
-                @if($item->worship_leader_team)
-                  <strong>WL:</strong> {{ $item->worship_leader_team }}<br>
+                @if($item->tim_worship_leader)
+                  <strong>WL:</strong> {{ $item->tim_worship_leader }}<br>
                 @endif
 
-                @if($item->tamborin_team)
-                  <strong>Tamborin:</strong> {{ $item->tamborin_team }}<br>
+                @if($item->tim_tamborin)
+                  <strong>Tamborin:</strong> {{ $item->tim_tamborin }}<br>
                 @endif
 
-                @if($item->multimedia_team)
-                  <strong>Multimedia:</strong> {{ $item->multimedia_team }}<br>
+                @if($item->tim_multimedia)
+                  <strong>Multimedia:</strong> {{ $item->tim_multimedia }}<br>
                 @endif
 
-                @if($item->musik_team)
-                  <strong>Musik:</strong> {{ $item->musik_team }}
+                @if($item->tim_musik)
+                  <strong>Musik:</strong> {{ $item->tim_musik }}
                 @endif
               </td>
 

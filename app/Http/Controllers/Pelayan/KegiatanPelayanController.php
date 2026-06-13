@@ -25,11 +25,9 @@ class KegiatanPelayanController extends Controller
             ->orderBy('start_time')
             ->get();
 
-        $pelayanans = Pelayanan::with('anggotas')
-            ->latest()
-            ->get();
-
         $kegiatans = KegiatanPelayanan::latest()->get();
+
+        $pelayanans = Pelayanan::latest()->get();
 
         return view(
             'Pelayan.KegiatanPelayan.KegiatanPelayan',
