@@ -91,8 +91,8 @@
     }
 
     .hero-logo-circle {
-        width: 90px;
-        height: 90px;
+        width: 100px;
+        height: 100px;
         border-radius: 50%;
         background: rgba(255,255,255,.12);
         border: 2px solid rgba(255, 255, 255, .45);
@@ -105,8 +105,8 @@
     }
 
     .hero-logo-circle img {
-        width: 70%;
-        height: 70%;
+        width: 100%;
+        height: 100%;
         object-fit: contain;
         border-radius: 50%;
         background: transparent;
@@ -143,8 +143,8 @@
 
     .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-        gap: 16px;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 20px;
         margin-bottom: 36px;
     }
 

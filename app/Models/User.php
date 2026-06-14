@@ -16,6 +16,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'is_active',
         'phone',
         'alamat',
         'jabatan',
@@ -46,10 +47,16 @@ class User extends Authenticatable
         return $this->hasMany(Galeri::class);
     }
 
-    // Relasi User HasMany Ibadah
-    public function ibadahs()
+
+    public function pelayananAnggotas()
     {
-        return $this->hasMany(Ibadah::class);
+        return $this->hasMany(PelayananAnggota::class);
+    }
+
+    public function pelayanans()
+    {
+        return $this->hasMany(Pelayanan::class);
+
     }
 
     protected $hidden = [

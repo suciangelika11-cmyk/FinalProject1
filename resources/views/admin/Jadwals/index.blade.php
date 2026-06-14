@@ -2,7 +2,7 @@
 
 @push('styles')
 
-@include('admin.layouts.LOAJadwal.JadwalIndex') 
+  @include('admin.layouts.LOAJadwal.JadwalIndex')
 
 @endpush
 
@@ -165,10 +165,18 @@
           <div class="jcard {{ $warna }}">
             <div class="jcard-icon">{{ $item->icon ?: '✨' }}</div>
             <div class="jcard-title">{{ $item->title }}</div>
-            <div class="jcard-desc">{{ $item->description ?: '-' }}</div>
+
+            <div style="margin:10px 0;">
+              <span class="bulan-badge b-{{ $warna }}">
+                📅 {{ $item->jadwal_khusus }}
+              </span>
+            </div>
+
+            <div class="jcard-desc">
+              {{ $item->description ?: '-' }}
+            </div>
 
             <div class="jcard-footer">
-              <span class="bulan-badge b-{{ $warna }}">{{ $item->day ?: 'Acara Khusus' }}</span>
 
               <div class="jcard-actions">
                 <a href="{{ route('jadwal.edit', $item->id) }}" class="act-btn btn-edit">✏ Edit</a>

@@ -2,7 +2,7 @@
 
 @push('styles')
 
-@include('admin.layouts.LOAKegiatanPelayan.KegiatanPelayananCreate')
+  @include('admin.layouts.LOAKegiatanPelayan.KegiatanPelayananCreate')
 
 @endpush
 
@@ -20,7 +20,7 @@
         <h2>Form Tambah Kegiatan</h2>
 
         <p>
-          Isi data kegiatan pelayanan agar dapat dikelola oleh admin dan super admin.
+          Isi data kegiatan pelayanan agar dapat dikelola oleh admin.
         </p>
 
         @if ($errors->any())
@@ -46,7 +46,8 @@
 
           <div class="form-group">
             <label>Pengkhotbah</label>
-            <input type="text" name="pengkhotbah" class="form-control" value="{{ old('pengkhotbah') }}" required maxlength="100">
+            <input type="text" name="pengkhotbah" class="form-control" value="{{ old('pengkhotbah') }}" required
+              maxlength="100">
           </div>
 
           <div class="form-group">
@@ -60,21 +61,33 @@
           </div>
 
           <div class="form-group">
-            <label>Worship Team</label>
-            <input type="text" name="worship_team" class="form-control" value="{{ old('worship_team') }}"
+            <label>Tim Singer</label>
+            <input type="text" name="tim_singer" class="form-control" placeholder="Nama1, Nama2"
+              value="{{ old('tim_singer') }}" required maxlength="250">
+          </div>
+
+          <div class="form-group">
+            <label>Tim Multimedia</label>
+            <input type="text" name="tim_multimedia" class="form-control" value="{{ old('tim_multimedia') }}"
               placeholder="Nama1, Nama2" required maxlength="250">
           </div>
 
           <div class="form-group">
-            <label>Multimedia Team</label>
-            <input type="text" name="multimedia_team" class="form-control" value="{{ old('multimedia_team') }}"
+            <label>Tim Worship Leader</label>
+            <input type="text" name="tim_worship_leader" class="form-control" value="{{ old('tim_worship_leader') }}"
               placeholder="Nama1, Nama2" required maxlength="250">
           </div>
 
           <div class="form-group">
-            <label>Liturgi Team</label>
-            <input type="text" name="liturgi_team" class="form-control" value="{{ old('liturgi_team') }}"
+            <label>Tim Tamborin</label>
+            <input type="text" name="tim_tamborin" class="form-control" value="{{ old('tim_tamborin') }}"
               placeholder="Nama1, Nama2" required maxlength="250">
+          </div>
+
+          <div class="form-group">
+            <label>Tim Musik</label>
+            <input type="text" name="tim_musik" class="form-control" value="{{ old('tim_musik') }}"
+              placeholder="Nama1, Nama2" required maxlength="250">  
           </div>
 
           <div class="action-row">

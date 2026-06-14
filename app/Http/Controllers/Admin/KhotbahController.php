@@ -52,7 +52,7 @@ class KhotbahController extends Controller
             'title' => 'required|string|max:255',
             'video' => 'required|string|max:255',
             'description' => 'required|string',
-            'thumbnail' => 'required|image|max:2048',
+            'thumbnail' => 'nullable|image|max:2048',
             'sermon_date' => 'required|date',
         ]);
 

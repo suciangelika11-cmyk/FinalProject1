@@ -32,7 +32,7 @@
 
         <div class="fg">
           <label>Telepon</label>
-          <input type="text" name="phone" value="{{ old('phone', $kontak->phone) }}" required maxlength="15">
+          <input type="text" name="phone" value="{{ old('phone', $kontak->phone ?? '') }}" pattern="[0-9]+" inputmode="numeric" required maxlength="15">
         </div>
 
         <div class="fg">

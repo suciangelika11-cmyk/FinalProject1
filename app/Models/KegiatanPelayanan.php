@@ -11,8 +11,15 @@ class KegiatanPelayanan extends Model
         'pengkhotbah',
         'tema',
         'ayat',
-        'worship_team',
-        'multimedia_team',
-        'liturgi_team',
+        'tim_singer',
+        'tim_worship_leader',
+        'tim_tamborin',
+        'tim_multimedia',
+        'tim_musik',
     ];
+
+    public function anggota()
+    {
+        return $this->hasMany(PelayananAnggota::class, 'kegiatan_pelayanan_id');
+    }
 }

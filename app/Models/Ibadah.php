@@ -12,8 +12,10 @@ class Ibadah extends Model
         'jam_ibadah'
     ];
 
-    public function user()
+
+    public function jadwals()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasMany(Jadwal::class);
+
     }
 }

@@ -1,0 +1,28 @@
+document.addEventListener('DOMContentLoaded', function () {
+
+    const category = document.getElementById('category');
+    const hariGroup = document.getElementById('hari-group');
+    const jamGroup = document.getElementById('jam-group');
+    const jadwalKhusus = document.getElementById('jadwal-khusus-group');
+
+    function toggleForm() {
+
+        if (category.value === 'acara_khusus') {
+
+            hariGroup.style.display = 'none';
+            jamGroup.style.display = 'none';
+            jadwalKhusus.style.display = 'block';
+
+        } else {
+
+            hariGroup.style.display = 'block';
+            jamGroup.style.display = 'flex';
+            jadwalKhusus.style.display = 'block';
+        }
+    }
+
+    toggleForm();
+
+    category.addEventListener('change', toggleForm);
+
+});

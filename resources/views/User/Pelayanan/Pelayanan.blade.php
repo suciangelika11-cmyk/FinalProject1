@@ -48,11 +48,33 @@
                 @forelse($timPelayanan as $tim)
                     <div class="pl-team-card">
                         <div class="pl-tc-icon">
-                            @if($tim->icon && str_contains($tim->icon, 'bi-'))
-                                <i class="bi {{ $tim->icon }}"></i>
+
+                            @php
+                                $title = strtolower($tim->title);
+                            @endphp
+
+                            @if(str_contains($title, 'singer'))
+                                <i class="bi bi-mic-fill"></i>
+
+                            @elseif(str_contains($title, 'worship'))
+                                <i class="bi bi-megaphone-fill"></i>
+
+                            @elseif(str_contains($title, 'tamborin'))
+                                <i class="bi bi-stars"></i>
+
+                            @elseif(str_contains($title, 'multimedia'))
+                                <i class="bi bi-camera-video-fill"></i>
+
+                            @elseif(str_contains($title, 'musik'))
+                                <i class="bi bi-music-note-beamed"></i>
+
+                            @elseif(str_contains($title, 'sekolah minggu'))
+                                <i class="bi bi-book-fill"></i>
+
                             @else
-                                {{ $tim->icon ?: '♪' }}
+                                <i class="bi bi-people-fill"></i>
                             @endif
+
                         </div>
                         <div class="pl-tc-title">{{ $tim->title }}</div>
                         <div class="pl-tc-desc">{{ $tim->description ?: 'Melayani dengan penuh dedikasi dan kasih.' }}</div>

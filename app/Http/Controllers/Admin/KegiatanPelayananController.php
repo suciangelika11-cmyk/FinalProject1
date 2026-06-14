@@ -26,9 +26,11 @@ class KegiatanPelayananController extends Controller
             'pengkhotbah' => 'required|string|max:255',
             'tema' => 'required|string|max:255',
             'ayat' => 'required|string|max:255',
-            'worship_team' => 'required|string|max:255',
-            'multimedia_team' => 'nullable|string|max:255',
-            'liturgi_team' => 'nullable|string|max:255',
+            'tim_singer' => 'required|string|max:255',
+            'tim_worship_leader' => 'required|string|max:255',
+            'tim_tamborin' => 'required|string|max:255',
+            'tim_multimedia' => 'required|string|max:255',
+            'tim_musik' => 'required|string|max:255',
         ]);
 
         KegiatanPelayanan::create($request->only([
@@ -36,9 +38,11 @@ class KegiatanPelayananController extends Controller
             'pengkhotbah',
             'tema',
             'ayat',
-            'worship_team',
-            'multimedia_team',
-            'liturgi_team',
+            'tim_singer',
+            'tim_worship_leader',
+            'tim_tamborin',
+            'tim_multimedia',
+            'tim_musik',
         ]));
 
         return redirect()->route('kegiatan.index')
@@ -62,9 +66,11 @@ class KegiatanPelayananController extends Controller
             'pengkhotbah' => 'required|string|max:255',
             'tema' => 'required|string|max:255',
             'ayat' => 'required|string|max:255',
-            'worship_team' => 'nullable|string|max:255',
-            'multimedia_team' => 'nullable|string|max:255',
-            'liturgi_team' => 'nullable|string|max:255',
+            'tim_singer' => 'nullable|string|max:255',
+            'tim_worship_leader' => 'nullable|string|max:255',
+            'tim_tamborin' => 'nullable|string|max:255',
+            'tim_multimedia' => 'nullable|string|max:255',
+            'tim_musik' => 'nullable|string|max:255',
         ]);
 
         $kegiatan->update($request->only([
@@ -72,9 +78,11 @@ class KegiatanPelayananController extends Controller
             'pengkhotbah',
             'tema',
             'ayat',
-            'worship_team',
-            'multimedia_team',
-            'liturgi_team',
+            'tim_singer',
+            'tim_worship_leader',
+            'tim_tamborin',
+            'tim_multimedia',
+            'tim_musik',
         ]));
 
         return redirect()->route('kegiatan.index')

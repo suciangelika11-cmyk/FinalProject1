@@ -134,8 +134,8 @@
 
                             <div class="jd-badge">
                                 <i class="bi bi-calendar2-check"></i>
-                                {{ $acara->day ?: 'Acara Khusus' }}
-                            </div>
+                                {{ $acara->jadwal_khusus ?: 'Acara Khusus' }}
+                            </div>  
 
                         </div>
 

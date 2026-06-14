@@ -47,6 +47,7 @@
                         <h3>Visi Kami</h3>
                         <p>{{ $data->visi }}</p>
                     </div>
+
                     <div class="misi-card">
                         <h3>Misi Kami</h3>
                         <p>{{ $data->misi }}</p>
@@ -68,6 +69,7 @@
                             <div class="avatar">👤</div>
                         @endif
                     </div>
+
                     <div class="gembala-info">
                         <h3>{{ $data->gembala_nama }}</h3>
                         <div class="gembala-position">{{ $data->gembala_jabatan }}</div>
@@ -78,12 +80,9 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
-
     @else
-
         <section class="kh-hero">
             <div class="kh-hero-ring"></div>
             <div class="kh-hero-ring2"></div>

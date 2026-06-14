@@ -104,13 +104,14 @@
                       style="display:inline;"
                       onsubmit="return confirm('Hapus foto ini?')">
 
-                    @csrf
-                    @method('DELETE')
+                <form action="{{ route('galeri.destroy', $item->id) }}" method="POST" style="display:inline;"
+                  onsubmit="return confirm('Hapus foto ini?')">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn-delete">Hapus</button>
 
-                    <button type="submit"
-                            class="btn-delete">
-                        Hapus
-                    </button>
+                </form>
+
             </div>
 
         </div>

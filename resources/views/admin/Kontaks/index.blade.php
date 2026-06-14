@@ -2,7 +2,7 @@
 
 @push('styles')
 
-@include('admin.layouts.LOAKontak.KontakIndex')
+  @include('admin.layouts.LOAKontak.KontakIndex')
 
 @endpush
 
@@ -28,7 +28,8 @@
         <div class="stat-icon ig">📞</div>
         <div>
           <div class="stat-val vg">
-            {{ $kontak->whereNotNull('phone')->filter(fn($item) => !empty($item->phone))->count() }}</div>
+            {{ $kontak->whereNotNull('phone')->filter(fn($item) => !empty($item->phone))->count() }}
+          </div>
           <div class="stat-lbl">Nomor Telepon</div>
         </div>
       </div>
@@ -36,7 +37,8 @@
         <div class="stat-icon is">✉</div>
         <div>
           <div class="stat-val vs">
-            {{ $kontak->whereNotNull('email')->filter(fn($item) => !empty($item->email))->count() }}</div>
+            {{ $kontak->whereNotNull('email')->filter(fn($item) => !empty($item->email))->count() }}
+          </div>
           <div class="stat-lbl">Alamat Email</div>
         </div>
       </div>
@@ -44,7 +46,8 @@
         <div class="stat-icon ir">🕐</div>
         <div>
           <div class="stat-val vr">
-            {{ $kontak->whereNotNull('office_hours')->filter(fn($item) => !empty($item->office_hours))->count() }}</div>
+            {{ $kontak->whereNotNull('office_hours')->filter(fn($item) => !empty($item->office_hours))->count() }}
+          </div>
           <div class="stat-lbl">Ada Jam Sekretariat</div>
         </div>
       </div>
@@ -54,9 +57,11 @@
       <div class="card-header">
         <h3>✉ Informasi Kontak Gereja</h3>
         <div class="card-tools">
-          <a href="{{ route('kontak.create') }}" class="btn-tambah">
-            <span style="font-size:15px;font-weight:900;">＋</span> Tambah Kontak
-          </a>
+          @if($kontak->count() == 0)
+            <a href="{{ route('kontak.create') }}" class="btn-tambah">
+              <span style="font-size:15px;font-weight:900;">＋</span> Tambah Kontak
+            </a>
+          @endif
         </div>
       </div>
 
