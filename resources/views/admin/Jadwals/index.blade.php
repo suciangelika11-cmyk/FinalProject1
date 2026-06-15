@@ -82,13 +82,13 @@
       ];
 
       $hariIcon = [
-        'Senin' => '{{ "\u{2600}\u{FE0F}" }}',
-        'Selasa' => '{{ "\u{1F31F}" }}',
-        'Rabu' => '{{ "\u{1F54A}\u{FE0F}" }}',
-        'Kamis' => '{{ "\u{1F514}" }}',
-        'Jumat' => '{{ "\u{1F319}" }}',
-        'Sabtu' => '{{ "\u{1F525}" }}',
-        'Minggu' => '{{ "\u{271D}\u{FE0F}" }}',
+        'Senin' => "\u{2600}\u{FE0F}",
+        'Selasa' => "\u{1F31F}" ,
+        'Rabu' => "\u{1F54A}\u{FE0F}",
+        'Kamis' => "\u{1F514}",
+        'Jumat' => "\u{1F319}" ,
+        'Sabtu' => "\u{1F525}",
+        'Minggu' => "\u{271D}\u{FE0F}",
       ];
 
       $warnaCycle = ['c', 'g', 's', 'r', 'p', 'o'];
@@ -112,7 +112,7 @@
             @endphp
 
             <div class="jcard {{ $warna }}">
-              <div class="jcard-icon">{{ $item->icon ?: '{{ "\u{1F4C5}" }}' }}</div>
+              <div class="jcard-icon">{{ $item->icon ?:  "\u{1F4C5}"  }}</div>
               <div class="jcard-title">{{ $item->title }}</div>
 
               <div class="jcard-meta">
@@ -163,7 +163,7 @@
           @endphp
 
           <div class="jcard {{ $warna }}">
-            <div class="jcard-icon">{{ $item->icon ?: '{{ "\u{2728}" }}' }}</div>
+            <div class="jcard-icon">{{ $item->icon ?: "\u{2728}" }}</div>
             <div class="jcard-title">{{ $item->title }}</div>
 
             <div style="margin:10px 0;">
