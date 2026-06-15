@@ -48,11 +48,6 @@
                         <input type="text" name="pengkhotbah" value="{{ old('pengkhotbah') }}"
                             placeholder="Nama pengkhotbah" required maxlength="100">
                     </div>
-
-                    <div class="fg">
-                        <label>Pelayan</label>
-                        <input type="text" name="pelayan" value="{{ old('pelayan') }}" placeholder="Nama pelayan" required maxlength="100">
-                    </div>
                 </div>
 
                 <div class="btn-row" style="margin-top:24px;">

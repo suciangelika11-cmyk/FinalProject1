@@ -71,17 +71,7 @@
                             </div>
 
                             <div class="info-item">
-                                <div class="info-icon">{{ "\u{1F64F}" }}</div>
-
-                                <div class="info-content">
-                                    <h5>Pelayan</h5>
-                                    <p>{{ $item->pelayan }}</p>
-                                </div>
-                            </div>
-
-                            <div class="info-item">
                                 <div class="info-icon">{{ "\u{1F465}" }}</div>
-
                                 <div class="info-content">
                                     <h5>Jumlah Hadir</h5>
                                     <p>{{ $item->jumlah }} Jemaat</p>
