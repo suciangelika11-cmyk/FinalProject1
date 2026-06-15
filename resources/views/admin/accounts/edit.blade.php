@@ -115,7 +115,7 @@
 
                     <div class="action-row">
                         <a href="{{ route('accounts.index') }}" class="btn-cancel">Batal</a>
-                        <button type="submit" class="btn-save">Update Akun</button>
+                        <button type="submit" class="btn-save">Update</button>
                     </div>
                 </form>
             </div>

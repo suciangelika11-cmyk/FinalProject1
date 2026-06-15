@@ -168,7 +168,7 @@
             </a>
 
             <button type="submit" class="btn-submit">
-              💾 Simpan Data
+              💾 Simpan
             </button>
           </div>
         </form>

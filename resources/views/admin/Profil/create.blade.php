@@ -3,7 +3,7 @@
 @section('content')
     <div class="form-wrap">
         <div class="form-card">
-            <h2>➕ Tambah User</h2>
+            <h2>{{"\u{2795}"}} Tambah User</h2>
 
             <form action="{{ route('profil.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf

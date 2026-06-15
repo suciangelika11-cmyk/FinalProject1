@@ -61,7 +61,7 @@
                     </a>
 
                     <button type="submit" class="btn-submit">
-                        <i class="fas fa-save"></i> Simpan Absensi
+                        <i class="fas fa-save"></i> Simpan
                     </button>
                 </div>
             </form>

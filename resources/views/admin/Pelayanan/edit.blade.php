@@ -175,7 +175,7 @@
             </a>
 
             <button type="submit" class="btn-submit">
-              ✅ Update Data
+              ✅ Update
             </button>
 
           </div>

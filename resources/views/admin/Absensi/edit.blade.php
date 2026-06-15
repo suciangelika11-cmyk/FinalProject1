@@ -72,7 +72,7 @@
 
                     <button type="submit" class="btn-submit">
                         <i class="fas fa-floppy-disk"></i>
-                        Perbarui Absensi
+                        Update
                     </button>
                 </div>
             </form>

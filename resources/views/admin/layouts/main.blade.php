@@ -591,8 +591,8 @@
 
     <nav class="topbar-nav">
       <a href="{{ route('admin.dashboard') }}" @if(request()->routeIs('admin.dashboard')) class="active"
-      @endif>Beranda</a>
-      <a href="{{ route('tentang.index') }}" @if(request()->routeIs('tentang.*')) class="active" @endif>Tentang Kami</a>
+      @endif>Home</a>
+      <a href="{{ route('tentang.index') }}" @if(request()->routeIs('tentang.*')) class="active" @endif>Tentang</a>
       <a href="{{ route('jadwal.index') }}" @if(request()->routeIs('jadwal.*')) class="active" @endif>Jadwal Ibadah</a>
       <a href="{{ route('absensi.index') }}" @if(request()->routeIs('absensi.*')) class="active" @endif>Absensi</a>
       <a href="{{ route('galeri.index') }}" @if(request()->routeIs('galeri.*')) class="active" @endif>Galeri</a>
@@ -604,7 +604,7 @@
       <a href="{{ route('kontak.index') }}" @if(request()->routeIs('kontak.*')) class="active" @endif>Kontak</a>
       <a href="{{ route('pengumuman.index') }}" @if(request()->routeIs('pengumuman.*')) class="active"
       @endif>Pengumuman</a>
-      <a href="{{ route('accounts.index') }}" @if(request()->routeIs('accounts.*')) class="active" @endif>Akun</a>
+      <a href="{{ route('accounts.index') }}" @if(request()->routeIs('accounts.*')) class="active" @endif>Akun Pelayan</a>
     </nav>
 
     <div class="topbar-right">
@@ -657,11 +657,11 @@
 
     <nav>
       <a href="{{ route('admin.dashboard') }}" @if(request()->routeIs('admin.dashboard')) class="active" @endif>
-        <span class="ico"><i class="ri-dashboard-line"></i></span> Dashboard
+        <span class="ico"><i class="ri-dashboard-line"></i></span> Home
       </a>
 
       <a href="{{ route('tentang.index') }}" @if(request()->routeIs('tentang.*')) class="active" @endif>
-        <span class="ico"><i class="ri-information-line"></i></span>Tentang Kami
+        <span class="ico"><i class="ri-information-line"></i></span>Tentang
       </a>
 
       <a href="{{ route('jadwal.index') }}" @if(request()->routeIs('jadwal.*')) class="active" @endif>
@@ -697,7 +697,7 @@
       </a>
 
       <a href="{{ route('jemaat.index') }}" @if(request()->routeIs('jemaat.*')) class="active" @endif>
-        <span class="ico"><i class="ri-group-line"></i></span>Jemaat
+        <span class="ico"><i class="ri-group-line"></i></span>Jemaat Pendaftar
 
         @if($pendingJemaatCount > 0)
           <span
@@ -708,7 +708,7 @@
       </a>
 
       <a href="{{ route('accounts.index') }}" @if(request()->routeIs('accounts.*')) class="active" @endif>
-        <span class="ico"><i class="ri-lock-line"></i></span> Akun
+        <span class="ico"><i class="ri-lock-line"></i></span> Akun Pelayanan
       </a>
     </nav>
 

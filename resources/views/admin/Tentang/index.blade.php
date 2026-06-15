@@ -11,7 +11,7 @@
   <div class="content-header">
     <h1>Tentang Kami</h1>
     <div class="breadcrumb-bar">
-      <a href="{{ route('admin.dashboard') }}">Home</a> / <span>Tentang Kami</span>
+      <a href="{{ route('admin.dashboard') }}">Home</a> / <span>Tentang</span>
     </div>
   </div>
 
@@ -24,22 +24,22 @@
       </p>
       <div class="hero-actions">
         @if($tentang)
-          <a href="{{ route('tentang.edit', $tentang->id) }}" class="btn-hero-primary">✏ Edit Data</a>
+          <a href="{{ route('tentang.edit', $tentang->id) }}" class="btn-hero-primary">{{ "\u{270F}" }} Edit</a>
           <form action="{{ route('tentang.destroy', $tentang->id) }}" method="POST"
             onsubmit="return confirm('Hapus data tentang?')" style="display:inline;">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn-hero-outline" style="background:rgba(224,85,85,.18);">🗑 Hapus</button>
+            <button type="submit" class="btn-hero-outline" style="background:rgba(224,85,85,.18);">{{ "\u{1F5D1}" }} Hapus</button>
           </form>
         @else
-          <a href="{{ route('tentang.create') }}" class="btn-hero-primary">＋ Tambah Data</a>
+          <a href="{{ route('tentang.create') }}" class="btn-hero-primary">{{ "\u{2795}" }} Tambah</a>
         @endif
       </div>
     </div>
 
     @if($tentang)
       <div class="section-head">
-        <div class="section-title">📖 Sejarah Kami</div>
+        <div class="section-title">{{ "\u{1F4D6}" }} Sejarah Kami</div>
       </div>
       <div class="sejarah-card">
         <div class="sejarah-text">
@@ -48,7 +48,7 @@
       </div>
 
       <div class="section-head">
-        <div class="section-title">✨ Visi & Misi</div>
+        <div class="section-title">{{ "\u{2728}" }} Visi & Misi</div>
       </div>
       <div class="vm-grid">
         <div class="vm-card">
@@ -62,7 +62,7 @@
       </div>
 
       <div class="section-head">
-        <div class="section-title">👤 Kepemimpinan</div>
+        <div class="section-title">{{ "\u{1F464}" }} Kepemimpinan</div>
       </div>
       <div class="leader-grid">
         <div class="leader-card">

@@ -39,8 +39,8 @@ class PelayananController extends Controller
 
             'photo' => 'nullable|image|max:2048',
 
-            'anggota_nama.*' => 'nullable|string|max:255',
-            'anggota_bagian.*' => 'nullable|string|max:255',
+            'anggota_nama.*' => 'nullable|string|max:100',
+            'anggota_bagian.*' => 'nullable|string|max:100',
         ]);
 
         DB::beginTransaction();
@@ -129,8 +129,8 @@ class PelayananController extends Controller
             'photo_kepemimpinan' => 'nullable|image|max:2048',
             'photo_aksi' => 'nullable|image|max:2048',
 
-            'anggota_nama.*' => 'nullable|string|max:255',
-            'anggota_bagian.*' => 'nullable|string|max:255',
+            'anggota_nama.*' => 'nullable|string|max:100',
+            'anggota_bagian.*' => 'nullable|string|max:100',
         ]);
 
         DB::beginTransaction();

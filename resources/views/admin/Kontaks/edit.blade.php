@@ -42,12 +42,12 @@
 
         <div class="fg">
           <label>Jam Sekretariat</label>
-          <textarea name="office_hours" rows="3" maxlength="250">{{ old('office_hours', $kontak->office_hours) }}</textarea>
+          <textarea name="office_hours" rows="3" required maxlength="250">{{ old('office_hours', $kontak->office_hours) }}</textarea>
         </div>
 
         <div class="btn-row">
           <a href="{{ route('kontak.index') }}" class="btn-back">← Batal</a>
-          <button type="submit" class="btn-submit">✅ Update Kontak</button>
+          <button type="submit" class="btn-submit">✅ Update</button>
         </div>
       </form>
     </div>

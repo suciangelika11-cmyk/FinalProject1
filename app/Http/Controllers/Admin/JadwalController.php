@@ -11,7 +11,7 @@ class JadwalController extends Controller
 {
     public function index()
     {
-        $jadwal = Jadwal::with('pelayanan')->get();
+        $jadwal = Jadwal::latest()->get();
         return view('admin.Jadwals.index', compact('jadwal'));
     }
 

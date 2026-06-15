@@ -12,7 +12,7 @@
             </div>
 
             <a href="{{ route('accounts.create') }}" class="btn-add">
-                + Tambah Akun
+                + Tambah
             </a>
         </div>
 

@@ -52,7 +52,7 @@
 
                 <div class="btn-row">
                     <a href="{{ route('khotbah.index') }}" class="btn-back">← Batal</a>
-                    <button type="submit" class="btn-submit">💾 Simpan Khotbah</button>
+                    <button type="submit" class="btn-submit">💾 Simpan</button>
                 </div>
             </form>
         </div>

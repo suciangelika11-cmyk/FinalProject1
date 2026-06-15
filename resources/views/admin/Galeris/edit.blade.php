@@ -37,7 +37,7 @@
 
                 <div class="fg">
                     <label>Deskripsi</label>
-                    <textarea name="description" rows="3" required maxlength="200">{{ old('description', $Galeri->description) }}</textarea>
+                    <textarea name="description" rows="3" required maxlength="250">{{ old('description', $Galeri->description) }}</textarea>
                 </div>
 
                 <div class="fg">
@@ -50,7 +50,7 @@
 
                 <div class="btn-row">
                     <a href="{{ route('galeri.index') }}" class="btn-back">← Batal</a>
-                    <button type="submit" class="btn-submit">✅ Update Galeri</button>
+                    <button type="submit" class="btn-submit">✅ Update</button>
                 </div>
             </form>
         </div>

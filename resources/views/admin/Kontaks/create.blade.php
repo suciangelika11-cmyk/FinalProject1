@@ -42,12 +42,12 @@
         <div class="fg">
           <label>Jam Sekretariat</label>
           <textarea name="office_hours" rows="3" maxlength="250"
-            placeholder="Contoh: Senin - Jumat 09.00 - 17.00 WIB">{{ old('office_hours') }}</textarea>
+            placeholder="Contoh: Senin - Jumat 09.00 - 17.00 WIB" required>{{ old('office_hours') }}</textarea>
         </div>
 
         <div class="btn-row">
           <a href="{{ route('kontak.index') }}" class="btn-back">← Batal</a>
-          <button type="submit" class="btn-submit">💾 Simpan Kontak</button>
+          <button type="submit" class="btn-submit">💾 Simpan</button>
         </div>
       </form>
     </div>

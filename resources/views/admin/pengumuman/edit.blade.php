@@ -7,7 +7,7 @@
     <div class="pengumuman-page">
         <div class="pengumuman-header">
             <div>
-                <h1>Edit Pengumuman</h1>
+                <h1>Edit</h1>
             </div>
         </div>
 
@@ -77,7 +77,7 @@
 
                     <div class="action-row">
                         <a href="{{ route('pengumuman.index') }}" class="btn-cancel">Batal</a>
-                        <button type="submit" class="btn-save">Update Pengumuman</button>
+                        <button type="submit" class="btn-save">Update</button>
                     </div>
                 </form>
             </div>

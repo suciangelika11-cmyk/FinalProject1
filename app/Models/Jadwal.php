@@ -21,7 +21,6 @@ class Jadwal extends Model
         'description',
         'category',
         'user_id',
-        'pelayanan_id',
         'ibadah_id',
     ];
 
@@ -29,12 +28,6 @@ class Jadwal extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    // Relasi Jadwal BelongsTo Pelayanan
-    public function pelayanan()
-    {
-        return $this->belongsTo(Pelayanan::class);
     }
 
     public function ibadah()

@@ -65,7 +65,7 @@
 
                     <div class="action-row">
                         <a href="{{ route('pengumuman.index') }}" class="btn-cancel">Batal</a>
-                        <button type="submit" class="btn-save">Simpan Pengumuman</button>
+                        <button type="submit" class="btn-save">Simpan</button>
                     </div>
                 </form>
             </div>

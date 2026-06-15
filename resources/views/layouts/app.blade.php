@@ -948,7 +948,7 @@
                     <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}"
-                                href="{{ route('home') }}">Beranda</a>
+                                href="{{ route('home') }}">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('user.pengumuman') ? 'active' : '' }}"
@@ -956,7 +956,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('user.jadwal') ? 'active' : '' }}"
-                                href="{{ route('user.jadwal') }}">Jadwal</a>
+                                href="{{ route('user.jadwal') }}">Jadwal Ibadah</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('user.galeri') ? 'active' : '' }}"
@@ -976,7 +976,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('user.tentang') ? 'active' : '' }}"
-                                href="{{ route('user.tentang') }}">Tentang Kami</a>
+                                href="{{ route('user.tentang') }}">Tentang</a>
                         </li>
 
                         @auth
@@ -1069,8 +1069,8 @@
                     <div class="col-6 col-lg-2 col-md-3">
                         <h6 class="footer-heading">Menu</h6>
                         <ul class="footer-nav">
-                            <li><a href="{{ route('home') }}">Beranda</a></li>
-                            <li><a href="{{ route('user.tentang') }}">Tentang Kami</a></li>
+                            <li><a href="{{ route('home') }}">Home</a></li>
+                            <li><a href="{{ route('user.tentang') }}">Tentang</a></li>
                             <li><a href="{{ route('user.jadwal') }}">Jadwal</a></li>
                             <li><a href="{{ route('user.galeri') }}">Galeri</a></li>
                             <li><a href="{{ route('user.khotbah') }}">Khotbah</a></li>

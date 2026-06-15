@@ -2,7 +2,7 @@
 
 @push('styles')
 
-@include('admin.layouts.LOAPelayanan.PelayananIndex')
+  @include('admin.layouts.LOAPelayanan.PelayananIndex')
 
 @endpush
 
@@ -39,7 +39,7 @@
 
       <div class="hero-actions">
         <a href="{{ route('pelayanan.create') }}" class="btn-hero-primary">
-          ＋ Tambah Data Pelayanan
+          ＋ Tambah
         </a>
       </div>
 
@@ -229,7 +229,7 @@
                     {{ $anggota->nama }}
 
                     @if($anggota->bagian)
-                      - <strong>{{ $anggota->bagian }}</strong>
+                    <strong>{{ $anggota->bagian }}</strong>
                     @endif
 
                   </div>

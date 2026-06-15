@@ -45,7 +45,7 @@
       <div class="data-card">
         <div class="card-header">
           <div class="card-header-left">
-            <div class="ch-ico">👤</div>
+            <div class="ch-ico">{{ "\u{1F464}" }}</div>
             Data Pribadi
           </div>
           <a href="{{ route('profil.edit') }}" class="edit-toggle">✏ Edit</a>

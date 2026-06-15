@@ -494,7 +494,7 @@
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('pelayan.home') ? 'active' : '' }}"
                             href="{{ route('pelayan.home') }}">
-                            Beranda
+                            Home
                         </a>
                     </li>
 
@@ -508,7 +508,7 @@
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('pelayan.kegiatan_pelayan') ? 'active' : '' }}"
                             href="{{ route('pelayan.kegiatan_pelayan') }}">
-                            Kegiatan
+                            Kegiatan Pelayanan
                         </a>
                     </li>
 
@@ -536,7 +536,7 @@
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('pelayan.tentang') ? 'active' : '' }}"
                             href="{{ route('pelayan.tentang') }}">
-                            Tentang Kami
+                            Tentang
                         </a>
                     </li>
 
@@ -661,7 +661,7 @@
 
                         <li>
                             <a href="{{ route('pelayan.kegiatan_pelayan') }}">
-                                Kegiatan
+                                Kegiatan Pelayanan
                             </a>
                         </li>
 
@@ -691,7 +691,7 @@
 
                         <li>
                             <a href="{{ route('pelayan.tentang') }}">
-                                Tentang Kami
+                                Tentang
                             </a>
                         </li>
 

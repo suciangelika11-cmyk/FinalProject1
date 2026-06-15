@@ -18,7 +18,7 @@
 
       <h2>
         Selamat Datang,<br>
-        <span class="hero-admin-name">{{ $authUser->name }}</span> 👋
+        <span class="hero-admin-name">{{ $authUser->name }}</span> &#128075;
       </h2>
 
       <p>Kelola seluruh konten website gereja dari sini. Perubahan yang kamu buat akan langsung terlihat oleh jemaat dan

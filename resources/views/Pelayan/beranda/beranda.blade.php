@@ -57,13 +57,6 @@
                     <div class="session-wib">WIB — Sore</div>
                 </div>
             </div>
-
-            <div style="text-align:center;" class="reveal">
-                <a href="{{ route('user.jemaat') }}" class="btn-outline">
-                    <i class="fa-solid fa-user-plus"></i>
-                    Daftarkan Diri Sebagai Jemaat
-                </a>
-            </div>
         </div>
     </section>
 

@@ -22,8 +22,18 @@ pilihKategori.addEventListener('change', function () {
 });
 
 document.addEventListener('click', function (e) {
+
     if (e.target && e.target.id === 'tambah-anggota') {
+
         const wrapper = document.getElementById('anggota-wrapper');
+        const jumlahAnggota = document.querySelectorAll('input[name="anggota_nama[]"]').length;
+
+        console.log('Jumlah anggota:', jumlahAnggota);
+        
+        if (jumlahAnggota >= 10) {
+            alert('Maksimal 10 anggota.');
+            return;
+        }
 
         const item = document.createElement('div');
 
@@ -31,9 +41,16 @@ document.addEventListener('click', function (e) {
         item.style.marginBottom = '10px';
 
         item.innerHTML = `
-        <input type="text" name="anggota_nama[]" placeholder="Nama anggota">
-        <input type="text" name="anggota_bagian[]" placeholder="Bagian / jabatan">
-      `;
+            <input type="text"
+                name="anggota_nama[]"
+                placeholder="Nama anggota"
+                maxlength="100">
+
+            <input type="text"
+                name="anggota_bagian[]"
+                placeholder="Bagian / jabatan"
+                maxlength="100">
+        `;
 
         wrapper.appendChild(item);
     }

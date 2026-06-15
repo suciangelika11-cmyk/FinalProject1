@@ -19,13 +19,13 @@ class PelayananAnggota extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function pelayanan()
-    {
-        return $this->belongsTo(Pelayanan::class);
-    }
-
     public function kegiatanPelayanan()
     {
         return $this->belongsTo(KegiatanPelayanan::class, 'kegiatan_pelayanan_id');
+    }
+
+    public function pelayanan()
+    {
+        return $this->belongsTo(Pelayanan::class);
     }
 }

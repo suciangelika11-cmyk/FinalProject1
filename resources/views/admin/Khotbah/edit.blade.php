@@ -6,7 +6,7 @@
 
     <div class="form-wrap">
         <div class="form-card">
-            <h2>✏️ Edit Khotbah</h2>
+            <h2>✏️ Edit</h2>
 
             @if ($errors->any())
                 <div
@@ -57,7 +57,7 @@
 
                 <div class="btn-row">
                     <a href="{{ route('khotbah.index') }}" class="btn-back">← Batal</a>
-                    <button type="submit" class="btn-submit">✅ Update Khotbah</button>
+                    <button type="submit" class="btn-submit">✅ Update</button>
                 </div>
             </form>
         </div>

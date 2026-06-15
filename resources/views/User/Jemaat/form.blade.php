@@ -150,7 +150,7 @@
                     <div class="jm-divider"></div>
 
                     <button type="submit" class="jm-submit">
-                        <i class="bi bi-send me-2"></i>Kirim Pendaftaran
+                        <i class="bi bi-send me-2"></i>Kirim
                     </button>
                 </form>
             </div>

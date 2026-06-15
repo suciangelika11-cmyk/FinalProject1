@@ -30,7 +30,7 @@
             <div class="hero-actions">
                 <a href="{{ route('absensi.create') }}" class="btn-hero-primary">
                     <i class="fas fa-plus"></i>
-                    Tambah Absensi
+                    Tambah
                 </a>
             </div>
         </div>

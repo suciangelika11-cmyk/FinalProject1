@@ -21,18 +21,6 @@ class Pelayanan extends Model
         'photo',
     ];
 
-    // Relasi Pelayanan HasMany PelayananAnggota
-    public function anggotas()
-    {
-        return $this->hasMany(PelayananAnggota::class);
-    }
-
-    // Relasi Pelayanan HasMany Jadwal
-    public function jadwals()
-    {
-        return $this->hasMany(Jadwal::class);
-    }
-
     public function getPhotoUrlAttribute()
     {
         return $this->photo ? Storage::url($this->photo) : null;
@@ -42,5 +30,10 @@ class Pelayanan extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function anggotas()
+    {
+        return $this->hasMany(PelayananAnggota::class);
     }
 }

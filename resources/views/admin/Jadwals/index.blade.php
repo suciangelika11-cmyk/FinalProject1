@@ -26,7 +26,7 @@
         Kelola jadwal pelayanan mingguan dan acara khusus gereja dari sini.
       </p>
       <div class="hero-actions">
-        <a href="{{ route('jadwal.create') }}" class="btn-hero-primary">＋ Tambah Jadwal</a>
+        <a href="{{ route('jadwal.create') }}" class="btn-hero-primary">＋ Tambah</a>
       </div>
     </div>
 
@@ -143,7 +143,7 @@
     @if(!$adaMingguan)
       <div
         style="text-align:center; padding:32px; color:var(--muted); font-size:13px; background:var(--white); border:1px dashed var(--border); border-radius:12px; margin-bottom:24px;">
-        Belum ada jadwal mingguan. Klik <strong>Tambah Jadwal</strong> untuk menambahkan.
+        Belum ada jadwal mingguan. Klik <strong>Tambah</strong> untuk menambahkan.
       </div>
     @endif
 

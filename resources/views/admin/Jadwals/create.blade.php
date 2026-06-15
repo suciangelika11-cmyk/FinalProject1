@@ -76,7 +76,7 @@
                 <div class="fg" id="jadwal-khusus-group" style="display:none;">
                     <label>Jadwal Acara Khusus</label>
                     <input type="text" name="jadwal_khusus" value="{{ old('jadwal_khusus') }}"
-                        placeholder="Contoh: Desember, Maret/April, Tahunan">
+                        placeholder="Contoh: Desember, Maret/April, Tahunan" maxlength="100">
                 </div>
 
                 <div class="fg">
@@ -93,7 +93,7 @@
 
                 <div class="btn-row">
                     <a href="{{ route('jadwal.index') }}" class="btn-back">← Batal</a>
-                    <button type="submit" class="btn-submit">💾 Simpan Jadwal</button>
+                    <button type="submit" class="btn-submit">💾 Simpan</button>
                 </div>
             </form>
         </div>

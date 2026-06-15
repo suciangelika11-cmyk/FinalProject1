@@ -20,7 +20,7 @@
       <h2>Galeri & Dokumentasi Kegiatan</h2>
       <p>Abadikan setiap momen pelayanan, ibadah, dan kebersamaan jemaat GBI Tambunan.</p>
       <div class="hero-actions">
-        <a href="{{ route('galeri.create') }}" class="btn-hero-primary">＋ Upload Foto</a>
+        <a href="{{ route('galeri.create') }}" class="btn-hero-primary">＋ Tambah</a>
       </div>
     </div>
 

@@ -9,7 +9,7 @@
         <h2>Pengumuman</h2>
         <p> Kelola pengumuman penting untuk jemaat GBI Tambunan.</p>
         <div class="hero-actions">
-            <a href="{{ route('pengumuman.create') }}" class="btn-hero-primary">＋ Tambah Pengumuman</a>
+            <a href="{{ route('pengumuman.create') }}" class="btn-hero-primary">＋ Tambah</a>
         </div>
     </div>
 

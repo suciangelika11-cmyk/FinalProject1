@@ -59,7 +59,7 @@
         <div class="card-tools">
           @if($kontak->count() == 0)
             <a href="{{ route('kontak.create') }}" class="btn-tambah">
-              <span style="font-size:15px;font-weight:900;">＋</span> Tambah Kontak
+              <span style="font-size:15px;font-weight:900;">＋</span> Tambah
             </a>
           @endif
         </div>

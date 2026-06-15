@@ -92,7 +92,7 @@
 
           <div class="action-row">
             <a href="{{ route('kegiatan.index') }}" class="btn-back">Batal</a>
-            <button type="submit" class="btn-submit">Simpan Kegiatan</button>
+            <button type="submit" class="btn-submit">Simpan</button>
           </div>
         </form>
       </div>

@@ -6,7 +6,7 @@
 
   <div class="form-wrap">
     <div class="form-card">
-      <h2>✏️ Edit Profil</h2>
+      <h2>{{ "\u{270F}" }} Edit Profil</h2>
 
       <form action="{{ route('profil.update') }}" method="POST" enctype="multipart/form-data">
         @csrf
