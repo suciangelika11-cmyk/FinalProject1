@@ -47,7 +47,7 @@
                                 <td>{{ $jemaat->no_kk }}</td>
 
                                 <td>{{ $jemaat->nama_keluarga }}</td>
-                                
+
                                 <td class="text-long">
                                     {{ $jemaat->alamat_domisili }}
                                 </td>
@@ -116,6 +116,21 @@
                                     </div>
 
                                     <div class="detail-grid">
+
+                                        <div>
+                                            <label>No KK</label>
+                                            <p>{{ $jemaat->no_kk }}</p>
+                                        </div>
+
+                                        <div>
+                                            <label>Nama Keluarga</label>
+                                            <p>{{ $jemaat->nama_keluarga }}</p>
+                                        </div>
+
+                                        <div>
+                                            <label>Alamat Domisili</label>
+                                            <p>{{ $jemaat->alamat_domisili }}</p>
+                                        </div>
 
                                         <div>
                                             <label>Nama Lengkap</label>
