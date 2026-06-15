@@ -99,7 +99,7 @@
                     Edit
                 </a>
 
-                <form action="{{ route('galeri.destroy',$item->id) }}"
+                <f action="{{ route('galeri.destroy',$item->id) }}"
                       method="POST"
                       style="display:inline;"
                       onsubmit="return confirm('Hapus foto ini?')">

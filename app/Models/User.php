@@ -47,6 +47,7 @@ class User extends Authenticatable
         return $this->hasMany(Galeri::class);
     }
 
+
     public function pelayananAnggotas()
     {
         return $this->hasMany(PelayananAnggota::class);
@@ -55,6 +56,7 @@ class User extends Authenticatable
     public function pelayanans()
     {
         return $this->hasMany(Pelayanan::class);
+
     }
 
     protected $hidden = [
