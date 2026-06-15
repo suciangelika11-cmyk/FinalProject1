@@ -29,7 +29,7 @@
 
     <div class="page-hero">
 
-      <div class="hero-tag">✏️ Edit</div>
+      <div class="hero-tag">{{ "\u{270F}\u{FE0F}" }} Edit</div>
 
       <h2>Edit Data Pelayanan</h2>
 
@@ -139,7 +139,7 @@
               </div>
 
               <button type="button" id="tambah-anggota" class="btn-back" style="margin-top:10px;">
-                + Tambah Anggota
+                {{ "\u{002B}" }} Tambah Anggota
               </button>
             </div>
           </div>
@@ -171,11 +171,11 @@
           <div class="btn-row">
 
             <a href="{{ route('pelayanan.index') }}" class="btn-back">
-              ← Batal
+              {{"\u{2190}"}} Batal
             </a>
 
             <button type="submit" class="btn-submit">
-              ✅ Update
+              {{"\u{2705}"}} Update
             </button>
 
           </div>

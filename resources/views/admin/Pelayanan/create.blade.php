@@ -26,7 +26,7 @@
     @endif
 
     <div class="page-hero">
-      <div class="hero-tag">＋ Tambah</div>
+      <div class="hero-tag">{{ "\u{002B}" }} Tambah</div>
 
       <h2>Tambah Data Pelayanan</h2>
 
@@ -134,7 +134,7 @@
               </div>
 
               <button type="button" id="tambah-anggota" class="btn-back">
-                + Tambah Anggota
+                {{ "\u{002B}" }} Tambah Anggota
               </button>
 
             </div>
@@ -164,11 +164,11 @@
 
           <div class="btn-row">
             <a href="{{ route('pelayanan.index') }}" class="btn-back">
-              ← Batal
+              {{ "\u{2190}" }} Batal
             </a>
 
             <button type="submit" class="btn-submit">
-              💾 Simpan
+              {{ "\u{1F4BE}" }} Simpan
             </button>
           </div>
         </form>

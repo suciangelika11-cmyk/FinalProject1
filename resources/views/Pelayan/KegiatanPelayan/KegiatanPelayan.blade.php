@@ -65,7 +65,7 @@
 
                     <!-- Singer -->
                     <div class="team-box">
-                        <h4>🎤 Tim Singer</h4>
+                        <h4>{{ "\u{1F3A4}" }} Tim Singer</h4>
                         @foreach(explode(',', $item->tim_singer ?? '') as $m)
                             @if(trim($m))
                                 <span>{{ trim($m) }}</span>
@@ -75,7 +75,7 @@
 
                     <!-- WL -->
                     <div class="team-box">
-                        <h4>🎙 Tim Worship Leader</h4>
+                        <h4>{{ "\u{1F399}\u{FE0F}" }} Tim Worship Leader</h4>
                         @foreach(explode(',', $item->tim_worship_leader ?? '') as $m)
                             @if(trim($m))
                                 <span>{{ trim($m) }}</span>
@@ -85,7 +85,7 @@
 
                     <!-- Tamborin -->
                     <div class="team-box">
-                        <h4>⭐ Tim Tamborin</h4>
+                        <h4>{{ "\u{2B50}" }} Tim Tamborin</h4>
                         @foreach(explode(',', $item->tim_tamborin ?? '') as $m)
                             @if(trim($m))
                                 <span>{{ trim($m) }}</span>
@@ -95,7 +95,7 @@
 
                     <!-- Multimedia -->
                     <div class="team-box">
-                        <h4>🎥 Tim Multimedia</h4>
+                        <h4>{{ "\u{1F3A5}" }} Tim Multimedia</h4>
                         @foreach(explode(',', $item->tim_multimedia ?? '') as $m)
                             @if(trim($m))
                                 <span>{{ trim($m) }}</span>
@@ -105,7 +105,7 @@
 
                     <!-- Musik -->
                     <div class="team-box">
-                        <h4>🎸 Tim Musik</h4>
+                        <h4>{{ "\u{1F3B8}" }} Tim Musik</h4>
                         @foreach(explode(',', $item->tim_musik ?? '') as $m)
                             @if(trim($m))
                                 <span>{{ trim($m) }}</span>

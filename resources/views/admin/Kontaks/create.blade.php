@@ -6,7 +6,7 @@
 
   <div class="form-wrap">
     <div class="form-card">
-      <h2>📞 Tambah Informasi Kontak</h2>
+      <h2>{{ "\u{1F4DE}" }} Tambah Informasi Kontak</h2>
 
       @if ($errors->any())
         <div
@@ -47,7 +47,7 @@
 
         <div class="btn-row">
           <a href="{{ route('kontak.index') }}" class="btn-back">← Batal</a>
-          <button type="submit" class="btn-submit">💾 Simpan</button>
+          <button type="submit" class="btn-submit">{{ "\u{1F4BE}" }} Simpan</button>
         </div>
       </form>
     </div>

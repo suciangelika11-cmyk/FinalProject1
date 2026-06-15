@@ -39,7 +39,7 @@
 
       <div class="hero-actions">
         <a href="{{ route('pelayanan.create') }}" class="btn-hero-primary">
-          ＋ Tambah
+          {{ "\u{FF0B}" }}   Tambah
         </a>
       </div>
 
@@ -48,7 +48,7 @@
     <div class="stats-row">
 
       <div class="stat-card">
-        <div class="stat-icon ic">👤</div>
+        <div class="stat-icon ic">{{"\u{1F464}"}}</div>
 
         <div>
           <div class="stat-val vc">
@@ -60,7 +60,7 @@
       </div>
 
       <div class="stat-card">
-        <div class="stat-icon ig">🙌</div>
+        <div class="stat-icon ig">{{ "\u{1F64C}" }}</div>
 
         <div>
           <div class="stat-val vg">
@@ -72,7 +72,7 @@
       </div>
 
       <div class="stat-card">
-        <div class="stat-icon is">🖼</div>
+        <div class="stat-icon is">{{"\u{1F5BC}"}}</div>
 
         <div>
           <div class="stat-val vs">
@@ -84,7 +84,7 @@
       </div>
 
       <div class="stat-card">
-        <div class="stat-icon ip">📦</div>
+        <div class="stat-icon ip">{{"\u{1F4E6}"}}</div>
 
         <div>
           <div class="stat-val vp">
@@ -106,7 +106,7 @@
 
     <div class="section-head">
 
-      <div class="section-title">👤 Kepemimpinan</div>
+      <div class="section-title">{{"\u{1F464}"}} Kepemimpinan</div>
 
     </div>
 
@@ -145,7 +145,7 @@
               <div class="leader-card-actions">
 
                 <a href="{{ route('pelayanan.edit', $item->id) }}" class="act-sm btn-e">
-                  ✏ Edit
+                  {{"\u{270F}"}} Edit
                 </a>
 
                 <form action="{{ route('pelayanan.destroy', $item->id) }}" method="POST"
@@ -155,7 +155,7 @@
                   @method('DELETE')
 
                   <button type="submit" class="act-sm btn-d">
-                    🗑 Hapus
+                    {{"\u{1F5D1}"}} Hapus
                   </button>
 
                 </form>

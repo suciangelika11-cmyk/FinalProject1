@@ -117,7 +117,7 @@
                 <p>Masukkan nominal dan konfirmasi pembayaran.</p>
 
                 <h4>
-                    ❤️ Terima kasih untuk setiap dukungan Anda ❤️
+                    {{ "\u{2764}\u{FE0F}" }} Terima kasih untuk setiap dukungan Anda {{ "\u{2764}\u{FE0F}" }}
                 </h4>
             </div>
 

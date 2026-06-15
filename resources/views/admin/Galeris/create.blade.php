@@ -46,7 +46,7 @@
 
                 <div class="btn-row">
                     <a href="{{ route('galeri.index') }}" class="btn-back">← Batal</a>
-                    <button type="submit" class="btn-submit">💾 Simpan</button>
+                    <button type="submit" class="btn-submit">{{ "\u{1F4BE}" }} Simpan</button>
                 </div>
             </form>
         </div>

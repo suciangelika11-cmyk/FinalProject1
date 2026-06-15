@@ -6,7 +6,7 @@
 
     <div class="form-wrap">
         <div class="form-card">
-            <h2>📅 Tambah Jadwal Pelayan & Kegiatan</h2>
+            <h2>{{ "\u{1F4C5}" }} Tambah Jadwal Pelayan & Kegiatan</h2>
 
             @if ($errors->any())
                 <div

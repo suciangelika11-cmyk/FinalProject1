@@ -66,7 +66,7 @@
                         @if($data->gembala_foto)
                             <img src="{{ asset('storage/' . $data->gembala_foto) }}" alt="{{ $data->gembala_nama }}">
                         @else
-                            <div class="avatar">👤</div>
+                            <div class="avatar">{{ "\u{1F464}" }}</div>
                         @endif
                     </div>
 

@@ -9,7 +9,7 @@
         <h2>Pengumuman</h2>
         <p> Kelola pengumuman penting untuk jemaat GBI Tambunan.</p>
         <div class="hero-actions">
-            <a href="{{ route('pengumuman.create') }}" class="btn-hero-primary">＋ Tambah</a>
+            <a href="{{ route('pengumuman.create') }}" class="btn-hero-primary">{{ "\u{FF0B}" }} Tambah</a>
         </div>
     </div>
 
@@ -43,7 +43,7 @@
                                     @if($item->image)
                                         <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" class="thumb">
                                     @else
-                                        <div class="thumb-placeholder">📢</div>
+                                        <div class="thumb-placeholder">{{"\u{1F4E2}"}}</div>
                                     @endif
 
                                     <div>

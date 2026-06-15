@@ -26,13 +26,13 @@
         Kelola jadwal pelayanan mingguan dan acara khusus gereja dari sini.
       </p>
       <div class="hero-actions">
-        <a href="{{ route('jadwal.create') }}" class="btn-hero-primary">＋ Tambah</a>
+        <a href="{{ route('jadwal.create') }}" class="btn-hero-primary">{{ "\u{FF0B}" }} Tambah</a>
       </div>
     </div>
 
     <div class="stats-row">
       <div class="stat-card">
-        <div class="stat-icon ic">📅</div>
+        <div class="stat-icon ic">{{ "\u{1F4C5}" }}</div>
         <div>
           <div class="stat-val vc">{{ $jadwal->where('category', 'mingguan')->count() }}</div>
           <div class="stat-lbl">Jadwal Mingguan</div>
@@ -40,7 +40,7 @@
       </div>
 
       <div class="stat-card">
-        <div class="stat-icon ig">✨</div>
+        <div class="stat-icon ig">{{ "\u{2728}" }}</div>
         <div>
           <div class="stat-val vg">{{ $jadwal->where('category', 'acara_khusus')->count() }}</div>
           <div class="stat-lbl">Acara Khusus</div>
@@ -48,7 +48,7 @@
       </div>
 
       <div class="stat-card">
-        <div class="stat-icon is">⛪</div>
+        <div class="stat-icon is">{{ "\u{26EA}" }}</div>
         <div>
           <div class="stat-val vs">{{ $jadwal->where('category', 'mingguan')->pluck('day')->unique()->count() }}</div>
           <div class="stat-lbl">Hari Aktif</div>
@@ -56,7 +56,7 @@
       </div>
 
       <div class="stat-card">
-        <div class="stat-icon ip">📍</div>
+        <div class="stat-icon ip">{{ "\u{1F4CD}" }}</div>
         <div>
           <div class="stat-val vp">{{ $jadwal->whereNotNull('location')->pluck('location')->unique()->count() }}</div>
           <div class="stat-lbl">Lokasi</div>
@@ -65,7 +65,7 @@
     </div>
 
     <div class="section-head">
-      <div class="section-title">📅 Jadwal Mingguan</div>
+      <div class="section-title">{{ "\u{1F4C5}" }} Jadwal Mingguan</div>
     </div>
 
     @php
@@ -82,13 +82,13 @@
       ];
 
       $hariIcon = [
-        'Senin' => '☀',
-        'Selasa' => '🌟',
-        'Rabu' => '🕊',
-        'Kamis' => '🔔',
-        'Jumat' => '🌙',
-        'Sabtu' => '🔥',
-        'Minggu' => '✝',
+        'Senin' => '{{ "\u{2600}\u{FE0F}" }}',
+        'Selasa' => '{{ "\u{1F31F}" }}',
+        'Rabu' => '{{ "\u{1F54A}\u{FE0F}" }}',
+        'Kamis' => '{{ "\u{1F514}" }}',
+        'Jumat' => '{{ "\u{1F319}" }}',
+        'Sabtu' => '{{ "\u{1F525}" }}',
+        'Minggu' => '{{ "\u{271D}\u{FE0F}" }}',
       ];
 
       $warnaCycle = ['c', 'g', 's', 'r', 'p', 'o'];
@@ -112,25 +112,25 @@
             @endphp
 
             <div class="jcard {{ $warna }}">
-              <div class="jcard-icon">{{ $item->icon ?: '📅' }}</div>
+              <div class="jcard-icon">{{ $item->icon ?: '{{ "\u{1F4C5}" }}' }}</div>
               <div class="jcard-title">{{ $item->title }}</div>
 
               <div class="jcard-meta">
-                <span>🕐 {{ $item->start_time }}{{ $item->end_time ? ' - ' . $item->end_time : '' }}</span>
-                <span>📍 {{ $item->location ?: '-' }}</span>
+                <span>{{ "\u{1F550}" }} {{ $item->start_time }}{{ $item->end_time ? ' - ' . $item->end_time : '' }}</span>
+                <span>{{ "\u{1F4CD}" }} {{ $item->location ?: '-' }}</span>
               </div>
 
               <div class="jcard-desc">{{ $item->description ?: '-' }}</div>
 
               <div class="jcard-footer">
                 <div class="jcard-actions">
-                  <a href="{{ route('jadwal.edit', $item->id) }}" class="act-btn btn-edit">✏ Edit</a>
+                  <a href="{{ route('jadwal.edit', $item->id) }}" class="act-btn btn-edit">{{ "\u{270F}\u{FE0F}" }} Edit</a>
 
                   <form action="{{ route('jadwal.destroy', $item->id) }}" method="POST" style="display:inline;"
                     onsubmit="return confirm('Hapus jadwal ini?')">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="act-btn btn-del">🗑 Hapus</button>
+                    <button type="submit" class="act-btn btn-del">{{ "\u{1F5D1}\u{FE0F}" }} Hapus</button>
                   </form>
                 </div>
               </div>
@@ -148,7 +148,7 @@
     @endif
 
     <div class="section-head" style="margin-top:8px;">
-      <div class="section-title">✨ Acara Khusus</div>
+      <div class="section-title">{{ "\u{2728}" }} Acara Khusus</div>
     </div>
 
     @php
@@ -163,12 +163,12 @@
           @endphp
 
           <div class="jcard {{ $warna }}">
-            <div class="jcard-icon">{{ $item->icon ?: '✨' }}</div>
+            <div class="jcard-icon">{{ $item->icon ?: '{{ "\u{2728}" }}' }}</div>
             <div class="jcard-title">{{ $item->title }}</div>
 
             <div style="margin:10px 0;">
               <span class="bulan-badge b-{{ $warna }}">
-                📅 {{ $item->jadwal_khusus }}
+                {{ "\u{1F4C5}" }} {{ $item->jadwal_khusus }}
               </span>
             </div>
 
@@ -179,13 +179,13 @@
             <div class="jcard-footer">
 
               <div class="jcard-actions">
-                <a href="{{ route('jadwal.edit', $item->id) }}" class="act-btn btn-edit">✏ Edit</a>
+                <a href="{{ route('jadwal.edit', $item->id) }}" class="act-btn btn-edit">{{ "\u{270F}\u{FE0F}" }} Edit</a>
 
                 <form action="{{ route('jadwal.destroy', $item->id) }}" method="POST" style="display:inline;"
                   onsubmit="return confirm('Hapus acara ini?')">
                   @csrf
                   @method('DELETE')
-                  <button type="submit" class="act-btn btn-del">🗑 Hapus</button>
+                  <button type="submit" class="act-btn btn-del">{{ "\u{1F5D1}\u{FE0F}" }} Hapus</button>
                 </form>
               </div>
             </div>

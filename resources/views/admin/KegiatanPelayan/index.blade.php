@@ -12,7 +12,7 @@
     <h2>Daftar Kegiatan Pelayanan</h2>
     <p>Kelola jadwal, pengkhotbah, tema, ayat, dan tim pelayanan.</p>
     <div class="hero-actions">
-      <a href="{{ route('kegiatan.create') }}" class="btn-hero-primary">＋ Tambah</a>
+      <a href="{{ route('kegiatan.create') }}" class="btn-hero-primary">{{ "\u{FF0B}" }} Tambah</a>
     </div>
   </div>
 

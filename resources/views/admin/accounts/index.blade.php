@@ -12,7 +12,7 @@
             </div>
 
             <a href="{{ route('accounts.create') }}" class="btn-add">
-                + Tambah
+                {{ "\u{002B}" }} Tambah
             </a>
         </div>
 

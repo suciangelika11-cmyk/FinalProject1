@@ -94,7 +94,7 @@
                         </p>
 
                         <div class="thank-you">
-                            ❤️ Terima kasih untuk setiap dukungan Anda ❤️
+                            {{ "\u{2764}\u{FE0F}" }} Terima kasih untuk setiap dukungan Anda {{ "\u{2764}\u{FE0F}" }}
                         </div>
                     </div>
                 </div>

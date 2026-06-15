@@ -18,14 +18,14 @@
 
     <div class="stats-row">
       <div class="stat-card">
-        <div class="stat-icon ic">📍</div>
+        <div class="stat-icon ic">{{ "\u{1F4CD}" }}</div>
         <div>
           <div class="stat-val vc">{{ $kontak->count() }}</div>
           <div class="stat-lbl">Total Kontak</div>
         </div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon ig">📞</div>
+        <div class="stat-icon ig">{{ "\u{1F4DE}" }}</div>
         <div>
           <div class="stat-val vg">
             {{ $kontak->whereNotNull('phone')->filter(fn($item) => !empty($item->phone))->count() }}
@@ -34,7 +34,7 @@
         </div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon is">✉</div>
+        <div class="stat-icon is">{{ "\u{2709}\u{FE0F}" }}</div>
         <div>
           <div class="stat-val vs">
             {{ $kontak->whereNotNull('email')->filter(fn($item) => !empty($item->email))->count() }}
@@ -43,7 +43,7 @@
         </div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon ir">🕐</div>
+        <div class="stat-icon ir">{{ "\u{1F550}" }}</div>
         <div>
           <div class="stat-val vr">
             {{ $kontak->whereNotNull('office_hours')->filter(fn($item) => !empty($item->office_hours))->count() }}
@@ -55,11 +55,11 @@
 
     <div class="card">
       <div class="card-header">
-        <h3>✉ Informasi Kontak Gereja</h3>
+        <h3>{{ "\u{2709}\u{FE0F}" }} Informasi Kontak Gereja</h3>
         <div class="card-tools">
           @if($kontak->count() == 0)
             <a href="{{ route('kontak.create') }}" class="btn-tambah">
-              <span style="font-size:15px;font-weight:900;">＋</span> Tambah
+              <span style="font-size:15px;font-weight:900;">{{ "\u{FF0B}" }}</span> Tambah
             </a>
           @endif
         </div>
@@ -85,20 +85,20 @@
                   <td>
                     <div class="loc-addr">{{ $item->address }}</div>
                   </td>
-                  <td><span class="pill-cyan">📞 {{ $item->phone ?: '-' }}</span></td>
-                  <td><span class="pill-gold">✉ {{ $item->email ?: '-' }}</span></td>
+                  <td><span class="pill-cyan">{{ "\u{1F4DE}" }} {{ $item->phone ?: '-' }}</span></td>
+                  <td><span class="pill-gold">{{ "\u{2709}\u{FE0F}" }} {{ $item->email ?: '-' }}</span></td>
                   <td>
                     <div class="jam-main">{{ $item->office_hours ?: '-' }}</div>
                   </td>
                   <td>
                     <div style="display:flex;gap:6px;">
-                      <a href="{{ route('kontak.edit', $item->id) }}" class="act-btn btn-edit">✏ Edit</a>
+                      <a href="{{ route('kontak.edit', $item->id) }}" class="act-btn btn-edit">{{ "\u{270F}\u{FE0F}" }} Edit</a>
 
                       <form action="{{ route('kontak.destroy', $item->id) }}" method="POST"
                         onsubmit="return confirm('Hapus kontak ini?')">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="act-btn btn-del">🗑 Hapus</button>
+                        <button type="submit" class="act-btn btn-del">{{ "\u{1F5D1}\u{FE0F}" }} Hapus</button>
                       </form>
                     </div>
                   </td>
@@ -108,7 +108,7 @@
           </table>
         @else
           <div class="no-data">
-            <div class="icon">✉</div>
+            <div class="icon">{{ "\u{2709}\u{FE0F}" }}</div>
             <p>Belum ada data kontak. Klik <strong>Tambah Kontak</strong> untuk memulai.</p>
           </div>
         @endif

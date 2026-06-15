@@ -6,7 +6,7 @@
 
     <div class="form-wrap">
         <div class="form-card">
-            <h2>✏️ Edit Jadwal Pelayan & Kegiatan</h2>
+            <h2>{{ "\u{270F}\u{FE0F}" }} Edit Jadwal Pelayan & Kegiatan</h2>
 
             @if ($errors->any())
                 <div
@@ -91,7 +91,7 @@
 
                 <div class="btn-row">
                     <a href="{{ route('jadwal.index') }}" class="btn-back">← Batal</a>
-                    <button type="submit" class="btn-submit">✅ Update</button>
+                    <button type="submit" class="btn-submit">{{ "\u{2705}" }} Update</button>
                 </div>
             </form>
         </div>

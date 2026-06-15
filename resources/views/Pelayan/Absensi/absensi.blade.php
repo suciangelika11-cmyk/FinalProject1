@@ -13,7 +13,7 @@
         <div class="hero-content">
 
             <div class="hero-badge">
-                📖 DAFTAR KEHADIRAN
+                {{ "\u{1F4D6}" }} DAFTAR KEHADIRAN
             </div>
 
             <h1 class="hero-title">
@@ -62,7 +62,7 @@
                             </div>
 
                             <div class="info-item">
-                                <div class="info-icon">🎤</div>
+                                <div class="info-icon">{{ "\u{1F3A4}" }}</div>
 
                                 <div class="info-content">
                                     <h5>Pengkhotbah</h5>
@@ -71,7 +71,7 @@
                             </div>
 
                             <div class="info-item">
-                                <div class="info-icon">🙏</div>
+                                <div class="info-icon">{{ "\u{1F64F}" }}</div>
 
                                 <div class="info-content">
                                     <h5>Pelayan</h5>
@@ -80,7 +80,7 @@
                             </div>
 
                             <div class="info-item">
-                                <div class="info-icon">👥</div>
+                                <div class="info-icon">{{ "\u{1F465}" }}</div>
 
                                 <div class="info-content">
                                     <h5>Jumlah Hadir</h5>

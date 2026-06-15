@@ -111,7 +111,7 @@
                                         <h3>Detail Jemaat</h3>
 
                                         <button onclick="closeModal({{ $jemaat->id }})">
-                                            ×
+                                            {{ "\u{00D7}" }}
                                         </button>
                                     </div>
 

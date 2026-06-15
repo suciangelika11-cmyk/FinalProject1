@@ -35,7 +35,7 @@
             </div>
 
             <a href="{{ route('user.pengumuman') }}" class="back-btn">
-                ← Kembali ke Pengumuman
+                {{ "\u{2190}" }} Kembali ke Pengumuman
             </a>
 
         </div>

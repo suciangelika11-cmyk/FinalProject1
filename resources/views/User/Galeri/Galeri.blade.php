@@ -169,7 +169,7 @@
         <div class="g-lb-inner">
 
             <button class="g-lb-close" onclick="gClose()">
-                ✕
+                {{ "\u{2715}" }}
             </button>
 
             <img id="gLbImg" src="" alt="">
@@ -179,7 +179,7 @@
                 <div class="lb-desc" id="gLbDesc"></div>
 
                 <button class="g-back-btn" onclick="gClose()">
-                    ← Kembali ke Galeri
+                    {{ "\u{2190}" }} Kembali ke Galeri
                 </button>
             </div>
 
