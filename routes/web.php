@@ -155,13 +155,4 @@ Route::get('/', [IbadahController::class, 'jemaat'])->name("home");
     Route::get('/pengumuman', [UserPengumumanController::class, 'index'])->name('user.pengumuman');
     Route::get('/pengumuman/{pengumuman}', [UserPengumumanController::class, 'show'])->name('user.pengumuman.show');
 
-    Route::get('/test-email', function () {
-
-    Mail::raw('Halo, email dari Laravel berhasil dikirim!', function ($message) {
-        $message->to('penting22banget@gmail.com')
-                ->subject('Test Email Laravel');
-    });
-
-    return 'Email berhasil dikirim';
-});
 ?>
