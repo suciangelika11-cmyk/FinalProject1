@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class KegiatanPelayanan extends Model
+class KegiatanPelayan extends Model
 {
     protected $fillable = [
         'tanggal',

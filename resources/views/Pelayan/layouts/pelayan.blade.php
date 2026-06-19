@@ -760,7 +760,7 @@
                 </p>
 
                 <p class="footer-built">
-                    Built by <strong>Team 05 PA-IT Del</strong>
+                    Built by <strong>Team 05 PA I - IT Del</strong>
                 </p>
 
             </div>

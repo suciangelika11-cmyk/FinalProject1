@@ -140,10 +140,12 @@
         font-family: 'Playfair Display', serif;
         color: #4B6584;
         font-size: clamp(28px, 5vw, 40px);
+        
     }
 
     .pl-sec-sub {
         color: #6E7E91;
+        margin-bottom: 20px;
     }
 
     /* LEADER */

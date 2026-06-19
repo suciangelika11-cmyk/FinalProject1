@@ -68,12 +68,17 @@
                 <div class="actions">
                   <a href="{{ route('kegiatan.edit', $item->id) }}" class="action-btn btn-edit">Edit</a>
 
-                  <form action="{{ route('kegiatan.destroy', $item->id) }}" method="POST"
-                    onsubmit="return confirm('Yakin hapus kegiatan ini?');" style="display:inline-block;">
+                  <form id="delete-form-{{ $item->id }}" action="{{ route('kegiatan.destroy', $item->id) }}" method="POST"
+                    style="display:inline-block;">
+
                     @csrf
                     @method('DELETE')
 
-                    <button type="submit" class="action-btn btn-delete">Hapus</button>
+                    <button type="button" class="action-btn btn-delete btn-hapus" data-id="{{ $item->id }}"
+                      data-pengkhotbah="{{ $item->pengkhotbah }}" data-tema="{{ $item->tema }}"
+                      data-tanggal="{{ \Carbon\Carbon::parse($item->tanggal)->format('d M Y') }}">
+                      Hapus
+                    </button>
                   </form>
                 </div>
               </td>
@@ -84,4 +89,10 @@
     </div>
   @endif
   </div>
+
+  @push('scripts')
+
+    <script src="{{ asset('js/Admin/KegiatanPelayananIndex.js') }}"></script>
+
+    @endpush
 @endsection

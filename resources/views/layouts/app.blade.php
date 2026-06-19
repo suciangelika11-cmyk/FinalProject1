@@ -1123,7 +1123,7 @@
                     <p class="footer-copyright">
                         © 2026 GBI Tambunan. All rights reserved. Made with <span class="heart">❤</span> for God's glory.
                     </p>
-                    <p class="footer-built">Built by <strong>Team 05 PA-IT Del</strong></p>
+                    <p class="footer-built">Built by <strong>Team 05 PA I - IT Del</strong></p>
                 </div>
             </div>
         </footer>

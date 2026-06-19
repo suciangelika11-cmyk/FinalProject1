@@ -83,10 +83,10 @@
 
       $hariIcon = [
         'Senin' => "\u{2600}\u{FE0F}",
-        'Selasa' => "\u{1F31F}" ,
+        'Selasa' => "\u{1F31F}",
         'Rabu' => "\u{1F54A}\u{FE0F}",
         'Kamis' => "\u{1F514}",
-        'Jumat' => "\u{1F319}" ,
+        'Jumat' => "\u{1F319}",
         'Sabtu' => "\u{1F525}",
         'Minggu' => "\u{271D}\u{FE0F}",
       ];
@@ -112,7 +112,7 @@
             @endphp
 
             <div class="jcard {{ $warna }}">
-              <div class="jcard-icon">{{ $item->icon ?:  "\u{1F4C5}"  }}</div>
+              <div class="jcard-icon">{{ $item->icon ?: "\u{1F4C5}"  }}</div>
               <div class="jcard-title">{{ $item->title }}</div>
 
               <div class="jcard-meta">
@@ -126,11 +126,15 @@
                 <div class="jcard-actions">
                   <a href="{{ route('jadwal.edit', $item->id) }}" class="act-btn btn-edit">{{ "\u{270F}\u{FE0F}" }} Edit</a>
 
-                  <form action="{{ route('jadwal.destroy', $item->id) }}" method="POST" style="display:inline;"
-                    onsubmit="return confirm('Hapus jadwal ini?')">
+                  <form id="delete-form-{{ $item->id }}" action="{{ route('jadwal.destroy', $item->id) }}" method="POST"
+                    style="display:inline;">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="act-btn btn-del">{{ "\u{1F5D1}\u{FE0F}" }} Hapus</button>
+                    <button type="button" class="act-btn btn-del btn-hapus" data-id="{{ $item->id }}"
+                      data-title="{{ $item->title }}" data-type="Jadwal Ibadah">
+                      🗑️ Hapus
+                    </button>
+
                   </form>
                 </div>
               </div>
@@ -181,12 +185,16 @@
               <div class="jcard-actions">
                 <a href="{{ route('jadwal.edit', $item->id) }}" class="act-btn btn-edit">{{ "\u{270F}\u{FE0F}" }} Edit</a>
 
-                <form action="{{ route('jadwal.destroy', $item->id) }}" method="POST" style="display:inline;"
-                  onsubmit="return confirm('Hapus acara ini?')">
+                <form id="delete-form-{{ $item->id }}" action="{{ route('jadwal.destroy', $item->id) }}" method="POST"
+                  style="display:inline;">
                   @csrf
                   @method('DELETE')
-                  <button type="submit" class="act-btn btn-del">{{ "\u{1F5D1}\u{FE0F}" }} Hapus</button>
+                  <button type="button" class="act-btn btn-del btn-hapus" data-id="{{ $item->id }}"
+                    data-title="{{ $item->title }}" data-type="Acara Khusus">
+                    🗑️ Hapus
+                  </button>
                 </form>
+
               </div>
             </div>
           </div>
@@ -200,4 +208,10 @@
     @endif
 
   </div>
+
+  @push('scripts')
+
+    <script src="{{ asset('js/Admin/JadwalIndex.js') }}"></script>
+
+  @endpush
 @endsection

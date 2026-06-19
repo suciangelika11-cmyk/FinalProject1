@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('admin.layouts.LOAAbsen.AbsenIndex')
+    @include('admin.layouts.LOAAbsen.AbsenIndex')
 
 
     <div class="content-header">
@@ -19,7 +19,6 @@
 
                 <i class="ri-checkbox-circle-line"></i>Absensi Ibadah
             </div>
-
             <h2>Kelola Data Absensi</h2>
 
             <p>
@@ -83,13 +82,13 @@
                                     Edit
                                 </a>
 
-                                <form action="{{ route('absensi.destroy', $item) }}" method="POST"
-                                    style="display:inline-block;">
+                                <form id="delete-form-{{ $item->id }}" action="{{ route('absensi.destroy', $item) }}"
+                                    method="POST" style="display:inline-block;">
                                     @csrf
                                     @method('DELETE')
-
-                                    <button type="submit" class="btn btn-danger"
-                                        onclick="return confirm('Yakin ingin menghapus data absensi ini?')">
+                                    <button type="button" class="btn btn-danger btn-hapus" data-id="{{ $item->id }}"
+                                        data-sesi="{{ $item->session }}"
+                                        data-tanggal="{{ \Carbon\Carbon::parse($item->date)->format('d M Y') }}">
 
                                         <i class="fas fa-trash"></i>
                                         Hapus
@@ -118,6 +117,11 @@
                 </tbody>
             </table>
         </div>
-
     </div>
+
+    @push('scripts')
+
+        <script src="{{ asset('js/Admin/AbsensiIndex.js') }}"></script>
+
+    @endpush
 @endsection

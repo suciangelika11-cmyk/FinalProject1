@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Pelayan;
 use App\Http\Controllers\Controller;
 use App\Models\Jadwal;
 use App\Models\Pelayanan;
-use App\Models\KegiatanPelayanan;
+use App\Models\KegiatanPelayan;
 
 class KegiatanPelayanController extends Controller
 {
@@ -25,7 +25,7 @@ class KegiatanPelayanController extends Controller
             ->orderBy('start_time')
             ->get();
 
-        $kegiatans = KegiatanPelayanan::latest()->get();
+        $kegiatans = KegiatanPelayan::latest()->get();
 
         $pelayanans = Pelayanan::latest()->get();
 

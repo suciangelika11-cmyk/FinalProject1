@@ -183,7 +183,7 @@
     }
 
     .day-name {
-        font-family:'Libre Baskerville',serif;
+        font-family: 'Libre Baskerville', serif;
         color: #4B6584;
         font-weight: 700;
         font-size: 22px;
@@ -194,8 +194,9 @@
     /* ================= GRID & CARDS ================= */
     .schedule-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-        gap: 28px;
+        grid-template-columns: repeat(3, minmax(400px, 1fr));
+        justify-content: center;
+        gap: 30px;
         margin-bottom: 40px;
     }
 
@@ -204,13 +205,23 @@
         background: var(--bg-card);
         border: 1px solid var(--border);
         border-radius: var(--radius);
-        padding: 32px;
-        display: flex;
-        flex-direction: column;
+        padding: 30px;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: 0 2px 8px rgba(118, 159, 205, 0.08);
         position: relative;
         overflow: hidden;
+    }
+
+    .schedule-card::after {
+        content: '';
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: rgba(118, 159, 205, .04);
+        top: -90px;
+        right: -90px;
+        z-index: 0;
     }
 
     .schedule-card:hover,
@@ -233,25 +244,26 @@
     }
 
     .card-icon {
-        width: 52px;
-        height: 52px;
+        width: 72px;
+        height: 72px;
         background: linear-gradient(135deg, var(--tertiary), var(--secondary));
         color: var(--accent);
-        border-radius: var(--radius-sm);
+        border-radius: 18px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 22px;
+        font-size: 32px;
         margin-bottom: 20px;
         flex-shrink: 0;
+        box-shadow: 0 10px 25px rgba(118, 159, 205, .15);
     }
 
     .card-title {
         font-family: 'Libre Baskerville', serif;
-        font-size: 26px;
-        line-height:1.4;
+        font-size: 22px;
+        line-height: 1.4;
         color: var(--text-primary);
-        margin-bottom: 16px;
+        margin-bottom: 12px;
         font-weight: 700;
     }
 
@@ -274,10 +286,9 @@
     .card-desc {
         font-size: 14px;
         color: var(--text-secondary);
-        line-height: 1.7;
-        margin-top: 8px;
-        margin-bottom: 24px;
-        flex: 1;
+        line-height: 1.6;
+        margin-top: 10px;
+        margin-bottom: 0px;
     }
 
     .btn-detail {
@@ -411,6 +422,12 @@
 
         .day-name {
             font-size: 16px;
+        }
+    }
+
+    @media(max-width:992px) {
+        .schedule-grid {
+            grid-template-columns: repeat(2, 1fr);
         }
     }
 </style>

@@ -8,7 +8,7 @@
         $gereja = "GBI Tambunan";
         $whatsapp = $kontak && $kontak->phone
             ? preg_replace('/[^0-9]/', '', $kontak->phone)
-            : '6281632228286';
+            : '081632228286';
     @endphp
 
     {{-- HERO --}}

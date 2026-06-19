@@ -4,7 +4,7 @@
 
 @section('content')
 
-@include('Pelayan.layouts.LOPBeranda')
+    @include('Pelayan.layouts.LOPBeranda')
 
     <!-- HERO -->
     <section class="hero">
@@ -41,21 +41,33 @@
             <h2 class="section-title reveal">Jadwal Ibadah Minggu</h2>
 
             <div class="sessions-grid">
-                <div class="session-card reveal">
-                    <div class="session-number">Sesi I</div>
-                    <div class="session-time">09:00</div>
-                    <div class="session-wib">WIB — Pagi</div>
-                </div>
-                <div class="session-card reveal">
-                    <div class="session-number">Sesi II</div>
-                    <div class="session-time">11:00</div>
-                    <div class="session-wib">WIB — Siang</div>
-                </div>
-                <div class="session-card reveal">
-                    <div class="session-number">Sesi III</div>
-                    <div class="session-time">16:00</div>
-                    <div class="session-wib">WIB — Sore</div>
-                </div>
+                @forelse($ibadahs as $ibadah)
+                    <div class="session-card reveal">
+                        <div class="session-number">
+                            {{ $ibadah->title }}
+                        </div>
+                        <div class="session-time">
+                            {{ \Carbon\Carbon::parse($ibadah->start_time)->format('H:i') }}
+                        </div>
+                        <div class="session-wib">
+                            WIB —
+                            @if(\Carbon\Carbon::parse($ibadah->start_time)->hour < 12)
+                                Pagi
+                            @elseif(\Carbon\Carbon::parse($ibadah->start_time)->hour < 15)
+                                Siang
+                            @else
+                                Sore
+                            @endif
+                        </div>
+                    </div>
+                @empty
+                    <div class="session-card reveal">
+                        <div class="session-number">Belum Ada Jadwal</div>
+                        <div class="session-time">--:--</div>
+                        <div class="session-wib">Silakan tambah jadwal Minggu</div>
+                    </div>
+                @endforelse
+
             </div>
         </div>
     </section>
@@ -131,5 +143,5 @@
     </div>
 
     <script src="{{ asset('js/Pelayan/Beranda.js') }}"></script>
-    
+
 @endsection

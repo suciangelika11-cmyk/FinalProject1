@@ -92,14 +92,18 @@
                   </td>
                   <td>
                     <div style="display:flex;gap:6px;">
-                      <a href="{{ route('kontak.edit', $item->id) }}" class="act-btn btn-edit">{{ "\u{270F}\u{FE0F}" }} Edit</a>
+                      <a href="{{ route('kontak.edit', $item->id) }}" class="act-btn btn-edit">{{ "\u{270F}\u{FE0F}" }}
+                        Edit</a>
 
-                      <form action="{{ route('kontak.destroy', $item->id) }}" method="POST"
-                        onsubmit="return confirm('Hapus kontak ini?')">
+                      <form id="delete-form-{{ $item->id }}" action="{{ route('kontak.destroy', $item->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="act-btn btn-del">{{ "\u{1F5D1}\u{FE0F}" }} Hapus</button>
+                        <button type="button" class="act-btn btn-del btn-hapus" data-id="{{ $item->id }}"
+                          data-phone="{{ $item->phone }}" data-email="{{ $item->email }}">
+                          🗑️ Hapus
+                        </button>
                       </form>
+                      
                     </div>
                   </td>
                 </tr>
@@ -116,4 +120,10 @@
     </div>
 
   </div>
+
+  @push('scripts')
+
+    <script src="{{ asset('js/Admin/KontakIndex.js') }}"></script>
+
+  @endpush
 @endsection

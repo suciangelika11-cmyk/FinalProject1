@@ -10,14 +10,21 @@ class IbadahController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    public function jemaat()
+    {
+        $ibadahs = Jadwal::ibadahMinggu();
+        return view('welcome', compact('ibadahs'));
+    }
+
+    public function pelayan()
+    {
+        $ibadahs = Jadwal::ibadahMinggu();
+        return view('Pelayan.beranda.beranda', compact('ibadahs'));
+    }
     public function index()
     {
-        $ibadahs = Jadwal::where('day', 'Minggu')
-            ->orderBy('start_time')
-            ->take(3)
-            ->get();
-
-        return view('welcome', compact('ibadahs'));
+        //
     }
 
     /**

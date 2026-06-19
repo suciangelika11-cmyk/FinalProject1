@@ -39,7 +39,7 @@
 
       <div class="hero-actions">
         <a href="{{ route('pelayanan.create') }}" class="btn-hero-primary">
-          {{ "\u{FF0B}" }}   Tambah
+          {{ "\u{FF0B}" }} Tambah
         </a>
       </div>
 
@@ -148,16 +148,14 @@
                   {{"\u{270F}"}} Edit
                 </a>
 
-                <form action="{{ route('pelayanan.destroy', $item->id) }}" method="POST"
-                  onsubmit="return confirm('Hapus data ini?')">
-
+                <form id="delete-form-{{ $item->id }}" action="{{ route('pelayanan.destroy', $item->id) }}" method="POST">
                   @csrf
                   @method('DELETE')
 
-                  <button type="submit" class="act-sm btn-d">
-                    {{"\u{1F5D1}"}} Hapus
+                  <button type="button" class="act-sm btn-d btn-hapus" data-id="{{ $item->id }}"
+                    data-title="{{ $item->title }}">
+                    🗑 Hapus
                   </button>
-
                 </form>
 
               </div>
@@ -229,7 +227,7 @@
                     {{ $anggota->nama }}
 
                     @if($anggota->bagian)
-                    <strong>{{ $anggota->bagian }}</strong>
+                      <strong>{{ $anggota->bagian }}</strong>
                     @endif
 
                   </div>
@@ -250,16 +248,14 @@
                   ✏ Edit
                 </a>
 
-                <form action="{{ route('pelayanan.destroy', $item->id) }}" method="POST"
-                  onsubmit="return confirm('Hapus data ini?')">
-
+                <form id="delete-form-{{ $item->id }}" action="{{ route('pelayanan.destroy', $item->id) }}" method="POST">
                   @csrf
                   @method('DELETE')
 
-                  <button type="submit" class="act-sm btn-d">
+                  <button type="button" class="act-sm btn-d btn-hapus" data-id="{{ $item->id }}"
+                    data-title="{{ $item->title }}">
                     🗑 Hapus
                   </button>
-
                 </form>
 
               </div>
@@ -326,16 +322,14 @@
                     ✏ Edit
                   </a>
 
-                  <form action="{{ route('pelayanan.destroy', $item->id) }}" method="POST"
-                    onsubmit="return confirm('Hapus data ini?')">
-
+                  <form id="delete-form-{{ $item->id }}" action="{{ route('pelayanan.destroy', $item->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
 
-                    <button type="submit" class="act-sm btn-d">
+                    <button type="button" class="act-sm btn-d btn-hapus" data-id="{{ $item->id }}"
+                      data-title="{{ $item->title }}">
                       🗑 Hapus
                     </button>
-
                   </form>
 
                 </div>
@@ -359,5 +353,11 @@
     </div>
 
   </div>
+
+  @push('scripts')
+
+        <script src="{{ asset('js/Admin/PelayananIndex.js') }}"></script>
+
+    @endpush
 
 @endsection

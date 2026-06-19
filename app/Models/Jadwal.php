@@ -34,4 +34,12 @@ class Jadwal extends Model
     {
         return $this->belongsTo(Ibadah::class);
     }
+
+    public static function ibadahMinggu()
+    {
+        return self::where('day', 'Minggu')
+            ->orderBy('start_time')
+            ->take(3)
+            ->get();
+    }
 }

@@ -32,9 +32,36 @@
 
                 <div class="schedule-grid">
                     @foreach ($kegiatanList as $kegiatan)
+                    @php
+                        $title = strtolower($kegiatan->title);
+
+                        if (str_contains($title, 'ibadah')) {
+                            $icon = 'fa-solid fa-church';
+                        } elseif (str_contains($title, 'doa')) {
+                            $icon = 'fa-solid fa-hands-praying';
+                        } elseif (str_contains($title, 'pemuda') || str_contains($title, 'next gen')) {
+                            $icon = 'fa-solid fa-users';
+                        } elseif (str_contains($title, 'sekolah minggu')) {
+                            $icon = 'fa-solid fa-book-bible';
+                        } elseif (str_contains($title, 'menara')) {
+                            $icon = 'fa-solid fa-cross';
+                        } elseif (str_contains($title, 'retreat')) {
+                            $icon = 'fa-solid fa-mountain';
+                        } elseif (str_contains($title, 'natal')) {
+                            $icon = 'fa-solid fa-gift';
+                        } elseif (str_contains($title, 'paskah')) {
+                            $icon = 'fa-solid fa-cross';
+                        } elseif (str_contains($title, 'baptis')) {
+                            $icon = 'fa-solid fa-droplet';
+                        } elseif (str_contains($title, 'nikah')) {
+                            $icon = 'fa-solid fa-heart';
+                        } else {
+                            $icon = 'fa-solid fa-calendar-heart';
+                        }
+                    @endphp
                         <div class="schedule-card">
                             <div class="card-icon">
-                                <i class="{{ $kegiatan->icon ?: 'fa-solid fa-calendar-heart' }}"></i>
+                                <i class="{{ $icon }}"></i>
                             </div>
 
                             <h3 class="card-title">{{ $kegiatan->title }}</h3>
@@ -57,11 +84,6 @@
                             @else
                                 <div style="flex: 1;"></div>
                             @endif
-
-                            <a href="#" class="btn-detail">
-                                Lihat Detail
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
                         </div>
                     @endforeach
                 </div>

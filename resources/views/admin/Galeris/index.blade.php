@@ -61,64 +61,53 @@
     @if($galeri->count())
       <div class="gallery-list">
 
-    @foreach($galeri as $item)
-
-        <div class="gallery-row">
-
+        @foreach($galeri as $item)
+          <div class="gallery-row">
             <div class="gallery-info">
+              <img src="{{ asset('storage/' . $item->image) }}" class="gallery-thumb">
 
-                <img src="{{ asset('storage/' . $item->image) }}"
-                     class="gallery-thumb">
+              <div>
 
-                <div>
-
-                    <div class="gallery-title">
-                        {{ $item->title }}
-                    </div>
-
-                    <div class="gallery-desc">
-                        {{ Str::limit($item->description, 80) }}
-                    </div>
-
+                <div class="gallery-title">
+                  {{ $item->title }}
                 </div>
+
+                <div class="gallery-desc">
+                  {{ Str::limit($item->description, 80) }}
+                </div>
+
+              </div>
 
             </div>
 
             <div class="gallery-date">
-
-                {{ $item->event_date
-                    ? \Carbon\Carbon::parse($item->event_date)->format('Y-m-d')
-                    : '-' }}
-
+              {{ $item->event_date
+            ? \Carbon\Carbon::parse($item->event_date)->format('Y-m-d')
+            : '-' }}
             </div>
 
             <div class="gallery-action">
 
-                <a href="{{ route('galeri.edit',$item->id) }}"
-                    class="btn-edit">
-                    Edit
-                </a>
+              <a href="{{ route('galeri.edit', $item->id) }}" class="btn-edit">
+                Edit
+              </a>
 
-                <f action="{{ route('galeri.destroy',$item->id) }}"
-                      method="POST"
-                      style="display:inline;"
-                      onsubmit="return confirm('Hapus foto ini?')">
-
-                <form action="{{ route('galeri.destroy', $item->id) }}" method="POST" style="display:inline;"
-                  onsubmit="return confirm('Hapus foto ini?')">
-                  @csrf
-                  @method('DELETE')
-                  <button type="submit" class="btn-delete">Hapus</button>
-
-                </form>
+              <form id="delete-form-{{ $item->id }}" action="{{ route('galeri.destroy', $item->id) }}" method="POST"
+                style="display:inline;">
+                @csrf
+                @method('DELETE')
+                <button type="button" class="btn-delete btn-hapus" data-id="{{ $item->id }}" data-title="{{ $item->title }}">
+                  Hapus
+                </button>
+              </form>
 
             </div>
 
-        </div>
+          </div>
 
-    @endforeach
+        @endforeach
 
-</div>
+      </div>
     @else
       <div class="empty-state">
         <div class="ei">{{ "\u{1F5BC}\u{FE0F}" }}</div>
@@ -131,6 +120,6 @@
   @push('scripts')
 
     <script src="{{ asset('js/Admin/GaleriIndex.js') }}"></script>
-    
+
   @endpush
 @endsection

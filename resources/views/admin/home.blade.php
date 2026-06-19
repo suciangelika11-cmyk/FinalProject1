@@ -132,7 +132,7 @@
         <div class="card white">
           <div class="card-icon-wrap"><span class="ico"><i class="ri-lock-line"></i></span></div>
           <div class="card-title">Akun</div>
-          <div class="card-desc">Kelola akun admin, super admin, dan pelayanan.</div>
+          <div class="card-desc">Kelola akun pelayanan.</div>
           <div class="card-arrow">→</div>
         </div>
       </a>

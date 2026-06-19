@@ -2,7 +2,7 @@
 
 @push('styles')
 
-@include('admin.layouts.LOATentang.TentangIndex')
+  @include('admin.layouts.LOATentang.TentangIndex')
 
 @endpush
 
@@ -25,12 +25,17 @@
       <div class="hero-actions">
         @if($tentang)
           <a href="{{ route('tentang.edit', $tentang->id) }}" class="btn-hero-primary">{{ "\u{270F}" }} Edit</a>
-          <form action="{{ route('tentang.destroy', $tentang->id) }}" method="POST"
-            onsubmit="return confirm('Hapus data tentang?')" style="display:inline;">
+
+          <form id="delete-form-{{ $tentang->id }}" action="{{ route('tentang.destroy', $tentang->id) }}" method="POST"
+            style="display:inline;">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn-hero-outline" style="background:rgba(224,85,85,.18);">{{ "\u{1F5D1}" }} Hapus</button>
+            <button type="button" class="btn-hero-outline btn-hapus" data-id="{{ $tentang->id }}"
+              data-title="{{ $tentang->header_title ?? 'Tentang Kami' }}" style="background:rgba(224,85,85,.18);">
+              🗑 Hapus
+            </button>
           </form>
+          
         @else
           <a href="{{ route('tentang.create') }}" class="btn-hero-primary">{{ "\u{2795}" }} Tambah</a>
         @endif
@@ -88,7 +93,7 @@
 
   @push('scripts')
 
-<script src="{{ asset('js/Admin/TentangIndex.js') }}"></script>
+    <script src="{{ asset('js/Admin/TentangIndex.js') }}"></script>
 
   @endpush
 @endsection

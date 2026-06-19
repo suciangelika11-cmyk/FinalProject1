@@ -19,7 +19,7 @@ class JadwalIbadahController extends Controller
         $acaraKhusus = Pengumuman::get();
 
         return view(
-            'Pelayan.jadwal_ibadah.jadwalibadah',
+            'Pelayan.Jadwal.jadwal',
             compact('jadwalMingguan', 'acaraKhusus')
         );
     }

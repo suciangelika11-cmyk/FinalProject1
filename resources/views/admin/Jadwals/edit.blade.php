@@ -61,12 +61,13 @@
                 <div class="form-row-2" id="jam-group">
                     <div class="fg">
                         <label>Jam Mulai</label>
-                        <input type="time" name="start_time" value="{{ old('start_time', $Jadwal->start_time) }}">
+                        <input type="time" name="start_time" value="{{ old('start_time', substr($Jadwal->start_time,0,5)) }}">
+
                     </div>
 
                     <div class="fg">
                         <label>Jam Selesai</label>
-                        <input type="time" name="end_time" value="{{ old('end_time', $Jadwal->end_time) }}">
+                        <input type="time" name="end_time" value="{{ old('end_time', substr($Jadwal->end_time,0,5)) }}">
                     </div>
                 </div>
 

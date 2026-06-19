@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\KegiatanPelayanan;
+use App\Models\KegiatanPelayan;
 use Illuminate\Http\Request;
 
-class KegiatanPelayananController extends Controller
+class KegiatanPelayanController extends Controller
 {
     public function index()
     {
-        $kegiatans = KegiatanPelayanan::latest()->get();
+        $kegiatans = KegiatanPelayan::latest()->get();
         return view('admin.KegiatanPelayan.index', compact('kegiatans'));
     }
 
@@ -33,7 +33,7 @@ class KegiatanPelayananController extends Controller
             'tim_musik' => 'required|string|max:255',
         ]);
 
-        KegiatanPelayanan::create($request->only([
+        KegiatanPelayan::create($request->only([
             'tanggal',
             'pengkhotbah',
             'tema',
@@ -49,17 +49,17 @@ class KegiatanPelayananController extends Controller
             ->with('success', 'Kegiatan pelayanan berhasil ditambahkan.');
     }
 
-    public function show(KegiatanPelayanan $kegiatan)
+    public function show(KegiatanPelayan $kegiatan)
     {
         return view('admin.KegiatanPelayan.show', compact('kegiatan'));
     }
 
-    public function edit(KegiatanPelayanan $kegiatan)
+    public function edit(KegiatanPelayan $kegiatan)
     {
         return view('admin.KegiatanPelayan.edit', compact('kegiatan'));
     }
 
-    public function update(Request $request, KegiatanPelayanan $kegiatan)
+    public function update(Request $request, KegiatanPelayan $kegiatan)
     {
         $request->validate([
             'tanggal' => 'required|date',
@@ -89,7 +89,7 @@ class KegiatanPelayananController extends Controller
             ->with('success', 'Kegiatan pelayanan berhasil diperbarui.');
     }
 
-    public function destroy(KegiatanPelayanan $kegiatan)
+    public function destroy(KegiatanPelayan $kegiatan)
     {
         $kegiatan->delete();
 

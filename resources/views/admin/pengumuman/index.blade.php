@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('admin.layouts.LOAPengumuman.PengumumanIndex')
+    @include('admin.layouts.LOAPengumuman.PengumumanIndex')
 
     <div class="page-hero">
         <div class="hero-tag"><i class="ri-notification-2-line"></i> Pengumuman</div>
@@ -66,11 +66,14 @@
                                         Edit
                                     </a>
 
-                                    <form action="{{ route('pengumuman.destroy', $item->id) }}" method="POST"
-                                        onsubmit="return confirm('Hapus pengumuman ini?')">
+                                    <form id="delete-form-{{ $item->id }}" action="{{ route('pengumuman.destroy', $item->id) }}"
+                                        method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn-delete">Hapus</button>
+
+                                        <button type="button" class="btn-delete btn-hapus" data-id="{{ $item->id }}">
+                                            Hapus
+                                        </button>
                                     </form>
                                 </div>
                             </td>
@@ -90,4 +93,10 @@
         </div>
     </div>
     </div>
+
+    @push('scripts')
+
+        <script src="{{ asset('js/Admin/PengumumanIndex.js') }}"></script>
+
+    @endpush
 @endsection

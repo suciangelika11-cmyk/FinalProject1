@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('admin.layouts.LOAAccount.AkunIndex')
+    @include('admin.layouts.LOAAccount.AkunIndex')
 
     <div class="account-page">
         <div class="account-header">
@@ -63,11 +63,14 @@
                                             Edit
                                         </a>
 
-                                        <form action="{{ route('accounts.destroy', $user->id) }}" method="POST"
-                                            onsubmit="return confirm('Hapus akun ini?')">
+                                        <form id="delete-form-{{ $user->id }}"
+                                            action="{{ route('accounts.destroy', $user->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn-delete">Hapus</button>
+                                            <button type="button" class="btn-delete btn-hapus" data-id="{{ $user->id }}"
+                                                data-name="{{ $user->name }}" data-role="{{ ucfirst($user->role) }}">
+                                                Hapus
+                                            </button>
                                         </form>
                                     </div>
                                 </td>
@@ -87,4 +90,10 @@
             </div>
         </div>
     </div>
+
+    @push('scripts')
+
+        <script src="{{ asset('js/Admin/AkunIndex.js') }}"></script>
+
+    @endpush
 @endsection

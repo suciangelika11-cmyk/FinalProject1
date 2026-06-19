@@ -590,8 +590,7 @@
     </div>
 
     <nav class="topbar-nav">
-      <a href="{{ route('admin.dashboard') }}" @if(request()->routeIs('admin.dashboard')) class="active"
-      @endif>Home</a>
+      <a href="{{ route('admin.dashboard') }}" @if(request()->routeIs('admin.dashboard')) class="active" @endif>Home</a>
       <a href="{{ route('tentang.index') }}" @if(request()->routeIs('tentang.*')) class="active" @endif>Tentang</a>
       <a href="{{ route('jadwal.index') }}" @if(request()->routeIs('jadwal.*')) class="active" @endif>Jadwal Ibadah</a>
       <a href="{{ route('absensi.index') }}" @if(request()->routeIs('absensi.*')) class="active" @endif>Absensi</a>
@@ -604,7 +603,8 @@
       <a href="{{ route('kontak.index') }}" @if(request()->routeIs('kontak.*')) class="active" @endif>Kontak</a>
       <a href="{{ route('pengumuman.index') }}" @if(request()->routeIs('pengumuman.*')) class="active"
       @endif>Pengumuman</a>
-      <a href="{{ route('accounts.index') }}" @if(request()->routeIs('accounts.*')) class="active" @endif>Akun Pelayan</a>
+      <a href="{{ route('accounts.index') }}" @if(request()->routeIs('accounts.*')) class="active" @endif>Akun
+        Pelayan</a>
     </nav>
 
     <div class="topbar-right">
@@ -736,8 +736,12 @@
     @yield('content')
   </div>
 
-  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none">
+  <form id="logout-form" action="{{ route('logout') }}" method="POST">
     @csrf
+    <button type="button" id="btn-logout" class="logout-btn">
+      <i class="ri-logout-box-r-line"></i>
+      Keluar
+    </button>
   </form>
 
   @stack('scripts')
@@ -819,9 +823,53 @@
         }
       });
     });
+
+    document.getElementById('btn-logout').addEventListener('click', function () {
+
+      Swal.fire({
+        title: 'Keluar dari Sistem?',
+        html: `
+            <div style="font-size:15px;line-height:1.8">
+                Anda akan keluar dari akun admin GBI Tambunan.
+                <br><br>
+                Apakah Anda yakin ingin melanjutkan?
+            </div>
+        `,
+        icon: 'question',
+
+        showCancelButton: true,
+
+        confirmButtonText: `
+            <i class="ri-logout-box-r-line"></i> Ya, Keluar
+        `,
+
+        cancelButtonText: `
+            <i class="ri-close-line"></i> Batal
+        `,
+
+        reverseButtons: true,
+
+        customClass: {
+          popup: 'church-modal',
+          title: 'church-title',
+          confirmButton: 'church-confirm',
+          cancelButton: 'church-cancel'
+        }
+
+      }).then((result) => {
+
+        if (result.isConfirmed) {
+          document.getElementById('logout-form').submit();
+        }
+
+      });
+
+    });
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  @stack('scripts')
 </body>
 
 </html>

@@ -73,24 +73,24 @@
                                         </button>
 
                                         @if($jemaat->status == 'pending')
-                                            <form action="{{ route('jemaat.confirm', $jemaat->id) }}" method="POST">
+                                            <form id="confirm-form-{{ $jemaat->id }}"
+                                                action="{{ route('jemaat.confirm', $jemaat->id) }}" method="POST">
                                                 @csrf
                                                 @method('PUT')
-
-                                                <button type="submit" class="btn-confirm">
+                                                <button type="button" class="btn-confirm btn-konfirmasi" data-id="{{ $jemaat->id }}"
+                                                    data-nama="{{ $jemaat->nama_keluarga }}">
                                                     Konfirmasi
                                                 </button>
                                             </form>
                                         @endif
 
-                                        <form action="{{ route('jemaat.destroy', $jemaat->id) }}" method="POST"
-                                            style="display:inline-block;"
-                                            onsubmit="return confirm('Yakin ingin menghapus data jemaat ini?')">
-
+                                        <form id="delete-form-{{ $jemaat->id }}"
+                                            action="{{ route('jemaat.destroy', $jemaat->id) }}" method="POST"
+                                            style="display:inline-block;">
                                             @csrf
                                             @method('DELETE')
-
-                                            <button type="submit" class="btn-delete">
+                                            <button type="button" class="btn-delete btn-hapus" data-id="{{ $jemaat->id }}"
+                                                data-nama="{{ $jemaat->nama_keluarga }}">
                                                 <i class="bi bi-trash3"></i>
                                                 Hapus
                                             </button>
@@ -203,6 +203,10 @@
         </div>
     </div>
 
+    @push('scripts')
+
     <script src="{{ asset('js/Admin/JemaatIndex.js') }}"></script>
+
+    @endpush
 
 @endsection

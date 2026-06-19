@@ -11,10 +11,10 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('pelayanan_anggotas', function (Blueprint $table) {
-            $table->foreignId('kegiatan_pelayanan_id')
+            $table->foreignId('kegiatan_pelayan_id')
                 ->nullable()
                 ->after('pelayanan_id')
-                ->constrained('kegiatan_pelayanans')
+                ->constrained('kegiatan_pelayans')
                 ->nullOnDelete();
         });
     }

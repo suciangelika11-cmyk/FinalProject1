@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\GaleriController as AdminGaleriController;
 use App\Http\Controllers\Admin\KhotbahController as AdminKhotbahController;
 use App\Http\Controllers\Admin\JadwalController as AdminJadwalController;
 use App\Http\Controllers\Admin\PelayananController as AdminPelayananController;
-use App\Http\Controllers\Admin\KegiatanPelayananController as AdminKegiatanPelayananController;
+use App\Http\Controllers\Admin\KegiatanPelayanController as AdminKegiatanPelayanController;
 use App\Http\Controllers\Admin\TentangController as AdminTentangController;
 use App\Http\Controllers\Admin\KontakController as AdminKontakController;
 use App\Http\Controllers\Admin\PengumumanController as AdminPengumumanController;
@@ -54,18 +54,17 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/pelayanan', [AdminPelayananController::class, 'index'])->name('pelayanan.index');
     Route::get('/pelayanan/create', [AdminPelayananController::class, 'create'])->name('pelayanan.create');
     Route::post('/pelayanan/store', [AdminPelayananController::class, 'store'])->name('pelayanan.store');
-    Route::get('/pelayanan/{Pelayanan}', [AdminPelayananController::class, 'show'])->name('pelayanan.show');
     Route::get('/pelayanan/{pelayanan}/edit', [AdminPelayananController::class, 'edit'])->name('pelayanan.edit');
     Route::put('/pelayanan/{pelayanan}', [AdminPelayananController::class, 'update'])->name('pelayanan.update');
     Route::delete('/pelayanan/{pelayanan}', [AdminPelayananController::class, 'destroy'])->name('pelayanan.destroy');
 
-    Route::get('/kegiatan', [AdminKegiatanPelayananController::class, 'index'])->name('kegiatan.index');
-    Route::get('/kegiatan/create', [AdminKegiatanPelayananController::class, 'create'])->name('kegiatan.create');
-    Route::post('/kegiatan', [AdminKegiatanPelayananController::class, 'store'])->name('kegiatan.store');
-    Route::get('/kegiatan/{kegiatan}', [AdminKegiatanPelayananController::class, 'show'])->name('kegiatan.show');
-    Route::get('/kegiatan/{kegiatan}/edit', [AdminKegiatanPelayananController::class, 'edit'])->name('kegiatan.edit');
-    Route::put('/kegiatan/{kegiatan}', [AdminKegiatanPelayananController::class, 'update'])->name('kegiatan.update');
-    Route::delete('/kegiatan/{kegiatan}', [AdminKegiatanPelayananController::class, 'destroy'])->name('kegiatan.destroy');
+    Route::get('/kegiatan', [AdminKegiatanPelayanController::class, 'index'])->name('kegiatan.index');
+    Route::get('/kegiatan/create', [AdminKegiatanPelayanController::class, 'create'])->name('kegiatan.create');
+    Route::post('/kegiatan', [AdminKegiatanPelayanController::class, 'store'])->name('kegiatan.store');
+    Route::get('/kegiatan/{kegiatan}', [AdminKegiatanPelayanController::class, 'show'])->name('kegiatan.show');
+    Route::get('/kegiatan/{kegiatan}/edit', [AdminKegiatanPelayanController::class, 'edit'])->name('kegiatan.edit');
+    Route::put('/kegiatan/{kegiatan}', [AdminKegiatanPelayanController::class, 'update'])->name('kegiatan.update');
+    Route::delete('/kegiatan/{kegiatan}', [AdminKegiatanPelayanController::class, 'destroy'])->name('kegiatan.destroy');
 
     Route::get('/tentang', [AdminTentangController::class, 'index'])->name('tentang.index');
     Route::get('/tentang/create', [AdminTentangController::class, 'create'])->name('tentang.create');
@@ -77,7 +76,6 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/khotbah', [AdminKhotbahController::class, 'index'])->name('khotbah.index');
     Route::get('/khotbah/create', [AdminKhotbahController::class, 'create'])->name('khotbah.create');
     Route::post('/khotbah/store', [AdminKhotbahController::class, 'store'])->name('khotbah.store');
-    Route::get('/khotbah/{khotbah}', [AdminKhotbahController::class, 'show'])->name('khotbah.show');
     Route::get('/khotbah/{khotbah}/edit', [AdminKhotbahController::class, 'edit'])->name('khotbah.edit');
     Route::put('/khotbah/{khotbah}', [AdminKhotbahController::class, 'update'])->name('khotbah.update');
     Route::delete('/khotbah/{khotbah}', [AdminKhotbahController::class, 'destroy'])->name('khotbah.destroy');
@@ -109,8 +107,6 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::delete('/jemaat/{jemaat}', [AdminJemaatController::class, 'destroy'])->name('jemaat.destroy');
 
     Route::get('/profil', [ProfilController::class, 'index'])->name('profil.index');
-    Route::get('/profil/create', [ProfilController::class, 'create'])->name('profil.create');
-    Route::post('/profil', [ProfilController::class, 'store'])->name('profil.store');
     Route::get('/profil/edit', [ProfilController::class, 'edit'])->name('profil.edit');
     Route::put('/profil/update', [ProfilController::class, 'update'])->name('profil.update');  
 
@@ -133,9 +129,7 @@ Route::prefix('admin')->middleware(['auth', 'role:super_admin,admin'])->group(fu
 
 
     Route::middleware('auth', 'role:pelayan')->prefix('pelayan')->group(function () {
-    Route::get('/', function () {
-    return view('Pelayan.beranda.beranda');
-})->name('pelayan.home');
+    Route::get('/', [IbadahController::class, 'pelayan'])->name('pelayan.home');
 
     Route::get('/jadwal-ibadah',[PelayanJadwalIbadahController::class, 'index'])->name('pelayan.jadwal_ibadah');
     Route::get('/kegiatan-pelayan',[PelayanKegiatanPelayanController::class, 'index'])->name('pelayan.kegiatan_pelayan');
@@ -146,7 +140,7 @@ Route::prefix('admin')->middleware(['auth', 'role:super_admin,admin'])->group(fu
     Route::get('/tentang',[PelayanTentangController::class, 'index'])->name('pelayan.tentang');
 });
 
-Route::get('/', [IbadahController::class, 'index'])->name("home");
+Route::get('/', [IbadahController::class, 'jemaat'])->name("home");
     
     Route::get('/tentang', [UserTentangController::class, 'index'])->name('user.tentang');
     Route::get('/Jadwal', [UserJadwalController::class, 'index'])->name('user.jadwal');
