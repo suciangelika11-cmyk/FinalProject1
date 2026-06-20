@@ -33,8 +33,8 @@
       <div class="stat-card">
         <div class="stat-icon ig">{{ "\u{1F4C5}" }}</div>
         <div>
-          <div class="stat-val vg">{{ $khotbah->whereNotNull('sermon_date')->count() }}</div>
-          <div class="stat-lbl">Ada sermon_date</div>
+          <div class="stat-val vg">{{ $khotbah->whereNotNull('tanggal_khotbah')->count() }}</div>
+          <div class="stat-lbl">Ada tanggal_khotbah</div>
         </div>
       </div>
       <div class="stat-card">
@@ -75,11 +75,11 @@
             </div>
 
             <div class="kcard-body">
-              <div class="kcard-title">{{ $item->title }}</div>
+              <div class="kcard-title">{{ $item->judul }}</div>
               <div class="kcard-date">{{ "\u{1F4C5}" }}
-                {{ $item->sermon_date ? \Carbon\Carbon::parse($item->sermon_date)->format('d M Y') : '-' }}
+                {{ $item->tanggal_khotbah ? \Carbon\Carbon::parse($item->tanggal_khotbah)->format('d M Y') : '-' }}
               </div>
-              <div class="kcard-desc">{{ $item->description ?: '-' }}</div>
+              <div class="kcard-desc">{{ $item->deksripsi ?: '-' }}</div>
 
               <div class="kcard-actions">
                 <a href="{{ route('khotbah.edit', $item->id) }}" class="act-btn btn-edit">{{ "\u{270F}\u{FE0F}" }} Edit</a>
@@ -89,8 +89,8 @@
                   @csrf
                   @method('DELETE')
                   <button type="button" class="act-btn btn-del btn-hapus" data-id="{{ $item->id }}"
-                    data-title="{{ $item->title }}"
-                    data-date="{{ $item->sermon_date ? \Carbon\Carbon::parse($item->sermon_date)->format('d M Y') : '-' }}">
+                    data-title="{{ $item->judul }}"
+                    data-date="{{ $item->tanggal_khotbah ? \Carbon\Carbon::parse($item->tanggal_khotbah)->format('d M Y') : '-' }}">
                     🗑️ Hapus
                   </button>
                 </form>

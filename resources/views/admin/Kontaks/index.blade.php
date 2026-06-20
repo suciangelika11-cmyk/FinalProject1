@@ -28,7 +28,7 @@
         <div class="stat-icon ig">{{ "\u{1F4DE}" }}</div>
         <div>
           <div class="stat-val vg">
-            {{ $kontak->whereNotNull('phone')->filter(fn($item) => !empty($item->phone))->count() }}
+            {{ $kontak->whereNotNull('no_hp')->filter(fn($item) => !empty($item->no_hp))->count() }}
           </div>
           <div class="stat-lbl">Nomor Telepon</div>
         </div>
@@ -46,7 +46,7 @@
         <div class="stat-icon ir">{{ "\u{1F550}" }}</div>
         <div>
           <div class="stat-val vr">
-            {{ $kontak->whereNotNull('office_hours')->filter(fn($item) => !empty($item->office_hours))->count() }}
+            {{ $kontak->whereNotNull('jam_kerja')->filter(fn($item) => !empty($item->jam_kerja))->count() }}
           </div>
           <div class="stat-lbl">Ada Jam Sekretariat</div>
         </div>
@@ -83,12 +83,12 @@
                 <tr>
                   <td style="color:#b0b8c9;font-size:12px;">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</td>
                   <td>
-                    <div class="loc-addr">{{ $item->address }}</div>
+                    <div class="loc-addr">{{ $item->alamat }}</div>
                   </td>
-                  <td><span class="pill-cyan">{{ "\u{1F4DE}" }} {{ $item->phone ?: '-' }}</span></td>
+                  <td><span class="pill-cyan">{{ "\u{1F4DE}" }} {{ $item->no_hp ?: '-' }}</span></td>
                   <td><span class="pill-gold">{{ "\u{2709}\u{FE0F}" }} {{ $item->email ?: '-' }}</span></td>
                   <td>
-                    <div class="jam-main">{{ $item->office_hours ?: '-' }}</div>
+                    <div class="jam-main">{{ $item->jam_kerja ?: '-' }}</div>
                   </td>
                   <td>
                     <div style="display:flex;gap:6px;">
@@ -99,7 +99,7 @@
                         @csrf
                         @method('DELETE')
                         <button type="button" class="act-btn btn-del btn-hapus" data-id="{{ $item->id }}"
-                          data-phone="{{ $item->phone }}" data-email="{{ $item->email }}">
+                          data-phone="{{ $item->no_hp }}" data-email="{{ $item->email }}">
                           🗑️ Hapus
                         </button>
                       </form>

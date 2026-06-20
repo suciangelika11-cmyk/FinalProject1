@@ -26,19 +26,14 @@ class PelayananController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'category' => 'required|in:kepemimpinan,tim,aksi',
-
-            'title_kepemimpinan' => 'required_if:category,kepemimpinan|nullable|string|max:255',
-            'leader_kepemimpinan' => 'required_if:category,kepemimpinan|nullable|string|max:255',
-
-            'title_tim' => 'required_if:category,tim|nullable|string|max:255',
-            'description_tim' => 'required_if:category,tim|nullable|string',
-
-            'title_aksi' => 'required_if:category,aksi|nullable|string|max:255',
-            'description_aksi' => 'required_if:category,aksi|nullable|string',
-
-            'photo' => 'nullable|image|max:2048',
-
+            'kategori' => 'required|in:kepemimpinan,tim,aksi',
+            'judul_kepemimpinan' => 'required_if:kategori,kepemimpinan|nullable|string|max:255',
+            'pemimpim_kepemimpinan' => 'required_if:kategori,kepemimpinan|nullable|string|max:255',
+            'judul_tim' => 'required_if:kategori,tim|nullable|string|max:255',
+            'deksripsi_tim' => 'required_if:kategori,tim|nullable|string',
+            'judul_aksi' => 'required_if:kategori,aksi|nullable|string|max:255',
+            'deksripsi_aksi' => 'required_if:kategori,aksi|nullable|string',
+            'foto' => 'nullable|image|max:2048',
             'anggota_nama.*' => 'nullable|string|max:100',
             'anggota_bagian.*' => 'nullable|string|max:100',
         ]);
@@ -46,42 +41,42 @@ class PelayananController extends Controller
         DB::beginTransaction();
 
         try {
-            if ($request->category == 'kepemimpinan') {
+            if ($request->kategori == 'kepemimpinan') {
                 $data = [
-                    'title' => $request->title_kepemimpinan,
-                    'category' => 'kepemimpinan',
-                    'leader' => $request->leader_kepemimpinan,
-                    'description' => null,
+                    'judul' => $request->judul_kepemimpinan,
+                    'kategori' => 'kepemimpinan',
+                    'pemimpim' => $request->pemimpim_kepemimpinan,
+                    'deksripsi' => null,
                 ];
-            } elseif ($request->category == 'tim') {
+            } elseif ($request->kategori == 'tim') {
                 $data = [
-                    'title' => $request->title_tim,
-                    'category' => 'tim',
-                    'leader' => null,
-                    'description' => $request->description_tim,
+                    'judul' => $request->judul_tim,
+                    'kategori' => 'tim',
+                    'pemimpim' => null,
+                    'deksripsi' => $request->deksripsi_tim,
                 ];
             } else {
                 $data = [
-                    'title' => $request->title_aksi,
-                    'category' => 'aksi',
-                    'leader' => null,
-                    'description' => $request->description_aksi,
+                    'judul' => $request->judul_aksi,
+                    'kategori' => 'aksi',
+                    'pemimpim' => null,
+                    'deksripsi' => $request->deksripsi_aksi,
                 ];
             }
 
-            if ($request->category == 'kepemimpinan' && $request->hasFile('photo_kepemimpinan')) {
-                $data['photo'] = $request->file('photo_kepemimpinan')->store('pelayanan', 'public');
+            if ($request->kategori == 'kepemimpinan' && $request->hasFile('foto_kepemimpinan')) {
+                $data['foto'] = $request->file('foto_kepemimpinan')->store('pelayanan', 'public');
             }
 
-            if ($request->category == 'aksi' && $request->hasFile('photo_aksi')) {
-                $data['photo'] = $request->file('photo_aksi')->store('pelayanan', 'public');
+            if ($request->kategori == 'aksi' && $request->hasFile('foto_aksi')) {
+                $data['foto'] = $request->file('foto_aksi')->store('pelayanan', 'public');
             }
 
             $data['user_id'] = auth()->id();
 
             $pelayanan = Pelayanan::create($data);
 
-            if ($request->category == 'tim' && $request->has('anggota_nama')) {
+            if ($request->kategori == 'tim' && $request->has('anggota_nama')) {
                 foreach ($request->anggota_nama as $index => $nama) {
                     $bagian = $request->anggota_bagian[$index] ?? null;
 
@@ -115,20 +110,14 @@ class PelayananController extends Controller
     public function update(Request $request, Pelayanan $pelayanan)
     {
         $request->validate([
-            'category' => 'required|in:kepemimpinan,tim,aksi',
-
-            'title_kepemimpinan' => 'required_if:category,kepemimpinan|nullable|string|max:255',
-            'leader_kepemimpinan' => 'required_if:category,kepemimpinan|nullable|string|max:255',
-
-            'title_tim' => 'required_if:category,tim|nullable|string|max:255',
-            'description_tim' => 'required_if:category,tim|nullable|string',
-
-            'title_aksi' => 'required_if:category,aksi|nullable|string|max:255',
-            'description_aksi' => 'required_if:category,aksi|nullable|string',
-
-            'photo_kepemimpinan' => 'nullable|image|max:2048',
-            'photo_aksi' => 'nullable|image|max:2048',
-
+            'kategori' => 'required|in:kepemimpinan,tim,aksi',
+            'judul_kepemimpinan' => 'required_if:kategori,kepemimpinan|nullable|string|max:255',
+            'pemimpim_kepemimpinan' => 'required_if:kategori,kepemimpinan|nullable|string|max:255',
+            'judul_tim' => 'required_if:kategori,tim|nullable|string|max:255',
+            'deksripsi_tim' => 'required_if:kategori,tim|nullable|string',
+            'judul_aksi' => 'required_if:kategori,aksi|nullable|string|max:255',
+            'deksripsi_aksi' => 'required_if:kategori,aksi|nullable|string',
+            'foto' => 'nullable|image|max:2048',
             'anggota_nama.*' => 'nullable|string|max:100',
             'anggota_bagian.*' => 'nullable|string|max:100',
         ]);
@@ -136,43 +125,43 @@ class PelayananController extends Controller
         DB::beginTransaction();
 
         try {
-            if ($request->category == 'kepemimpinan') {
+            if ($request->kategori == 'kepemimpinan') {
                 $data = [
-                    'title' => $request->title_kepemimpinan,
-                    'category' => 'kepemimpinan',
-                    'leader' => $request->leader_kepemimpinan,
-                    'description' => null,
+                    'judul' => $request->judul_kepemimpinan,
+                    'kategori' => 'kepemimpinan',
+                    'pemimpim' => $request->pemimpim_kepemimpinan,
+                    'deksripsi' => null,
                 ];
-            } elseif ($request->category == 'tim') {
+            } elseif ($request->kategori == 'tim') {
                 $data = [
-                    'title' => $request->title_tim,
-                    'category' => 'tim',
-                    'leader' => null,
-                    'description' => $request->description_tim,
+                    'judul' => $request->judul_tim,
+                    'kategori' => 'tim',
+                    'pemimpim' => null,
+                    'deksripsi' => $request->deksripsi_tim,
                     'photo' => null,
                 ];
             } else {
                 $data = [
-                    'title' => $request->title_aksi,
-                    'category' => 'aksi',
-                    'leader' => null,
-                    'description' => $request->description_aksi,
+                    'judul' => $request->judul_aksi,
+                    'kategori' => 'aksi',
+                    'pemimpim' => null,
+                    'deksripsi' => $request->deksripsi_aksi,
                 ];
             }
 
-            if ($request->hasFile('photo')) {
-                if ($pelayanan->photo && Storage::disk('public')->exists($pelayanan->photo)) {
-                    Storage::disk('public')->delete($pelayanan->photo);
+            if ($request->hasFile('foto')) {
+                if ($pelayanan->foto && Storage::disk('public')->exists($pelayanan->foto)) {
+                    Storage::disk('public')->delete($pelayanan->foto);
                 }
 
-                $data['photo'] = $request->file('photo')->store('pelayanan', 'public');
+                $data['foto'] = $request->file('foto')->store('pelayanan', 'public');
             }
 
             $pelayanan->update($data);
 
             $pelayanan->anggotas()->delete();
 
-            if ($request->category == 'tim' && $request->has('anggota_nama')) {
+            if ($request->kategori == 'tim' && $request->has('anggota_nama')) {
                 foreach ($request->anggota_nama as $index => $nama) {
                     $bagian = $request->anggota_bagian[$index] ?? null;
 
@@ -198,8 +187,8 @@ class PelayananController extends Controller
 
     public function destroy(Pelayanan $pelayanan)
     {
-        if ($pelayanan->photo && Storage::disk('public')->exists($pelayanan->photo)) {
-            Storage::disk('public')->delete($pelayanan->photo);
+        if ($pelayanan->foto && Storage::disk('public')->exists($pelayanan->foto)) {
+            Storage::disk('public')->delete($pelayanan->foto);
         }
 
         $pelayanan->anggotas()->delete();

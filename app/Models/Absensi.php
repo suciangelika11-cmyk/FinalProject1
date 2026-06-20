@@ -12,8 +12,8 @@ class Absensi extends Model
     protected $table = 'absensi';
 
     protected $fillable = [
-        'date',
-        'session',
+        'tanggal',
+        'sesi_ibadah',
         'pengkhotbah',
         'jumlah',
         'created_by',

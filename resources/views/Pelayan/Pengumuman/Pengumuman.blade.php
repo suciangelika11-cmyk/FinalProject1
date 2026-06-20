@@ -38,8 +38,8 @@
                 <div class="pengumuman-card">
 
                     <div class="card-img">
-                        @if($item->image)
-                            <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" loading="lazy">
+                        @if($item->foto)
+                            <img src="{{ asset('storage/' . $item->foto) }}" alt="{{ $item->judul }}" loading="lazy">
                         @else
                             <div class="card-img-placeholder">
                                 <i class="fa-regular fa-newspaper"></i>
@@ -52,15 +52,15 @@
 
                         <div class="card-date">
                             <i class="fa-regular fa-calendar"></i>
-                            {{ $item->publish_date
-                ? \Carbon\Carbon::parse($item->publish_date)->translatedFormat('d F Y')
+                            {{ $item->tanggal_liris
+                ? \Carbon\Carbon::parse($item->tanggal_liris)->translatedFormat('d F Y')
                 : '—' }}
                         </div>
 
-                        <h3 class="card-title">{{ $item->title }}</h3>
+                        <h3 class="card-title">{{ $item->judul }}</h3>
 
                         <div class="card-excerpt">
-                            {{ \Illuminate\Support\Str::limit($item->content, 120) }}
+                            {{ \Illuminate\Support\Str::limit($item->deksripsi, 120) }}
                         </div>
 
                         <div class="card-footer">

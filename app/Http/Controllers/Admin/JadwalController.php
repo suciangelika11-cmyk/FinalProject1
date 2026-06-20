@@ -17,21 +17,21 @@ class JadwalController extends Controller
 
     public function create()
     {
-        $pelayanans = Pelayanan::orderBy('title')->get();
+        $pelayanans = Pelayanan::orderBy('judul')->get();
         return view('admin.Jadwals.create', compact('pelayanans'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'day' => 'required_if:category,mingguan',
-            'jadwal_khusus' => 'required_if:category,acara_khusus',
-            'start_time' => 'required_if:category,mingguan|nullable',
-            'end_time' => 'nullable|date_format:H:i|after:start_time',
-            'location' => 'required',
-            'description' => 'required',
-            'category' => 'required',
+            'judul' => 'required',
+            'hari' => 'required_if:kategori,mingguan',
+            'jadwal_khusus' => 'required_if:kategori,acara_khusus',
+            'jam_mulai' => 'required_if:kategori,mingguan|nullable',
+            'jam_selesai' => 'nullable|date_format:H:i|after:jam_mulai',
+            'lokasi' => 'required',
+            'deksripsi' => 'required',
+            'kategori' => 'required',
             'pelayanan_id' => 'nullable|exists:pelayanan,id'
         ]);
 
@@ -48,21 +48,21 @@ class JadwalController extends Controller
 
     public function edit(Jadwal $Jadwal)
     {
-        $pelayanans = Pelayanan::orderBy('title')->get();
+        $pelayanans = Pelayanan::orderBy('judul')->get();
         return view('admin.Jadwals.edit', compact('Jadwal', 'pelayanans'));
     }
 
     public function update(Request $request, Jadwal $Jadwal)
     {
         $request->validate([
-            'title' => 'required',
-            'day' => 'required_if:category,mingguan',
-            'jadwal_khusus' => 'required_if:category,acara_khusus',
-            'start_time' => 'required_if:category,mingguan|nullable',
-            'end_time' => 'nullable|date_format:H:i|after:start_time',
-            'location' => 'required',
-            'description' => 'required',
-            'category' => 'required',
+            'judul' => 'required',
+            'hari' => 'required_if:kategori,mingguan',
+            'jadwal_khusus' => 'required_if:kategori,acara_khusus',
+            'jam_mulai' => 'required_if:kategori,mingguan|nullable',
+            'jam_selesai' => 'nullable|date_format:H:i|after:jam_mulai',
+            'lokasi' => 'required',
+            'deksripsi' => 'required',
+            'kategori' => 'required',
             'pelayanan_id' => 'nullable|exists:pelayanan,id'
         ]);
 

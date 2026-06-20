@@ -14,34 +14,34 @@
         <div class="jd-detail-container">
 
             <h1 class="jd-detail-title">
-                {{ $jadwal->title }}
+                {{ $jadwal->judul }}
             </h1>
 
             <div class="jd-info-card">
 
                 <div class="jd-info-item">
                     <div class="jd-info-label">Hari</div>
-                    <div>{{ $jadwal->day }}</div>
+                    <div>{{ $jadwal->hari }}</div>
                 </div>
 
                 <div class="jd-info-item">
                     <div class="jd-info-label">Waktu</div>
                     <div>
-                        {{ $jadwal->start_time }}
+                        {{ $jadwal->jam_mulai }}
                         -
-                        {{ $jadwal->end_time }}
+                        {{ $jadwal->jam_selesai }}
                         WIB
                     </div>
                 </div>
 
                 <div class="jd-info-item">
                     <div class="jd-info-label">Lokasi</div>
-                    <div>{{ $jadwal->location }}</div>
+                    <div>{{ $jadwal->lokasi }}</div>
                 </div>
 
                 <div class="jd-info-desc">
                     <strong>Deskripsi</strong><br><br>
-                    {!! nl2br(e($jadwal->description)) !!}
+                    {!! nl2br(e($jadwal->deksripsi)) !!}
                 </div>
 
             </div>

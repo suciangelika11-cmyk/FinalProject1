@@ -52,7 +52,7 @@
 
         <div>
           <div class="stat-val vc">
-            {{ $pelayanan->where('category', 'kepemimpinan')->count() }}
+            {{ $pelayanan->where('kategori', 'kepemimpinan')->count() }}
           </div>
 
           <div class="stat-lbl">Pemimpin</div>
@@ -64,7 +64,7 @@
 
         <div>
           <div class="stat-val vg">
-            {{ $pelayanan->where('category', 'tim')->count() }}
+            {{ $pelayanan->where('kategori', 'tim')->count() }}
           </div>
 
           <div class="stat-lbl">Tim Pelayanan</div>
@@ -76,7 +76,7 @@
 
         <div>
           <div class="stat-val vs">
-            {{ $pelayanan->where('category', 'aksi')->count() }}
+            {{ $pelayanan->where('kategori', 'aksi')->count() }}
           </div>
 
           <div class="stat-lbl">Pelayanan dalam Aksi</div>
@@ -99,9 +99,9 @@
 
     @php
       $warnaMap = ['c', 'g', 's', 'r', 'p', 'o', 'pk'];
-      $kepemimpinan = $pelayanan->where('category', 'kepemimpinan')->values();
-      $tim = $pelayanan->where('category', 'tim')->values();
-      $aksi = $pelayanan->where('category', 'aksi')->values();
+      $kepemimpinan = $pelayanan->where('kategori', 'kepemimpinan')->values();
+      $tim = $pelayanan->where('kategori', 'tim')->values();
+      $aksi = $pelayanan->where('kategori', 'aksi')->values();
     @endphp
 
     <div class="section-head">
@@ -126,20 +126,20 @@
 
               <div class="leader-avatar">
 
-                @if($item->photo)
-                  <img src="{{ asset('storage/' . $item->photo) }}" alt="{{ $item->title }}">
+                @if($item->foto)
+                  <img src="{{ asset('storage/' . $item->foto) }}" alt="{{ $item->judul }}">
                 @else
-                  {{ strtoupper(substr($item->leader ?: $item->title, 0, 2)) }}
+                  {{ strtoupper(substr($item->pemimpim ?: $item->judul, 0, 2)) }}
                 @endif
 
               </div>
 
               <div class="leader-name">
-                {{ $item->leader ?: $item->title }}
+                {{ $item->pemimpim ?: $item->judul }}
               </div>
 
               <div class="leader-role">
-                {{ $item->title }}
+                {{ $item->judul }}
               </div>
 
               <div class="leader-card-actions">
@@ -153,7 +153,7 @@
                   @method('DELETE')
 
                   <button type="button" class="act-sm btn-d btn-hapus" data-id="{{ $item->id }}"
-                    data-title="{{ $item->title }}">
+                    data-title="{{ $item->judul }}">
                     🗑 Hapus
                   </button>
                 </form>
@@ -205,11 +205,11 @@
               </div>
 
               <div class="tim-name">
-                {{ $item->title }}
+                {{ $item->judul }}
               </div>
 
               <div class="tim-desc">
-                {{ $item->description ?: 'Deskripsi belum ditambahkan.' }}
+                {{ $item->deksripsi ?: 'Deskripsi belum ditambahkan.' }}
               </div>
 
               <hr class="tim-divider" />
@@ -237,7 +237,7 @@
               @else
 
                 <div class="anggota-row">
-                  {{ $item->leader ?: 'Koordinator belum ditentukan' }}
+                  {{ $item->pemimpim ?: 'Koordinator belum ditentukan' }}
                 </div>
 
               @endif
@@ -253,7 +253,7 @@
                   @method('DELETE')
 
                   <button type="button" class="act-sm btn-d btn-hapus" data-id="{{ $item->id }}"
-                    data-title="{{ $item->title }}">
+                    data-judul="{{ $item->judul }}">
                     🗑 Hapus
                   </button>
                 </form>
@@ -298,8 +298,8 @@
 
               <div class="galeri-img">
 
-                @if($item->photo)
-                  <img src="{{ asset('storage/' . $item->photo) }}" alt="{{ $item->title }}">
+                @if($item->foto)
+                  <img src="{{ asset('storage/' . $item->foto) }}" alt="{{ $item->judul }}">
                 @else
                   {{ $item->icon ?: '🖼' }}
                 @endif
@@ -309,11 +309,11 @@
               <div class="galeri-body">
 
                 <div class="galeri-title">
-                  {{ $item->title }}
+                  {{ $item->judul }}
                 </div>
 
                 <div class="galeri-desc">
-                  {{ $item->description ?: 'Deskripsi tidak tersedia.' }}
+                  {{ $item->deksripsi ?: 'Deskripsi tidak tersedia.' }}
                 </div>
 
                 <div class="galeri-footer">
@@ -327,7 +327,7 @@
                     @method('DELETE')
 
                     <button type="button" class="act-sm btn-d btn-hapus" data-id="{{ $item->id }}"
-                      data-title="{{ $item->title }}">
+                      data-title="{{ $item->judul }}">
                       🗑 Hapus
                     </button>
                   </form>

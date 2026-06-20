@@ -11,18 +11,18 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('pelayanan', function (Blueprint $table) {
-            $table->string('leader')->nullable()->change();
-            $table->text('description')->nullable()->change();
-            $table->string('photo')->nullable()->change();
+            $table->string('pemimpim')->nullable()->change();
+            $table->text('deksripsi')->nullable()->change();
+            $table->string('foto')->nullable()->change();
         });
     }
 
     public function down(): void
     {
         Schema::table('pelayanan', function (Blueprint $table) {
-            $table->string('leader')->nullable(false)->change();
-            $table->text('description')->nullable(false)->change();
-            $table->string('photo')->nullable(false)->change();
+            $table->string('pemimpim')->nullable(false)->change();
+            $table->text('deksripsi')->nullable(false)->change();
+            $table->string('foto')->nullable(false)->change();
         });
     }
 };

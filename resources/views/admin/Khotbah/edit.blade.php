@@ -26,7 +26,7 @@
 
                 <div class="fg">
                     <label>Judul Khotbah</label>
-                    <input type="text" name="title" value="{{ old('title', $khotbah->title) }}" required maxlength="150">
+                    <input type="text" name="judul" value="{{ old('judul', $khotbah->judul) }}" required maxlength="150">
                 </div>
 
                 <div class="fg">
@@ -37,13 +37,13 @@
 
                 <div class="fg">
                     <label>Tanggal Khotbah</label>
-                    <input type="date" name="sermon_date" value="{{ old('sermon_date', $khotbah->sermon_date) }}"
+                    <input type="date" name="tanggal_khotbah" value="{{ old('tanggal_khotbah', $khotbah->tanggal_khotbah) }}"
                         min="{{ date('Y-m-d') }}">
                 </div>
 
                 <div class="fg">
                     <label>Deskripsi</label>
-                    <textarea name="description" rows="3" maxlength="250">{{ old('description', $khotbah->description) }}</textarea>
+                    <textarea name="deksripsi" rows="3" maxlength="250">{{ old('deksripsi', $khotbah->deksripsi) }}</textarea>
                 </div>
 
                 <div class="fg">

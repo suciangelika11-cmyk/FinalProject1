@@ -37,20 +37,20 @@
                     <div class="form-grid">
                         <div class="form-group full">
                             <label>Judul Pengumuman</label>
-                            <input type="text" name="title" class="form-control-custom"
-                                value="{{ old('title', $pengumuman->title) }}" required maxlength="100">
+                            <input type="text" name="judul" class="form-control-custom"
+                                value="{{ old('judul', $pengumuman->judul) }}" required maxlength="100">
                         </div>
 
                         <div class="form-group full">
                             <label>Isi Pengumuman</label>
-                            <textarea name="content" class="form-textarea-custom" required maxlength="250"
-                                required>{{ old('content', $pengumuman->content) }}</textarea>
+                            <textarea name="deksripsi" class="form-textarea-custom" required maxlength="250"
+                                required>{{ old('deksripsi', $pengumuman->deksripsi) }}</textarea>
                         </div>
 
                         <div class="form-group">
                             <label>Tanggal Publish</label>
-                            <input type="date" name="publish_date" class="form-control-custom"
-                                value="{{ old('publish_date', $pengumuman->publish_date) }}" min="{{ date('Y-m-d') }}"
+                            <input type="date" name="tanggal_liris" class="form-control-custom"
+                                value="{{ old('tanggal_liris', $pengumuman->tanggal_liris) }}" min="{{ date('Y-m-d') }}"
                                 required>
                         </div>
 
@@ -66,10 +66,10 @@
 
                         <div class="form-group full">
                             <label>Gambar Pengumuman</label>
-                            <input type="file" name="image" class="form-control-custom">
+                            <input type="file" name="foto" class="form-control-custom">
 
-                            @if($pengumuman->image)
-                                <img src="{{ asset('storage/' . $pengumuman->image) }}" alt="Gambar pengumuman"
+                            @if($pengumuman->foto)
+                                <img src="{{ asset('storage/' . $pengumuman->foto) }}" alt="Gambar pengumuman"
                                     class="preview-img">
                             @endif
                         </div>

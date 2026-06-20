@@ -34,7 +34,7 @@
       <div class="stat-card">
         <div class="stat-icon ic">{{ "\u{1F4C5}" }}</div>
         <div>
-          <div class="stat-val vc">{{ $jadwal->where('category', 'mingguan')->count() }}</div>
+          <div class="stat-val vc">{{ $jadwal->where('kategori', 'mingguan')->count() }}</div>
           <div class="stat-lbl">Jadwal Mingguan</div>
         </div>
       </div>
@@ -42,7 +42,7 @@
       <div class="stat-card">
         <div class="stat-icon ig">{{ "\u{2728}" }}</div>
         <div>
-          <div class="stat-val vg">{{ $jadwal->where('category', 'acara_khusus')->count() }}</div>
+          <div class="stat-val vg">{{ $jadwal->where('kategori', 'acara_khusus')->count() }}</div>
           <div class="stat-lbl">Acara Khusus</div>
         </div>
       </div>
@@ -50,7 +50,7 @@
       <div class="stat-card">
         <div class="stat-icon is">{{ "\u{26EA}" }}</div>
         <div>
-          <div class="stat-val vs">{{ $jadwal->where('category', 'mingguan')->pluck('day')->unique()->count() }}</div>
+          <div class="stat-val vs">{{ $jadwal->where('kategori', 'mingguan')->pluck('hari')->unique()->count() }}</div>
           <div class="stat-lbl">Hari Aktif</div>
         </div>
       </div>
@@ -58,7 +58,7 @@
       <div class="stat-card">
         <div class="stat-icon ip">{{ "\u{1F4CD}" }}</div>
         <div>
-          <div class="stat-val vp">{{ $jadwal->whereNotNull('location')->pluck('location')->unique()->count() }}</div>
+          <div class="stat-val vp">{{ $jadwal->whereNotNull('lokasi')->pluck('lokasi')->unique()->count() }}</div>
           <div class="stat-lbl">Lokasi</div>
         </div>
       </div>
@@ -97,13 +97,13 @@
 
     @foreach($hariList as $hari)
       @php
-        $perHari = $jadwal->where('category', 'mingguan')->where('day', $hari)->values();
+        $perHari = $jadwal->where('kategori', 'mingguan')->where('hari', $hari)->values();
       @endphp
 
       @if($perHari->count())
         @php $adaMingguan = true; @endphp
 
-        <div class="day-label {{ $hariClass[$hari] }}">{{ $hariIcon[$hari] }} {{ $hari }}</div>
+        <div class="hari-label {{ $hariClass[$hari] }}">{{ $hariIcon[$hari] }} {{ $hari }}</div>
 
         <div class="jadwal-grid">
           @foreach($perHari as $index => $item)
@@ -113,14 +113,14 @@
 
             <div class="jcard {{ $warna }}">
               <div class="jcard-icon">{{ $item->icon ?: "\u{1F4C5}"  }}</div>
-              <div class="jcard-title">{{ $item->title }}</div>
+              <div class="jcard-title">{{ $item->judul }}</div>
 
               <div class="jcard-meta">
-                <span>{{ "\u{1F550}" }} {{ $item->start_time }}{{ $item->end_time ? ' - ' . $item->end_time : '' }}</span>
-                <span>{{ "\u{1F4CD}" }} {{ $item->location ?: '-' }}</span>
+                <span>{{ "\u{1F550}" }} {{ $item->jam_mulai }}{{ $item->jam_selesai ? ' - ' . $item->jam_selesai : '' }}</span>
+                <span>{{ "\u{1F4CD}" }} {{ $item->lokasi ?: '-' }}</span>
               </div>
 
-              <div class="jcard-desc">{{ $item->description ?: '-' }}</div>
+              <div class="jcard-desc">{{ $item->deksripsi ?: '-' }}</div>
 
               <div class="jcard-footer">
                 <div class="jcard-actions">
@@ -131,7 +131,7 @@
                     @csrf
                     @method('DELETE')
                     <button type="button" class="act-btn btn-del btn-hapus" data-id="{{ $item->id }}"
-                      data-title="{{ $item->title }}" data-type="Jadwal Ibadah">
+                      data-title="{{ $item->judul }}" data-type="Jadwal Ibadah">
                       🗑️ Hapus
                     </button>
 
@@ -156,7 +156,7 @@
     </div>
 
     @php
-      $acaraKhusus = $jadwal->where('category', 'acara_khusus')->values();
+      $acaraKhusus = $jadwal->where('kategori', 'acara_khusus')->values();
     @endphp
 
     @if($acaraKhusus->count())
@@ -168,7 +168,7 @@
 
           <div class="jcard {{ $warna }}">
             <div class="jcard-icon">{{ $item->icon ?: "\u{2728}" }}</div>
-            <div class="jcard-title">{{ $item->title }}</div>
+            <div class="jcard-title">{{ $item->judul }}</div>
 
             <div style="margin:10px 0;">
               <span class="bulan-badge b-{{ $warna }}">
@@ -177,7 +177,7 @@
             </div>
 
             <div class="jcard-desc">
-              {{ $item->description ?: '-' }}
+              {{ $item->deksripsi ?: '-' }}
             </div>
 
             <div class="jcard-footer">
@@ -190,7 +190,7 @@
                   @csrf
                   @method('DELETE')
                   <button type="button" class="act-btn btn-del btn-hapus" data-id="{{ $item->id }}"
-                    data-title="{{ $item->title }}" data-type="Acara Khusus">
+                    data-title="{{ $item->judul }}" data-type="Acara Khusus">
                     🗑️ Hapus
                   </button>
                 </form>

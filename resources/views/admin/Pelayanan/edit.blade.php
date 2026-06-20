@@ -68,56 +68,56 @@
           <div class="fg">
             <label>Kategori</label>
 
-            <select id="pilih-kategori" name="category" required>
-              <option value="kepemimpinan" {{ old('category', $pelayanan->category) == 'kepemimpinan' ? 'selected' : '' }}>
+            <select id="pilih-kategori" name="kategori" required>
+              <option value="kepemimpinan" {{ old('kategori', $pelayanan->kategori) == 'kepemimpinan' ? 'selected' : '' }}>
                 Kepemimpinan
               </option>
 
-              <option value="tim" {{ old('category', $pelayanan->category) == 'tim' ? 'selected' : '' }}>
+              <option value="tim" {{ old('kategori', $pelayanan->kategori) == 'tim' ? 'selected' : '' }}>
                 Tim Pelayanan
               </option>
 
-              <option value="aksi" {{ old('category', $pelayanan->category) == 'aksi' ? 'selected' : '' }}>
+              <option value="aksi" {{ old('kategori', $pelayanan->kategori) == 'aksi' ? 'selected' : '' }}>
                 Pelayanan Dalam Aksi
               </option>
             </select>
           </div>
 
           <div id="form-kepemimpinan"
-            style="{{ old('category', $pelayanan->category) == 'kepemimpinan' ? 'display:block' : 'display:none' }}">
+            style="{{ old('kategori', $pelayanan->kategori) == 'kepemimpinan' ? 'display:block' : 'display:none' }}">
             <div class="fg">
               <label>Nama Pelayanan</label>
-              <input type="text" name="title_kepemimpinan"
-                value="{{ old('title_kepemimpinan', $pelayanan->category == 'kepemimpinan' ? $pelayanan->title : '') }}" maxlength="100">
+              <input type="text" name="judul_kepemimpinan"
+                value="{{ old('judul_kepemimpinan', $pelayanan->kategori == 'kepemimpinan' ? $pelayanan->judul : '') }}" maxlength="100">
             </div>
 
             <div class="fg">
               <label>Pemimpin</label>
-              <input type="text" name="leader_kepemimpinan" value="{{ old('leader_kepemimpinan', $pelayanan->leader) }}" maxlength="100">
+              <input type="text" name="pemimpim_kepemimpinan" value="{{ old('pemimpim_kepemimpinan', $pelayanan->pemimpim) }}" maxlength="100">
             </div>
 
             <div class="fg">
               <label>Foto</label>
-              <input type="file" name="photo" accept="image/*">
+              <input type="file" name="foto" accept="image/*">
 
-              @if($pelayanan->photo && $pelayanan->category == 'kepemimpinan')
-                <img src="{{ asset('storage/' . $pelayanan->photo) }}" class="img-preview" alt="Foto pelayanan">
+              @if($pelayanan->foto && $pelayanan->kategori == 'kepemimpinan')
+                <img src="{{ asset('storage/' . $pelayanan->foto) }}" class="img-preview" alt="Foto pelayanan">
               @endif
             </div>
           </div>
 
           <div id="form-tim"
-            style="{{ old('category', $pelayanan->category) == 'tim' ? 'display:block' : 'display:none' }}">
+            style="{{ old('kategori', $pelayanan->kategori) == 'tim' ? 'display:block' : 'display:none' }}">
             <div class="fg">
               <label>Nama Pelayanan</label>
-              <input type="text" name="title_tim"
-                value="{{ old('title_tim', $pelayanan->category == 'tim' ? $pelayanan->title : '') }}" maxlength="100">
+              <input type="text" name="judul_tim"
+                value="{{ old('judul_tim', $pelayanan->kategori == 'tim' ? $pelayanan->judul : '') }}" maxlength="100">
             </div>
 
             <div class="fg">
               <label>Deskripsi Pelayanan</label>
-              <textarea name="description_tim"
-                rows="3" maxlength="250">{{ old('description_tim', $pelayanan->category == 'tim' ? $pelayanan->description : '') }}</textarea>
+              <textarea name="deksripsi_tim"
+                rows="3" maxlength="250">{{ old('deksripsi_tim', $pelayanan->kategori == 'tim' ? $pelayanan->deksripsi : '') }}</textarea>
             </div>
 
             <div class="fg">
@@ -145,25 +145,25 @@
           </div>
 
           <div id="form-aksi"
-            style="{{ old('category', $pelayanan->category) == 'aksi' ? 'display:block' : 'display:none' }}">
+            style="{{ old('kategori', $pelayanan->kategori) == 'aksi' ? 'display:block' : 'display:none' }}">
             <div class="fg">
               <label>Nama Pelayanan</label>
-              <input type="text" name="title_aksi"
-                value="{{ old('title_aksi', $pelayanan->category == 'aksi' ? $pelayanan->title : '') }}" maxlength="100">
+              <input type="text" name="judul_aksi"
+                value="{{ old('judul_aksi', $pelayanan->kategori == 'aksi' ? $pelayanan->judul : '') }}" maxlength="100">
             </div>
 
             <div class="fg">
               <label>Deskripsi Pelayanan</label>
-              <textarea name="description_aksi"
-                rows="3" maxlength="250">{{ old('description_aksi', $pelayanan->category == 'aksi' ? $pelayanan->description : '') }}</textarea>
+              <textarea name="deksripsi_aksi"
+                rows="3" maxlength="250">{{ old('deksripsi_aksi', $pelayanan->kategori == 'aksi' ? $pelayanan->deksripsi : '') }}</textarea>
             </div>
 
             <div class="fg">
               <label>Foto</label>
-              <input type="file" name="photo" accept="image/*">
+              <input type="file" name="foto" accept="image/*">
 
-              @if($pelayanan->photo && $pelayanan->category == 'aksi')
-                <img src="{{ asset('storage/' . $pelayanan->photo) }}" class="img-preview" alt="Foto pelayanan">
+              @if($pelayanan->foto && $pelayanan->kategori == 'aksi')
+                <img src="{{ asset('storage/' . $pelayanan->foto) }}" class="img-preview" alt="Foto pelayanan">
               @endif
             </div>
           </div>

@@ -71,15 +71,15 @@
 
                         <div class="khotbah-date">
                             <i class="fa-regular fa-calendar"></i>
-                            {{ $item->sermon_date
-                ? \Carbon\Carbon::parse($item->sermon_date)->translatedFormat('d F Y')
+                            {{ $item->tanggal_khotbah
+                ? \Carbon\Carbon::parse($item->tanggal_khotbah)->translatedFormat('d F Y')
                 : '—' }}
                         </div>
 
-                        <div class="khotbah-title">{{ $item->title }}</div>
+                        <div class="khotbah-title">{{ $item->judul }}</div>
 
-                        @if($item->description)
-                            <div class="khotbah-desc">{{ $item->description }}</div>
+                        @if($item->deksripsi)
+                            <div class="khotbah-desc">{{ $item->deksripsi }}</div>
                         @endif
 
                         <div class="card-footer">

@@ -14,16 +14,16 @@ class Pelayanan extends Model
 
     protected $fillable = [
         'user_id',
-        'title',
-        'category',
-        'leader',
-        'description',
-        'photo',
+        'judul',
+        'kategori',
+        'pemimpim',
+        'deksripsi',
+        'foto',
     ];
 
     public function getPhotoUrlAttribute()
     {
-        return $this->photo ? Storage::url($this->photo) : null;
+        return $this->foto ? Storage::url($this->foto) : null;
     }
 
     // Pelayanan.php

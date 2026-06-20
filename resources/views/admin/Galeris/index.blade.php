@@ -36,7 +36,7 @@
       <div class="stat-card">
         <div class="stat-icon ig">{{ "\u{1F4C5}" }}</div>
         <div>
-          <div class="stat-val vg">{{ $galeri->whereNotNull('event_date')->count() }}</div>
+          <div class="stat-val vg">{{ $galeri->whereNotNull('tanggal')->count() }}</div>
           <div class="stat-lbl">With Date</div>
         </div>
       </div>
@@ -44,7 +44,7 @@
       <div class="stat-card">
         <div class="stat-icon is">{{ "\u{1F4DD}" }}</div>
         <div>
-          <div class="stat-val vs">{{ $galeri->filter(fn($item) => !empty($item->description))->count() }}</div>
+          <div class="stat-val vs">{{ $galeri->filter(fn($item) => !empty($item->deksripsi))->count() }}</div>
           <div class="stat-lbl">Ada Deskripsi</div>
         </div>
       </div>
@@ -64,16 +64,16 @@
         @foreach($galeri as $item)
           <div class="gallery-row">
             <div class="gallery-info">
-              <img src="{{ asset('storage/' . $item->image) }}" class="gallery-thumb">
+              <img src="{{ asset('storage/' . $item->foto) }}" class="gallery-thumb">
 
               <div>
 
                 <div class="gallery-title">
-                  {{ $item->title }}
+                  {{ $item->judul }}
                 </div>
 
                 <div class="gallery-desc">
-                  {{ Str::limit($item->description, 80) }}
+                  {{ Str::limit($item->deksripsi, 80) }}
                 </div>
 
               </div>
@@ -81,8 +81,8 @@
             </div>
 
             <div class="gallery-date">
-              {{ $item->event_date
-            ? \Carbon\Carbon::parse($item->event_date)->format('Y-m-d')
+              {{ $item->tanggal
+            ? \Carbon\Carbon::parse($item->tanggal)->format('Y-m-d')
             : '-' }}
             </div>
 

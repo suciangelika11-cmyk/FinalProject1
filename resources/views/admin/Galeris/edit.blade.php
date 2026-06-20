@@ -26,25 +26,25 @@
 
                 <div class="fg">
                     <label>Judul Kegiatan</label>
-                    <input type="text" name="title" value="{{ old('title', $Galeri->title) }}" required maxlength="100">
+                    <input type="text" name="judul" value="{{ old('judul', $Galeri->judul) }}" required maxlength="100">
                 </div>
 
                 <div class="fg">
                     <label>Tanggal Kegiatan</label>
-                    <input type="date" name="event_date" value="{{ old('event_date', $Galeri->event_date) }}"
+                    <input type="date" name="tanggal" value="{{ old('tanggal', $Galeri->tanggal) }}"
                         min="{{ date('Y-m-d') }}" required>
                 </div>
 
                 <div class="fg">
                     <label>Deskripsi</label>
-                    <textarea name="description" rows="3" required maxlength="250">{{ old('description', $Galeri->description) }}</textarea>
+                    <textarea name="deksripsi" rows="3" required maxlength="250">{{ old('deksripsi', $Galeri->deksripsi) }}</textarea>
                 </div>
 
                 <div class="fg">
                     <label>Foto Galeri</label>
-                    <input type="file" name="image" accept="image/*">
-                    @if($Galeri->image)
-                        <img src="{{ asset('storage/' . $Galeri->image) }}" class="img-preview" alt="Foto galeri">
+                    <input type="file" name="foto" accept="foto/*">
+                    @if($Galeri->foto)
+                        <img src="{{ asset('storage/' . $Galeri->foto) }}" class="img-preview" alt="Foto galeri">
                     @endif
                 </div>
 

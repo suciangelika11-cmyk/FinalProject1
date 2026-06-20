@@ -22,8 +22,8 @@ class AbsensiController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'date' => 'required|date',
-            'session' => 'required|string|max:100',
+            'tanggal' => 'required|date',
+            'sesi_ibadah' => 'required|string|max:100',
             'pengkhotbah' => 'required|string|max:255',
             'jumlah' => 'required|integer|min:0',
         ]);
@@ -43,8 +43,8 @@ class AbsensiController extends Controller
     public function update(Request $request, Absensi $absensi)
     {
         $data = $request->validate([
-            'date' => 'required|date',
-            'session' => 'required|string|max:100',
+            'tanggal' => 'required|date',
+            'sesi_ibadah' => 'required|string|max:100',
             'pengkhotbah' => 'required|string|max:255',
             'jumlah' => 'required|integer|min:0',
         ]);

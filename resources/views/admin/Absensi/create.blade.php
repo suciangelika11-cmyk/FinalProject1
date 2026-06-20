@@ -26,13 +26,13 @@
 
                 <div class="fg">
                     <label>Tanggal</label>
-                    <input type="date" name="date" value="{{ old('date', date('Y-m-d')) }}" required>
+                    <input type="date" name="tanggal" value="{{ old('tanggal', date('Y-m-d')) }}" required>
                 </div>
 
                 <div class="form-row-2">
                     <div class="fg">
                         <label>Sesi</label>
-                        <input type="text" name="session" value="{{ old('session') }}" placeholder="Contoh: Sesi 1"
+                        <input type="text" name="sesi_ibadah" value="{{ old('sesi_ibadah') }}" placeholder="Contoh: Sesi 1"
                             required maxlength="50">
                     </div>
 

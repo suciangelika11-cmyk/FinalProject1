@@ -12,14 +12,14 @@ class Jadwal extends Model
     protected $table = 'jadwal';
 
     protected $fillable = [
-        'title',
-        'day',
+        'judul',
+        'hari',
         'jadwal_khusus',
-        'start_time',
-        'end_time',
-        'location',
-        'description',
-        'category',
+        'jam_mulai',
+        'jam_selesai',
+        'lokasi',
+        'deksripsi',
+        'kategori',
         'user_id',
         'ibadah_id',
     ];
@@ -37,8 +37,8 @@ class Jadwal extends Model
 
     public static function ibadahMinggu()
     {
-        return self::where('day', 'Minggu')
-            ->orderBy('start_time')
+        return self::where('hari', 'Minggu')
+            ->orderBy('jam_mulai')
             ->take(3)
             ->get();
     }

@@ -63,7 +63,7 @@
 
             <label>Pilih Jenis Pelayanan</label>
 
-            <select id="pilih-kategori" name="category" required>
+            <select id="pilih-kategori" name="kategori" required>
 
               <option value="">-- Pilih Jenis --</option>
 
@@ -86,18 +86,18 @@
 
             <div class=" fg">
               <label>Nama Pelayanan</label>
-              <input type="text" name="title_kepemimpinan" maxlength="100">
+              <input type="text" name="judul_kepemimpinan" maxlength="100">
             </div>
 
             <div class="fg">
               <label>Pemimpin</label>
-              <input type="text" name="leader_kepemimpinan" maxlength="100">
+              <input type="text" name="pemimpim_kepemimpinan" maxlength="100">
             </div>
 
             <div class="fg">
               <label>Foto</label>
 
-              <input type="file" name="photo_kepemimpinan" id="photo-kepemimpinan" accept="image/*">
+              <input type="file" name="foto_kepemimpinan" id="foto-kepemimpinan" accept="image/*">
 
               <img id="preview-kepemimpinan" class="img-preview" style="display:none;">
             </div>
@@ -109,12 +109,12 @@
 
             <div class="fg">
               <label>Nama Pelayanan</label>
-              <input type="text" name="title_tim" maxlength="100">
+              <input type="text" name="judul_tim" maxlength="100">
             </div>
 
             <div class="fg">
               <label>Deskripsi Pelayanan</label>
-              <textarea name="description_tim" maxlength="250"></textarea>
+              <textarea name="deksripsi_tim" maxlength="250"></textarea>
             </div>
 
             <div class="fg">
@@ -146,18 +146,18 @@
 
             <div class="fg">
               <label>Nama Pelayanan</label>
-              <input type="text" name="title_aksi" maxlength="100">
+              <input type="text" name="judul_aksi" maxlength="100">
             </div>
 
             <div class="fg">
               <label>Deskripsi Pelayanan</label>
-              <textarea name="description_aksi" maxlength="250"></textarea>
+              <textarea name="deksripsi_aksi" maxlength="250"></textarea>
             </div>
 
             <div class="fg">
               <label>Foto</label>
 
-              <input type="file" name="photo_aksi" id="photo-aksi" accept="image/*">
+              <input type="file" name="foto_aksi" id="foto-aksi" accept="image/*">
             </div>
 
           </div>

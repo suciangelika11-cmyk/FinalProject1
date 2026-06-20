@@ -11,9 +11,9 @@ class PelayananController extends Controller
     {
         $pelayanans = Pelayanan::with('anggotas')->latest()->get();
 
-        $kepemimpinan = $pelayanans->where('category', 'kepemimpinan')->values();
-        $timPelayanan = $pelayanans->where('category', 'tim')->values();
-        $fotoPelayanan = $pelayanans->where('category', 'aksi')->values();
+        $kepemimpinan = $pelayanans->where('deksripsi', 'kepemimpinan')->values();
+        $timPelayanan = $pelayanans->where('deksripsi', 'tim')->values();
+        $fotoPelayanan = $pelayanans->where('deksripsi', 'aksi')->values();
 
         return view('User.Pelayanan.Pelayanan', compact('kepemimpinan', 'timPelayanan', 'fotoPelayanan'));
     }

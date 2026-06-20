@@ -46,15 +46,15 @@
 
                         <div class="g-card"
                             onclick="gLightbox(
-                                '{{ $item->image ? asset('storage/' . $item->image) : '' }}',
-                                '{{ addslashes($item->title ?? '') }}',
-                                '{{ addslashes($item->description ?? '') }}'
+                                '{{ $item->foto ? asset('storage/' . $item->foto) : '' }}',
+                                '{{ addslashes($item->judul ?? '') }}',
+                                '{{ addslashes($item->deksripsi ?? '') }}'
                             )">
 
-                            @if($item->image)
+                            @if($item->foto)
 
                                 <div class="g-card-img">
-                                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title ?? 'Galeri' }}"
+                                    <img src="{{ asset('storage/' . $item->foto) }}" alt="{{ $item->judul ?? 'Galeri' }}"
                                         loading="lazy">
 
                                     <div class="g-card-overlay">
@@ -86,19 +86,19 @@
 
                             <div class="g-card-body">
 
-                                @if($item->title)
+                                @if($item->judul)
                                     <div class="g-card-title">
-                                        {{ $item->title }}
+                                        {{ $item->judul }}
                                     </div>
                                 @endif
 
-                                @if($item->description)
+                                @if($item->deksripsi)
                                     <div class="g-card-desc">
-                                        {{ $item->description }}
+                                        {{ $item->deksripsi }}
                                     </div>
                                 @endif
 
-                                @if($item->event_date)
+                                @if($item->tanggal)
 
                                     <div class="g-card-date">
                                         <svg viewBox="0 0 24 24">
@@ -107,8 +107,7 @@
                                             <line x1="8" y1="2" x2="8" y2="6" />
                                             <line x1="3" y1="10" x2="21" y2="10" />
                                         </svg>
-
-                                        {{ $item->event_date->translatedFormat('d F Y') }}
+                                        {{ $item->tanggal->translatedFormat('d F Y') }}
                                     </div>
 
                                 @elseif($item->created_at)

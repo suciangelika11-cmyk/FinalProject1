@@ -98,19 +98,19 @@
                                 <div class="kh-date">
                                     <i class="bi bi-calendar3"></i>
 
-                                    {{ $item->sermon_date
-                    ? \Carbon\Carbon::parse($item->sermon_date)->translatedFormat('d F Y')
+                                    {{ $item->tanggal_khotbah
+                    ? \Carbon\Carbon::parse($item->tanggal_khotbah)->translatedFormat('d F Y')
                     : '-' }}
                                 </div>
 
                                 <div class="kh-card-title">
-                                    {{ $item->title }}
+                                    {{ $item->judul }}
                                 </div>
 
-                                @if($item->description)
+                                @if($item->deksripsi)
 
                                     <div class="kh-desc">
-                                        {{ $item->description }}
+                                        {{ $item->deksripsi }}
                                     </div>
 
                                 @endif

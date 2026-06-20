@@ -11,8 +11,8 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('created_by')->nullable()
                 ->constrained('users')->onDelete('set null');
-            $table->date('date');
-            $table->string('session');
+            $table->date('tanggal');
+            $table->string('sesi_ibadah');
             $table->string('pengkhotbah');
             $table->unsignedInteger('jumlah');
             $table->timestamps();

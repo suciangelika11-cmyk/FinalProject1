@@ -10,7 +10,7 @@ class JadwalController extends Controller
     public function index()
     {
         $jadwals = Jadwal::orderByRaw("
-            CASE day
+            CASE hari
                 WHEN 'Senin' THEN 1
                 WHEN 'Selasa' THEN 2
                 WHEN 'Rabu' THEN 3
@@ -20,10 +20,10 @@ class JadwalController extends Controller
                 WHEN 'Minggu' THEN 7
                 ELSE 8
             END
-        ")->orderBy('start_time')->get();
+        ")->orderBy('jam_mulai')->get();
 
-        $jadwalMingguan = $jadwals->where('category', 'mingguan')->groupBy('day');
-        $acaraKhusus = $jadwals->where('category', 'acara_khusus')->values();
+        $jadwalMingguan = $jadwals->where('kategori', 'mingguan')->groupBy('hari');
+        $acaraKhusus = $jadwals->where('kategori', 'acara_khusus')->values();
 
         return view('User.Jadwal.Jadwal', compact('jadwalMingguan', 'acaraKhusus'));
     }

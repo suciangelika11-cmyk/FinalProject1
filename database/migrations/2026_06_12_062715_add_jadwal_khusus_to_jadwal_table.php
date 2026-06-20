@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('jadwal', function (Blueprint $table) {
-            $table->string('jadwal_khusus')->nullable()->after('day');
+            $table->string('jadwal_khusus')->nullable()->after('hari');
         });
     }
 

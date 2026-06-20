@@ -6,10 +6,10 @@
 
     <section class="hero">
         <div class="container">
-            <h1>{{ $pengumuman->title }}</h1>
+            <h1>{{ $pengumuman->judul }}</h1>
             <p>
                 <i class="bi bi-calendar3"></i>
-                {{ $pengumuman->publish_date ? \Carbon\Carbon::parse($pengumuman->publish_date)->translatedFormat('d F Y') : '—' }}
+                {{ $pengumuman->tanggal_liris ? \Carbon\Carbon::parse($pengumuman->tanggal_liris)->translatedFormat('d F Y') : '—' }}
             </p>
         </div>
     </section>
@@ -18,12 +18,12 @@
         <div class="container">
             <div class="detail-card">
 
-                @if($pengumuman->image)
-                    <img src="{{ asset('storage/' . $pengumuman->image) }}" alt="{{ $pengumuman->title }}" class="detail-image">
+                @if($pengumuman->foto)
+                    <img src="{{ asset('storage/' . $pengumuman->foto) }}" alt="{{ $pengumuman->judul }}" class="detail-image">
                 @endif
 
                 <div class="detail-content">
-                    {!! nl2br(e($pengumuman->content)) !!}
+                    {!! nl2br(e($pengumuman->deksripsi)) !!}
                 </div>
 
                 <div class="detail-footer">

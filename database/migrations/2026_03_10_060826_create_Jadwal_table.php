@@ -13,13 +13,13 @@ return new class extends Migration {
                 ->constrained('users')->onDelete('set null');
             $table->foreignId('pelayanan_id')->nullable()
                 ->constrained('pelayanan')->onDelete('set null');
-            $table->string('title');
-            $table->string('day');
-            $table->time('start_time');
-            $table->time('end_time')->nullable();
-            $table->string('location')->nullable();
-            $table->text('description')->nullable();
-            $table->enum('category', ['mingguan', 'acara_khusus']);
+            $table->string('judul');
+            $table->string('hari');
+            $table->time('jam_mulai');
+            $table->time('jam_selesai')->nullable();
+            $table->string('lokasi')->nullable();
+            $table->text('deksripsi')->nullable();
+            $table->enum('kategori', ['mingguan', 'acara_khusus']);
             $table->timestamps();
         });
     }

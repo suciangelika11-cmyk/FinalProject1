@@ -30,10 +30,10 @@ class KontakController extends Controller
                 ->with('error', 'Hanya boleh ada satu data kontak gereja.');
         }
         $request->validate([
-            'address' => 'required',
-            'phone' => 'required|regex:/^[0-9]+$/',
+            'alamat' => 'required',
+            'no_hp' => 'required|regex:/^[0-9]+$/',
             'email' => 'required|email',
-            'office_hours' => 'nullable',
+            'jam_kerja' => 'nullable',
             'map_embed' => 'nullable',
         ], [
             'phone.regex' => 'Nomor telepon hanya boleh berisi angka.',
@@ -51,10 +51,10 @@ class KontakController extends Controller
     public function update(Request $request, Kontak $kontak)
     {
         $request->validate([
-            'address' => 'required',
-            'phone' => 'required|regex:/^[0-9]+$/',
+            'alamat' => 'required',
+            'no_hp' => 'required|regex:/^[0-9]+$/',
             'email' => 'required|email',
-            'office_hours' => 'nullable',
+            'jam_kerja' => 'nullable',
             'map_embed' => 'nullable',
         ], [
             'phone.regex' => 'Nomor telepon hanya boleh berisi angka.',

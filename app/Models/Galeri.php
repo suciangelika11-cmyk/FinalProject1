@@ -13,17 +13,16 @@ class Galeri extends Model
     protected $table = 'galeri';
 
     protected $fillable = [
-        'title',
-        'description',
-        'image',
-        'event_date',
+        'judul',
+        'deksripsi',
+        'foto',
+        'tanggal',
         'user_id',
     ];
 
     protected $casts = [
-        'event_date' => 'date',
+        'tanggal' => 'datetime',
     ];
-
     // Relasi Galeri BelongsTo User
     public function user()
     {

@@ -26,7 +26,7 @@
 
                 <div class="fg">
                     <label>Nama Kegiatan</label>
-                    <input type="text" name="title" value="{{ old('title') }}" placeholder="Contoh: Ibadah Sesi 1" required
+                    <input type="text" name="judul" value="{{ old('judul') }}" placeholder="Contoh: Ibadah Sesi 1" required
                         maxlength="100">
                 </div>
 
@@ -34,7 +34,7 @@
                     <div class="fg" id="hari-group">
                         <label>Hari</label>
 
-                        <select name="day">
+                        <select name="hari">
                             <option value="">-- Pilih Hari --</option>
                             <option value="Senin">Senin</option>
                             <option value="Selasa">Selasa</option>
@@ -49,12 +49,12 @@
                     <div class="fg">
                         <label>Kategori</label>
 
-                        <select name="category" id="category" required>
+                        <select name="kategori" id="kategori" required>
                             <option value="">-- Pilih Kategori --</option>
-                            <option value="mingguan" {{ old('category') == 'mingguan' ? 'selected' : '' }}>
+                            <option value="mingguan" {{ old('kategori') == 'mingguan' ? 'selected' : '' }}>
                                 Jadwal Mingguan
                             </option>
-                            <option value="acara_khusus" {{ old('category') == 'acara_khusus' ? 'selected' : '' }}>
+                            <option value="acara_khusus" {{ old('kategori') == 'acara_khusus' ? 'selected' : '' }}>
                                 Acara Khusus
                             </option>
                         </select>
@@ -64,12 +64,12 @@
                 <div class="form-row-2" id="jam-group">
                     <div class="fg">
                         <label>Jam Mulai</label>
-                        <input type="time" name="start_time" value="{{ old('start_time') }}" required>
+                        <input type="time" name="jam_mulai" value="{{ old('jam_mulai') }}" required>
                     </div>
 
                     <div class="fg">
                         <label>Jam Selesai</label>
-                        <input type="time" name="end_time" value="{{ old('end_time') }}">
+                        <input type="time" name="jam_selesai" value="{{ old('jam_selesai') }}">
                     </div>
                 </div>
 
@@ -81,14 +81,14 @@
 
                 <div class="fg">
                     <label>Lokasi</label>
-                    <input type="text" name="location" value="{{ old('location') }}" placeholder="Contoh: GBI Tambunan"
+                    <input type="text" name="lokasi" value="{{ old('lokasi') }}" placeholder="Contoh: GBI Tambunan"
                         required maxlength="100">
                 </div>
 
                 <div class="fg">
                     <label>Deskripsi</label>
-                    <textarea name="description" rows="3" required maxlength="250"
-                        placeholder="Masukkan deskripsi kegiatan">{{ old('description') }}</textarea>
+                    <textarea name="deksripsi" rows="3" required maxlength="250"
+                        placeholder="Masukkan deskripsi kegiatan">{{ old('deksripsi') }}</textarea>
                 </div>
 
                 <div class="btn-row">

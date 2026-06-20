@@ -25,7 +25,7 @@
 
                 <div class="fg">
                     <label>Judul Khotbah</label>
-                    <input type="text" name="title" value="{{ old('title') }}" placeholder="Contoh: Iman dalam Cobaan"
+                    <input type="text" name="judul" value="{{ old('judul') }}" placeholder="Contoh: Iman dalam Cobaan"
                         required maxlength="150">
                 </div>
 
@@ -36,13 +36,13 @@
 
                 <div class="fg">
                     <label>Tanggal Khotbah</label>
-                    <input type="date" name="sermon_date" value="{{ old('sermon_date') }}" min="{{ date('Y-m-d') }}">
+                    <input type="date" name="tanggal_khotbah" value="{{ old('tanggal_khotbah') }}" min="{{ date('Y-m-d') }}">
                 </div>
 
                 <div class="fg">
                     <label>Deskripsi</label>
-                    <textarea name="description" rows="3" maxlength="250"
-                        placeholder="Masukkan ringkasan khotbah">{{ old('description') }}</textarea>
+                    <textarea name="deksripsi" rows="3" maxlength="250"
+                        placeholder="Masukkan ringkasan khotbah">{{ old('deksripsi') }}</textarea>
                 </div>
 
                 <div class="fg">

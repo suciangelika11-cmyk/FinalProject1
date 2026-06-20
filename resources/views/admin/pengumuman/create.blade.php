@@ -35,18 +35,18 @@
                     <div class="form-grid">
                         <div class="form-group full">
                             <label>Judul Pengumuman</label>
-                            <input type="text" name="title" class="form-control-custom" value="{{ old('title') }}" required maxlength="100">
+                            <input type="text" name="judul" class="form-control-custom" value="{{ old('judul') }}" required maxlength="100">
                         </div>
 
                         <div class="form-group full">
                             <label>Isi Pengumuman</label>
-                            <textarea name="content" class="form-textarea-custom" required maxlength="250">{{ old('content') }}</textarea>
+                            <textarea name="deksripsi" class="form-textarea-custom" required maxlength="250">{{ old('deksripsi') }}</textarea>
                         </div>
 
                         <div class="form-group">
                             <label>Tanggal Publish</label>
-                            <input type="date" name="publish_date" class="form-control-custom"
-                                value="{{ old('publish_date') }}" min="{{ date('Y-m-d') }}" required>
+                            <input type="date" name="tanggal_liris" class="form-control-custom"
+                                value="{{ old('tanggal_liris') }}" min="{{ date('Y-m-d') }}" required>
                         </div>
 
                         <div class="form-group">
@@ -59,7 +59,7 @@
 
                         <div class="form-group full">
                             <label>Gambar Pengumuman</label>
-                            <input type="file" name="image" class="form-control-custom">
+                            <input type="file" name="foto" class="form-control-custom">
                         </div>
                     </div>
 

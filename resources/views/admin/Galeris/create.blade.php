@@ -25,23 +25,23 @@
 
                 <div class="fg">
                     <label>Judul Kegiatan</label>
-                    <input type="text" name="title" value="{{ old('title') }}" placeholder="Contoh: Ibadah Minggu" required maxlength="100">
+                    <input type="text" name="judul" value="{{ old('judul') }}" placeholder="Contoh: Ibadah Minggu" required maxlength="100">
                 </div>
 
                 <div class="fg">
                     <label>Tanggal Kegiatan</label>
-                    <input type="date" name="event_date" value="{{ old('event_date') }}" min="{{ date('Y-m-d') }}" required>
+                    <input type="date" name="tanggal" value="{{ old('tanggal') }}" min="{{ date('Y-m-d') }}" required>
                 </div>
 
                 <div class="fg">
                     <label>Deskripsi</label>
-                    <textarea name="description" rows="3" required maxlength="250"
-                        placeholder="Masukkan deskripsi kegiatan">{{ old('description') }}</textarea>
+                    <textarea name="deksripsi" rows="3" required maxlength="250"
+                        placeholder="Masukkan deskripsi kegiatan">{{ old('deksripsi') }}</textarea>
                 </div>
 
                 <div class="fg">
                     <label>Upload Foto</label>
-                    <input type="file" name="image" accept="image/*" required>
+                    <input type="file" name="foto" accept="image/*" required>
                 </div>
 
                 <div class="btn-row">

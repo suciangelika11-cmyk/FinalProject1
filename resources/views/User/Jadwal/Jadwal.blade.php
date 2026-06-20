@@ -52,15 +52,15 @@
                                 </div>
 
                                 <h3 class="jd-card-title">
-                                    {{ $kegiatan->title }}
+                                    {{ $kegiatan->judul }}
                                 </h3>
 
                                 <div class="jd-card-meta">
                                     <i class="bi bi-clock"></i>
                                     <span>
-                                        {{ $kegiatan->start_time }}
-                                        @if($kegiatan->end_time)
-                                            - {{ $kegiatan->end_time }}
+                                        {{ $kegiatan->jam_mulai }}
+                                        @if($kegiatan->jam_selesai)
+                                            - {{ $kegiatan->jam_selesai }}
                                         @endif
                                         WIB
                                     </span>
@@ -69,13 +69,13 @@
                                 <div class="jd-card-meta">
                                     <i class="bi bi-geo-alt-fill"></i>
                                     <span>
-                                        {{ $kegiatan->location ?: 'Lokasi menyusul' }}
+                                        {{ $kegiatan->lokasi ?: 'Lokasi menyusul' }}
                                     </span>
                                 </div>
 
-                                @if($kegiatan->description)
+                                @if($kegiatan->deksripsi)
                                     <p class="jd-card-desc">
-                                        {{ \Illuminate\Support\Str::limit($kegiatan->description, 140, '...') }}
+                                        {{ \Illuminate\Support\Str::limit($kegiatan->deksripsi, 140, '...') }}
                                     </p>
                                 @endif
 
@@ -125,11 +125,11 @@
                             </div>
 
                             <h3 class="jd-card-title">
-                                {{ $acara->title }}
+                                {{ $acara->judul }}
                             </h3>
 
                             <p class="jd-card-desc">
-                                {{ $acara->description }}
+                                {{ $acara->deksripsi }}
                             </p>
 
                             <div class="jd-badge">

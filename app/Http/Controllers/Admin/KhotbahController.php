@@ -23,14 +23,14 @@ class KhotbahController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
+            'judul' => 'required|string|max:255',
             'video' => 'required|string|max:255',
-            'description' => 'required|string',
+            'deksripsi' => 'required|string',
             'thumbnail' => 'required|image|max:2048',
-            'sermon_date' => 'required|date',
+            'tanggal_khotbah' => 'required|date',
         ]);
 
-        $data = $request->only(['title', 'video', 'description', 'sermon_date']);
+        $data = $request->only(['judul', 'video', 'deksripsi', 'tanggal_khotbah']);
 
         if ($request->hasFile('thumbnail')) {
             $data['thumbnail'] = $request->file('thumbnail')->store('khotbah', 'public');
@@ -49,14 +49,14 @@ class KhotbahController extends Controller
     public function update(Request $request, Khotbah $khotbah)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
+            'judul' => 'required|string|max:255',
             'video' => 'required|string|max:255',
-            'description' => 'required|string',
+            'deksripsi' => 'required|string',
             'thumbnail' => 'nullable|image|max:2048',
-            'sermon_date' => 'required|date',
+            'tanggal_khotbah' => 'required|date',
         ]);
 
-        $data = $request->only(['title', 'video', 'description', 'sermon_date']);
+        $data = $request->only(['title', 'video', 'deksripsi', 'tanggal_khotbah']);
 
         if ($request->hasFile('thumbnail')) {
             if ($khotbah->thumbnail && Storage::disk('public')->exists($khotbah->thumbnail)) {

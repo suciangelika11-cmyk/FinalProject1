@@ -13,11 +13,11 @@ class KhotbahController extends Controller
         $khotbah = Khotbah::latest()->get();
 
         // Get jadwal mingguan (group by day)
-        $jadwalData = Jadwal::where('category', 'mingguan')->get();
-        $jadwalMingguan = $jadwalData->groupBy('day');
+        $jadwalData = Jadwal::where('kategori', 'mingguan')->get();
+        $jadwalMingguan = $jadwalData->groupBy('hari');
 
         // Get acara khusus
-        $acaraKhusus = Jadwal::where('category', 'khusus')->get();
+        $acaraKhusus = Jadwal::where('kategori', 'khusus')->get();
 
         return view('user.khotbah.khotbah', compact('khotbah', 'jadwalMingguan', 'acaraKhusus'));
     }

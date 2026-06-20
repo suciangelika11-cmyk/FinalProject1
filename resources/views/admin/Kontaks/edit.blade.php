@@ -27,12 +27,12 @@
 
         <div class="fg">
           <label>Alamat</label>
-          <input type="text" name="address" value="{{ old('address', $kontak->address) }}" required maxlength="150">
+          <input type="text" name="alamat" value="{{ old('alamat', $kontak->alamat) }}" required maxlength="150">
         </div>
 
         <div class="fg">
           <label>Telepon</label>
-          <input type="text" name="phone" value="{{ old('phone', $kontak->phone ?? '') }}" pattern="[0-9]+" inputmode="numeric" required maxlength="15">
+          <input type="text" name="no_hp" value="{{ old('no_hp', $kontak->no_hp ?? '') }}" pattern="[0-9]+" inputmode="numeric" required maxlength="15">
         </div>
 
         <div class="fg">
@@ -42,7 +42,7 @@
 
         <div class="fg">
           <label>Jam Sekretariat</label>
-          <textarea name="office_hours" rows="3" required maxlength="250">{{ old('office_hours', $kontak->office_hours) }}</textarea>
+          <textarea name="jam_kerja" rows="3" required maxlength="250">{{ old('jam_kerja', $kontak->jam_kerja) }}</textarea>
         </div>
 
         <div class="btn-row">

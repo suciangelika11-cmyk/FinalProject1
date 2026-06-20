@@ -23,14 +23,14 @@
                 @forelse($kepemimpinan as $item)
                     <div class="pl-leader-card">
                         <div class="pl-avatar">
-                            @if($item->photo)
-                                <img src="{{ asset('storage/' . $item->photo) }}" alt="{{ $item->leader ?: $item->title }}">
+                            @if($item->foto)
+                                <img src="{{ asset('storage/' . $item->foto) }}" alt="{{ $item->pemimpim ?: $item->judul }}">
                             @else
-                                {{ strtoupper(substr($item->leader ?: $item->title, 0, 2)) }}
+                                {{ strtoupper(substr($item->pemimpim ?: $item->judul, 0, 2)) }}
                             @endif
                         </div>
-                        <div class="pl-lc-name">{{ $item->leader ?: $item->title }}</div>
-                        <div class="pl-lc-role">{{ $item->title }}</div>
+                        <div class="pl-lc-name">{{ $item->pemimpim ?: $item->judul }}</div>
+                        <div class="pl-lc-role">{{ $item->judul }}</div>
                     </div>
                 @empty
                     <div class="pl-no-data">Belum ada data kepemimpinan.</div>
@@ -50,25 +50,25 @@
                         <div class="pl-tc-icon">
 
                             @php
-                                $title = strtolower($tim->title);
+                                $judul = strtolower($tim->judul);
                             @endphp
 
-                            @if(str_contains($title, 'singer'))
+                            @if(str_contains($judul, 'singer'))
                                 <i class="bi bi-mic-fill"></i>
 
-                            @elseif(str_contains($title, 'worship'))
+                            @elseif(str_contains($judul, 'worship'))
                                 <i class="bi bi-megaphone-fill"></i>
 
-                            @elseif(str_contains($title, 'tamborin'))
+                            @elseif(str_contains($judul, 'tamborin'))
                                 <i class="bi bi-stars"></i>
 
-                            @elseif(str_contains($title, 'multimedia'))
+                            @elseif(str_contains($judul, 'multimedia'))
                                 <i class="bi bi-camera-video-fill"></i>
 
-                            @elseif(str_contains($title, 'musik'))
+                            @elseif(str_contains($judul, 'musik'))
                                 <i class="bi bi-music-note-beamed"></i>
 
-                            @elseif(str_contains($title, 'sekolah minggu'))
+                            @elseif(str_contains($judul, 'sekolah minggu'))
                                 <i class="bi bi-book-fill"></i>
 
                             @else
@@ -76,8 +76,8 @@
                             @endif
 
                         </div>
-                        <div class="pl-tc-title">{{ $tim->title }}</div>
-                        <div class="pl-tc-desc">{{ $tim->description ?: 'Melayani dengan penuh dedikasi dan kasih.' }}</div>
+                        <div class="pl-tc-title">{{ $tim->judul }}</div>
+                        <div class="pl-tc-desc">{{ $tim->deksripsi ?: 'Melayani dengan penuh dedikasi dan kasih.' }}</div>
                         <div class="pl-divider"></div>
                         <ul class="pl-member-list">
                             @if($tim->anggotas->count())
@@ -89,7 +89,7 @@
                                 @endforeach
                             @else
                                 <li class="pl-member-item">
-                                    <span class="pl-mi-name">{{ $tim->leader ?: 'Koordinator belum ditentukan' }}</span>
+                                    <span class="pl-mi-name">{{ $tim->pemimpim ?: 'Koordinator belum ditentukan' }}</span>
                                     <span class="pl-mi-role">Koordinator</span>
                                 </li>
                             @endif

@@ -6,8 +6,8 @@
 
     @php
         $gereja = "GBI Tambunan";
-        $whatsapp = $kontak && $kontak->phone
-            ? preg_replace('/[^0-9]/', '', $kontak->phone)
+        $whatsapp = $kontak && $kontak->no_hp
+            ? preg_replace('/[^0-9]/', '', $kontak->no_hp)
             : '081632228286';
     @endphp
 
@@ -68,7 +68,7 @@
                             </div>
                             <div>
                                 <div class="info-label">Alamat</div>
-                                <div class="info-value">{!! nl2br(e($kontak->address)) !!}</div>
+                                <div class="info-value">{!! nl2br(e($kontak->alamat)) !!}</div>
                             </div>
                         </div>
 
@@ -81,7 +81,7 @@
                             </div>
                             <div>
                                 <div class="info-label">Telepon</div>
-                                <div class="info-value">{{ $kontak->phone ?: '-' }}</div>
+                                <div class="info-value">{{ $kontak->no_hp ?: '-' }}</div>
                             </div>
                         </div>
 
@@ -107,7 +107,7 @@
                             </div>
                             <div>
                                 <div class="info-label">Jam Sekretariat</div>
-                                <div class="info-value">{!! nl2br(e($kontak->office_hours ?: '-')) !!}</div>
+                                <div class="info-value">{!! nl2br(e($kontak->jam_kerja ?: '-')) !!}</div>
                             </div>
                         </div>
 

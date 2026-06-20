@@ -54,11 +54,11 @@
                         <div class="absensi-card">
 
                             <div class="card-date">
-                                {{ \Carbon\Carbon::parse($item->date)->translatedFormat('l, d F Y') }}
+                                {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('l, d F Y') }}
                             </div>
 
                             <div class="card-session">
-                                {{ $item->session }}
+                                {{ $item->sesi_ibadah }}
                             </div>
 
                             <div class="info-item">

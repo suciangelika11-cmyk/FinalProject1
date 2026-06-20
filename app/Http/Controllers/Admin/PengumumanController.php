@@ -23,22 +23,22 @@ class PengumumanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
-            'content' => 'required|string',
-            'publish_date' => 'required|date',
-            'image' => 'required|image|max:2048',
+            'judul' => 'required|string|max:255',
+            'deksripsi' => 'required|string',
+            'tanggal_liris' => 'required|date',
+            'foto' => 'required|image|max:2048',
             'is_active' => 'required|boolean',
         ]);
 
         $data = $request->only([
-            'title',
-            'content',
+            'judul',
+            'deksripsi',
             'publish_date',
             'is_active',
         ]);
 
-        if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('pengumuman', 'public');
+        if ($request->hasFile('foto')) {
+            $data['foto'] = $request->file('foto')->store('pengumuman', 'public');
         }
 
         Pengumuman::create($data);
@@ -55,26 +55,26 @@ class PengumumanController extends Controller
     public function update(Request $request, Pengumuman $pengumuman)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
-            'content' => 'required|string',
-            'publish_date' => 'required|date',
-            'image' => 'nullable|image|max:2048',
+            'judul' => 'required|string|max:255',
+            'deksripsi' => 'required|string',
+            'tanggal_liris' => 'required|date',
+            'foto' => 'nullable|image|max:2048',
             'is_active' => 'required|boolean',
         ]);
 
         $data = $request->only([
-            'title',
-            'content',
-            'publish_date',
+            'judul',
+            'deksripsi',
+            'tanggal_liris',
             'is_active',
         ]);
 
-        if ($request->hasFile('image')) {
-            if ($pengumuman->image && Storage::disk('public')->exists($pengumuman->image)) {
-                Storage::disk('public')->delete($pengumuman->image);
+        if ($request->hasFile('foto')) {
+            if ($pengumuman->foto && Storage::disk('public')->exists($pengumuman->foto)) {
+                Storage::disk('public')->delete($pengumuman->foto);
             }
 
-            $data['image'] = $request->file('image')->store('pengumuman', 'public');
+            $data['foto'] = $request->file('foto')->store('pengumuman', 'public');
         }
 
         $pengumuman->update($data);
@@ -85,8 +85,8 @@ class PengumumanController extends Controller
 
     public function destroy(Pengumuman $pengumuman)
     {
-        if ($pengumuman->image && Storage::disk('public')->exists($pengumuman->image)) {
-            Storage::disk('public')->delete($pengumuman->image);
+        if ($pengumuman->foto && Storage::disk('public')->exists($pengumuman->foto)) {
+            Storage::disk('public')->delete($pengumuman->foto);
         }
 
         $pengumuman->delete();

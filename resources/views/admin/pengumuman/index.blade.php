@@ -40,21 +40,21 @@
                         <tr>
                             <td>
                                 <div class="title-wrap">
-                                    @if($item->image)
-                                        <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" class="thumb">
+                                    @if($item->foto)
+                                        <img src="{{ asset('storage/' . $item->foto) }}" alt="{{ $item->judul }}" class="thumb">
                                     @else
                                         <div class="thumb-placeholder">{{"\u{1F4E2}"}}</div>
                                     @endif
 
                                     <div>
-                                        <div class="title-main">{{ $item->title }}</div>
+                                        <div class="title-main">{{ $item->judul }}</div>
                                         <div class="title-sub">
-                                            {{ \Illuminate\Support\Str::limit($item->content, 60) }}
+                                            {{ \Illuminate\Support\Str::limit($item->deksripsi, 60) }}
                                         </div>
                                     </div>
                                 </div>
                             </td>
-                            <td>{{ $item->publish_date ?: '-' }}</td>
+                            <td>{{ $item->tanggal_liris ?: '-' }}</td>
                             <td>
                                 <span class="badge-status {{ $item->is_active ? 'active' : 'inactive' }}">
                                     {{ $item->is_active ? 'Aktif' : 'Nonaktif' }}

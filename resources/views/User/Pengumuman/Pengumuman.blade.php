@@ -22,22 +22,22 @@
                     @foreach($pengumuman as $item)
                         <div class="pg-card">
                             <div class="pg-card-img-wrap">
-                                @if($item->image)
-                                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" loading="lazy">
+                                @if($item->foto)
+                                    <img src="{{ asset('storage/' . $item->foto) }}" alt="{{ $item->judul }}" loading="lazy">
                                 @else
                                     <div class="pg-placeholder"><i class="bi bi-megaphone"></i></div>
                                 @endif
-                                @if($item->publish_date)
+                                @if($item->tanggal_liris)
                                     <div class="pg-date-badge">
-                                        {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}
+                                        {{ \Carbon\Carbon::parse($item->tanggal_liris)->format('d M Y') }}
                                     </div>
                                 @endif
                             </div>
 
                             <div class="pg-card-body">
                                 <span class="pg-tag">Pengumuman</span>
-                                <h5 class="pg-card-title">{{ $item->title }}</h5>
-                                <p class="pg-card-excerpt">{{ \Illuminate\Support\Str::limit($item->content, 120) }}</p>
+                                <h5 class="pg-card-title">{{ $item->judul }}</h5>
+                                <p class="pg-card-excerpt">{{ \Illuminate\Support\Str::limit($item->deksripsi, 120) }}</p>
                                 <a href="{{ route('user.pengumuman.show', $item->id) }}" class="pg-btn-read">
                                     Selengkapnya <i class="bi bi-arrow-right" style="font-size:11px;"></i>
                                 </a>

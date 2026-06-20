@@ -33,27 +33,27 @@
                 <div class="schedule-grid">
                     @foreach ($kegiatanList as $kegiatan)
                     @php
-                        $title = strtolower($kegiatan->title);
+                        $judul = strtolower($kegiatan->judul);
 
-                        if (str_contains($title, 'ibadah')) {
+                        if (str_contains($judul, 'ibadah')) {
                             $icon = 'fa-solid fa-church';
-                        } elseif (str_contains($title, 'doa')) {
+                        } elseif (str_contains($judul, 'doa')) {
                             $icon = 'fa-solid fa-hands-praying';
-                        } elseif (str_contains($title, 'pemuda') || str_contains($title, 'next gen')) {
+                        } elseif (str_contains($judul, 'pemuda') || str_contains($judul, 'next gen')) {
                             $icon = 'fa-solid fa-users';
-                        } elseif (str_contains($title, 'sekolah minggu')) {
+                        } elseif (str_contains($judul, 'sekolah minggu')) {
                             $icon = 'fa-solid fa-book-bible';
-                        } elseif (str_contains($title, 'menara')) {
+                        } elseif (str_contains($judul, 'menara')) {
                             $icon = 'fa-solid fa-cross';
-                        } elseif (str_contains($title, 'retreat')) {
+                        } elseif (str_contains($judul, 'retreat')) {
                             $icon = 'fa-solid fa-mountain';
-                        } elseif (str_contains($title, 'natal')) {
+                        } elseif (str_contains($judul, 'natal')) {
                             $icon = 'fa-solid fa-gift';
-                        } elseif (str_contains($title, 'paskah')) {
+                        } elseif (str_contains($judul, 'paskah')) {
                             $icon = 'fa-solid fa-cross';
-                        } elseif (str_contains($title, 'baptis')) {
+                        } elseif (str_contains($judul, 'baptis')) {
                             $icon = 'fa-solid fa-droplet';
-                        } elseif (str_contains($title, 'nikah')) {
+                        } elseif (str_contains($judul, 'nikah')) {
                             $icon = 'fa-solid fa-heart';
                         } else {
                             $icon = 'fa-solid fa-calendar-heart';
@@ -64,23 +64,23 @@
                                 <i class="{{ $icon }}"></i>
                             </div>
 
-                            <h3 class="card-title">{{ $kegiatan->title }}</h3>
+                            <h3 class="card-title">{{ $kegiatan->judul }}</h3>
 
                             <div class="card-meta">
                                 <i class="fa-regular fa-clock"></i>
                                 <span>
-                                    {{ $kegiatan->start_time }}
-                                    {{ $kegiatan->end_time ? '– ' . $kegiatan->end_time : '' }} WIB
+                                    {{ $kegiatan->jam_mulai }}
+                                    {{ $kegiatan->jam_selesai ? '– ' . $kegiatan->jam_selesai : '' }} WIB
                                 </span>
                             </div>
 
                             <div class="card-meta">
                                 <i class="fa-solid fa-location-dot"></i>
-                                <span>{{ $kegiatan->location ?: 'Lokasi menyusul' }}</span>
+                                <span>{{ $kegiatan->lokasi ?: 'Lokasi menyusul' }}</span>
                             </div>
 
-                            @if ($kegiatan->description)
-                                <p class="card-desc">{{ $kegiatan->description }}</p>
+                            @if ($kegiatan->deksripsi)
+                                <p class="card-desc">{{ $kegiatan->deksripsi }}</p>
                             @else
                                 <div style="flex: 1;"></div>
                             @endif
@@ -113,11 +113,11 @@
                         <div class="card-icon">
                             <i class="{{ $acara->icon ?: 'fa-solid fa-star' }}"></i>
                         </div>
-                        <h3 class="card-title">{{ $acara->title }}</h3>
-                        <p class="card-desc">{{ $acara->description }}</p>
+                        <h3 class="card-title">{{ $acara->judul }}</h3>
+                        <p class="card-desc">{{ $acara->deksripsi }}</p>
                         <div class="badge-day">
                             <i class="fa-regular fa-calendar-check"></i>
-                            {{ $acara->day ?: 'Acara Khusus' }}
+                            {{ $acara->hari ?: 'Acara Khusus' }}
                         </div>
                     </div>
                 @empty

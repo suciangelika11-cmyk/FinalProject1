@@ -23,24 +23,24 @@ class GaleriController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'image' => 'required|image',
-            'event_date' => 'required|date',
+            'judul' => 'required',
+            'deksripsi' => 'required',
+            'foto' => 'required|image',
+            'tanggal' => 'required|date',
         ]);
 
-        // Validasi custom: jika event_date diisi, pastikan hari (tanggal) antara 1-31
-        if ($request->filled('event_date')) {
-            $date = date_parse($request->event_date);
-            if ($date['day'] < 1 || $date['day'] > 31) {
-                return back()->withErrors(['event_date' => 'Tanggal kegiatan harus antara 1 sampai 31'])->withInput();
+        // Validasi custom: jika tanggal diisi, pastikan hari (tanggal) antara 1-31
+        if ($request->filled('tanggal')) {
+            $tanggal = date_parse($request->tanggal);
+            if ($tanggal['day'] < 1 || $tanggal['day'] > 31) {
+                return back()->withErrors(['tanggal' => 'Tanggal kegiatan harus antara 1 sampai 31'])->withInput();
             }
         }
 
         $data = $request->all();
 
-        if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('Galeri', 'public');
+        if ($request->hasFile('foto')) {
+            $data['foto'] = $request->file('foto')->store('Galeri', 'public');
         }
 
         Galeri::create($data);
@@ -62,20 +62,20 @@ class GaleriController extends Controller
     public function update(Request $request, Galeri $Galeri)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'image' => 'nullable|image',
-            'event_date' => 'required|date'
+            'judul' => 'required',
+            'deksripsi' => 'required',
+            'foto' => 'nullable|image',
+            'tanggal' => 'required|date'
         ]);
 
         $data = $request->all();
 
-        if ($request->hasFile('image')) {
-            if ($Galeri->image) {
-                Storage::disk('public')->delete($Galeri->image);
+        if ($request->hasFile('foto')) {
+            if ($Galeri->foto) {
+                Storage::disk('public')->delete($Galeri->foto);
             }
 
-            $data['image'] = $request->file('image')->store('Galeri', 'public');
+            $data['foto'] = $request->file('foto')->store('Galeri', 'public');
         }
 
         $Galeri->update($data);
@@ -86,8 +86,8 @@ class GaleriController extends Controller
 
     public function destroy(Galeri $Galeri)
     {
-        if ($Galeri->image) {
-            Storage::disk('public')->delete($Galeri->image);
+        if ($Galeri->foto) {
+            Storage::disk('public')->delete($Galeri->foto);
         }
 
         $Galeri->delete();

@@ -50,7 +50,7 @@
                 <thead>
                     <tr>
                         <th>Tanggal</th>
-                        <th>Sesi</th>
+                        <th>Sesi Ibadah</th>
                         <th>Pengkhotbah</th>
                         <th>Jumlah Jemaat</th>
                         <th>Aksi</th>
@@ -61,11 +61,11 @@
                     @forelse($absensi as $item)
                         <tr>
                             <td>
-                                {{ \Carbon\Carbon::parse($item->date)->format('d M Y') }}
+                                {{ \Carbon\Carbon::parse($item->tanggal)->format('d M Y') }}
                             </td>
 
                             <td>
-                                <strong>{{ $item->session }}</strong>
+                                <strong>{{ $item->sesi_ibadah }}</strong>
                             </td>
 
                             <td>
@@ -87,8 +87,8 @@
                                     @csrf
                                     @method('DELETE')
                                     <button type="button" class="btn btn-danger btn-hapus" data-id="{{ $item->id }}"
-                                        data-sesi="{{ $item->session }}"
-                                        data-tanggal="{{ \Carbon\Carbon::parse($item->date)->format('d M Y') }}">
+                                        data-sesi="{{ $item->sesi_ibadah }}"
+                                        data-tanggal="{{ \Carbon\Carbon::parse($item->tanggal)->format('d M Y') }}">
 
                                         <i class="fas fa-trash"></i>
                                         Hapus

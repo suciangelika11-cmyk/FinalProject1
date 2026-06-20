@@ -12,10 +12,10 @@ class Pengumuman extends Model
     protected $table = 'pengumuman';
 
     protected $fillable = [
-        'title',
-        'content',
-        'publish_date',
-        'image',
+        'judul',
+        'deksripsi',
+        'tanggal_liris',
+        'foto',
         'is_active',
         'user_id',
     ];

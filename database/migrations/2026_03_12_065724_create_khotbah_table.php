@@ -11,11 +11,11 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('user_id')->nullable()
                 ->constrained('users')->onDelete('set null');
-            $table->string('title');
+            $table->string('judul');
             $table->string('video');
-            $table->text('description')->nullable();
+            $table->text('deksripsi')->nullable();
             $table->string('thumbnail')->nullable();
-            $table->date('sermon_date')->nullable();
+            $table->date('tanggal_khotbah')->nullable();
             $table->timestamps();
         });
     }

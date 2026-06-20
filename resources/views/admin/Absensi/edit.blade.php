@@ -34,13 +34,13 @@
 
                 <div class="fg">
                     <label>Tanggal</label>
-                    <input type="date" name="date" value="{{ old('date', $absensi->date) }}" required>
+                    <input type="date" name="tanggal" value="{{ old('tanggal', $absensi->tanggal) }}" required>
                 </div>
 
                 <div class="form-row-2">
                     <div class="fg">
                         <label>Sesi</label>
-                        <input type="text" name="session" value="{{ old('session', $absensi->session) }}" required maxlength="50">
+                        <input type="text" name="sesi_ibadah" value="{{ old('sesi_ibadah', $absensi->sesi_ibadah) }}" required maxlength="50">
                     </div>
 
                     <div class="fg">

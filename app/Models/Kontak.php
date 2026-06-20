@@ -12,11 +12,11 @@ class Kontak extends Model
     protected $table = 'kontak';
 
     protected $fillable = [
-        'address',
-        'phone',
+        'alamat',
+        'no_hp',
         'email',
-        'office_hours',
-        'map_embed',
+        'jam_kerja',
+        'map',
         'user_id',
     ];
 

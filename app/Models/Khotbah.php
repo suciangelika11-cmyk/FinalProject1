@@ -13,16 +13,16 @@ class Khotbah extends Model
     protected $table = 'khotbah';
 
     protected $fillable = [
-        'title',
+        'judul',
         'video',
-        'description',
+        'deksripsi',
         'thumbnail',
-        'sermon_date',
+        'tanggal_khotbah',
         'user_id',
     ];
 
     protected $casts = [
-        'sermon_date' => 'date',
+        'tanggal_khotbah' => 'datetime',
     ];
 
     // Relasi Khotbah BelongsTo User

@@ -9,11 +9,11 @@ return new class extends Migration {
     {
         Schema::create('pelayanan', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->enum('category', ['kepemimpinan', 'tim', 'aksi']);
-            $table->string('leader');
-            $table->text('description');
-            $table->string('photo');
+            $table->string('judul');
+            $table->enum('kategori', ['kepemimpinan', 'tim', 'aksi']);
+            $table->string('pemimpim');
+            $table->text('deksripsi');
+            $table->string('foto');
             $table->timestamps();
         });
     }

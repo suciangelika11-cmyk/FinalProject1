@@ -24,7 +24,7 @@ class Jemaat extends Model
         'pekerjaan',
         'status_pernikahan',
         'status',
-        'confirmed_at',
+        'konfirmasi',
     ];
 
     protected $casts = [

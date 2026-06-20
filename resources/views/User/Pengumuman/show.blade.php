@@ -13,23 +13,23 @@
             </div>
 
             <h1 class="detail-title">
-                {{ $pengumuman->title }}
+                {{ $pengumuman->judul }}
             </h1>
 
             <div class="detail-date">
-                {{ $pengumuman->publish_date ?: '-' }}
+                {{ $pengumuman->tanggal_liris?: '-' }}
             </div>
 
             <div class="detail-body">
 
-                @if($pengumuman->image)
+                @if($pengumuman->foto)
                     <div class="detail-image">
-                        <img src="{{ asset('storage/' . $pengumuman->image) }}" alt="{{ $pengumuman->title }}">
+                        <img src="{{ asset('storage/' . $pengumuman->foto) }}" alt="{{ $pengumuman->judul }}">
                     </div>
                 @endif
 
                 <div class="detail-content">
-                    {!! nl2br(e($pengumuman->content)) !!}
+                    {!! nl2br(e($pengumuman->deksripsi)) !!}
                 </div>
 
             </div>

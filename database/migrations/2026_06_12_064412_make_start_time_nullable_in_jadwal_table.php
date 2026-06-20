@@ -9,14 +9,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('jadwal', function (Blueprint $table) {
-            $table->time('start_time')->nullable()->change();
+            $table->time('jam_mulai')->nullable()->change();
         });
     }
 
     public function down(): void
     {
         Schema::table('jadwal', function (Blueprint $table) {
-            $table->time('start_time')->nullable(false)->change();
+            $table->time('jam_mulai')->nullable(false)->change();
         });
     }
 };
