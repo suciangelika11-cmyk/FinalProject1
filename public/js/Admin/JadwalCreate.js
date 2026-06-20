@@ -34,6 +34,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     toggleForm();
 
-    category.addEventListener('change', toggleForm);
+    kategori.addEventListener('change', toggleForm);
 
 });

@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    const category = document.getElementById('category');
+    const kategori = document.getElementById('kategori');
     const hariGroup = document.getElementById('hari-group');
     const jamGroup = document.getElementById('jam-group');
     const jadwalKhusus = document.getElementById('jadwal-khusus-group');
 
     function toggleForm() {
 
-        if (category.value === 'acara_khusus') {
+        if (kategori.value === 'acara_khusus') {
 
             hariGroup.style.display = 'none';
             jamGroup.style.display = 'none';
@@ -23,6 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     toggleForm();
 
-    category.addEventListener('change', toggleForm);
+    kategori.addEventListener('change', toggleForm);
 
 });
