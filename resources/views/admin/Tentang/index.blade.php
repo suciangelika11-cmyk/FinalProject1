@@ -32,7 +32,7 @@
             @method('DELETE')
             <button type="button" class="btn-hero-outline btn-hapus" data-id="{{ $tentang->id }}"
               data-title="{{ $tentang->header_title ?? 'Tentang Kami' }}" style="background:rgba(224,85,85,.18);">
-              🗑 Hapus
+              {{ "\u{1F5D1}\u{FE0F}" }} Hapus
             </button>
           </form>
           

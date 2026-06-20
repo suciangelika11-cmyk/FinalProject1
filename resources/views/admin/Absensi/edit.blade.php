@@ -62,12 +62,12 @@
                 <div class="btn-row" style="margin-top:24px;">
                     <a href="{{ route('absensi.index') }}" class="btn-back">
                         <i class="fas fa-arrow-left"></i>
-                        Batal
+                        {{ "\u{2190}" }} Batal
                     </a>
 
                     <button type="submit" class="btn-submit">
                         <i class="fas fa-floppy-disk"></i>
-                        Update
+                        {{"\u{2705}"}} Update
                     </button>
                 </div>
             </form>

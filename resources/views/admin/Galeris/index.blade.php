@@ -89,7 +89,7 @@
             <div class="gallery-action">
 
               <a href="{{ route('galeri.edit', $item->id) }}" class="btn-edit">
-                Edit
+                {{ "\u{270F}\u{FE0F}" }} Edit
               </a>
 
               <form id="delete-form-{{ $item->id }}" action="{{ route('galeri.destroy', $item->id) }}" method="POST"
@@ -97,7 +97,7 @@
                 @csrf
                 @method('DELETE')
                 <button type="button" class="btn-delete btn-hapus" data-id="{{ $item->id }}" data-title="{{ $item->title }}">
-                  Hapus
+                  {{ "\u{1F5D1}\u{FE0F}" }} Hapus
                 </button>
               </form>
 

@@ -345,7 +345,7 @@
     }
 
     .session-number {
-        font-size: 11px;
+        font-size: 15px;
         color: var(--accent);
         font-weight: 700;
         letter-spacing: 0.08em;
@@ -377,7 +377,7 @@
 
     .about-label {
         color: var(--primary);
-        font-size: 12px;
+        font-size: 15px;
         font-weight: 700;
         letter-spacing: 0.08em;
         text-transform: uppercase;

@@ -154,7 +154,7 @@
 
                   <button type="button" class="act-sm btn-d btn-hapus" data-id="{{ $item->id }}"
                     data-title="{{ $item->judul }}">
-                    🗑 Hapus
+                    {{ "\u{1F5D1}\u{FE0F}" }} Hapus
                   </button>
                 </form>
 
@@ -178,7 +178,7 @@
 
     <div class="section-head">
 
-      <div class="section-title">🙌 Tim Pelayanan</div>
+      <div class="section-title">{{ "\u{1F64C}" }} Tim Pelayanan</div>
 
     </div>
 
@@ -245,7 +245,7 @@
               <div class="tim-footer">
 
                 <a href="{{ route('pelayanan.edit', $item->id) }}" class="act-sm btn-e">
-                  ✏ Edit
+                  {{ "\u{270F}\u{FE0F}" }} Edit
                 </a>
 
                 <form id="delete-form-{{ $item->id }}" action="{{ route('pelayanan.destroy', $item->id) }}" method="POST">
@@ -254,7 +254,7 @@
 
                   <button type="button" class="act-sm btn-d btn-hapus" data-id="{{ $item->id }}"
                     data-judul="{{ $item->judul }}">
-                    🗑 Hapus
+                    {{ "\u{1F5D1}\u{FE0F}" }} Hapus
                   </button>
                 </form>
 
@@ -278,7 +278,7 @@
 
     <div class="section-head">
 
-      <div class="section-title">🖼 Pelayanan dalam Aksi</div>
+      <div class="section-title">{{ "\u{1F5BC}\u{FE0F}" }} Pelayanan dalam Aksi</div>
 
     </div>
 
@@ -319,7 +319,7 @@
                 <div class="galeri-footer">
 
                   <a href="{{ route('pelayanan.edit', $item->id) }}" class="act-sm btn-e">
-                    ✏ Edit
+                    {{ "\u{270F}\u{FE0F}" }} Edit
                   </a>
 
                   <form id="delete-form-{{ $item->id }}" action="{{ route('pelayanan.destroy', $item->id) }}" method="POST">
@@ -328,7 +328,7 @@
 
                     <button type="button" class="act-sm btn-d btn-hapus" data-id="{{ $item->id }}"
                       data-title="{{ $item->judul }}">
-                      🗑 Hapus
+                      {{ "\u{1F5D1}\u{FE0F}" }} Hapus
                     </button>
                   </form>
 

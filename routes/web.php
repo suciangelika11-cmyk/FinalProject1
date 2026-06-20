@@ -128,7 +128,7 @@ Route::prefix('admin')->middleware(['auth', 'role:super_admin,admin'])->group(fu
 });
 
 
-    Route::middleware('auth', 'role:pelayan')->prefix('pelayan')->group(function () {
+    Route::middleware(['auth', 'role:pelayan'])->prefix('pelayan')->group(function () {
     Route::get('/', [IbadahController::class, 'pelayan'])->name('pelayan.home');
 
     Route::get('/jadwal-ibadah',[PelayanJadwalIbadahController::class, 'index'])->name('pelayan.jadwal_ibadah');

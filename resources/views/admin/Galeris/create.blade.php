@@ -6,7 +6,7 @@
 
     <div class="form-wrap">
         <div class="form-card">
-            <h2>🖼 Tambah Galeri Kegiatan</h2>
+            <h2>{{ "\u{1F5BC}\u{FE0F}" }} Tambah Galeri Kegiatan</h2>
 
             @if ($errors->any())
                 <div
@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="btn-row">
-                    <a href="{{ route('galeri.index') }}" class="btn-back">← Batal</a>
+                    <a href="{{ route('galeri.index') }}" class="btn-back">{{ "\u{2190}" }} Batal</a>
                     <button type="submit" class="btn-submit">{{ "\u{1F4BE}" }} Simpan</button>
                 </div>
             </form>

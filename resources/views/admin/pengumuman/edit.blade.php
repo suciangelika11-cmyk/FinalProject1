@@ -66,7 +66,7 @@
 
                         <div class="form-group full">
                             <label>Gambar Pengumuman</label>
-                            <input type="file" name="foto" class="form-control-custom">
+                            <input type="file" name="foto" accept="image/*" class="form-control-custom">
 
                             @if($pengumuman->foto)
                                 <img src="{{ asset('storage/' . $pengumuman->foto) }}" alt="Gambar pengumuman"
@@ -76,8 +76,8 @@
                     </div>
 
                     <div class="action-row">
-                        <a href="{{ route('pengumuman.index') }}" class="btn-cancel">Batal</a>
-                        <button type="submit" class="btn-save">Update</button>
+                        <a href="{{ route('pengumuman.index') }}" class="btn-cancel">{{ "\u{2190}" }} Batal</a>
+                        <button type="submit" class="btn-save">{{ "\u{2705}" }} Update</button>
                     </div>
                 </form>
             </div>

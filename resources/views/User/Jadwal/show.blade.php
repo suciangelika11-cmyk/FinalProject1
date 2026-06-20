@@ -47,7 +47,7 @@
             </div>
 
             <a href="{{ route('user.jadwal') }}" class="jd-back">
-                ← Kembali ke Jadwal
+                {{ "\u{2190}" }} Kembali ke Jadwal
             </a>
 
         </div>

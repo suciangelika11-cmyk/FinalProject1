@@ -59,13 +59,13 @@
 
                         <div class="form-group full">
                             <label>Gambar Pengumuman</label>
-                            <input type="file" name="foto" class="form-control-custom">
+                            <input type="file" name="foto" accept="image/*" class="form-control-custom">
                         </div>
                     </div>
 
                     <div class="action-row">
-                        <a href="{{ route('pengumuman.index') }}" class="btn-cancel">Batal</a>
-                        <button type="submit" class="btn-save">Simpan</button>
+                        <a href="{{ route('pengumuman.index') }}" class="btn-cancel">{{ "\u{2190}" }} Batal</a>
+                        <button type="submit" class="btn-save">{{ "\u{1F4BE}" }} Simpan</button>
                     </div>
                 </form>
             </div>

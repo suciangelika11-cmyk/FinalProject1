@@ -103,7 +103,7 @@
       @if($perHari->count())
         @php $adaMingguan = true; @endphp
 
-        <div class="hari-label {{ $hariClass[$hari] }}">{{ $hariIcon[$hari] }} {{ $hari }}</div>
+        <div class="day-label {{ $hariClass[$hari] }}">{{ $hariIcon[$hari] }} {{ $hari }}</div>
 
         <div class="jadwal-grid">
           @foreach($perHari as $index => $item)
@@ -132,7 +132,7 @@
                     @method('DELETE')
                     <button type="button" class="act-btn btn-del btn-hapus" data-id="{{ $item->id }}"
                       data-title="{{ $item->judul }}" data-type="Jadwal Ibadah">
-                      🗑️ Hapus
+                      {{ "\u{1F5D1}\u{FE0F}" }}
                     </button>
 
                   </form>
@@ -191,7 +191,7 @@
                   @method('DELETE')
                   <button type="button" class="act-btn btn-del btn-hapus" data-id="{{ $item->id }}"
                     data-title="{{ $item->judul }}" data-type="Acara Khusus">
-                    🗑️ Hapus
+                    {{ "\u{1F5D1}\u{FE0F}" }} Hapus
                   </button>
                 </form>
 

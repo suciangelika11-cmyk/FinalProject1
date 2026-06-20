@@ -29,7 +29,7 @@
             <div class="hero-actions">
                 <a href="{{ route('absensi.create') }}" class="btn-hero-primary">
                     <i class="fas fa-plus"></i>
-                    Tambah
+                    {{ "\u{FF0B}" }} Tambah
                 </a>
             </div>
         </div>
@@ -79,7 +79,7 @@
                             <td>
                                 <a href="{{ route('absensi.edit', $item) }}" class="btn btn-warning">
                                     <i class="fas fa-pen"></i>
-                                    Edit
+                                    {{ "\u{270F}\u{FE0F}" }} Edit
                                 </a>
 
                                 <form id="delete-form-{{ $item->id }}" action="{{ route('absensi.destroy', $item) }}"
@@ -91,7 +91,7 @@
                                         data-tanggal="{{ \Carbon\Carbon::parse($item->tanggal)->format('d M Y') }}">
 
                                         <i class="fas fa-trash"></i>
-                                        Hapus
+                                        {{ "\u{1F5D1}\u{FE0F}" }} Hapus
                                     </button>
                                 </form>
                             </td>

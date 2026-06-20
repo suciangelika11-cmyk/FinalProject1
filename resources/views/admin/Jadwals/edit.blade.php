@@ -91,7 +91,7 @@
                 </div>
 
                 <div class="btn-row">
-                    <a href="{{ route('jadwal.index') }}" class="btn-back">← Batal</a>
+                    <a href="{{ route('jadwal.index') }}" class="btn-back">{{ "\u{2190}" }} Batal</a>
                     <button type="submit" class="btn-submit">{{ "\u{2705}" }} Update</button>
                 </div>
             </form>

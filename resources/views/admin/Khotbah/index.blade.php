@@ -91,7 +91,7 @@
                   <button type="button" class="act-btn btn-del btn-hapus" data-id="{{ $item->id }}"
                     data-title="{{ $item->judul }}"
                     data-date="{{ $item->tanggal_khotbah ? \Carbon\Carbon::parse($item->tanggal_khotbah)->format('d M Y') : '-' }}">
-                    🗑️ Hapus
+                    {{ "\u{1F5D1}\u{FE0F}" }} Hapus
                   </button>
                 </form>
 

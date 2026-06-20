@@ -91,8 +91,8 @@
           </div>
 
           <div class="action-row">
-            <a href="{{ route('kegiatan.index') }}" class="btn-back">Batal</a>
-            <button type="submit" class="btn-submit">Simpan</button>
+            <a href="{{ route('kegiatan.index') }}" class="btn-back">{{ "\u{2190}" }}Batal</a>
+            <button type="submit" class="btn-submit">{{ "\u{1F4BE}" }} Simpan</button>
           </div>
         </form>
       </div>

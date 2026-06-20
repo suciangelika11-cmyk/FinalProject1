@@ -39,8 +39,8 @@
                 </div>
 
                 <div class="btn-row">
-                    <a href="{{ route('profil.index') }}" class="btn btn-back">Kembali</a>
-                    <button type="submit" class="btn btn-save">Simpan</button>
+                    <a href="{{ route('profil.index') }}" class="btn btn-back">{{ "\u{2190}" }} Kembali</a>
+                    <button type="submit" class="btn btn-save">{{ "\u{1F4BE}" }} Simpan</button>
                 </div>
             </form>
         </div>

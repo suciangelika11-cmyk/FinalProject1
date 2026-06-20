@@ -492,7 +492,7 @@
         margin-bottom: 18px;
         color: #2e4a62;
         font-size: 2rem;
-        font-weight: 700;
+        font-weight: 600;
         line-height: 1.3;
         text-align: center;
     }

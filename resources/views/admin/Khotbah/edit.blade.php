@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('admin.layouts.LOAKhotbah.KhotbahEdit')
+    @include('admin.layouts.LOAKhotbah.KhotbahEdit')
 
     <div class="form-wrap">
         <div class="form-card">
@@ -37,13 +37,14 @@
 
                 <div class="fg">
                     <label>Tanggal Khotbah</label>
-                    <input type="date" name="tanggal_khotbah" value="{{ old('tanggal_khotbah', $khotbah->tanggal_khotbah) }}"
-                        min="{{ date('Y-m-d') }}">
+                    <input type="date" name="tanggal_khotbah" value="{{ old('tanggal_khotbah',$khotbah->tanggal_khotbah
+                    ? \Carbon\Carbon::parse($khotbah->tanggal_khotbah)->format('Y-m-d'): '') }}">
                 </div>
 
                 <div class="fg">
                     <label>Deskripsi</label>
-                    <textarea name="deksripsi" rows="3" maxlength="250">{{ old('deksripsi', $khotbah->deksripsi) }}</textarea>
+                    <textarea name="deksripsi" rows="3"
+                        maxlength="250">{{ old('deksripsi', $khotbah->deksripsi) }}</textarea>
                 </div>
 
                 <div class="fg">
@@ -56,7 +57,7 @@
                 </div>
 
                 <div class="btn-row">
-                    <a href="{{ route('khotbah.index') }}" class="btn-back">← Batal</a>
+                    <a href="{{ route('khotbah.index') }}" class="btn-back">{{ "\u{2190}" }} Batal</a>
                     <button type="submit" class="btn-submit">{{ "\u{2705}" }} Update</button>
                 </div>
             </form>

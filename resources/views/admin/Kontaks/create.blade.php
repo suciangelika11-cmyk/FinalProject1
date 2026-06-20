@@ -46,7 +46,7 @@
         </div>
 
         <div class="btn-row">
-          <a href="{{ route('kontak.index') }}" class="btn-back">← Batal</a>
+          <a href="{{ route('kontak.index') }}" class="btn-back">{{ "\u{2190}" }} Batal</a>
           <button type="submit" class="btn-submit">{{ "\u{1F4BE}" }} Simpan</button>
         </div>
       </form>

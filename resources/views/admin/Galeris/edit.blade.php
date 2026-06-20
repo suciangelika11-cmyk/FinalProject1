@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('admin.layouts.LOAGaleri.GaleriEdit')
+    @include('admin.layouts.LOAGaleri.GaleriEdit')
 
     <div class="form-wrap">
         <div class="form-card">
@@ -31,13 +31,14 @@
 
                 <div class="fg">
                     <label>Tanggal Kegiatan</label>
-                    <input type="date" name="tanggal" value="{{ old('tanggal', $Galeri->tanggal) }}"
-                        min="{{ date('Y-m-d') }}" required>
+                    <input type="date" name="tanggal" <input type="date" name="tanggal"
+                        value="{{ old('tanggal', \Carbon\Carbon::parse($Galeri->tanggal)->format('Y-m-d')) }}">
                 </div>
 
                 <div class="fg">
                     <label>Deskripsi</label>
-                    <textarea name="deksripsi" rows="3" required maxlength="250">{{ old('deksripsi', $Galeri->deksripsi) }}</textarea>
+                    <textarea name="deksripsi" rows="3" required
+                        maxlength="250">{{ old('deksripsi', $Galeri->deksripsi) }}</textarea>
                 </div>
 
                 <div class="fg">
@@ -49,7 +50,7 @@
                 </div>
 
                 <div class="btn-row">
-                    <a href="{{ route('galeri.index') }}" class="btn-back">← Batal</a>
+                    <a href="{{ route('galeri.index') }}" class="btn-back">{{ "\u{2190}" }} Batal</a>
                     <button type="submit" class="btn-submit">{{ "\u{2705}" }} Update</button>
                 </div>
             </form>

@@ -67,8 +67,8 @@
       </div>
 
       <div class="form-actions">
-        <a href="{{ route('tentang.index') }}" class="btn-back">Kembali</a>
-        <button type="submit" class="btn-submit">Update</button>
+        <a href="{{ route('tentang.index') }}" class="btn-back">{{ "\u{2190}" }} Kembali</a>
+        <button type="submit" class="btn-submit">{{ "\u{2705}" }} Update</button>
       </div>
     </form>
   </div>

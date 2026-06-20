@@ -100,7 +100,7 @@
                         @method('DELETE')
                         <button type="button" class="act-btn btn-del btn-hapus" data-id="{{ $item->id }}"
                           data-phone="{{ $item->no_hp }}" data-email="{{ $item->email }}">
-                          🗑️ Hapus
+                          {{ "\u{1F5D1}\u{FE0F}" }} Hapus
                         </button>
                       </form>
                       

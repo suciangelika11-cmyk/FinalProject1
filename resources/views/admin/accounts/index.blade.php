@@ -60,7 +60,7 @@
                                 <td>
                                     <div class="action-group">
                                         <a href="{{ route('accounts.edit', $user->id) }}" class="btn-edit">
-                                            Edit
+                                            {{ "\u{270F}\u{FE0F}" }} Edit
                                         </a>
 
                                         <form id="delete-form-{{ $user->id }}"
@@ -69,7 +69,7 @@
                                             @method('DELETE')
                                             <button type="button" class="btn-delete btn-hapus" data-id="{{ $user->id }}"
                                                 data-name="{{ $user->name }}" data-role="{{ ucfirst($user->role) }}">
-                                                Hapus
+                                                {{ "\u{1F5D1}\u{FE0F}" }} Hapus
                                             </button>
                                         </form>
                                     </div>
