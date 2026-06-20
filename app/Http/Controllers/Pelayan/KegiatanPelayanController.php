@@ -13,7 +13,7 @@ class KegiatanPelayanController extends Controller
     {
         $jadwalPelayan = Jadwal::with('pelayanan')
             ->whereNotNull('pelayanan_id')
-            ->orderByRaw("CASE day
+            ->orderByRaw("CASE hari
                 WHEN 'Minggu' THEN 1
                 WHEN 'Sabtu' THEN 2
                 WHEN 'Jumat' THEN 3
@@ -22,7 +22,7 @@ class KegiatanPelayanController extends Controller
                 WHEN 'Selasa' THEN 6
                 WHEN 'Senin' THEN 7
                 ELSE 8 END")
-            ->orderBy('start_time')
+            ->orderBy('jam_mulai')
             ->get();
 
         $kegiatans = KegiatanPelayan::latest()->get();

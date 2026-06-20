@@ -44,16 +44,16 @@
                 @forelse($ibadahs as $ibadah)
                     <div class="session-card reveal">
                         <div class="session-number">
-                            {{ $ibadah->title }}
+                            {{ $ibadah->judul }}
                         </div>
                         <div class="session-time">
-                            {{ \Carbon\Carbon::parse($ibadah->start_time)->format('H:i') }}
+                            {{ \Carbon\Carbon::parse($ibadah->jam_mulai)->format('H:i') }}
                         </div>
                         <div class="session-wib">
                             WIB —
-                            @if(\Carbon\Carbon::parse($ibadah->start_time)->hour < 12)
+                            @if(\Carbon\Carbon::parse($ibadah->jam_mulai)->hour < 12)
                                 Pagi
-                            @elseif(\Carbon\Carbon::parse($ibadah->start_time)->hour < 15)
+                            @elseif(\Carbon\Carbon::parse($ibadah->jam_mulai)->hour < 15)
                                 Siang
                             @else
                                 Sore

@@ -48,11 +48,11 @@
                 @foreach($ibadahs as $ibadah)
                     <div class=" ibadah-card">
                         <h3>
-                            {{ $ibadah->title }}
+                            {{ $ibadah->judul }}
                         </h3>
 
                         <div class="ibadah-time">
-                            {{ \Carbon\Carbon::parse($ibadah->start_time)->format('H:i') }} WIB
+                            {{ \Carbon\Carbon::parse($ibadah->jam_mulai)->format('H:i') }} WIB
                         </div>
                     </div>
                 @endforeach

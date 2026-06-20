@@ -82,6 +82,8 @@
         position: relative;
         z-index: 2;
         max-width: 680px;
+        margin: 0 auto;
+        text-align: center;
     }
 
     .hero-eyebrow {
@@ -119,6 +121,8 @@
         line-height: 1.9;
         font-weight: 300;
         max-width: 480px;
+        margin: 0 auto;
+        text-align: center;
     }
 
     /* ============================================================
