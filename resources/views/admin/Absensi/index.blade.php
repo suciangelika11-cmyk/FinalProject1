@@ -22,7 +22,7 @@
             <h2>Kelola Data Absensi</h2>
 
             <p>
-                Super Admin dan Admin dapat membuat, mengubah, dan menghapus data absensi ibadah.
+                Admin dapat membuat, mengubah, dan menghapus data absensi ibadah.
                 Pelayan hanya dapat melihat data ini.
             </p>
 
