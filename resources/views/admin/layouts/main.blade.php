@@ -719,9 +719,13 @@
         <span class="ico"><i class="ri-user-line"></i></span> Profil Admin
       </a>
 
-      <a href="{{ route('logout') }}" onclick="confirmLogout(event)">
-        <span class="ico"><i class="ri-logout-box-r-line"></i></span> Keluar
+      <a href="{{ route('logout') }}" onclick="logoutConfirm(event)">
+        <span class="ico"><i class="ri-logout-box-r-line"></i></span>Keluar
       </a>
+
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
+        @csrf
+      </form>
     </nav>
 
     <div class="sidebar-footer">
@@ -736,23 +740,45 @@
     @yield('content')
   </div>
 
-  <form id="logout-form" action="{{ route('logout') }}" method="POST">
-    @csrf
-    <button type="button" id="btn-logout" class="logout-btn">
-      <i class="ri-logout-box-r-line"></i>
-      Keluar
-    </button>
-  </form>
-
   @stack('scripts')
 
   <script>
-    function confirmLogout(e) {
-      e.preventDefault();
+    function logoutConfirm(event) {
+      event.preventDefault();
 
-      if (confirm("Apakah Anda yakin ingin keluar?")) {
-        document.getElementById('logout-form').submit();
-      }
+      Swal.fire({
+        title: 'Keluar dari akun?',
+        text: 'Anda akan mengakhiri sesi saat ini.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#769FCD',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Keluar',
+        cancelButtonText: 'Batal',
+        reverseButtons: true,
+
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+
+          Swal.fire({
+            icon: 'success',
+            title: 'Berhasil Logout',
+            text: 'Sampai jumpa kembali!',
+            timer: 1200,
+            showConfirmButton: false
+          });
+
+          setTimeout(() => {
+            document.getElementById('logout-form').submit();
+          }, 1200);
+        }
+      });
     }
 
     function closeSidebar() {
@@ -822,48 +848,6 @@
           wrapper.classList.remove('sidebar-closed');
         }
       });
-    });
-
-    document.getElementById('btn-logout').addEventListener('click', function () {
-
-      Swal.fire({
-        title: 'Keluar dari Sistem?',
-        html: `
-            <div style="font-size:15px;line-height:1.8">
-                Anda akan keluar dari akun admin GBI Tambunan.
-                <br><br>
-                Apakah Anda yakin ingin melanjutkan?
-            </div>
-        `,
-        icon: 'question',
-
-        showCancelButton: true,
-
-        confirmButtonText: `
-            <i class="ri-logout-box-r-line"></i> Ya, Keluar
-        `,
-
-        cancelButtonText: `
-            <i class="ri-close-line"></i> Batal
-        `,
-
-        reverseButtons: true,
-
-        customClass: {
-          popup: 'church-modal',
-          title: 'church-title',
-          confirmButton: 'church-confirm',
-          cancelButton: 'church-cancel'
-        }
-
-      }).then((result) => {
-
-        if (result.isConfirmed) {
-          document.getElementById('logout-form').submit();
-        }
-
-      });
-
     });
   </script>
 

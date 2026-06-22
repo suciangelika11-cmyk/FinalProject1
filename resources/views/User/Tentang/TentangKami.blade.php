@@ -83,33 +83,88 @@
             </div>
         </section>
     @else
-        <section class="kh-hero">
-            <div class="kh-hero-ring"></div>
-            <div class="kh-hero-ring2"></div>
-            <div class="kh-hero-glow"></div>
-            <div class="wrap container">
-                <div class="kh-eyebrow"><span class="kh-dot"></span>Tentang Kami<span class="kh-dot"></span></div>
-                <h1>Tentang Gereja Kami</h1>
-                <p>Data sedang dalam proses pengisian</p>
-            </div>
-        </section>
 
-        <div class="kh-wave">
-            <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z" fill="#071830" />
-            </svg>
+<section class="pg-hero">
+    <div class="container wrap"></div>
+    <div class="kh-hero-ring2"></div>
+    <div class="kh-hero-glow"></div>
+
+    <div class="wrap tentang-container">
+        <div class="kh-eyebrow">
+            <span class="kh-dot"></span>
+            Tentang Kami
+            <span class="kh-dot"></span>
         </div>
 
-        <section class="kh-section">
-            <div class="container">
-                <div class="kh-empty" style="padding: 100px 20px;">
-                    <div class="kh-empty-icon"><i class="bi bi-building"></i></div>
-                    <h4>Informasi Gereja</h4>
-                    <p>Data tentang gereja akan segera ditampilkan di sini.</p>
+        <h1>Tentang GBI Tambunan</h1>
+
+        <p>
+            Informasi gereja sedang dipersiapkan dan akan segera tersedia.
+        </p>
+    </div>
+</section>
+
+<section class="kh-section">
+    <div class="container">
+
+        <div class="kh-section-head">
+            <span class="kh-label">Perjalanan Iman</span>
+            <h2 class="kh-title">Sejarah Gereja Kami</h2>
+            <div class="kh-rule"></div>
+        </div>
+
+        <div class="about-card kh-empty-card">
+            <div class="kh-empty-icon">⛪</div>
+
+            <h3>Data Sejarah Belum Tersedia</h3>
+
+            <p>
+                Informasi sejarah gereja akan ditampilkan setelah data ditambahkan oleh administrator.
+            </p>
+        </div>
+
+        <div class="kh-section-head">
+            <span class="kh-label">Arah Pelayanan</span>
+            <h2 class="kh-title">Visi & Misi</h2>
+            <div class="kh-rule"></div>
+        </div>
+
+        <div class="visi-misi-grid">
+            <div class="visi-card">
+                <h3>Visi Kami</h3>
+                <p>Belum ada data visi gereja.</p>
+            </div>
+
+            <div class="misi-card">
+                <h3>Misi Kami</h3>
+                <p>Belum ada data misi gereja.</p>
+            </div>
+        </div>
+
+        <div class="kh-section-head">
+            <span class="kh-label">Pemimpin Gereja</span>
+            <h2 class="kh-title">Gembala Sidang</h2>
+            <div class="kh-rule"></div>
+        </div>
+
+        <div class="gembala-section">
+            <div class="gembala-image">
+                <div class="avatar">👤</div>
+            </div>
+
+            <div class="gembala-info">
+                <h3>Belum Ada Data</h3>
+                <div class="gembala-position">Gembala Sidang</div>
+
+                <div class="gembala-deskripsi">
+                    Informasi gembala sidang akan ditampilkan setelah data tersedia.
                 </div>
             </div>
-        </section>
+        </div>
 
-    @endif
+    </div>
+</section>
+
+@endif
 
 @endsection
