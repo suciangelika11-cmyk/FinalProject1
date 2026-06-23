@@ -117,7 +117,7 @@
 
   </div>
 
-  @push('scripts')
+  @push('scripts') 
 
     <script src="{{ asset('js/Admin/GaleriIndex.js') }}"></script>
 
