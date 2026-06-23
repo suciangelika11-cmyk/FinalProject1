@@ -9,6 +9,8 @@ return new class extends Migration {
     {
         Schema::create('pelayanan', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('jadwal_id')->nullable()
+                ->constrained('jadwal')->onDelete('set null');
             $table->string('judul');
             $table->enum('kategori', ['kepemimpinan', 'tim', 'aksi']);
             $table->string('pemimpim');

@@ -32,6 +32,37 @@ class JemaatController extends Controller
             'email' => 'required|email|max:255',
             'pekerjaan' => 'required|string|max:50',
             'status_pernikahan' => 'required',
+        ], [
+            'no_kk.required' => 'Nomor KK wajib diisi.',
+            'no_kk.numeric' => 'Nomor KK harus berupa angka.',
+            'no_kk.digits' => 'Nomor KK harus 16 digit.',
+
+            'nama_keluarga.required' => 'Nama keluarga wajib diisi.',
+
+            'alamat_domisili.required' => 'Alamat domisili wajib diisi.',
+
+            'alamat_ktp.required' => 'Alamat KTP wajib diisi.',
+
+            'nama_lengkap.required' => 'Nama lengkap wajib diisi.',
+
+            'nik.required' => 'NIK wajib diisi.',
+            'nik.numeric' => 'NIK harus berupa angka.',
+            'nik.digits' => 'NIK harus 16 digit.',
+
+            'tempat_lahir.required' => 'Tempat lahir wajib diisi.',
+
+            'tanggal_lahir.required' => 'Tanggal lahir wajib diisi.',
+
+            'jenis_kelamin.required' => 'Pilih jenis kelamin.',
+
+            'handphone.required' => 'Nomor handphone wajib diisi.',
+
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Format email tidak valid.',
+
+            'pekerjaan.required' => 'Pekerjaan wajib diisi.',
+
+            'status_pernikahan.required' => 'Pilih status pernikahan.',
         ]);
 
         Jemaat::create([
