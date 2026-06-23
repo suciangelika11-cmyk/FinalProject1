@@ -266,10 +266,6 @@
                         <h3 class="card-title">
                             Daftar Pokok Doa
                         </h3>
-
-                        <div class="card-tools">
-                            <input type="text" class="form-control" placeholder="Cari nama atau pokok doa...">
-                        </div>
                     </div>
 
                     <div class="card-body p-0">
