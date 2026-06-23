@@ -48,22 +48,6 @@
                     <strong>Yakobus 5:16</strong>
                 </div>
 
-                <div class="prayer-features">
-
-                    <div class="feature-item">
-                        🔒 Rahasia
-                    </div>
-
-                    <div class="feature-item">
-                        🙏 Didoakan Tim Gereja
-                    </div>
-
-                    <div class="feature-item">
-                        ❤️ Dengan Kasih
-                    </div>
-
-                </div>
-
             </div>
 
             {{-- KANAN --}}
@@ -97,7 +81,8 @@
                     <div class="form-group">
                         <label>Nama Lengkap</label>
 
-                        <input type="text" name="nama" value="{{ old('nama') }}" placeholder="Masukkan nama lengkap" required>
+                        <input type="text" name="nama" value="{{ old('nama') }}" placeholder="Masukkan nama lengkap"
+                            required>
                     </div>
 
                     <div class="form-group">

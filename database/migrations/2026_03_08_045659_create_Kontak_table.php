@@ -12,7 +12,7 @@ return new class extends Migration {
             $table->foreignId('user_id')->nullable()
                 ->constrained('users')->onDelete('set null');
             $table->string('alamat');
-            $table->string('no_hp');
+            $table->unsignedBigInteger('no_hp');
             $table->string('email');
             $table->text('jam_kerja')->nullable();
             $table->text('map')->nullable();

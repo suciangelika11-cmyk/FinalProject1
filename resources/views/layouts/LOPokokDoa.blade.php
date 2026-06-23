@@ -317,22 +317,6 @@
 
 }
 
-.prayer-features{
-    margin-top:25px;
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-}
-
-.feature-item{
-    padding:10px 16px;
-    border-radius:50px;
-    background:white;
-    font-size:14px;
-    font-weight:600;
-    box-shadow:0 5px 15px rgba(0,0,0,.05);
-}
-
 .error-alert{
     background:#fee2e2;
     color:#991b1b;
