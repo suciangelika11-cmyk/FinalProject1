@@ -33,49 +33,24 @@
             </div>
 
             <!-- STATISTIK -->
-            <div class="row mt-4">
+            <div class="quick-stats">
 
-                <div class="col-lg-3 col-md-6">
-                    <div class="info-card">
-                        <div class="info-icon blue">📄</div>
-                        <div>
-                            <h3>{{ $totalDoa }}</h3>
-                            <p>Total Pokok Doa</p>
-                        </div>
-                    </div>
-                </div>
+    <div class="quick-card">
+        <span>Total Doa</span>
+        <h2>{{ $totalDoa }}</h2>
+    </div>
 
-                <div class="col-lg-3 col-md-6">
-                    <div class="info-card">
-                        <div class="info-icon green">📅</div>
-                        <div>
-                            <h3>{{ $bulanIni }}</h3>
-                            <p>Bulan Ini</p>
-                        </div>
-                    </div>
-                </div>
+    <div class="quick-card">
+        <span>Bulan Ini</span>
+        <h2>{{ $bulanIni }}</h2>
+    </div>
 
-                <div class="col-lg-3 col-md-6">
-                    <div class="info-card">
-                        <div class="info-icon yellow">⏰</div>
-                        <div>
-                            <h3>{{ $hariIni }}</h3>
-                            <p>Hari Ini</p>
-                        </div>
-                    </div>
-                </div>
+    <div class="quick-card">
+        <span>Hari Ini</span>
+        <h2>{{ $hariIni }}</h2>
+    </div>
 
-                <div class="col-lg-3 col-md-6">
-                    <div class="info-card">
-                        <div class="info-icon purple">🙏</div>
-                        <div>
-                            <h3>{{ $totalDoa }}</h3>
-                            <p>Akan Didoakan</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+</div>
 
             <!-- TABEL -->
             <div class="card mt-4 shadow-sm border-0">

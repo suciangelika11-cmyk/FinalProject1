@@ -12,6 +12,8 @@ return new class extends Migration {
     {
         Schema::create('pokok_doas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()
+                ->constrained('users')->onDelete('set null');
             $table->string('nama');
             $table->text('isi_pokok_doa');
             $table->timestamps();
