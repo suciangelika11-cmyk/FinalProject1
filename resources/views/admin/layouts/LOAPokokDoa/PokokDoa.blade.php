@@ -236,4 +236,91 @@
     }
 
 }
+
+.hero-box{
+    background: linear-gradient(
+        135deg,
+        #0f7db8,
+        #37c0e8
+    );
+    color:white;
+    border-radius:25px;
+    padding:40px;
+}
+
+.hero-badge{
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:30px;
+    background:rgba(255,255,255,.2);
+    margin-bottom:20px;
+    font-weight:600;
+}
+
+.hero-box h2{
+    font-size:38px;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.hero-box p{
+    max-width:600px;
+    font-size:16px;
+}
+
+.info-card{
+    background:white;
+    border-radius:18px;
+    padding:20px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.info-card h3{
+    margin:0;
+    font-weight:700;
+}
+
+.info-card p{
+    margin:0;
+    color:#6b7280;
+}
+
+.info-icon{
+    width:55px;
+    height:55px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:15px;
+    font-size:24px;
+}
+
+.blue{
+    background:#dbeafe;
+}
+
+.green{
+    background:#dcfce7;
+}
+
+.yellow{
+    background:#fef3c7;
+}
+
+.purple{
+    background:#ede9fe;
+}
+
+.empty-box{
+    text-align:center;
+    padding:70px 20px;
+}
+
+.empty-icon{
+    font-size:50px;
+    margin-bottom:15px;
+}
 </style>
