@@ -9,7 +9,7 @@ return new class extends Migration {
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('username')->unique()->nullable()->after('name');
-            $table->string('phone')->nullable()->after('email');
+            $table->unsignedBigInteger('phone')->nullable()->after('email');
             $table->text('alamat')->nullable()->after('phone');
             $table->string('jabatan')->nullable()->after('alamat');
             $table->string('foto')->nullable()->after('jabatan');

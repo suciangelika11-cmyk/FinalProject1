@@ -265,4 +265,157 @@
     padding:20px;
 }
 
+.doa-card{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    margin-bottom:15px;
+    display:flex;
+    align-items:flex-start;
+    gap:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+    transition:.3s;
+}
+
+.doa-card:hover{
+    transform:translateY(-4px);
+}
+
+.doa-avatar{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#dbeafe;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+}
+
+.doa-content{
+    flex:1;
+}
+
+.doa-content h4{
+    margin-bottom:10px;
+}
+
+.doa-content p{
+    color:#64748b;
+}
+
+/* LIST DOA */
+
+.card-body{
+    background:#f8fafc;
+}
+
+.doa-card{
+    background:white;
+    border-radius:24px;
+    padding:25px;
+    display:flex;
+    gap:20px;
+    margin-bottom:18px;
+    border:1px solid #e2e8f0;
+    transition:.3s;
+}
+
+.doa-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(15,76,129,.08);
+}
+
+.doa-avatar{
+    min-width:65px;
+    height:65px;
+    border-radius:18px;
+    background:linear-gradient(
+        135deg,
+        #0f4c81,
+        #1d9bf0
+    );
+    color:white;
+    font-size:24px;
+    font-weight:700;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.doa-content{
+    flex:1;
+}
+
+.doa-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:10px;
+}
+
+.doa-header h4{
+    margin:0;
+    font-size:20px;
+    font-weight:700;
+    color:#1e293b;
+}
+
+.doa-date{
+    color:#64748b;
+    font-size:13px;
+}
+
+.status-badge{
+    background:#dcfce7;
+    color:#15803d;
+    padding:7px 15px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.doa-content p{
+    margin:0;
+    line-height:1.8;
+    color:#475569;
+}
+
+.quick-card{
+    background:white;
+    box-shadow:0 8px 25px rgba(0,0,0,.05);
+    border-radius:20px;
+    text-align:center;
+    padding:25px;
+}
+
+.quick-card span{
+    display:block;
+    color:#64748b;
+    margin-bottom:10px;
+}
+
+.quick-card h2{
+    font-size:34px;
+    font-weight:700;
+    color:#0f4c81;
+    margin:0;
+}
+
+@media(max-width:768px){
+
+    .quick-stats{
+        flex-direction:column;
+    }
+
+    .doa-card{
+        flex-direction:column;
+    }
+
+    .doa-header{
+        flex-direction:column;
+        gap:10px;
+    }
+
+}
 </style>

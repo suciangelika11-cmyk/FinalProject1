@@ -715,7 +715,7 @@
       </a>
 
       <a href="{{ route('admin.pokokdoa.index') }}" @if(request()->routeIs('pokokdoa.*')) class="active" @endif>
-        <span class="ico"><i class="ri-lock-line"></i></span> Pokok Doa
+        <span class="ico"></span> Pokok Doa
       </a>
     </nav>
 
