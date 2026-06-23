@@ -29,14 +29,6 @@ class GaleriController extends Controller
             'tanggal' => 'required|date',
         ]);
 
-        // Validasi custom: jika tanggal diisi, pastikan hari (tanggal) antara 1-31
-        if ($request->filled('tanggal')) {
-            $tanggal = date_parse($request->tanggal);
-            if ($tanggal['day'] < 1 || $tanggal['day'] > 31) {
-                return back()->withErrors(['tanggal' => 'Tanggal kegiatan harus antara 1 sampai 31'])->withInput();
-            }
-        }
-
         $data = $request->all();
 
         if ($request->hasFile('foto')) {

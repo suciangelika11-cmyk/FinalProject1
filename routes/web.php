@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\KontakController as AdminKontakController;
 use App\Http\Controllers\Admin\PengumumanController as AdminPengumumanController;
 use App\Http\Controllers\Admin\AbsensiController as AdminAbsensiController;
 use App\Http\Controllers\Admin\JemaatController as AdminJemaatController;
+use App\Http\Controllers\Admin\PokokDoaController as AdminPokokDoaController;
 use App\Http\Controllers\User\PengumumanController as UserPengumumanController;
 use App\Http\Controllers\User\GaleriController as UserGaleriController;
 use App\Http\Controllers\User\KhotbahController as UserKhotbahController;
@@ -25,6 +26,7 @@ use App\Http\Controllers\User\PelayananController as UserPelayananController;
 use App\Http\Controllers\User\TentangController as UserTentangController;
 use App\Http\Controllers\User\KontakController as UserKontakController;
 use App\Http\Controllers\User\JemaatController;
+use App\Http\Controllers\User\PokokDoaController as UserPokokDoaController;
 use App\Http\Controllers\Pelayan\JadwalIbadahController as PelayanJadwalIbadahController;
 use App\Http\Controllers\Pelayan\KegiatanPelayanController as PelayanKegiatanPelayanController;
 use App\Http\Controllers\Pelayan\AbsensiController as PelayanAbsensiController;
@@ -108,7 +110,7 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
 
     Route::get('/profil', [ProfilController::class, 'index'])->name('profil.index');
     Route::get('/profil/edit', [ProfilController::class, 'edit'])->name('profil.edit');
-    Route::put('/profil/update', [ProfilController::class, 'update'])->name('profil.update');  
+    Route::put('/profil/update', [ProfilController::class, 'update'])->name('profil.update');
 
     Route::get('/pengumuman', [AdminPengumumanController::class, 'index'])->name('pengumuman.index');
     Route::get('/pengumuman/create', [AdminPengumumanController::class, 'create'])->name('pengumuman.create');
@@ -116,6 +118,8 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/pengumuman/{pengumuman}/edit', [AdminPengumumanController::class, 'edit'])->name('pengumuman.edit');
     Route::put('/pengumuman/{pengumuman}', [AdminPengumumanController::class, 'update'])->name('pengumuman.update');
     Route::delete('/pengumuman/{pengumuman}', [AdminPengumumanController::class, 'destroy'])->name('pengumuman.destroy');
+
+    Route::get('/admin/pokok-doa',[AdminPokokDoaController::class, 'index'])->name('admin.pokokdoa.index');
 });
 
 Route::prefix('admin')->middleware(['auth', 'role:super_admin,admin'])->group(function () {
@@ -128,31 +132,34 @@ Route::prefix('admin')->middleware(['auth', 'role:super_admin,admin'])->group(fu
 });
 
 
-    Route::middleware(['auth', 'role:pelayan'])->prefix('pelayan')->group(function () {
+Route::middleware(['auth', 'role:pelayan'])->prefix('pelayan')->group(function () {
     Route::get('/', [IbadahController::class, 'pelayan'])->name('pelayan.home');
 
-    Route::get('/jadwal-ibadah',[PelayanJadwalIbadahController::class, 'index'])->name('pelayan.jadwal_ibadah');
-    Route::get('/kegiatan-pelayan',[PelayanKegiatanPelayanController::class, 'index'])->name('pelayan.kegiatan_pelayan');
-    Route::get('/absensi',[PelayanAbsensiController::class, 'index'])->name('pelayan.absensi');
-    Route::get('/khotbah',[PelayanKhotbahController::class, 'index'])->name('pelayan.khotbah');
-    Route::get('/pengumuman',[PelayanPengumumanController::class, 'index'])->name('pelayan.pengumuman');
-    Route::get('/pengumuman/{pengumuman}',[PelayanPengumumanController::class, 'show'])->name('pelayan.pengumuman.show');
-    Route::get('/tentang',[PelayanTentangController::class, 'index'])->name('pelayan.tentang');
+    Route::get('/jadwal-ibadah', [PelayanJadwalIbadahController::class, 'index'])->name('pelayan.jadwal_ibadah');
+    Route::get('/kegiatan-pelayan', [PelayanKegiatanPelayanController::class, 'index'])->name('pelayan.kegiatan_pelayan');
+    Route::get('/absensi', [PelayanAbsensiController::class, 'index'])->name('pelayan.absensi');
+    Route::get('/khotbah', [PelayanKhotbahController::class, 'index'])->name('pelayan.khotbah');
+    Route::get('/pengumuman', [PelayanPengumumanController::class, 'index'])->name('pelayan.pengumuman');
+    Route::get('/pengumuman/{pengumuman}', [PelayanPengumumanController::class, 'show'])->name('pelayan.pengumuman.show');
+    Route::get('/tentang', [PelayanTentangController::class, 'index'])->name('pelayan.tentang');
 });
 
 Route::get('/', [IbadahController::class, 'jemaat'])->name("home");
-    
-    Route::get('/tentang', [UserTentangController::class, 'index'])->name('user.tentang');
-    Route::get('/Jadwal', [UserJadwalController::class, 'index'])->name('user.jadwal');
-    Route::get('/jadwal/{id}', [UserJadwalController::class, 'show'])->name('user.jadwal.show');
-    Route::get('/Galeri', [UserGaleriController::class, 'index'])->name('user.galeri');
-    Route::get('/Khotbah', [UserKhotbahController::class, 'index'])->name('user.khotbah');
-    Route::get('/Pelayanan', [UserPelayananController::class, 'index'])->name('user.pelayanan');
-    Route::get('/kontak', [UserKontakController::class, 'index'])->name('user.kontak');
-    Route::get('/Jemaat', function () {return view('User.Jemaat.form');})->name('user.jemaat');
-    Route::get('/jadi-jemaat', [JemaatController::class, 'create'])->name('jemaat.create');
-    Route::post('/jadi-jemaat', [JemaatController::class, 'store'])->name('jemaat.store');
-    Route::get('/pengumuman', [UserPengumumanController::class, 'index'])->name('user.pengumuman');
-    Route::get('/pengumuman/{pengumuman}', [UserPengumumanController::class, 'show'])->name('user.pengumuman.show');
+
+Route::get('/tentang', [UserTentangController::class, 'index'])->name('user.tentang');
+Route::get('/Jadwal', [UserJadwalController::class, 'index'])->name('user.jadwal');
+Route::get('/jadwal/{id}', [UserJadwalController::class, 'show'])->name('user.jadwal.show');
+Route::get('/Galeri', [UserGaleriController::class, 'index'])->name('user.galeri');
+Route::get('/Khotbah', [UserKhotbahController::class, 'index'])->name('user.khotbah');
+Route::get('/Pelayanan', [UserPelayananController::class, 'index'])->name('user.pelayanan');
+Route::get('/kontak', [UserKontakController::class, 'index'])->name('user.kontak');
+Route::get('/Jemaat', function () {
+    return view('User.Jemaat.form'); })->name('user.jemaat');
+Route::get('/jadi-jemaat', [JemaatController::class, 'create'])->name('jemaat.create');
+Route::post('/jadi-jemaat', [JemaatController::class, 'store'])->name('jemaat.store');
+Route::get('/pengumuman', [UserPengumumanController::class, 'index'])->name('user.pengumuman');
+Route::get('/pengumuman/{pengumuman}', [UserPengumumanController::class, 'show'])->name('user.pengumuman.show');
+Route::get('/pokok-doa', [UserPokokDoaController::class, 'index'])->name('pokokdoa');
+Route::post('/pokok-doa', [UserPokokDoaController::class, 'store'])->name('pokokdoa.store');
 
 ?>

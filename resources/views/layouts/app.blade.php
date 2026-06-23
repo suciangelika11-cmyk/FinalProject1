@@ -978,6 +978,10 @@
                             <a class="nav-link {{ request()->routeIs('user.tentang') ? 'active' : '' }}"
                                 href="{{ route('user.tentang') }}">Tentang</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('pokokdoa') ? 'active' : '' }}"
+                                href="{{ route('pokokdoa') }}">Pokok Doa</a>
+                        </li>
 
                         @auth
                             <li class="nav-item dropdown ms-lg-2">
@@ -1076,6 +1080,7 @@
                             <li><a href="{{ route('user.khotbah') }}">Khotbah</a></li>
                             <li><a href="{{ route('user.pelayanan') }}">Pelayanan</a></li>
                             <li><a href="{{ route('login') }}">Login</a></li>
+                            <li><a href="{{ route('pokokdoa') }}">Pokok Doa</a></li>
                         </ul>
                     </div>
 
