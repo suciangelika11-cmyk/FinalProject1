@@ -13,19 +13,19 @@ return new class extends Migration {
             $table->foreignId('user_id')->nullable()
                 ->constrained('users')
                 ->onDelete('set null');
-            $table->unsignedInteger('no_kk', 16);
+            $table->unsignedBigInteger('no_kk');
             $table->string('nama_keluarga', 50);
             $table->text('alamat_domisili');
             $table->text('alamat_ktp')->nullable();
             $table->string('nama_lengkap', 50);
-            $table->unsignedInteger('nik', 16)->nullable();
+            $table->unsignedBigInteger('nik')->nullable();
             $table->string('tempat_lahir', 100)->nullable();
             $table->date('tanggal_lahir')->nullable();
             $table->enum('jenis_kelamin', [
                 'Laki-laki',
                 'Perempuan'
             ])->nullable();
-            $table->unsignedInteger('handphone', 13)->nullable();
+            $table->unsignedBigInteger('handphone')->nullable();
             $table->string('pekerjaan', 50)->nullable();
             $table->string('status_pernikahan')->nullable();
             $table->enum('status', [
