@@ -11,7 +11,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('user_id')->nullable()
                 ->constrained('users')->onDelete('set null');
-            $table->string('judul');
+            $table->string('judul', 100);
             $table->text('deksripsi')->nullable();
             $table->string('foto');
             $table->date('tanggal')->nullable();
