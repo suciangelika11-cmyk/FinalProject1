@@ -94,5 +94,5 @@ class GaleriController extends Controller
 
         return redirect()->route('galeri.index')   // kembali ke halaman admin/galeri dengan pesan sukses
             ->with('success', 'Galeri berhasil dihapus');
-    }   
+    }
 }
