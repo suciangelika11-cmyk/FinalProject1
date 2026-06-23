@@ -605,6 +605,9 @@
       @endif>Pengumuman</a>
       <a href="{{ route('accounts.index') }}" @if(request()->routeIs('accounts.*')) class="active" @endif>Akun
         Pelayan</a>
+      <a href="{{ route('admin.pokokdoa.index') }}" @if(request()->routeIs('pokokdoa.*')) class="active" @endif>Pokok
+        Doa
+      </a>
     </nav>
 
     <div class="topbar-right">
@@ -709,6 +712,10 @@
 
       <a href="{{ route('accounts.index') }}" @if(request()->routeIs('accounts.*')) class="active" @endif>
         <span class="ico"><i class="ri-lock-line"></i></span> Akun Pelayanan
+      </a>
+
+      <a href="{{ route('admin.pokokdoa.index') }}" @if(request()->routeIs('pokokdoa.*')) class="active" @endif>
+        <span class="ico"></span> Pokok Doa
       </a>
     </nav>
 

@@ -5,22 +5,26 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
-        Schema::create('absensi', function (Blueprint $table) {
+        Schema::create('pokok_doas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('created_by')->nullable()
+            $table->foreignId('user_id')->nullable()
                 ->constrained('users')->onDelete('set null');
-            $table->date('tanggal');
-            $table->string('sesi_ibadah', 100);
-            $table->string('pengkhotbah');
-            $table->unsignedInteger('jumlah');
+            $table->string('nama');
+            $table->text('isi_pokok_doa');
             $table->timestamps();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
-        Schema::dropIfExists('absensi');
+        Schema::dropIfExists('pokok_doas');
     }
 };
