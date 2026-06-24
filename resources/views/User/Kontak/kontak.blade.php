@@ -133,7 +133,6 @@
                                 <label for="subjek">Kategori Pesan</label>
                                 <select id="subjek" required>
                                     <option value="">-- Pilih Kategori --</option>
-                                    <option value="Permohonan Doa">Permohonan Doa</option>
                                     <option value="Konseling">Konseling</option>
                                     <option value="Informasi Ibadah">Informasi Ibadah</option>
                                     <option value="Pelayanan">Pelayanan</option>

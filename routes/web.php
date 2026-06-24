@@ -122,7 +122,7 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/pokok-doa',[AdminPokokDoaController::class, 'index'])->name('admin.pokokdoa.index');
 });
 
-Route::prefix('admin')->middleware(['auth', 'role:super_admin,admin'])->group(function () {
+Route::prefix('admin')->middleware(['role', 'role:super_admin,admin'])->group(function () {
     Route::get('/accounts', [AccountController::class, 'index'])->name('accounts.index');
     Route::get('/accounts/create', [AccountController::class, 'create'])->name('accounts.create');
     Route::post('/accounts', [AccountController::class, 'store'])->name('accounts.store');

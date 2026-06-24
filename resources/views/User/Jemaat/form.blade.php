@@ -23,6 +23,13 @@
                 <div class="jm-alert jm-alert-err">{{ session('error') }}</div>
             @endif
 
+            @if ($errors->any())
+                <div class="jm-alert jm-alert-err">
+                    <strong>Data belum lengkap!</strong>
+                    Mohon lengkapi seluruh data yang wajib diisi.
+                </div>
+            @endif
+
             <div class="jm-card">
                 <form action="{{ route('jemaat.store') }}" method="POST">
                     @csrf
@@ -107,6 +114,9 @@
                                 Perempuan
                             </label>
                         </div>
+                        @error('jenis_kelamin')
+                            <div class="jm-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="jm-row">
@@ -143,6 +153,9 @@
                                 Belum Menikah
                             </label>
                         </div>
+                        @error('status_pernikahan')
+                            <div class="jm-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <input type="hidden" name="status" value="pending">
