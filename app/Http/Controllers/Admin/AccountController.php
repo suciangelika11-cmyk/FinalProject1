@@ -12,7 +12,7 @@ class AccountController extends Controller
 {
     private function managedRoles(): array
     {
-        return auth()->user()->role === 'super_admin'
+        return auth()->user()->role === 'admin'
             ? ['admin', 'pelayan']
             : ['pelayan'];
     }
