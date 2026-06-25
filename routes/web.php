@@ -40,7 +40,7 @@ Route::get('/login', [AdminLoginController::class, 'showLoginForm'])->name('logi
 Route::post('/login', [AdminLoginController::class, 'login'])->name('login.process');
 Route::post('/logout', [AdminLoginController::class, 'logout'])->name('logout');
 
-Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
+Route::prefix('admin')->middleware(['role:admin'])->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.home');
     })->name('admin.dashboard');
@@ -122,7 +122,7 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/pokok-doa',[AdminPokokDoaController::class, 'index'])->name('admin.pokokdoa.index');
 });
 
-Route::prefix('admin')->middleware(['auth', 'role:super_admin,admin'])->group(function () {
+Route::prefix('admin')->middleware(['role:admin'])->group(function () {
     Route::get('/accounts', [AccountController::class, 'index'])->name('accounts.index');
     Route::get('/accounts/create', [AccountController::class, 'create'])->name('accounts.create');
     Route::post('/accounts', [AccountController::class, 'store'])->name('accounts.store');
@@ -132,7 +132,7 @@ Route::prefix('admin')->middleware(['auth', 'role:super_admin,admin'])->group(fu
 });
 
 
-Route::middleware(['auth', 'role:pelayan'])->prefix('pelayan')->group(function () {
+Route::middleware(['role:pelayan'])->prefix('pelayan')->group(function () {
     Route::get('/', [IbadahController::class, 'pelayan'])->name('pelayan.home');
 
     Route::get('/jadwal-ibadah', [PelayanJadwalIbadahController::class, 'index'])->name('pelayan.jadwal_ibadah');

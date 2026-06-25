@@ -21,7 +21,7 @@ class PelayananAnggota extends Model
 
     public function kegiatanPelayanan()
     {
-        return $this->belongsTo(KegiatanPelayanan::class, 'kegiatan_pelayanan_id');
+        return $this->belongsTo(KegiatanPelayan::class, 'kegiatan_pelayanan_id');
     }
 
     public function pelayanan()
