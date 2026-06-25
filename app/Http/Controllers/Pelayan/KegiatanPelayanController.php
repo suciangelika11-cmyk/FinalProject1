@@ -11,8 +11,7 @@ class KegiatanPelayanController extends Controller
 {
     public function index()
     {
-        $jadwalPelayan = Jadwal::with('pelayanan')
-            ->whereNotNull('pelayanan_id')
+        $jadwalPelayan = Jadwal::with('pelayanans')
             ->orderByRaw("CASE hari
                 WHEN 'Minggu' THEN 1
                 WHEN 'Sabtu' THEN 2

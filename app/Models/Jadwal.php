@@ -35,6 +35,11 @@ class Jadwal extends Model
         return $this->belongsTo(Ibadah::class);
     }
 
+    public function pelayans()
+    {
+        return $this->hasMany(Pelayanan::class, 'jadwal_id');
+    }
+
     public static function ibadahMinggu()
     {
         return self::where('hari', 'Minggu')

@@ -36,4 +36,9 @@ class Pelayanan extends Model
     {
         return $this->hasMany(PelayananAnggota::class);
     }
+
+    public function jadwal()
+    {
+        return $this->belongsTo(Jadwal::class, 'jadwal_id');
+    }
 }
